@@ -26,6 +26,10 @@ type IconKey =
   | 'elevator'
   | 'walking'
   | 'pin'
+  | 'bbq'
+  | 'glass'
+  | 'levels'
+  | 'bed'
   | 'star';
 
 function pick(l: string): IconKey {
@@ -44,6 +48,11 @@ function pick(l: string): IconKey {
   if (l.includes('solar') || l.includes('sustainability') || l.includes('eco')) return 'solar';
   if (l.includes('design') || l.includes('architect') || l.includes('brutalist') || l.includes('modern')) return 'design';
   if (l.includes('elevator') || l.includes('lift')) return 'elevator';
+  if (l.includes('bbq') || l.includes('grill') || l.includes('barbeque') || l.includes('barbecue')) return 'bbq';
+  if (l.includes('glass') || l.includes('window') || l.includes('floor-to-ceiling')) return 'glass';
+  if (l.includes('multi-level') || l.includes('multi level') || l.includes('three-floor') || l.includes('two-floor') || l.includes('story')) return 'levels';
+  if (l.includes('suite') || l.includes('bed') || l.includes('king') || l.includes('queen')) return 'bed';
+  if (l.includes('terrace') || l.includes('deck') || l.includes('balcony') || l.includes('patio')) return 'pin';
   if (l.includes('view')) return 'pin';
   return 'star';
 }
@@ -169,6 +178,39 @@ const icon = pick(l);
     <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
       <path d="M14 25c-5-6-8-10-8-14a8 8 0 0 1 16 0c0 4-3 8-8 14z" />
       <circle cx="14" cy="11" r="2.5" />
+    </svg>
+  )}
+  {icon === 'bbq' && (
+    <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 10h20l-2 7a4 4 0 0 1-4 3h-8a4 4 0 0 1-4-3z" />
+      <path d="M10 10V7M14 10V5M18 10V7" />
+      <path d="M14 20v3" />
+      <path d="M11 24h6" />
+    </svg>
+  )}
+  {icon === 'glass' && (
+    <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="4" width="20" height="20" rx="1" />
+      <path d="M14 4v20" />
+      <path d="M4 14h20" />
+    </svg>
+  )}
+  {icon === 'levels' && (
+    <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 23h20" />
+      <path d="M6 23v-4h8" />
+      <path d="M14 19v-5h8" />
+      <path d="M22 14V8" />
+      <path d="M18 8h8" />
+    </svg>
+  )}
+  {icon === 'bed' && (
+    <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 20V10" />
+      <path d="M25 20v-5a3 3 0 0 0-3-3H3" />
+      <path d="M3 17h22" />
+      <path d="M3 20v2M25 20v2" />
+      <circle cx="8" cy="13" r="2" />
     </svg>
   )}
   {icon === 'star' && (

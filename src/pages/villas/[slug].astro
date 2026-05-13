@@ -70,7 +70,7 @@ const schema = {
             <span class="meta-num">{villa.guests}</span>
             <span class="meta-label">Guests</span>
           </div>
-          {villa.features.slice(0, 2).map((f) => (
+          {villa.features.map((f) => (
             <div class="meta-item meta-item-icon">
               <FeatureIcon label={f} />
               <span class="meta-label">{f}</span>
