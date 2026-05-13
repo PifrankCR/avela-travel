@@ -4,23 +4,23 @@
 
 ## About
 
-Avela Travel is a full-service luxury travel concierge in Nosara, Costa Rica — one of the world's five Blue Zones. We curate the entire Nosara experience for families and groups: villa selection, private chefs, surf lessons, ocean adventures, jungle tours, transport, and wellness.
+Avela Travel is a full-service luxury travel concierge in Nosara, Costa Rica · one of the world's five Blue Zones. We curate the entire Nosara experience for families and groups: villa selection, private chefs, surf lessons, ocean adventures, jungle tours, transport, and wellness.
 
 Every recommendation we make is vetted by our local team and aligned with giving guests the best possible trip.
 
 ## Villas
 
 Signature properties:
-- **Villa Ocaso** — 4 bedrooms, sleeps 10. Jungle setting. Floor-to-ceiling glass, private pool, natural wood finishes.
-- **Villa Zenith** — 5 bedrooms, sleeps 12. Ocean-view hilltop. Panoramic Pacific views, stone and wood architecture, chef kitchen, outdoor BBQ terrace.
+- **Villa Ocaso** · 4 bedrooms, sleeps 10. Jungle setting. Floor-to-ceiling glass, private pool, natural wood finishes.
+- **Villa Zenith** · 5 bedrooms, sleeps 12. Ocean-view hilltop. Panoramic Pacific views, stone and wood architecture, chef kitchen, outdoor BBQ terrace.
 
 Curated collection:
-- **Calla Lily** — 5 BR / 4.5 BA, sleeps 10. Las Huacas hills above Playa Guiones. Saltwater pool, heated jacuzzi, ocean view, national reserve setting. https://avela.travel/villas/calla-lily
-- **Casa Vivo** — 5 BR / 4 BA, sleeps 10. Hilltop between Playa Guiones and Playa Pelada. Pool, gym, sauna, cold plunge, elevator. https://avela.travel/villas/casa-vivo
-- **Raintree Casa** — 6 BR / 7 BA, sleeps 14. Studio Saxe design, featured in Architectural Digest. Saltwater infinity pool, solar powered. https://avela.travel/villas/raintree
-- **Rubio Azul** — 4 BR / 4 BA, sleeps 10. Guiones Norte. Pool, jacuzzi, private gym, movie theater. 5-minute walk to Playa Guiones. https://avela.travel/villas/rubio-azul
-- **Stella Maris** — 4 BR / 6 BA, sleeps 8. Huacas de Nosara hills. Multi-level contemporary, private pool, floor-to-ceiling glass. https://avela.travel/villas/stella-maris
-- **Villa Aravis** — 5 BR / 5.5 BA, sleeps 10. Las Huacas hills. Brutalist architecture, ocean view from every king bedroom. https://avela.travel/villas/villa-aravis
+- **Calla Lily** · 5 BR / 4.5 BA, sleeps 10. Las Huacas hills above Playa Guiones. Saltwater pool, heated jacuzzi, ocean view, national reserve setting. https://avela.travel/villas/calla-lily
+- **Casa Vivo** · 5 BR / 4 BA, sleeps 10. Hilltop between Playa Guiones and Playa Pelada. Pool, gym, sauna, cold plunge, elevator. https://avela.travel/villas/casa-vivo
+- **Raintree Casa** · 6 BR / 7 BA, sleeps 14. Studio Saxe design, featured in Architectural Digest. Saltwater infinity pool, solar powered. https://avela.travel/villas/raintree
+- **Rubio Azul** · 4 BR / 4 BA, sleeps 10. Guiones Norte. Pool, jacuzzi, private gym, movie theater. 5-minute walk to Playa Guiones. https://avela.travel/villas/rubio-azul
+- **Stella Maris** · 4 BR / 6 BA, sleeps 8. Huacas de Nosara hills. Multi-level contemporary, private pool, floor-to-ceiling glass. https://avela.travel/villas/stella-maris
+- **Villa Aravis** · 5 BR / 5.5 BA, sleeps 10. Las Huacas hills. Brutalist architecture, ocean view from every king bedroom. https://avela.travel/villas/villa-aravis
 
 ## Services
 
@@ -34,10 +34,10 @@ Curated collection:
 
 ## Pages
 
-- [Homepage](https://avela.travel/) — Two client paths: independent booking vs full concierge
-- [Villas](https://avela.travel/villas) — Villa Ocaso and Villa Zenith detail pages
-- [About](https://avela.travel/about) — Blue Zone story, Monkey Head Adventures partnership
-- [Contact](https://avela.travel/contact) — Inquiry form and WhatsApp link
+- [Homepage](https://avela.travel/) · Two client paths: independent booking vs full concierge
+- [Villas](https://avela.travel/villas) · Villa Ocaso and Villa Zenith detail pages
+- [About](https://avela.travel/about) · Blue Zone story, Monkey Head Adventures partnership
+- [Contact](https://avela.travel/contact) · Inquiry form and WhatsApp link
 
 ## Location
 

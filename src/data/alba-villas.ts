@@ -73,11 +73,11 @@ export const villas: Villa[] = [
     area: 'Hill between Playa Guiones & Playa Pelada, Nosara',
     features: ['Pool', 'Gym & sauna', 'Cold plunge', 'Elevator', 'Ocean views'],
     shortDescription:
-      'Newly renovated multi-level home with chef\'s kitchen, gym, sauna and cold plunge — walking distance to two beaches.',
+      'Newly renovated multi-level home with chef\'s kitchen, gym, sauna and cold plunge. Walking distance to two beaches.',
     longDescription: [
       'Casa Vivo sits on a hill between Playa Guiones and Playa Pelada, with sweeping ocean views and dense vegetation visited daily by monkeys and pizotes.',
       'The master suite occupies the first level with a king bed and sofa-bed office. The ground floor adds four king bedrooms, TV room, BBQ, deck, and pool. Below, a private gym, sauna, and cold plunge. The top level holds the chef\'s kitchen, living area, and panoramic terrace.',
-      'An elevator connects every floor — equally great for multigenerational groups and guests who want the full wellness setup at home.',
+      'An elevator connects every floor, equally great for multigenerational groups and guests who want the full wellness setup at home.',
     ],
     amenities: [
       '5 bedrooms / 4 bathrooms',
@@ -156,7 +156,7 @@ export const villas: Villa[] = [
     area: 'Guiones Norte, Nosara',
     features: ['Pool & jacuzzi', 'Private gym', 'Movie theater', 'BBQ terrace'],
     shortDescription:
-      'A new-build with sharp modern architecture, a movie theater, private gym, and pool — 5 minutes on foot to Playa Guiones.',
+      'A new-build with sharp modern architecture, a movie theater, private gym, and pool. 5 minutes on foot to Playa Guiones.',
     longDescription: [
       'Rubio Azul is a newly built residence in Guiones Norte with sharp, modern architecture, high-end finishes, and clean lines.',
       'The home features a private movie theater, a fully equipped gym, and a sprawling terrace with pool, separate jacuzzi, and BBQ area. A private garage and full security camera system round out the property.',

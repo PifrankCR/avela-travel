@@ -16,7 +16,7 @@ const { villa } = Astro.props;
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'LodgingBusiness',
-  name: `${villa.name} — Luxury Villa in Nosara, Costa Rica`,
+  name: `${villa.name}, Luxury Villa in Nosara, Costa Rica`,
   description: villa.shortDescription,
   image: villa.gallery.map((p) => `https://avela.travel${p.src}`),
   numberOfRooms: villa.bedrooms,
@@ -37,7 +37,7 @@ const schema = {
 ---
 
 <BaseLayout
-  title={`${villa.name} — ${villa.tagline} | Avela Travel Nosara`}
+  title={`${villa.name} · ${villa.tagline} | Avela Travel Nosara`}
   description={villa.shortDescription}
   image={villa.cover.src}
   schema={schema}
@@ -153,7 +153,7 @@ const schema = {
         <p class="eyebrow">Go further</p>
         <h2>Add the full Avela experience</h2>
         <p>
-          Book {villa.name} and let us build everything around it — private chef, daily
+          Book {villa.name} and let us build everything around it: private chef, daily
           activities, airport transfers, and 24/7 support from our local team in Nosara.
         </p>
       </div>

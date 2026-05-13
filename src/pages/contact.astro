@@ -6,7 +6,7 @@ const villa = Astro.url.searchParams.get('villa') ?? '';
 
 <BaseLayout
   title="Plan Your Nosara Trip | Avela Travel"
-  description="Tell us your dates, group size, and what you are after. We will handle the rest — villas, chefs, activities, transport, and everything in between."
+  description="Tell us your dates, group size, and what you are after. We will handle the rest: villas, chefs, activities, transport, and everything in between."
 >
 
   <div class="page-header">
@@ -18,7 +18,7 @@ const villa = Astro.url.searchParams.get('villa') ?? '';
       </h1>
       <p class="page-subtitle reveal reveal-delay-2">
         Fill in what you know. We will get back to you within 24 hours with
-        villa options, availability, and a rough itinerary — no commitment required.
+        villa options, availability, and a rough itinerary. No commitment required.
       </p>
     </div>
   </div>
@@ -82,10 +82,10 @@ const villa = Astro.url.searchParams.get('villa') ?? '';
           <div class="form-field">
             <label for="villa_interest">Villa preference</label>
             <select id="villa_interest" name="villa_interest">
-              <option value="" disabled selected={!villa}>No preference — show me options</option>
+              <option value="" disabled selected={!villa}>No preference, show me options</option>
               <option value="ocaso" selected={villa === 'ocaso'}>Villa Ocaso (Jungle, 4 bed, 10 guests)</option>
               <option value="zenith" selected={villa === 'zenith'}>Villa Zenith (Ocean view, 5 bed, 12 guests)</option>
-              <option value="either">Either — best available for my dates</option>
+              <option value="either">Either, best available for my dates</option>
             </select>
           </div>
 
@@ -169,7 +169,7 @@ const villa = Astro.url.searchParams.get('villa') ?? '';
               <span class="step-num">2</span>
               <div>
                 <strong>We send villa options + a rough plan</strong>
-                <p>Matched to your dates, group, and interests — no generic templates.</p>
+                <p>Matched to your dates, group, and interests. No generic templates.</p>
               </div>
             </li>
             <li>
