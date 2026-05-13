@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FeatureIcon from '../components/FeatureIcon.astro';
 import { villas as collection } from '../data/alba-villas';
 
 const osacoPhotos = [
@@ -104,10 +105,12 @@ const zenithPhotos = [
             <span class="meta-num">10</span>
             <span class="meta-label">Guests</span>
           </div>
-          <div class="meta-item">
+          <div class="meta-item meta-item-icon">
+            <FeatureIcon label="Private pool" />
             <span class="meta-label">Private pool</span>
           </div>
-          <div class="meta-item">
+          <div class="meta-item meta-item-icon">
+            <FeatureIcon label="Jungle views" />
             <span class="meta-label">Jungle views</span>
           </div>
         </div>
@@ -216,10 +219,12 @@ const zenithPhotos = [
             <span class="meta-num">12</span>
             <span class="meta-label">Guests</span>
           </div>
-          <div class="meta-item">
+          <div class="meta-item meta-item-icon">
+            <FeatureIcon label="Panoramic ocean views" />
             <span class="meta-label">Panoramic ocean views</span>
           </div>
-          <div class="meta-item">
+          <div class="meta-item meta-item-icon">
+            <FeatureIcon label="Chef kitchen" />
             <span class="meta-label">Chef kitchen</span>
           </div>
         </div>
@@ -396,6 +401,15 @@ const zenithPhotos = [
     flex-direction: column;
     align-items: center;
     gap: 0.25rem;
+  }
+
+  /* Icon-driven meta items (no number) match the visual height of numbered ones */
+  .meta-item-icon {
+    gap: 0.5rem;
+  }
+  .meta-item-icon .feature-icon {
+    width: 32px;
+    height: 32px;
   }
 
   .meta-num {

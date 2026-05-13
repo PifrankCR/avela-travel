@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FeatureIcon from '../../components/FeatureIcon.astro';
 import { villas } from '../../data/alba-villas';
 
 export function getStaticPaths() {
@@ -70,7 +71,8 @@ const schema = {
             <span class="meta-label">Guests</span>
           </div>
           {villa.features.slice(0, 2).map((f) => (
-            <div class="meta-item">
+            <div class="meta-item meta-item-icon">
+              <FeatureIcon label={f} />
               <span class="meta-label">{f}</span>
             </div>
           ))}
@@ -196,7 +198,9 @@ const schema = {
     flex-wrap: wrap;
     gap: 2.5rem;
   }
-  .meta-item { display: flex; flex-direction: column; gap: 0.25rem; }
+  .meta-item { display: flex; flex-direction: column; gap: 0.25rem; align-items: flex-start; }
+  .meta-item-icon { gap: 0.5rem; align-items: flex-start; }
+  .meta-item-icon .feature-icon { width: 32px; height: 32px; }
   .meta-num {
     font-family: var(--font-display);
     font-size: 2.5rem;
