@@ -125,6 +125,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
+  <!-- Press strip — borrowed credibility from Stacie's other Nosara business -->
+  <section class="section press">
+    <div class="section-inner">
+      <div class="press-inner reveal">
+        <p class="eyebrow">Track record</p>
+        <p class="press-lede">
+          Co-founder Stacie also leads <a href="https://www.instagram.com/weddingsnosara" target="_blank" rel="noopener noreferrer">Weddings Nosara</a>,
+          her destination event-planning business, which has been featured in:
+        </p>
+        <ul class="press-list" role="list">
+          <li>Brides</li>
+          <li>Martha Stewart Weddings</li>
+          <li>100 Layer Cake</li>
+          <li>Jet Fete</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- Values -->
   <section class="section values" style="background: var(--sand);">
     <div class="section-inner">
@@ -406,6 +425,54 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     letter-spacing: 2px;
     text-transform: uppercase;
     color: rgba(19, 18, 16, 0.5);
+  }
+
+  /* Press / "as featured in" strip */
+  .press {
+    background: var(--cream);
+    padding-top: 0;
+    padding-bottom: clamp(4rem, 6vw, 6rem);
+  }
+  .press-inner {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+    padding-top: clamp(2rem, 4vw, 3rem);
+    border-top: 1px solid rgba(19, 18, 16, 0.08);
+  }
+  .press-inner .eyebrow {
+    margin-bottom: 1rem;
+  }
+  .press-lede {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(19, 18, 16, 0.6);
+    max-width: 560px;
+    margin: 0 auto 2rem;
+  }
+  .press-lede a {
+    color: var(--green-deep);
+    border-bottom: 1px solid rgba(58, 79, 65, 0.35);
+    transition: border-color 0.3s;
+  }
+  .press-lede a:hover {
+    border-color: var(--green-deep);
+  }
+  .press-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2.5rem 3rem;
+  }
+  .press-list li {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-style: italic;
+    color: rgba(58, 79, 65, 0.7);
+    letter-spacing: 0.5px;
   }
 
   /* Values */
