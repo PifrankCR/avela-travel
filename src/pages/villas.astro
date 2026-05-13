@@ -1,0 +1,816 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { villas as collection } from '../data/alba-villas';
+
+const osacoPhotos = [
+  { src: '/images/ocaso/ocaso-1.jpg', alt: 'Villa Ocaso — floor-to-ceiling jungle glass walls' },
+  { src: '/images/ocaso/ocaso-2.jpg', alt: 'Villa Ocaso open-plan living and kitchen' },
+  { src: '/images/ocaso/ocaso-3.jpg', alt: 'Villa Ocaso master bedroom' },
+  { src: '/images/ocaso/ocaso-4.jpg', alt: 'Villa Ocaso second bedroom' },
+  { src: '/images/ocaso/ocaso-5.jpg', alt: 'Villa Ocaso living room alternate' },
+];
+
+const zenithPhotos = [
+  { src: '/images/zenith/DSC04803-HDR.jpg', alt: 'Villa Zenith — panoramic ocean view terrace' },
+  { src: '/images/zenith/DSC04551.jpg', alt: 'Villa Zenith outdoor lounge' },
+  { src: '/images/zenith/DSC04746-HDR.jpg', alt: 'Villa Zenith dining with pendant lights' },
+  { src: '/images/zenith/DSC04785-HDR.jpg', alt: 'Villa Zenith BBQ terrace' },
+  { src: '/images/zenith/DSC04864-HDR.jpg', alt: 'Villa Zenith entrance' },
+  { src: '/images/zenith/DSC04956-HDR-Edit.jpg', alt: 'Villa Zenith interior' },
+];
+---
+
+<BaseLayout
+  title="Luxury Villas in Nosara, Costa Rica | Avela Travel"
+  description="Browse handpicked luxury villas in Nosara — jungle retreats and ocean-view hilltop properties, each vetted by our local team. Villa Ocaso and Villa Zenith."
+  image="/images/zenith/DSC04803-HDR.jpg"
+>
+
+  <!-- Page header -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="eyebrow reveal">Nosara Villa Collection</p>
+      <h1 class="reveal reveal-delay-1">
+        Handpicked villas,<br />
+        <em>personally vetted</em>
+      </h1>
+      <p class="page-subtitle reveal reveal-delay-2">
+        Every property on our list has been visited, stayed in, and approved by our local team.
+        We only work with villas that meet our standard for design, condition, and service.
+      </p>
+    </div>
+  </div>
+
+  <!-- Curated villa collection (Alba partner properties) -->
+  <section class="villa-collection section" id="collection">
+    <div class="section-inner">
+      <div class="collection-intro reveal">
+        <p class="eyebrow">Curated collection</p>
+        <h2>More villas, every one vetted in person</h2>
+        <p class="collection-lede">
+          Beyond our signature properties, we work with a small selection of villas
+          across Las Huacas, Guiones, and Pelada. Browse the collection, then tell us
+          your dates and we'll narrow it to the perfect fit.
+        </p>
+      </div>
+
+      <div class="collection-grid">
+        {collection.map((villa) => (
+          <a href={`/villas/${villa.slug}`} class="villa-card reveal">
+            <div class="villa-card-img">
+              <img
+                src={villa.cover.src}
+                alt={villa.cover.alt}
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="533"
+              />
+            </div>
+            <div class="villa-card-body">
+              <p class="eyebrow">{villa.eyebrow}</p>
+              <h3>{villa.name}</h3>
+              <p class="villa-card-tagline">{villa.tagline}</p>
+              <div class="villa-card-stats">
+                <span>{villa.bedrooms} BR</span>
+                <span>·</span>
+                <span>{villa.bathrooms} BA</span>
+                <span>·</span>
+                <span>Sleeps {villa.guests}</span>
+              </div>
+              <p class="villa-card-desc">{villa.shortDescription}</p>
+              <span class="villa-card-cta">View details →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Villa Ocaso -->
+  <section class="villa-detail section" id="ocaso">
+    <div class="section-inner">
+      <div class="villa-detail-header reveal">
+        <div class="villa-detail-title">
+          <p class="eyebrow">Jungle retreat</p>
+          <h2>Villa Ocaso</h2>
+        </div>
+        <div class="villa-detail-meta">
+          <div class="meta-item">
+            <span class="meta-num">4</span>
+            <span class="meta-label">Bedrooms</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-num">10</span>
+            <span class="meta-label">Guests</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Private pool</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Jungle views</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="villa-gallery-full reveal">
+        <div class="gallery-main" id="ocaso-main">
+          <img
+            src={osacoPhotos[0]!.src}
+            alt={osacoPhotos[0]!.alt}
+            class="gallery-main-img"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
+        <div class="gallery-strip">
+          {osacoPhotos.map((photo, i) => (
+            <button
+              class={`gallery-thumb ${i === 0 ? 'active' : ''}`}
+              data-gallery="ocaso"
+              data-src={photo.src}
+              data-alt={photo.alt}
+              aria-label={photo.alt}
+            >
+              <img src={photo.src} alt={photo.alt} loading="lazy" />
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="villa-detail-body">
+        <div class="villa-detail-text reveal">
+          <h3>Where the jungle becomes your walls</h3>
+          <p>
+            Floor-to-ceiling glass opens Villa Ocaso entirely to the surrounding jungle canopy.
+            Wake to howler monkeys in the treetops, spend the afternoon in a private pool,
+            and watch scarlet macaws pass overhead at sunset.
+          </p>
+          <p>
+            Natural wood finishes, a fully equipped chef kitchen, and four generously sized
+            bedrooms sleeping up to ten make this a natural fit for families and friend groups
+            who want total immersion in Costa Rica's biodiversity without sacrificing a single
+            comfort.
+          </p>
+
+          <h4>Amenities</h4>
+          <ul class="amenity-list">
+            <li>Private pool with jungle views</li>
+            <li>Floor-to-ceiling glass walls throughout</li>
+            <li>Fully equipped chef kitchen</li>
+            <li>4 bedrooms, 4 bathrooms</li>
+            <li>High-speed WiFi</li>
+            <li>Air conditioning in all rooms</li>
+            <li>Outdoor dining terrace</li>
+            <li>Daily housekeeping</li>
+            <li>Concierge add-ons available</li>
+          </ul>
+        </div>
+
+        <div class="villa-detail-cta reveal reveal-delay-2">
+          <div class="inquiry-card">
+            <p class="eyebrow">Request availability</p>
+            <h4>Villa Ocaso</h4>
+            <p class="inquiry-note">
+              Rates vary by season. Contact us with your dates and group size for a
+              personalized quote.
+            </p>
+            <a href="/contact?villa=ocaso" class="btn-cta">Inquire Now</a>
+            <div class="inquiry-or">
+              <span>or reach us directly on</span>
+            </div>
+            <a
+              href="https://wa.me/50688888888"
+              class="whatsapp-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              WhatsApp us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="villa-divider"></div>
+
+  <!-- Villa Zenith -->
+  <section class="villa-detail section" id="zenith">
+    <div class="section-inner">
+      <div class="villa-detail-header reveal">
+        <div class="villa-detail-title">
+          <p class="eyebrow">Ocean-view hilltop</p>
+          <h2>Villa Zenith</h2>
+        </div>
+        <div class="villa-detail-meta">
+          <div class="meta-item">
+            <span class="meta-num">5</span>
+            <span class="meta-label">Bedrooms</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-num">12</span>
+            <span class="meta-label">Guests</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Panoramic ocean views</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Chef kitchen</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="villa-gallery-full reveal">
+        <div class="gallery-main" id="zenith-main">
+          <img
+            src={zenithPhotos[0]!.src}
+            alt={zenithPhotos[0]!.alt}
+            class="gallery-main-img"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="gallery-strip">
+          {zenithPhotos.map((photo, i) => (
+            <button
+              class={`gallery-thumb ${i === 0 ? 'active' : ''}`}
+              data-gallery="zenith"
+              data-src={photo.src}
+              data-alt={photo.alt}
+              aria-label={photo.alt}
+            >
+              <img src={photo.src} alt={photo.alt} loading="lazy" />
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="villa-detail-body">
+        <div class="villa-detail-text reveal">
+          <h3>The Pacific from every angle</h3>
+          <p>
+            Perched on the hillside above Nosara, Villa Zenith commands an unbroken sweep of
+            the Pacific from every principal room. Stone and wood architecture integrates
+            seamlessly with the landscape, while the interiors set a standard that exceeds
+            most five-star hotels.
+          </p>
+          <p>
+            Five bedrooms sleep up to twelve. An outdoor BBQ terrace, designer interiors,
+            and a chef kitchen built for serious entertaining make Villa Zenith the natural
+            choice for larger groups who want something genuinely special.
+          </p>
+
+          <h4>Amenities</h4>
+          <ul class="amenity-list">
+            <li>360-degree panoramic ocean views</li>
+            <li>Fully equipped chef kitchen</li>
+            <li>Outdoor BBQ terrace</li>
+            <li>5 bedrooms, 5.5 bathrooms</li>
+            <li>Private pool overlooking the Pacific</li>
+            <li>High-speed WiFi</li>
+            <li>Air conditioning in all rooms</li>
+            <li>Designer interiors throughout</li>
+            <li>Daily housekeeping</li>
+          </ul>
+        </div>
+
+        <div class="villa-detail-cta reveal reveal-delay-2">
+          <div class="inquiry-card">
+            <p class="eyebrow">Request availability</p>
+            <h4>Villa Zenith</h4>
+            <p class="inquiry-note">
+              Rates vary by season. Contact us with your dates and group size for a
+              personalized quote.
+            </p>
+            <a href="/contact?villa=zenith" class="btn-cta">Inquire Now</a>
+            <div class="inquiry-or">
+              <span>or reach us directly on</span>
+            </div>
+            <a
+              href="https://wa.me/50688888888"
+              class="whatsapp-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              WhatsApp us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Concierge band -->
+  <section class="concierge-band-full section" style="background: var(--green-deep);">
+    <div class="section-inner concierge-inner reveal">
+      <div class="concierge-copy">
+        <p class="eyebrow">Go further</p>
+        <h2>Add the full concierge experience</h2>
+        <p>
+          Book your villa and let us build everything around it — private chef, daily
+          activities, airport transfers, and 24/7 support from our local team. The guests
+          who add concierge services consistently tell us it was the best decision they made.
+        </p>
+      </div>
+      <div class="concierge-actions">
+        <a href="/contact" class="btn-cream">Plan My Trip</a>
+        <a href="/about" class="btn-cream-ghost">About Avela</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ─── Page Header ─── */
+  .page-header {
+    background: var(--dark);
+    padding: 160px var(--gutter) clamp(60px, 8vw, 100px);
+  }
+
+  .page-header-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .page-header .eyebrow {
+    margin-bottom: 1.25rem;
+  }
+
+  .page-header h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    color: var(--warm-cream);
+    margin-bottom: 1.5rem;
+    line-height: 1.05;
+  }
+
+  .page-header h1 em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .page-subtitle {
+    font-size: clamp(15px, 2vw, 17px);
+    font-weight: 300;
+    color: rgba(255, 241, 207, 0.55);
+    max-width: 600px;
+    line-height: 1.7;
+  }
+
+  /* ─── Villa Detail ─── */
+  .villa-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .villa-detail-title .eyebrow {
+    margin-bottom: 0.75rem;
+  }
+
+  .villa-detail-title h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    color: var(--green-deep);
+  }
+
+  .villa-detail-meta {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .meta-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--green-deep);
+    line-height: 1;
+  }
+
+  .meta-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(19, 18, 16, 0.45);
+  }
+
+  /* ─── Gallery ─── */
+  .villa-gallery-full {
+    margin-bottom: 4rem;
+  }
+
+  .gallery-main {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+    background: var(--sand);
+  }
+
+  .gallery-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s;
+  }
+
+  .gallery-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .gallery-thumb {
+    background: none;
+    padding: 0;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    cursor: pointer;
+    opacity: 0.55;
+    transition: opacity 0.2s;
+  }
+
+  .gallery-thumb.active,
+  .gallery-thumb:hover {
+    opacity: 1;
+  }
+
+  .gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  /* ─── Villa body ─── */
+  .villa-detail-body {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .villa-detail-text h3 {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    color: var(--green-deep);
+    margin-bottom: 1.25rem;
+  }
+
+  .villa-detail-text p {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(19, 18, 16, 0.65);
+    margin-bottom: 1rem;
+  }
+
+  .villa-detail-text h4 {
+    font-size: 1rem;
+    color: var(--green-deep);
+    margin: 2rem 0 1rem;
+    letter-spacing: 0.5px;
+  }
+
+  .amenity-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 2rem;
+  }
+
+  .amenity-list li {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(19, 18, 16, 0.65);
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .amenity-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--green-sage);
+  }
+
+  /* ─── Inquiry card ─── */
+  .inquiry-card {
+    padding: 2rem;
+    background: var(--sand);
+    border: 1px solid rgba(58, 79, 65, 0.1);
+    position: sticky;
+    top: 100px;
+  }
+
+  .inquiry-card .eyebrow {
+    margin-bottom: 0.75rem;
+  }
+
+  .inquiry-card h4 {
+    font-size: 1.4rem;
+    color: var(--green-deep);
+    margin-bottom: 1rem;
+  }
+
+  .inquiry-note {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(19, 18, 16, 0.55);
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-cta {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 24px;
+    background: var(--green-deep);
+    color: var(--cream);
+    transition: background 0.3s;
+    margin-bottom: 1.25rem;
+  }
+
+  .btn-cta:hover {
+    background: var(--amber);
+  }
+
+  .inquiry-or {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .inquiry-or span {
+    font-size: 12px;
+    color: rgba(19, 18, 16, 0.35);
+  }
+
+  .whatsapp-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    font-size: 13px;
+    font-weight: 500;
+    color: #25D366;
+    transition: opacity 0.2s;
+  }
+
+  .whatsapp-link:hover {
+    opacity: 0.8;
+  }
+
+  .whatsapp-link svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* ─── Divider ─── */
+  .villa-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--sand) 20%, var(--sand) 80%, transparent);
+    margin: 0 var(--gutter);
+  }
+
+  /* ─── Concierge band ─── */
+  .concierge-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .concierge-copy .eyebrow {
+    margin-bottom: 1rem;
+  }
+
+  .concierge-copy h2 {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: var(--warm-cream);
+    margin-bottom: 1.25rem;
+  }
+
+  .concierge-copy p {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255, 241, 207, 0.55);
+    max-width: 600px;
+  }
+
+  .concierge-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+
+  .btn-cream {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    background: var(--warm-cream);
+    color: var(--dark);
+    transition: background 0.3s;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .btn-cream:hover {
+    background: var(--amber);
+    color: var(--cream);
+  }
+
+  .btn-cream-ghost {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 15px 36px;
+    border: 1px solid rgba(255, 241, 207, 0.25);
+    color: rgba(255, 241, 207, 0.65);
+    transition: all 0.3s;
+    text-align: center;
+  }
+
+  .btn-cream-ghost:hover {
+    border-color: var(--warm-cream);
+    color: var(--warm-cream);
+  }
+
+  @media (max-width: 1024px) {
+    .villa-detail-body {
+      grid-template-columns: 1fr;
+    }
+
+    .inquiry-card {
+      position: static;
+    }
+
+    .concierge-inner {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .villa-detail-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .amenity-list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ─── Curated Collection Grid ─── */
+  .villa-collection {
+    padding-top: clamp(4rem, 8vw, 7rem);
+    padding-bottom: clamp(4rem, 8vw, 7rem);
+    background: var(--cream);
+  }
+  .collection-intro {
+    max-width: 720px;
+    margin-bottom: 3rem;
+  }
+  .collection-intro h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--green-deep);
+    margin: 1rem 0 1.25rem;
+    line-height: 1.1;
+  }
+  .collection-lede {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(19, 18, 16, 0.65);
+  }
+  .collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+  }
+  .villa-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--warm-cream);
+    color: inherit;
+    text-decoration: none;
+    overflow: hidden;
+    transition: transform 0.5s var(--ease-smooth), box-shadow 0.5s var(--ease-smooth);
+    border: 1px solid rgba(19, 18, 16, 0.06);
+  }
+  .villa-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(19, 18, 16, 0.1);
+  }
+  .villa-card-img {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: var(--dark);
+  }
+  .villa-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s var(--ease-smooth);
+  }
+  .villa-card:hover .villa-card-img img {
+    transform: scale(1.05);
+  }
+  .villa-card-body {
+    padding: 1.75rem 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .villa-card-body .eyebrow {
+    margin-bottom: 0.5rem;
+  }
+  .villa-card-body h3 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    line-height: 1.15;
+    color: var(--green-deep);
+    margin-bottom: 0.35rem;
+  }
+  .villa-card-tagline {
+    font-size: 14px;
+    font-style: italic;
+    color: rgba(19, 18, 16, 0.55);
+    margin-bottom: 1rem;
+  }
+  .villa-card-stats {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1rem;
+  }
+  .villa-card-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(19, 18, 16, 0.7);
+    margin-bottom: 1.25rem;
+    flex: 1;
+  }
+  .villa-card-cta {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--green-deep);
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.gallery-thumb').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const galleryId = btn.dataset.gallery!;
+      const src = btn.dataset.src!;
+      const alt = btn.dataset.alt!;
+      const mainImg = document.querySelector<HTMLImageElement>(`#${galleryId}-main .gallery-main-img`);
+      if (mainImg) {
+        mainImg.style.opacity = '0';
+        setTimeout(() => {
+          mainImg.src = src;
+          mainImg.alt = alt;
+          mainImg.style.opacity = '1';
+        }, 200);
+      }
+      document.querySelectorAll(`[data-gallery="${galleryId}"]`).forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
