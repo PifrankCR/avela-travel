@@ -58,11 +58,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- Structured data -->
     {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 
-    <!-- Cloudflare Web Analytics — replace token after enabling in dashboard -->
+    <!-- Cloudflare Web Analytics -->
     <script
       defer
       src="https://static.cloudflareinsights.com/beacon.min.js"
-      data-cf-beacon='{"token": "INSERT_CF_ANALYTICS_TOKEN"}'
+      data-cf-beacon='{"token": "65ab85aff431429383216b23cb3c1acd"}'
     ></script>
   </head>
   <body>
