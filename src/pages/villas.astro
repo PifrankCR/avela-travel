@@ -1,7 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FeatureIcon from '../components/FeatureIcon.astro';
-import { villas as collection } from '../data/alba-villas';
+import { villas as albaVillas } from '../data/alba-villas';
+import { bmVillas } from '../data/bm-villas';
+
+const collection = [...albaVillas, ...bmVillas];
 
 const osacoPhotos = [
   { src: '/images/ocaso/ocaso-1.jpg', alt: 'Villa Ocaso, floor-to-ceiling jungle glass walls' },
@@ -42,16 +45,17 @@ const zenithPhotos = [
     </div>
   </div>
 
-  <!-- Curated villa collection (Alba partner properties) -->
+  <!-- Curated villa collection (Alba + Beach Management partner properties) -->
   <section class="villa-collection section" id="collection">
     <div class="section-inner">
       <div class="collection-intro reveal">
         <p class="eyebrow">Curated collection</p>
         <h2>More villas, every one vetted in person</h2>
         <p class="collection-lede">
-          Beyond our signature properties, we work with a small selection of villas
-          across Las Huacas, Guiones, and Pelada. Browse the collection, then tell us
-          your dates and we'll narrow it to the perfect fit.
+          Beyond our signature properties, we work with a curated selection of villas
+          across Las Huacas, Guiones, and Pelada — from architectural showpieces by
+          Studio Saxe to group-friendly retreats sleeping up to sixteen. Browse the
+          collection, then tell us your dates and we'll narrow it to the perfect fit.
         </p>
       </div>
 

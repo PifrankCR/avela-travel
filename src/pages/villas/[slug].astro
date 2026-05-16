@@ -1,10 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FeatureIcon from '../../components/FeatureIcon.astro';
-import { villas } from '../../data/alba-villas';
+import { villas as albaVillas } from '../../data/alba-villas';
+import { bmVillas } from '../../data/bm-villas';
+
+const villas = [...albaVillas, ...bmVillas];
 
 export function getStaticPaths() {
-  return villas.map((villa) => ({
+  const allVillas = [...albaVillas, ...bmVillas];
+  return allVillas.map((villa) => ({
     params: { slug: villa.slug },
     props: { villa },
   }));
