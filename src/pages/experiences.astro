@@ -1,0 +1,579 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const experiences = [
+  {
+    slug: 'villas',
+    eyebrow: '01 — Stay',
+    name: 'Luxury Villas',
+    lede: 'Where every Avela trip begins.',
+    description:
+      'We do not list every villa in Nosara. We list the ones we have walked through, slept in, and trust to deliver. Jungle-canopy retreats, ocean-view sanctuaries, family compounds, sleek architectural homes. Each property has been pre-vetted for the things that actually matter: water pressure, kitchen quality, host responsiveness, blackout curtains, AC zones, beach access.',
+    includes: [
+      'Handpicked properties across Playa Guiones, Pelada, and Garza',
+      'Verified on-the-ground by our Nosara-based team',
+      'Full villa briefing before arrival, including local quirks',
+      'Stocked kitchen, welcome cocktails, fresh flowers on request',
+      'Direct line to our concierge during your entire stay',
+    ],
+    cta: { href: '/villas', label: 'Browse the collection' },
+    image: '/images/zenith/DSC04803-HDR.jpg',
+    imageAlt: 'Villa Zenith panoramic ocean view terrace in Nosara, Costa Rica',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>`,
+  },
+  {
+    slug: 'chefs',
+    eyebrow: '02 — Eat',
+    name: 'Private Chefs',
+    lede: 'Restaurant-grade meals in the comfort of your villa.',
+    description:
+      'The best dinners in Nosara never happen in a restaurant. Our private chefs trained at top kitchens in Costa Rica and abroad, then came home to cook with what the Nicoya peninsula grows: tuna pulled that morning, heirloom tomatoes from a farm forty minutes away, mangoes that ripened on the tree behind the house. Set menus, custom menus, surf-and-turf, fully plant-based, kids menus, anniversary dinners, group feasts. You name the night, we shape the meal.',
+    includes: [
+      'Curated chef matching based on group size and taste',
+      'Pre-trip menu planning with dietary notes',
+      'Sourcing, prep, cooking, and full cleanup',
+      'Optional pairings: Costa Rican craft beer, natural wines, mezcal',
+      'Available as one-off dinner, full-week residency, or anything between',
+    ],
+    cta: { href: '/contact', label: 'Plan a chef night' },
+    image: null,
+    imageAlt: '',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>`,
+  },
+  {
+    slug: 'surf',
+    eyebrow: '03 — Ride',
+    name: 'Surf Sessions',
+    lede: 'Nosara made Outside magazine call it one of the best surf towns on the planet for a reason.',
+    description:
+      'Playa Guiones is a sand-bottom point break that works year-round. Beginners stand up on day one. Intermediate surfers stretch into bigger faces. Experienced surfers paddle to Pelada or Marbella when the swell calls. We match you to the right instructor and the right break for your level, the day, and the tide. Group classes, private coaching, video review, longboard sessions for the family, dawn patrol for the dedicated.',
+    includes: [
+      'Certified bilingual instructors with deep Guiones knowledge',
+      'Board, leash, rash guard, and reef-safe sunscreen included',
+      'Daily tide and swell briefings via WhatsApp',
+      'Optional surf photography or GoPro footage',
+      'Surf-and-villa packages for week-long progression',
+    ],
+    cta: { href: '/contact', label: 'Get me in the water' },
+    image: null,
+    imageAlt: '',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
+  },
+  {
+    slug: 'ocean',
+    eyebrow: '04 — Cruise',
+    name: 'Ocean Adventures',
+    lede: 'Two private boats. One incredible coastline.',
+    description:
+      'Through our sister company Monkey Head Adventures, we run a pair of well-appointed vessels out of Garza harbor. Half-day sportfishing for mahi, tuna, and rooster fish. Snorkel runs to Isla San Juanillo, where the water turns a color you do not see anywhere else. Sunset cruises with cold cervezas, a paddleboard tied to the back, and dolphins on the way home. Whale-watching in season. Private group charters for birthdays, bachelor parties, or just because.',
+    includes: [
+      'Captain, crew, fuel, snorkel gear, and safety equipment',
+      'Chilled drinks, fresh fruit, and ceviche on board',
+      'Pickup from your villa or directly from Playa Guiones',
+      'Sportfishing tackle and live bait when targeting big game',
+      'Custom routes for photography and special occasions',
+    ],
+    cta: { href: '/contact', label: 'Book a day on the water' },
+    image: null,
+    imageAlt: '',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>`,
+  },
+  {
+    slug: 'jungle',
+    eyebrow: '05 — Explore',
+    name: 'Jungle Adventures',
+    lede: 'The Nicoya peninsula is one of the planet’s five Blue Zones for a reason. The jungle is part of it.',
+    description:
+      'ATV rides through the back roads to hidden waterfalls. Horseback at sunrise on empty beaches. Zip-line canopies that look down on howler monkeys. Wildlife guides who can spot a sloth from fifty meters and know exactly where the toucans nest this month. Birdwatching, mangrove kayaking, full-day expeditions to Ostional during sea turtle arribada season. We tailor each adventure to your fitness, your interests, and your group.',
+    includes: [
+      'Bilingual naturalist guides for every excursion',
+      'Transportation from your villa, water, snacks, gear',
+      'Tide and weather windows built into every itinerary',
+      'Kid-friendly options including butterfly farms and gentle hikes',
+      'Multi-day combinations: surf morning, jungle afternoon',
+    ],
+    cta: { href: '/contact', label: 'Design an adventure day' },
+    image: null,
+    imageAlt: '',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M17 8C8 10 5.9 16.17 3.82 19.34A1 1 0 004.66 21 16.46 16.46 0 0018 10"/><path d="M17 8l3-3M12 3l-1 5M7 8l3 1"/></svg>`,
+  },
+  {
+    slug: 'wellness',
+    eyebrow: '06 — Restore',
+    name: 'Wellness',
+    lede: 'Nosara is the yoga capital of Latin America. We connect you with the people who made it that way.',
+    description:
+      'In-villa massage and bodywork from therapists who trained at the Yoga Institute. Private yoga sessions on your terrace at sunrise. Sound healing with crystal bowls. Breathwork journeys, ice baths, contrast therapy. Plant medicine ceremonies with reputable practitioners. Personal trainers, pilates instructors, and Blue Zone retreats that go beyond Instagram into actual practice. Pick a single session or build a full healing week.',
+    includes: [
+      'Vetted, licensed practitioners delivered to your villa',
+      'Couples and group sessions available',
+      'Customized retreat itineraries for groups of two to twelve',
+      'Mat, props, oils, and aftercare provided',
+      'Integration calls with practitioners before your trip',
+    ],
+    cta: { href: '/contact', label: 'Build a wellness week' },
+    image: null,
+    imageAlt: '',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+  },
+  {
+    slug: 'transport',
+    eyebrow: '07 — Move',
+    name: 'Transport',
+    lede: 'Nosara is remote on purpose. We make getting here, and getting around, simple.',
+    description:
+      'Airport transfers from San Jose (SJO) or Liberia (LIR) in late-model SUVs with bilingual drivers. 4x4 rentals waiting at your villa on arrival, fueled and ready. Domestic flights via SANSA into the Nosara airstrip if you want to skip the road. Private drivers for full-day excursions, golf cart rentals for inside the beach town, and a 24/7 dispatch number in case anything goes sideways.',
+    includes: [
+      'Liberia (LIR) and San Jose (SJO) airport transfers, day or night',
+      '4x4 rental coordination, dropped at your villa',
+      'SANSA domestic flight booking and ground coordination',
+      'Private drivers for day trips: Montezuma, Nicoya, Tamarindo',
+      'Emergency contact line throughout your stay',
+    ],
+    cta: { href: '/contact', label: 'Sort my logistics' },
+    image: null,
+    imageAlt: '',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`,
+  },
+];
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TravelAgency',
+  name: 'Avela Travel',
+  description:
+    'Luxury concierge travel in Nosara, Costa Rica. Villa stays, private chefs, surf, ocean adventures, jungle excursions, wellness, and transport.',
+  areaServed: 'Nosara, Costa Rica',
+  url: 'https://avela.travel/experiences',
+};
+---
+
+<BaseLayout
+  title="Experiences | Avela Travel — Nosara, Costa Rica"
+  description="The full Avela experience in Nosara: handpicked villas, private chefs, surf sessions, ocean adventures, jungle excursions, wellness, and seamless transport."
+  schema={pageSchema}
+>
+  <!-- ─── HERO ─── -->
+  <section class="experiences-hero">
+    <div class="experiences-hero-inner">
+      <p class="eyebrow">The Avela Experience</p>
+      <h1>
+        Seven ways to make<br />
+        <em>Nosara yours</em>
+      </h1>
+      <p class="hero-lede">
+        Most travel services hand you a list. We hand you a team. Every villa is
+        walked, every chef is tested, every guide is someone we have known for
+        years. Pick one piece or pick them all. We build the rest around you.
+      </p>
+      <div class="hero-anchor-grid">
+        {experiences.map((e) => (
+          <a href={`#${e.slug}`} class="hero-anchor">
+            <span class="hero-anchor-num">{e.eyebrow.split(' ')[0]}</span>
+            <span class="hero-anchor-label">{e.name}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EXPERIENCES ─── -->
+  {experiences.map((exp, i) => (
+    <section
+      class={`exp-section ${i % 2 === 0 ? 'exp-light' : 'exp-dark'} ${exp.image ? 'exp-has-image' : 'exp-no-image'}`}
+      id={exp.slug}
+    >
+      <div class="exp-inner">
+        <div class="exp-content reveal">
+          <p class="eyebrow">{exp.eyebrow}</p>
+          <div class="exp-icon" set:html={exp.icon}></div>
+          <h2>{exp.name}</h2>
+          <p class="exp-lede">{exp.lede}</p>
+          <p class="exp-description">{exp.description}</p>
+          <ul class="exp-includes">
+            {exp.includes.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <a href={exp.cta.href} class="exp-cta">{exp.cta.label}</a>
+        </div>
+        {exp.image && (
+          <div class="exp-image reveal reveal-delay-2">
+            <img src={exp.image} alt={exp.imageAlt} loading="lazy" decoding="async" />
+          </div>
+        )}
+      </div>
+    </section>
+  ))}
+
+  <!-- ─── CTA ─── -->
+  <section class="exp-final-cta">
+    <div class="exp-final-cta-inner">
+      <p class="eyebrow">Ready when you are</p>
+      <h2>One conversation. <em>One full Nosara trip.</em></h2>
+      <p>
+        Tell us your dates, your group, and what kind of trip you have in mind.
+        We respond within 24 hours with a tailored proposal and a real person
+        to plan it with you.
+      </p>
+      <div class="exp-final-actions">
+        <a href="/contact" class="btn-primary">Plan your trip</a>
+        <a href="https://wa.me/50687297620" class="btn-outline">WhatsApp us</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ─── HERO ─── */
+  .experiences-hero {
+    background: var(--green-deep);
+    color: var(--warm-cream);
+    padding: clamp(140px, 16vw, 200px) var(--gutter) clamp(60px, 9vw, 110px);
+  }
+
+  .experiences-hero-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .experiences-hero .eyebrow {
+    color: var(--amber);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+
+  .experiences-hero h1 {
+    font-size: clamp(46px, 6.5vw, 92px);
+    line-height: 1.02;
+    margin-bottom: 2rem;
+  }
+
+  .experiences-hero h1 em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .hero-lede {
+    font-size: clamp(16px, 1.7vw, 20px);
+    line-height: 1.7;
+    max-width: 680px;
+    margin: 0 auto 3.5rem;
+    color: rgba(255, 241, 207, 0.78);
+  }
+
+  .hero-anchor-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    max-width: 980px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 241, 207, 0.16);
+    background: rgba(255, 241, 207, 0.16);
+  }
+
+  .hero-anchor {
+    background: var(--green-deep);
+    padding: 1.25rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    transition: background 0.25s var(--ease-smooth);
+  }
+
+  .hero-anchor:hover {
+    background: rgba(255, 241, 207, 0.06);
+  }
+
+  .hero-anchor-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--amber);
+  }
+
+  .hero-anchor-label {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 241, 207, 0.72);
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  @media (max-width: 900px) {
+    .hero-anchor-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* ─── EXPERIENCE SECTIONS ─── */
+  .exp-section {
+    padding: clamp(80px, 12vw, 140px) var(--gutter);
+  }
+
+  .exp-light {
+    background: var(--cream);
+    color: var(--dark);
+  }
+
+  .exp-dark {
+    background: var(--green-deep);
+    color: var(--warm-cream);
+  }
+
+  .exp-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: center;
+  }
+
+  .exp-has-image .exp-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .exp-no-image .exp-inner {
+    grid-template-columns: 1fr;
+    max-width: 820px;
+  }
+
+  /* alternate image direction */
+  .exp-section:nth-of-type(even) .exp-has-image .exp-inner > .exp-image {
+    order: -1;
+  }
+
+  .exp-content .eyebrow {
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+
+  .exp-dark .exp-content .eyebrow {
+    color: var(--amber);
+  }
+
+  .exp-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 1.25rem;
+  }
+
+  .exp-light .exp-icon {
+    color: var(--green-deep);
+  }
+
+  .exp-dark .exp-icon {
+    color: var(--amber);
+  }
+
+  .exp-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .exp-section h2 {
+    font-size: clamp(34px, 4.2vw, 56px);
+    line-height: 1.08;
+    margin-bottom: 1rem;
+  }
+
+  .exp-lede {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(18px, 1.8vw, 22px);
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+  }
+
+  .exp-light .exp-lede {
+    color: var(--brown);
+  }
+
+  .exp-dark .exp-lede {
+    color: var(--amber);
+  }
+
+  .exp-description {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .exp-light .exp-description {
+    color: rgba(19, 18, 16, 0.78);
+  }
+
+  .exp-dark .exp-description {
+    color: rgba(255, 241, 207, 0.78);
+  }
+
+  .exp-includes {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .exp-includes li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .exp-includes li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 8px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  .exp-light .exp-includes li {
+    color: rgba(19, 18, 16, 0.72);
+  }
+
+  .exp-dark .exp-includes li {
+    color: rgba(255, 241, 207, 0.72);
+  }
+
+  .exp-cta {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    display: inline-flex;
+    border: 1px solid currentColor;
+    transition: all 0.3s var(--ease-smooth);
+  }
+
+  .exp-light .exp-cta {
+    background: var(--green-deep);
+    color: var(--cream);
+    border-color: var(--green-deep);
+  }
+
+  .exp-light .exp-cta:hover {
+    background: transparent;
+    color: var(--green-deep);
+  }
+
+  .exp-dark .exp-cta {
+    background: var(--amber);
+    color: var(--cream);
+    border-color: var(--amber);
+  }
+
+  .exp-dark .exp-cta:hover {
+    background: transparent;
+    color: var(--amber);
+  }
+
+  .exp-image img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .exp-has-image .exp-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .exp-section:nth-of-type(even) .exp-has-image .exp-inner > .exp-image {
+      order: 0;
+    }
+  }
+
+  /* ─── FINAL CTA ─── */
+  .exp-final-cta {
+    background: var(--dark);
+    color: var(--warm-cream);
+    padding: clamp(100px, 14vw, 160px) var(--gutter);
+    text-align: center;
+  }
+
+  .exp-final-cta-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .exp-final-cta .eyebrow {
+    color: var(--amber);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+
+  .exp-final-cta h2 {
+    font-size: clamp(36px, 4.5vw, 60px);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .exp-final-cta h2 em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .exp-final-cta p {
+    font-size: clamp(15px, 1.5vw, 18px);
+    line-height: 1.7;
+    color: rgba(255, 241, 207, 0.7);
+    margin-bottom: 2.5rem;
+  }
+
+  .exp-final-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .exp-final-actions .btn-primary {
+    background: var(--amber);
+    color: var(--cream);
+    padding: 14px 32px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    transition: background 0.3s;
+    border: 1px solid var(--amber);
+  }
+
+  .exp-final-actions .btn-primary:hover {
+    background: var(--amber-deep);
+    border-color: var(--amber-deep);
+  }
+
+  .exp-final-actions .btn-outline {
+    background: transparent;
+    color: var(--warm-cream);
+    padding: 14px 32px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 241, 207, 0.35);
+    transition: all 0.3s;
+  }
+
+  .exp-final-actions .btn-outline:hover {
+    border-color: var(--warm-cream);
+    background: rgba(255, 241, 207, 0.06);
+  }
+</style>
