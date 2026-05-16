@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Lost in the jungle | Avela Travel"
+  description="The page you were looking for has wandered off. Let us help you find your way back to Nosara."
+>
+  <section class="four-oh-four">
+    <div class="four-oh-four-inner">
+      <p class="eyebrow">Error 404</p>
+      <h1>Lost in the jungle</h1>
+      <p class="lede">
+        The page you were looking for has wandered off the trail. Happens to
+        the best of us. Let us point you back toward the ocean.
+      </p>
+
+      <div class="four-oh-four-actions">
+        <a class="btn btn-primary" href="/">Back to home</a>
+        <a class="btn btn-secondary" href="/villas">Browse villas</a>
+        <a class="btn btn-secondary" href="/contact">Plan a trip</a>
+      </div>
+
+      <p class="four-oh-four-help">
+        Still stuck? Message us on
+        <a href="https://wa.me/50687297620">WhatsApp</a> or email
+        <a href="mailto:hello@avela.travel">hello@avela.travel</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .four-oh-four {
+    min-height: 80vh;
+    background: var(--green-deep);
+    color: var(--warm-cream);
+    padding: clamp(100px, 14vw, 160px) var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .four-oh-four-inner {
+    max-width: 640px;
+  }
+
+  .four-oh-four .eyebrow {
+    color: var(--amber);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+
+  .four-oh-four h1 {
+    font-size: clamp(44px, 6vw, 80px);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+
+  .lede {
+    font-size: clamp(16px, 1.6vw, 19px);
+    line-height: 1.7;
+    color: rgba(255, 241, 207, 0.75);
+    margin-bottom: 2.5rem;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .four-oh-four-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .btn {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    transition: all 0.25s var(--ease-smooth);
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary {
+    background: var(--amber);
+    color: var(--cream);
+  }
+
+  .btn-primary:hover {
+    background: var(--amber-deep);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--warm-cream);
+    border-color: rgba(255, 241, 207, 0.35);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--warm-cream);
+    background: rgba(255, 241, 207, 0.08);
+  }
+
+  .four-oh-four-help {
+    font-size: 14px;
+    color: rgba(255, 241, 207, 0.55);
+  }
+
+  .four-oh-four-help a {
+    color: var(--amber);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .four-oh-four-help a:hover {
+    color: var(--warm-cream);
+  }
+</style>

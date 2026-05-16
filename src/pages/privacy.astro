@@ -1,0 +1,233 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lastUpdated = 'May 16, 2026';
+---
+
+<BaseLayout
+  title="Privacy Policy | Avela Travel"
+  description="How Avela Travel collects, uses, and protects the information you share with us."
+>
+  <section class="legal-hero">
+    <div class="legal-hero-inner">
+      <p class="eyebrow">Legal</p>
+      <h1>Privacy Policy</h1>
+      <p class="legal-updated">Last updated: {lastUpdated}</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <div class="legal-inner">
+      <p>
+        Avela Travel ("Avela," "we," "us," or "our") is a concierge travel
+        service based in Nosara, Costa Rica. This Privacy Policy explains what
+        information we collect when you visit avela.travel or contact us, how we
+        use it, and the choices you have. By using our website or sharing
+        information with us, you agree to the practices described here.
+      </p>
+
+      <h2>1. Information we collect</h2>
+      <p>We only collect what we need to plan your trip and reply to you.</p>
+      <ul>
+        <li>
+          <strong>Information you give us directly.</strong> When you fill out
+          our contact form, send us an email, message us on WhatsApp, or
+          subscribe to our newsletter, you may share your name, email address,
+          phone number, travel dates, group size, budget range, preferred
+          villas or experiences, and any notes you choose to include.
+        </li>
+        <li>
+          <strong>Information collected automatically.</strong> Like most
+          websites, we log basic technical data such as your IP address,
+          browser type, device type, referring page, and pages visited. We use
+          Cloudflare Web Analytics, which is privacy-friendly and does not
+          place tracking cookies or fingerprint visitors.
+        </li>
+      </ul>
+
+      <h2>2. How we use your information</h2>
+      <ul>
+        <li>Respond to your inquiry and prepare a personalized travel proposal.</li>
+        <li>Coordinate bookings with the villas, chefs, guides, and partners involved in your trip.</li>
+        <li>Send you trip-related communications during planning and while you are with us in Nosara.</li>
+        <li>
+          With your consent, send occasional updates about new villas, seasonal
+          availability, and Nosara travel ideas. You can unsubscribe from these
+          at any time using the link in each email.
+        </li>
+        <li>Improve our website, content, and services.</li>
+        <li>Comply with applicable legal obligations.</li>
+      </ul>
+      <p>
+        We do not sell your personal information, and we do not share it with
+        third parties for their own marketing purposes.
+      </p>
+
+      <h2>3. Who we share information with</h2>
+      <p>
+        To plan and deliver your trip, we share only the details necessary with
+        trusted partners. These may include:
+      </p>
+      <ul>
+        <li>Villa owners and property managers in Nosara.</li>
+        <li>Private chefs, surf instructors, tour operators, drivers, and wellness providers we coordinate on your behalf.</li>
+        <li>
+          Service providers who help us operate the website and communicate with
+          you, such as Formspree (contact form delivery), our email and
+          newsletter platform, hosting providers, and Cloudflare (web infrastructure and analytics).
+        </li>
+        <li>Authorities or other parties when required by law.</li>
+      </ul>
+
+      <h2>4. International transfers</h2>
+      <p>
+        Avela operates from Costa Rica. Some of the service providers we use
+        process data in the United States, the European Union, or other
+        jurisdictions. By contacting us or using our site, you understand your
+        information may be processed outside your country of residence.
+      </p>
+
+      <h2>5. How long we keep your information</h2>
+      <p>
+        We keep inquiry and trip-planning records for as long as needed to
+        provide our service, plus a reasonable period after to handle follow-up
+        bookings, accounting, and legal obligations. Newsletter subscriber data
+        is kept until you unsubscribe.
+      </p>
+
+      <h2>6. Your rights</h2>
+      <p>
+        Depending on where you live, you may have rights to access, correct,
+        delete, or export the personal information we hold about you, to
+        withdraw consent, or to object to certain processing. To exercise these
+        rights, email us at
+        <a href="mailto:hello@avela.travel">hello@avela.travel</a>. We will
+        respond within a reasonable timeframe.
+      </p>
+
+      <h2>7. Cookies</h2>
+      <p>
+        We use a minimal set of cookies and similar technologies that are
+        necessary for the site to function. We do not use advertising cookies
+        or cross-site tracking. Your browser settings allow you to block or
+        delete cookies at any time.
+      </p>
+
+      <h2>8. Security</h2>
+      <p>
+        We take reasonable steps to protect the information you share with us,
+        including encrypted connections (HTTPS) and limiting access to authorized
+        team members. No method of transmission over the internet is fully
+        secure, so we cannot guarantee absolute security.
+      </p>
+
+      <h2>9. Children</h2>
+      <p>
+        Our services are intended for adults planning travel. We do not
+        knowingly collect personal information from anyone under 16. If you
+        believe a child has shared information with us, contact us and we will
+        delete it.
+      </p>
+
+      <h2>10. Changes to this policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time. When we do, we
+        will revise the "Last updated" date above. Material changes will be
+        flagged on this page.
+      </p>
+
+      <h2>11. Contact us</h2>
+      <p>
+        Questions about this Privacy Policy or how we handle your information?
+      </p>
+      <p>
+        Avela Travel<br />
+        Nosara, Guanacaste, Costa Rica<br />
+        Email: <a href="mailto:hello@avela.travel">hello@avela.travel</a><br />
+        WhatsApp: <a href="https://wa.me/50687297620">+506 8729 7620</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-hero {
+    background: var(--green-deep);
+    color: var(--warm-cream);
+    padding: clamp(100px, 14vw, 160px) var(--gutter) clamp(40px, 6vw, 70px);
+  }
+
+  .legal-hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .legal-hero .eyebrow {
+    color: var(--amber);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+
+  .legal-hero h1 {
+    font-size: clamp(40px, 5vw, 64px);
+    margin-bottom: 1rem;
+  }
+
+  .legal-updated {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 241, 207, 0.55);
+  }
+
+  .legal-section {
+    padding: clamp(60px, 9vw, 120px) var(--gutter);
+    background: var(--cream);
+  }
+
+  .legal-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    color: rgba(19, 18, 16, 0.78);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .legal-inner h2 {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.4vw, 28px);
+    color: var(--dark);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .legal-inner p {
+    margin-bottom: 1.25rem;
+  }
+
+  .legal-inner ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .legal-inner li {
+    margin-bottom: 0.65rem;
+  }
+
+  .legal-inner a {
+    color: var(--brown);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+
+  .legal-inner a:hover {
+    color: var(--amber-deep);
+  }
+
+  .legal-inner strong {
+    color: var(--dark);
+    font-weight: 500;
+  }
+</style>

@@ -103,7 +103,11 @@ const year = new Date().getFullYear();
 
   <div class="footer-bottom">
     <p>&copy; {year} Avela Travel. All rights reserved.</p>
-    <p>Nosara, Costa Rica</p>
+    <p class="footer-bottom-links">
+      <a href="/privacy">Privacy Policy</a>
+      <span aria-hidden="true">·</span>
+      <span>Nosara, Costa Rica</span>
+    </p>
   </div>
 </footer>
 
@@ -254,6 +258,21 @@ const year = new Date().getFullYear();
     color: rgba(251, 248, 242, 0.25);
     flex-wrap: wrap;
     gap: 0.5rem;
+  }
+
+  .footer-bottom-links {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .footer-bottom-links a {
+    color: rgba(251, 248, 242, 0.45);
+    transition: color 0.2s;
+  }
+
+  .footer-bottom-links a:hover {
+    color: var(--warm-cream);
   }
 
   @media (max-width: 1024px) {
