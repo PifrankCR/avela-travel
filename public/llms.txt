@@ -1,10 +1,10 @@
 # Avela Travel
 
-> Luxury travel concierge focused exclusively on Nosara, Costa Rica. Handpicked villas, private chefs, surf sessions, ocean adventures, and complete trip planning.
+> The Avela Experience team: luxury travel focused exclusively on Nosara, Costa Rica. Handpicked villas, private chefs, surf sessions, ocean adventures, and complete trip planning.
 
 ## About
 
-Avela Travel is a full-service luxury travel concierge in Nosara, Costa Rica · one of the world's five Blue Zones. We curate the entire Nosara experience for families and groups: villa selection, private chefs, surf lessons, ocean adventures, jungle tours, transport, and wellness.
+Avela Travel is the Avela Experience team — a full-service luxury travel operation in Nosara, Costa Rica · one of the world's five Blue Zones. We curate the entire Nosara experience for families and groups: villa selection, private chefs, surf lessons, ocean adventures, jungle tours, transport, and wellness.
 
 Every recommendation we make is vetted by our local team and aligned with giving guests the best possible trip.
 
@@ -40,7 +40,7 @@ Curated collection:
 
 ## Pages
 
-- [Homepage](https://avela.travel/) · Two client paths: independent booking vs full concierge
+- [Homepage](https://avela.travel/) · Two client paths: independent booking vs full Avela Experience
 - [Villas](https://avela.travel/villas) · Villa Ocaso and Villa Zenith detail pages
 - [About](https://avela.travel/about) · Blue Zone story, Monkey Head Adventures partnership
 - [Contact](https://avela.travel/contact) · Inquiry form and WhatsApp link
