@@ -139,7 +139,7 @@ const zenithPhotos = [
               data-alt={photo.alt}
               aria-label={photo.alt}
             >
-              <img src={photo.src} alt={photo.alt} loading="lazy" />
+              <img src={photo.src} alt={photo.alt} loading="lazy"  decoding="async" width="800" height="1000"/>
             </button>
           ))}
         </div>
@@ -242,7 +242,7 @@ const zenithPhotos = [
             class="gallery-main-img"
             loading="lazy"
             decoding="async"
-          />
+           width="800" height="1000"/>
         </div>
         <div class="gallery-strip">
           {zenithPhotos.map((photo, i) => (
@@ -253,7 +253,7 @@ const zenithPhotos = [
               data-alt={photo.alt}
               aria-label={photo.alt}
             >
-              <img src={photo.src} alt={photo.alt} loading="lazy" />
+              <img src={photo.src} alt={photo.alt} loading="lazy"  decoding="async" width="800" height="1000"/>
             </button>
           ))}
         </div>

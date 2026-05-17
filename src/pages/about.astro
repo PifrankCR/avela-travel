@@ -28,7 +28,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           alt="Sunset view from a luxury villa's second-story infinity pool overlooking the jungle, Nosara, Costa Rica"
           loading="lazy"
           decoding="async"
-        />
+         width="800" height="1000"/>
       </div>
       <div class="about-intro-text reveal reveal-delay-2">
         <p class="eyebrow">Why Nosara</p>
@@ -242,7 +242,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           alt="Aerial of the pink-sand island spit off the Nosara coast, Costa Rica"
           loading="lazy"
           decoding="async"
-        />
+         width="800" height="1000"/>
       </div>
     </div>
   </section>
@@ -281,6 +281,139 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           preload="metadata"
           aria-label="Monkey Head Adventures boat off the Nosara coast"
         ></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nosara map -->
+  <section class="section nosara-map" style="background: var(--cream);">
+    <div class="section-inner">
+      <div class="nosara-map-header reveal">
+        <p class="eyebrow">Where we are</p>
+        <h2>Nosara, <em>Nicoya Peninsula</em></h2>
+        <p class="nosara-map-lede">
+          A short stretch of coast on Costa Rica's Pacific side. Every Avela trip happens within
+          these few kilometers — beaches, jungle, airstrip, all within a fifteen-minute drive
+          of each other.
+        </p>
+      </div>
+
+      <div class="nosara-map-wrap reveal reveal-delay-1">
+        <svg
+          class="nosara-map-svg"
+          viewBox="0 0 900 600"
+          role="img"
+          aria-label="Stylized map of Nosara, Costa Rica showing key beaches, the airstrip, and town"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient id="ocean" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#cfe3df"/>
+              <stop offset="100%" stop-color="#a9c9c1"/>
+            </linearGradient>
+            <linearGradient id="land" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0%" stop-color="#e9e0c9"/>
+              <stop offset="100%" stop-color="#cbb98a"/>
+            </linearGradient>
+            <linearGradient id="jungle" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0%" stop-color="#7e8d5d"/>
+              <stop offset="100%" stop-color="#566a3e"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Ocean background -->
+          <rect width="900" height="600" fill="url(#ocean)"/>
+
+          <!-- Land mass: stylized coastline -->
+          <path
+            d="M 240 0
+               C 260 60, 230 90, 250 140
+               C 270 180, 220 210, 250 250
+               C 280 280, 230 310, 260 360
+               C 280 400, 240 430, 270 480
+               C 290 520, 260 560, 280 600
+               L 900 600
+               L 900 0 Z"
+            fill="url(#land)"
+          />
+          <!-- Jungle gradient overlay -->
+          <path
+            d="M 540 0
+               L 900 0
+               L 900 600
+               L 540 600 Z"
+            fill="url(#jungle)"
+            opacity="0.55"
+          />
+
+          <!-- Subtle wave lines in ocean -->
+          <g stroke="#8aafa6" stroke-width="0.7" fill="none" opacity="0.4">
+            <path d="M 30 90 Q 90 80, 150 90 T 230 95"/>
+            <path d="M 40 180 Q 100 170, 160 180 T 230 185"/>
+            <path d="M 30 280 Q 90 270, 150 280 T 240 285"/>
+            <path d="M 40 380 Q 100 370, 160 380 T 250 385"/>
+            <path d="M 30 480 Q 90 470, 150 480 T 270 488"/>
+          </g>
+
+          <!-- Beach markers + labels (left side along coast) -->
+          <!-- Ostional -->
+          <circle cx="248" cy="55" r="6" fill="#3a4f41"/>
+          <line x1="254" y1="55" x2="320" y2="55" stroke="#3a4f41" stroke-width="1"/>
+          <text x="328" y="50" font-family="DM Sans, sans-serif" font-size="13" font-weight="500" letter-spacing="2" fill="#3a4f41">OSTIONAL</text>
+          <text x="328" y="66" font-family="Playfair Display, serif" font-style="italic" font-size="12" fill="#3a4f41" opacity="0.7">Turtle arribada</text>
+
+          <!-- Playa Pelada -->
+          <circle cx="245" cy="195" r="6" fill="#3a4f41"/>
+          <line x1="251" y1="195" x2="320" y2="195" stroke="#3a4f41" stroke-width="1"/>
+          <text x="328" y="190" font-family="DM Sans, sans-serif" font-size="13" font-weight="500" letter-spacing="2" fill="#3a4f41">PLAYA PELADA</text>
+          <text x="328" y="206" font-family="Playfair Display, serif" font-style="italic" font-size="12" fill="#3a4f41" opacity="0.7">Tidepools, sunsets</text>
+
+          <!-- Nosara town + airstrip -->
+          <circle cx="430" cy="270" r="6" fill="#b8742a"/>
+          <line x1="436" y1="270" x2="520" y2="270" stroke="#b8742a" stroke-width="1"/>
+          <text x="528" y="265" font-family="DM Sans, sans-serif" font-size="13" font-weight="500" letter-spacing="2" fill="#b8742a">NOSARA TOWN</text>
+          <text x="528" y="281" font-family="Playfair Display, serif" font-style="italic" font-size="12" fill="#3a4f41" opacity="0.75">Airstrip + village</text>
+
+          <!-- Playa Guiones -->
+          <circle cx="258" cy="380" r="8" fill="#b8742a"/>
+          <line x1="266" y1="380" x2="340" y2="380" stroke="#b8742a" stroke-width="1.2"/>
+          <text x="348" y="375" font-family="DM Sans, sans-serif" font-size="14" font-weight="500" letter-spacing="2" fill="#b8742a">PLAYA GUIONES</text>
+          <text x="348" y="393" font-family="Playfair Display, serif" font-style="italic" font-size="12" fill="#3a4f41" opacity="0.75">Sand-bottom point break · the surf</text>
+
+          <!-- Las Huacas hills marker -->
+          <text x="640" y="320" font-family="Playfair Display, serif" font-style="italic" font-size="14" fill="#fbf8f2" opacity="0.85" text-anchor="middle">LAS HUACAS HILLS</text>
+          <text x="640" y="338" font-family="Playfair Display, serif" font-style="italic" font-size="12" fill="#fbf8f2" opacity="0.6" text-anchor="middle">Ocean-view villas</text>
+
+          <!-- Playa Garza (south) -->
+          <circle cx="275" cy="530" r="6" fill="#3a4f41"/>
+          <line x1="281" y1="530" x2="360" y2="530" stroke="#3a4f41" stroke-width="1"/>
+          <text x="368" y="525" font-family="DM Sans, sans-serif" font-size="13" font-weight="500" letter-spacing="2" fill="#3a4f41">PLAYA GARZA</text>
+          <text x="368" y="541" font-family="Playfair Display, serif" font-style="italic" font-size="12" fill="#3a4f41" opacity="0.7">Monkey Head harbor</text>
+
+          <!-- N indicator -->
+          <g transform="translate(70, 60)">
+            <circle r="22" fill="#fbf8f2" stroke="#3a4f41" stroke-width="1"/>
+            <text y="6" text-anchor="middle" font-family="Playfair Display, serif" font-size="18" font-weight="600" fill="#3a4f41">N</text>
+          </g>
+
+          <!-- Compass arrow -->
+          <line x1="70" y1="40" x2="70" y2="20" stroke="#3a4f41" stroke-width="1.5"/>
+          <polygon points="70,16 67,22 73,22" fill="#3a4f41"/>
+
+          <!-- Pacific Ocean label -->
+          <text x="120" y="320" font-family="Playfair Display, serif" font-style="italic" font-size="18" fill="#3a4f41" opacity="0.5">Pacific Ocean</text>
+        </svg>
+      </div>
+
+      <div class="nosara-map-legend reveal reveal-delay-2">
+        <div class="legend-item">
+          <span class="legend-dot legend-dot-primary"></span>
+          <span>Where the surf, the town, and the airstrip are</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot legend-dot-secondary"></span>
+          <span>Day-trip beaches and excursion sites</span>
+        </div>
       </div>
     </div>
   </section>
@@ -769,4 +902,79 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       grid-template-columns: 1fr;
     }
   }
+
+  /* ─── NOSARA MAP ─── */
+  .nosara-map-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .nosara-map-header .eyebrow {
+    color: var(--brown);
+    margin-bottom: 1.25rem;
+    display: inline-block;
+  }
+
+  .nosara-map-header h2 {
+    font-size: clamp(36px, 4.5vw, 60px);
+    line-height: 1.08;
+    margin-bottom: 1.25rem;
+  }
+
+  .nosara-map-header h2 em {
+    font-style: italic;
+    color: var(--brown);
+  }
+
+  .nosara-map-lede {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(16px, 1.6vw, 20px);
+    line-height: 1.55;
+    color: rgba(19, 18, 16, 0.72);
+  }
+
+  .nosara-map-wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    border: 1px solid rgba(19, 18, 16, 0.08);
+    background: var(--cream);
+    overflow: hidden;
+  }
+
+  .nosara-map-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .nosara-map-legend {
+    max-width: 920px;
+    margin: 1.5rem auto 0;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: rgba(19, 18, 16, 0.62);
+    letter-spacing: 0.02em;
+  }
+
+  .legend-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .legend-dot-primary { background: var(--brown); }
+  .legend-dot-secondary { background: var(--green-deep); }
 </style>

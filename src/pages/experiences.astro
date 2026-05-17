@@ -273,7 +273,7 @@ const pageSchema = {
           </div>
           {exp.image && (
             <div class="exp-image reveal reveal-delay-2">
-              <img src={exp.image} alt={exp.imageAlt} loading="lazy" decoding="async" />
+              <img src={exp.image} alt={exp.imageAlt} loading="lazy" decoding="async"  width="800" height="1000"/>
             </div>
           )}
         </div>
@@ -310,6 +310,43 @@ const pageSchema = {
       )}
     </>
   ))}
+
+  <!-- ─── PRICING SIGNAL (placeholder ranges — confirm with Stacie before launch) ─── -->
+  <section class="exp-pricing" aria-label="Sample pricing">
+    <div class="exp-pricing-inner">
+      <div class="exp-pricing-header reveal">
+        <p class="eyebrow">Starting points</p>
+        <h2>What to budget</h2>
+        <p class="exp-pricing-lede">
+          Every Avela trip is custom-quoted. These are starting ranges to give you a sense.
+          We send a tailored proposal within 24 hours of your inquiry.
+        </p>
+      </div>
+
+      <div class="exp-pricing-grid">
+        {[
+          { label: 'Villa nights', from: 'From $650', unit: '/ night', note: '4–6 BR signature properties · 5–6 BR group villas higher' },
+          { label: 'Chef dinners', from: 'From $450', unit: '/ dinner for 4', note: 'Includes sourcing, prep, cooking, cleanup · pairings extra' },
+          { label: 'Surf sessions', from: 'From $85', unit: '/ person', note: 'Group lessons · private and family-split coaching priced separately' },
+          { label: 'Boat days', from: 'From $1,800', unit: '/ half day', note: 'Captain, crew, fuel, snorkel gear · sunset cruises and sportfishing available' },
+        ].map((p, i) => (
+          <article class="pricing-card reveal" style={`--delay:${i * 80}ms`}>
+            <p class="pricing-label">{p.label}</p>
+            <p class="pricing-amount">
+              <span class="pricing-from">{p.from}</span>
+              <span class="pricing-unit">{p.unit}</span>
+            </p>
+            <p class="pricing-note">{p.note}</p>
+          </article>
+        ))}
+      </div>
+
+      <p class="exp-pricing-footer reveal">
+        High season (Dec–Apr) and holiday weeks carry surcharges.
+        <a href="/contact">Send us your dates →</a>
+      </p>
+    </div>
+  </section>
 
   <!-- ─── FAQ ─── -->
   <section class="exp-faq" id="faq" aria-label="Frequently asked questions">
@@ -847,6 +884,119 @@ const pageSchema = {
     .timeline-time {
       font-size: 18px;
     }
+  }
+
+  /* ─── PRICING ─── */
+  .exp-pricing {
+    background: var(--sand);
+    color: var(--dark);
+    padding: clamp(80px, 12vw, 140px) var(--gutter);
+  }
+
+  .exp-pricing-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .exp-pricing-header {
+    text-align: center;
+    max-width: 660px;
+    margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .exp-pricing-header .eyebrow {
+    color: var(--brown);
+    margin-bottom: 1.25rem;
+    display: inline-block;
+  }
+
+  .exp-pricing-header h2 {
+    font-size: clamp(34px, 4.2vw, 56px);
+    line-height: 1.08;
+    margin-bottom: 1.25rem;
+  }
+
+  .exp-pricing-lede {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(15px, 1.6vw, 19px);
+    line-height: 1.55;
+    color: rgba(19, 18, 16, 0.72);
+  }
+
+  .exp-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .pricing-card {
+    background: var(--cream);
+    padding: 2rem 1.5rem;
+    border: 1px solid rgba(19, 18, 16, 0.08);
+    transition-delay: var(--delay, 0ms);
+  }
+
+  .pricing-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin: 0 0 1rem;
+  }
+
+  .pricing-amount {
+    margin: 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .pricing-from {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3vw, 34px);
+    line-height: 1;
+    color: var(--dark);
+  }
+
+  .pricing-unit {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: rgba(19, 18, 16, 0.55);
+    letter-spacing: 0.02em;
+  }
+
+  .pricing-note {
+    font-size: 13px;
+    line-height: 1.55;
+    color: rgba(19, 18, 16, 0.65);
+    margin: 0;
+  }
+
+  .exp-pricing-footer {
+    text-align: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 15px;
+    color: rgba(19, 18, 16, 0.62);
+    margin: 0;
+  }
+
+  .exp-pricing-footer a {
+    color: var(--brown);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+    margin-left: 0.35rem;
+  }
+
+  @media (max-width: 1000px) {
+    .exp-pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 540px) {
+    .exp-pricing-grid { grid-template-columns: 1fr; }
   }
 
   /* ─── FAQ ─── */

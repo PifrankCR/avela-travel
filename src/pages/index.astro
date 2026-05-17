@@ -38,6 +38,8 @@ const schema = {
         src="/images/hero-atardecer-playa-guiones-nosara.webp"
         alt="Atardecer at Playa Guiones, Nosara, Costa Rica. Sunset over the Pacific"
         class="hero-img"
+        width="2400"
+        height="1600"
         fetchpriority="high"
         decoding="async"
       />
@@ -297,7 +299,7 @@ const schema = {
         ].map((p, i) => (
           <article class="persona-card reveal" style={`--delay:${i * 100}ms`}>
             <div class="persona-image">
-              <img src={p.image} alt={p.imageAlt} loading="lazy" decoding="async" />
+              <img src={p.image} alt={p.imageAlt} loading="lazy" decoding="async"  width="800" height="1000"/>
             </div>
             <div class="persona-content">
               <h3>{p.name}</h3>
@@ -331,13 +333,13 @@ const schema = {
               alt="Villa Ocaso, floor-to-ceiling jungle glass walls"
               loading="lazy"
               decoding="async"
-            />
+             width="800" height="1000"/>
           </div>
           <div class="villa-thumbs">
-            <img src="/images/ocaso/ocaso-2.jpg" alt="Villa Ocaso open-plan living and kitchen" loading="lazy" />
-            <img src="/images/ocaso/ocaso-3.jpg" alt="Villa Ocaso master bedroom" loading="lazy" />
-            <img src="/images/ocaso/ocaso-4.jpg" alt="Villa Ocaso second bedroom" loading="lazy" />
-            <img src="/images/ocaso/ocaso-5.jpg" alt="Villa Ocaso living room alternate" loading="lazy" />
+            <img src="/images/ocaso/ocaso-2.jpg" alt="Villa Ocaso open-plan living and kitchen" loading="lazy"  decoding="async" width="800" height="1000"/>
+            <img src="/images/ocaso/ocaso-3.jpg" alt="Villa Ocaso master bedroom" loading="lazy"  decoding="async" width="800" height="1000"/>
+            <img src="/images/ocaso/ocaso-4.jpg" alt="Villa Ocaso second bedroom" loading="lazy"  decoding="async" width="800" height="1000"/>
+            <img src="/images/ocaso/ocaso-5.jpg" alt="Villa Ocaso living room alternate" loading="lazy"  decoding="async" width="800" height="1000"/>
           </div>
         </div>
         <div class="villa-info">
@@ -371,13 +373,13 @@ const schema = {
               alt="Villa Zenith, panoramic ocean view terrace"
               loading="lazy"
               decoding="async"
-            />
+             width="800" height="1000"/>
           </div>
           <div class="villa-thumbs">
-            <img src="/images/zenith/DSC04551.jpg" alt="Villa Zenith outdoor lounge" loading="lazy" />
-            <img src="/images/zenith/DSC04746-HDR.jpg" alt="Villa Zenith dining with pendant lights" loading="lazy" />
-            <img src="/images/zenith/DSC04785-HDR.jpg" alt="Villa Zenith BBQ terrace" loading="lazy" />
-            <img src="/images/zenith/DSC04956-HDR-Edit.jpg" alt="Villa Zenith interior" loading="lazy" />
+            <img src="/images/zenith/DSC04551.jpg" alt="Villa Zenith outdoor lounge" loading="lazy"  decoding="async" width="800" height="1000"/>
+            <img src="/images/zenith/DSC04746-HDR.jpg" alt="Villa Zenith dining with pendant lights" loading="lazy"  decoding="async" width="800" height="1000"/>
+            <img src="/images/zenith/DSC04785-HDR.jpg" alt="Villa Zenith BBQ terrace" loading="lazy"  decoding="async" width="800" height="1000"/>
+            <img src="/images/zenith/DSC04956-HDR-Edit.jpg" alt="Villa Zenith interior" loading="lazy"  decoding="async" width="800" height="1000"/>
           </div>
         </div>
         <div class="villa-info">
@@ -435,7 +437,7 @@ const schema = {
         alt="Nosara sunset over the Pacific"
         loading="lazy"
         decoding="async"
-      />
+       width="800" height="1000"/>
       <div class="cta-band-overlay"></div>
     </div>
     <div class="cta-band-content reveal">

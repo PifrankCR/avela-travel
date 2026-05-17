@@ -8,17 +8,65 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
   <section class="four-oh-four">
     <div class="four-oh-four-inner">
+      <!-- Sloth illustration -->
+      <div class="four-oh-four-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Branch -->
+          <line x1="4" y1="14" x2="60" y2="14"/>
+          <!-- Sloth body -->
+          <ellipse cx="32" cy="34" rx="13" ry="14"/>
+          <!-- Arms reaching up -->
+          <path d="M 22 26 C 18 18, 16 16, 14 14"/>
+          <path d="M 42 26 C 46 18, 48 16, 50 14"/>
+          <!-- Hooks -->
+          <path d="M 12 13 C 11 12, 11 16, 14 15"/>
+          <path d="M 52 13 C 53 12, 53 16, 50 15"/>
+          <!-- Face -->
+          <circle cx="27" cy="32" r="1" fill="currentColor"/>
+          <circle cx="37" cy="32" r="1" fill="currentColor"/>
+          <path d="M 30 38 Q 32 40, 34 38"/>
+          <!-- Mask outline -->
+          <path d="M 23 30 Q 27 28, 31 30" opacity="0.45"/>
+          <path d="M 33 30 Q 37 28, 41 30" opacity="0.45"/>
+        </svg>
+      </div>
+
       <p class="eyebrow">Error 404</p>
       <h1>Lost in the jungle</h1>
       <p class="lede">
-        The page you were looking for has wandered off the trail. Happens to
-        the best of us. Let us point you back toward the ocean.
+        The page you were looking for has wandered off the trail. Happens even to
+        the locals. Take a breath, look around, and let us point you back toward the ocean.
       </p>
 
       <div class="four-oh-four-actions">
         <a class="btn btn-primary" href="/">Back to home</a>
-        <a class="btn btn-secondary" href="/villas">Browse villas</a>
         <a class="btn btn-secondary" href="/contact">Plan a trip</a>
+      </div>
+
+      <div class="four-oh-four-suggestions">
+        <p class="suggest-label">Or pick up where you might have meant to land</p>
+        <div class="suggest-grid">
+          <a class="suggest-card" href="/villas">
+            <span class="suggest-num">01</span>
+            <span class="suggest-name">Villas</span>
+            <span class="suggest-hint">Twelve handpicked homes</span>
+          </a>
+          <a class="suggest-card" href="/experiences">
+            <span class="suggest-num">02</span>
+            <span class="suggest-name">Experiences</span>
+            <span class="suggest-hint">Seven services, one team</span>
+          </a>
+          <a class="suggest-card" href="/itineraries">
+            <span class="suggest-num">03</span>
+            <span class="suggest-name">Itineraries</span>
+            <span class="suggest-hint">Family, couples, retreats, groups</span>
+          </a>
+          <a class="suggest-card" href="/about">
+            <span class="suggest-num">04</span>
+            <span class="suggest-name">About</span>
+            <span class="suggest-hint">Built by people who live here</span>
+          </a>
+        </div>
       </div>
 
       <p class="four-oh-four-help">
@@ -32,7 +80,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <style>
   .four-oh-four {
-    min-height: 80vh;
+    min-height: 90vh;
     background: var(--green-deep);
     color: var(--warm-cream);
     padding: clamp(100px, 14vw, 160px) var(--gutter);
@@ -43,12 +91,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .four-oh-four-inner {
-    max-width: 640px;
+    max-width: 760px;
+    width: 100%;
+  }
+
+  .four-oh-four-icon {
+    color: var(--amber);
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 2rem;
+  }
+
+  .four-oh-four-icon svg {
+    width: 100%;
+    height: 100%;
   }
 
   .four-oh-four .eyebrow {
     color: var(--amber);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     display: inline-block;
   }
 
@@ -61,9 +122,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .lede {
     font-size: clamp(16px, 1.6vw, 19px);
     line-height: 1.7;
-    color: rgba(255, 241, 207, 0.75);
+    color: rgba(255, 241, 207, 0.78);
     margin-bottom: 2.5rem;
-    max-width: 540px;
+    max-width: 560px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -73,7 +134,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
   }
 
   .btn {
@@ -107,6 +168,73 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .btn-secondary:hover {
     border-color: var(--warm-cream);
     background: rgba(255, 241, 207, 0.08);
+  }
+
+  .four-oh-four-suggestions {
+    margin-bottom: 3rem;
+  }
+
+  .suggest-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255, 241, 207, 0.45);
+    margin: 0 0 1.5rem;
+  }
+
+  .suggest-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .suggest-card {
+    background: rgba(255, 241, 207, 0.04);
+    border: 1px solid rgba(255, 241, 207, 0.14);
+    padding: 1.25rem 0.85rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    transition: background 0.25s var(--ease-smooth), border-color 0.25s var(--ease-smooth);
+    text-align: center;
+  }
+
+  .suggest-card:hover {
+    background: rgba(255, 241, 207, 0.08);
+    border-color: rgba(255, 241, 207, 0.32);
+  }
+
+  .suggest-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--amber);
+  }
+
+  .suggest-name {
+    font-family: var(--font-display);
+    font-size: 19px;
+    color: var(--warm-cream);
+    line-height: 1.2;
+  }
+
+  .suggest-hint {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 12px;
+    color: rgba(255, 241, 207, 0.55);
+    line-height: 1.4;
+  }
+
+  @media (max-width: 720px) {
+    .suggest-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   .four-oh-four-help {
