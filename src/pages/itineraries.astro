@@ -1,0 +1,424 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const itineraries = [
+  {
+    slug: 'family',
+    eyebrow: '01 — Family',
+    name: 'The Family Week',
+    duration: '7–8 nights',
+    sleeps: 'Up to 14 guests',
+    image: '/images/experiences/jungle.jpg',
+    imageAlt: 'Family ATV ride through the Nosara jungle, Costa Rica',
+    lede: 'Mixed-level surf coaching, kid-loved chefs, sloth walks and waterfall days.',
+    description:
+      'For multigenerational trips, school breaks, and milestone birthdays. We split coaching across instructors so beginners get whitewater while parents catch real waves down the beach. Restaurant tables held, ATV waterfall day staged for the eight-year-olds, sunset pilates queued for grandma.',
+    sample: [
+      'Day 1 — Liberia arrival, Sansa flight to Nosara, villa welcome',
+      'Day 2 — Sunrise yoga, family surf lesson, lunch at La Ventanita',
+      'Day 3 — ATV adventure with Pipin, waterfall stop, chef dinner',
+      'Day 4 — Boat day to Isla San Juanillo, snorkeling, ceviche on deck',
+      'Day 5 — Sloth walk, pool day, sound healing in the villa',
+      'Day 6 — Beach sunset, group chef dinner under the stars',
+      'Day 7 — Final surf, departure to Liberia',
+    ],
+    cta: { href: '/contact?trip=family', label: 'Plan a family week' },
+  },
+  {
+    slug: 'couple',
+    eyebrow: '02 — Couples',
+    name: 'The Couple’s Escape',
+    duration: '5–6 nights',
+    sleeps: '2 guests',
+    image: '/images/zenith/DSC05695-HDR-Edit.jpg',
+    imageAlt: 'Villa Zenith infinity pool at sunset for a couples retreat in Nosara',
+    lede: 'Ocean-view villas, private chef tastings, in-villa massage. Built for honeymoons and anniversaries.',
+    description:
+      'A slower rhythm with the kind of surprises that make a trip memorable. A bottle of natural wine on the terrace when you arrive. A chef-tasting dinner with candle-lit table by the pool. A morning paddleboard with the dolphins. Private yoga at sunrise, in-villa spa at sunset.',
+    sample: [
+      'Day 1 — Private transfer, sunset cocktails, welcome chef dinner',
+      'Day 2 — Sunrise yoga, beach walk, lunch at Pelada, pool day',
+      'Day 3 — Surf together with a private coach, lunch on the boat',
+      'Day 4 — Couples massage at the villa, sunset sail with paddleboards',
+      'Day 5 — Chef tasting dinner, stargazing on the deck',
+      'Day 6 — Final breakfast, transfer back',
+    ],
+    cta: { href: '/contact?trip=couple', label: 'Plan a couple’s escape' },
+  },
+  {
+    slug: 'wellness',
+    eyebrow: '03 — Wellness',
+    name: 'The Wellness Reset',
+    duration: '5–7 nights',
+    sleeps: '2–8 guests',
+    image: '/images/experiences/wellness.jpg',
+    imageAlt: 'Open-air yoga shala for a wellness retreat in Nosara, Costa Rica',
+    lede: 'Daily yoga, in-villa massage, sound healing, breathwork. The Blue Zone you came for.',
+    description:
+      'For solo travelers, couples, or small groups who came to actually unwind. Private practitioners delivered to your villa, dedicated shala space, and a chef who understands what your body needs after a long flow. Pair with ice baths, contrast therapy, or plant medicine ceremonies with reputable practitioners.',
+    sample: [
+      'Day 1 — Arrival, integration call, light dinner, early sleep',
+      'Day 2 — Morning yoga, beach walk, lunch, afternoon massage',
+      'Day 3 — Surf or paddleboard, lunch, sound bath at sunset',
+      'Day 4 — Long flow, contrast therapy, plant-forward chef dinner',
+      'Day 5 — Pilates, jungle hike, breathwork journey',
+      'Day 6 — Closing ceremony, final dinner, integration',
+      'Day 7 — Departure',
+    ],
+    cta: { href: '/contact?trip=wellness', label: 'Plan a wellness reset' },
+  },
+  {
+    slug: 'group',
+    eyebrow: '04 — Group',
+    name: 'The Group Celebration',
+    duration: '4–7 nights',
+    sleeps: '10–16 guests',
+    image: '/images/experiences/ocean.jpg',
+    imageAlt: 'Group of friends on a Monkey Head Adventures boat off Nosara, Costa Rica',
+    lede: 'Bachelor parties, milestone birthdays, reunion weeks. Group villas, private boats, long-table dinners.',
+    description:
+      'For groups that want the whole thing on one estate. Villas that sleep up to sixteen with a 25-meter lap pool, yoga facility, and bunk rooms. Private boats for the whole crew, chef dinners that turn into long nights on the terrace, surf lessons split across multiple coaches.',
+    sample: [
+      'Day 1 — Group arrival, welcome cocktails, BBQ on the terrace',
+      'Day 2 — Group surf lesson, lunch on the beach, evening pool party',
+      'Day 3 — Full-day boat charter, fishing, sunset cruise',
+      'Day 4 — ATV expedition, waterfall, group chef dinner',
+      'Day 5 — Spa day, pilates, long-table tasting dinner',
+      'Day 6 — Brunch, beach hang, final group dinner',
+      'Day 7 — Group departure',
+    ],
+    cta: { href: '/contact?trip=group', label: 'Plan a group trip' },
+  },
+];
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: itineraries.map((it, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'TouristTrip',
+      name: it.name,
+      description: it.lede,
+      url: `https://avela.travel/itineraries#${it.slug}`,
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="Itineraries | Avela Travel — Nosara, Costa Rica"
+  description="Sample Nosara itineraries built by Avela: family weeks, couples escapes, wellness resets, and group celebrations. Each trip is custom — these are starting points."
+  schema={pageSchema}
+>
+  <!-- ─── HERO ─── -->
+  <section class="itin-hero">
+    <div class="itin-hero-inner">
+      <p class="eyebrow">Sample itineraries</p>
+      <h1>
+        Four ways to <em>travel with us</em>
+      </h1>
+      <p class="hero-lede">
+        Every Avela trip is custom. These are the four shapes most of our trips take —
+        starting points we tune around your dates, your group, and what you came here to feel.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── ITINERARIES ─── -->
+  {itineraries.map((it, i) => (
+    <section
+      class={`itin-section ${i % 2 === 0 ? 'itin-light' : 'itin-dark'}`}
+      id={it.slug}
+    >
+      <div class="itin-inner">
+        <div class="itin-image reveal">
+          <img src={it.image} alt={it.imageAlt} loading="lazy" decoding="async" />
+        </div>
+        <div class="itin-content reveal reveal-delay-1">
+          <p class="eyebrow">{it.eyebrow}</p>
+          <h2>{it.name}</h2>
+          <p class="itin-meta">
+            <span>{it.duration}</span>
+            <span aria-hidden="true">·</span>
+            <span>{it.sleeps}</span>
+          </p>
+          <p class="itin-lede">{it.lede}</p>
+          <p class="itin-description">{it.description}</p>
+          <p class="itin-sample-header">Sample shape of the week</p>
+          <ul class="itin-sample">
+            {it.sample.map((day) => (
+              <li>{day}</li>
+            ))}
+          </ul>
+          <a href={it.cta.href} class="itin-cta">{it.cta.label}</a>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- ─── FINAL CTA ─── -->
+  <section class="itin-final-cta">
+    <div class="itin-final-cta-inner">
+      <p class="eyebrow">None of these fit?</p>
+      <h2>Tell us what you have in mind. <em>We build the rest.</em></h2>
+      <p>
+        These are starting points, not packages. The best Avela trips are the ones that look
+        like nothing on this page. Tell us your dates, your group, and what would make this
+        trip feel like yours.
+      </p>
+      <div class="itin-final-actions">
+        <a href="/contact" class="btn-primary">Design my trip</a>
+        <a href="https://wa.me/50687297620" class="btn-outline">WhatsApp us</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ─── HERO ─── */
+  .itin-hero {
+    background: var(--green-deep);
+    color: var(--warm-cream);
+    padding: clamp(140px, 16vw, 200px) var(--gutter) clamp(60px, 9vw, 110px);
+    text-align: center;
+  }
+
+  .itin-hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .itin-hero .eyebrow {
+    color: var(--amber);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+
+  .itin-hero h1 {
+    font-size: clamp(46px, 6.5vw, 92px);
+    line-height: 1.02;
+    margin-bottom: 2rem;
+  }
+
+  .itin-hero h1 em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .hero-lede {
+    font-size: clamp(16px, 1.7vw, 20px);
+    line-height: 1.7;
+    color: rgba(255, 241, 207, 0.78);
+  }
+
+  /* ─── ITINERARY SECTIONS ─── */
+  .itin-section {
+    padding: clamp(80px, 12vw, 140px) var(--gutter);
+  }
+
+  .itin-light {
+    background: var(--cream);
+    color: var(--dark);
+  }
+
+  .itin-dark {
+    background: var(--sand);
+    color: var(--dark);
+  }
+
+  .itin-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: center;
+  }
+
+  .itin-section:nth-of-type(even) .itin-inner > .itin-image {
+    order: 2;
+  }
+
+  .itin-image img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    display: block;
+  }
+
+  .itin-content .eyebrow {
+    color: var(--brown);
+    margin-bottom: 1.25rem;
+    display: inline-block;
+  }
+
+  .itin-content h2 {
+    font-size: clamp(34px, 4.2vw, 56px);
+    line-height: 1.08;
+    margin-bottom: 0.85rem;
+  }
+
+  .itin-meta {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin-bottom: 1.25rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .itin-lede {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(18px, 1.8vw, 22px);
+    line-height: 1.4;
+    color: var(--brown);
+    margin-bottom: 1.25rem;
+  }
+
+  .itin-description {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(19, 18, 16, 0.76);
+    margin-bottom: 2rem;
+  }
+
+  .itin-sample-header {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin-bottom: 1rem;
+  }
+
+  .itin-sample {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2.5rem;
+    border-top: 1px solid rgba(19, 18, 16, 0.12);
+  }
+
+  .itin-sample li {
+    font-family: var(--font-display);
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: rgba(19, 18, 16, 0.78);
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(19, 18, 16, 0.08);
+  }
+
+  .itin-cta {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    display: inline-block;
+    background: var(--green-deep);
+    color: var(--cream);
+    border: 1px solid var(--green-deep);
+    transition: all 0.3s var(--ease-smooth);
+  }
+
+  .itin-cta:hover {
+    background: transparent;
+    color: var(--green-deep);
+  }
+
+  @media (max-width: 900px) {
+    .itin-inner {
+      grid-template-columns: 1fr;
+    }
+    .itin-section:nth-of-type(even) .itin-inner > .itin-image {
+      order: 0;
+    }
+  }
+
+  /* ─── FINAL CTA ─── */
+  .itin-final-cta {
+    background: var(--dark);
+    color: var(--warm-cream);
+    padding: clamp(100px, 14vw, 160px) var(--gutter);
+    text-align: center;
+  }
+
+  .itin-final-cta-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .itin-final-cta .eyebrow {
+    color: var(--amber);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+
+  .itin-final-cta h2 {
+    font-size: clamp(36px, 4.5vw, 60px);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .itin-final-cta h2 em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .itin-final-cta p {
+    font-size: clamp(15px, 1.5vw, 18px);
+    line-height: 1.7;
+    color: rgba(255, 241, 207, 0.7);
+    margin-bottom: 2.5rem;
+  }
+
+  .itin-final-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .itin-final-actions .btn-primary {
+    background: var(--amber);
+    color: var(--cream);
+    padding: 14px 32px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    border: 1px solid var(--amber);
+    transition: background 0.3s;
+  }
+
+  .itin-final-actions .btn-primary:hover {
+    background: var(--amber-deep, #b8742a);
+  }
+
+  .itin-final-actions .btn-outline {
+    background: transparent;
+    color: var(--warm-cream);
+    padding: 14px 32px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 241, 207, 0.35);
+    transition: all 0.3s;
+  }
+
+  .itin-final-actions .btn-outline:hover {
+    border-color: var(--warm-cream);
+    background: rgba(255, 241, 207, 0.06);
+  }
+</style>

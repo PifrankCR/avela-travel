@@ -70,6 +70,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <main>
       <slot />
     </main>
+
+    <!-- Sticky inquiry bar -->
+    <aside class="sticky-inquiry" id="sticky-inquiry" aria-label="Plan your Nosara trip" hidden>
+      <div class="sticky-inquiry-inner">
+        <div class="sticky-inquiry-copy">
+          <span class="sticky-inquiry-eyebrow">Tell us about your trip</span>
+          <span class="sticky-inquiry-tagline">Tailored proposal within 24 hours.</span>
+        </div>
+        <div class="sticky-inquiry-actions">
+          <a href="/contact" class="sticky-inquiry-cta">Plan my trip</a>
+          <button type="button" class="sticky-inquiry-close" aria-label="Dismiss">×</button>
+        </div>
+      </div>
+    </aside>
+
     <Footer />
 
     <script>
@@ -85,6 +100,37 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
       );
       document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+      // Sticky inquiry bar: show after 40% scroll, hide on /contact, respect dismissal
+      (() => {
+        const bar = document.getElementById('sticky-inquiry');
+        if (!bar) return;
+        if (location.pathname.startsWith('/contact')) return;
+        const dismissed = sessionStorage.getItem('avela:sticky-dismissed') === '1';
+        if (dismissed) return;
+
+        bar.hidden = false;
+        const closeBtn = bar.querySelector('.sticky-inquiry-close');
+        closeBtn?.addEventListener('click', () => {
+          bar.classList.remove('visible');
+          sessionStorage.setItem('avela:sticky-dismissed', '1');
+        });
+
+        let ticking = false;
+        const onScroll = () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(() => {
+            const doc = document.documentElement;
+            const scrolled = (doc.scrollTop) / (doc.scrollHeight - doc.clientHeight);
+            if (scrolled > 0.35) bar.classList.add('visible');
+            else bar.classList.remove('visible');
+            ticking = false;
+          });
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
     </script>
   </body>
 </html>

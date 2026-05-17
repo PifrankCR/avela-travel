@@ -35,6 +35,7 @@ const year = new Date().getFullYear();
         <h4>Company</h4>
         <ul>
           <li><a href="/about">About Avela</a></li>
+          <li><a href="/itineraries">Itineraries</a></li>
           <li><a href="/contact">Contact</a></li>
           <li><a href="/contact">Plan My Trip</a></li>
         </ul>
@@ -87,7 +88,7 @@ const year = new Date().getFullYear();
       <div class="footer-col footer-newsletter">
         <h4>Stay Inspired</h4>
         <p>Trip ideas, Nosara guides, and seasonal availability, direct to your inbox.</p>
-        <form class="newsletter-form" action="#" method="post">
+        <form class="newsletter-form" id="newsletter-form" action="#" method="post" novalidate>
           <input
             type="email"
             name="email"
@@ -96,6 +97,9 @@ const year = new Date().getFullYear();
             aria-label="Email address"
           />
           <button type="submit">Subscribe</button>
+          <p class="newsletter-success" id="newsletter-success" hidden>
+            Got it — we will reach out with the next Nosara dispatch.
+          </p>
         </form>
       </div>
     </nav>
@@ -290,4 +294,35 @@ const year = new Date().getFullYear();
       grid-template-columns: 1fr;
     }
   }
+
+  .newsletter-success {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--amber);
+    line-height: 1.5;
+    margin: 0.75rem 0 0;
+  }
 </style>
+
+<script>
+  // Newsletter form stub — captures email to localStorage until a real ESP is wired
+  const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
+  const success = document.getElementById('newsletter-success');
+  if (form && success) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const email = String(data.get('email') ?? '').trim();
+      if (!email || !email.includes('@')) return;
+      try {
+        const pending = JSON.parse(localStorage.getItem('avela:newsletter-pending') ?? '[]');
+        pending.push({ email, at: new Date().toISOString() });
+        localStorage.setItem('avela:newsletter-pending', JSON.stringify(pending));
+      } catch {}
+      form.querySelector('input')?.setAttribute('disabled', 'true');
+      form.querySelector('button')?.setAttribute('disabled', 'true');
+      success.hidden = false;
+    });
+  }
+</script>
