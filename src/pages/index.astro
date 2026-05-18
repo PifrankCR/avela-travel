@@ -110,7 +110,7 @@ const schema = {
   </section>
 
   <!-- ─── COMMITMENT ─── -->
-  <section class="commitment-band" style="background: var(--green-deep);">
+  <section class="commitment-band commitment-textured">
     <div class="commitment-band-inner reveal">
       <p class="eyebrow">Integrity · Impact · Legacy</p>
       <h2>Nosara is changing.<br />We choose to protect it.</h2>
@@ -1060,6 +1060,37 @@ const schema = {
   /* ─── Commitment band (homepage condensed manifesto) ─── */
   .commitment-band {
     padding: clamp(5rem, 9vw, 8rem) var(--gutter);
+  }
+  .commitment-textured {
+    position: relative;
+    background-color: var(--green-deep);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .commitment-textured::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/textures/contour.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.42;
+    z-index: 0;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+  .commitment-textured::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(58, 79, 65, 0.55) 75%, var(--green-deep) 100%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .commitment-textured .commitment-band-inner {
+    position: relative;
+    z-index: 1;
   }
   .commitment-band-inner {
     max-width: 820px;
