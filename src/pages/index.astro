@@ -308,17 +308,19 @@ const schema = {
             cta: { href: '/contact?trip=retreat', label: 'Plan a retreat' },
           },
         ].map((p, i) => (
-          <article class="persona-card reveal" style={`--delay:${i * 100}ms`}>
+          <a href={p.cta.href} class="persona-card reveal" style={`--delay:${i * 100}ms`} aria-label={`${p.name}: ${p.cta.label}`}>
             <div class="persona-image">
-              <img src={p.image} alt={p.imageAlt} loading="lazy" decoding="async"  width="800" height="1000"/>
+              <img src={p.image} alt={p.imageAlt} loading="lazy" decoding="async" width="800" height="1000"/>
             </div>
-            <div class="persona-content">
+            <div class="persona-overlay">
               <h3>{p.name}</h3>
-              <p class="persona-hook">{p.hook}</p>
-              <p class="persona-desc">{p.desc}</p>
-              <a href={p.cta.href} class="persona-cta">{p.cta.label} →</a>
+              <div class="persona-detail">
+                <p class="persona-hook">{p.hook}</p>
+                <p class="persona-desc">{p.desc}</p>
+                <span class="persona-cta">{p.cta.label} →</span>
+              </div>
             </div>
-          </article>
+          </a>
         ))}
       </div>
     </div>
@@ -1435,16 +1437,19 @@ const schema = {
   }
 
   .persona-card {
-    background: var(--cream);
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    display: block;
+    aspect-ratio: 4 / 5;
     overflow: hidden;
+    background: var(--dark);
+    color: var(--warm-cream);
+    text-decoration: none;
     transition-delay: var(--delay, 0ms);
   }
 
   .persona-image {
-    aspect-ratio: 4 / 5;
-    overflow: hidden;
+    position: absolute;
+    inset: 0;
   }
 
   .persona-image img {
@@ -1452,60 +1457,99 @@ const schema = {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.6s var(--ease-smooth);
+    transition: transform 0.7s var(--ease-smooth), filter 0.45s var(--ease-smooth);
   }
 
-  .persona-card:hover .persona-image img {
-    transform: scale(1.04);
-  }
-
-  .persona-content {
-    padding: 1.75rem 1.5rem 2rem;
+  .persona-overlay {
+    position: absolute;
+    inset: 0;
     display: flex;
     flex-direction: column;
-    flex: 1;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(to bottom, rgba(19, 18, 16, 0) 0%, rgba(19, 18, 16, 0.45) 100%);
+    transition: background 0.4s var(--ease-smooth);
   }
 
-  .persona-content h3 {
+  .persona-overlay h3 {
     font-family: var(--font-display);
-    font-size: 26px;
+    font-size: clamp(22px, 2.2vw, 28px);
     line-height: 1.1;
-    margin: 0 0 0.6rem;
-    color: var(--dark);
+    margin: 0;
+    color: var(--warm-cream);
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+    transition: transform 0.4s var(--ease-smooth);
+  }
+
+  .persona-detail {
+    max-width: 320px;
+    margin-top: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 0.35s var(--ease-smooth), max-height 0.45s var(--ease-smooth), margin-top 0.35s var(--ease-smooth);
   }
 
   .persona-hook {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.45;
-    color: var(--brown);
-    margin: 0 0 0.9rem;
+    color: var(--warm-cream);
+    margin: 0 0 0.55rem;
+    opacity: 0.92;
   }
 
   .persona-desc {
-    font-size: 14px;
+    font-size: 13.5px;
     line-height: 1.6;
-    color: rgba(19, 18, 16, 0.72);
-    margin: 0 0 1.5rem;
-    flex: 1;
+    color: rgba(255, 241, 207, 0.88);
+    margin: 0 0 1rem;
   }
 
   .persona-cta {
+    display: inline-block;
     font-family: var(--font-body);
     font-size: 11px;
     font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--green-deep);
-    align-self: flex-start;
+    color: var(--amber);
     border-bottom: 1px solid currentColor;
-    padding-bottom: 4px;
-    transition: color 0.25s var(--ease-smooth);
+    padding-bottom: 3px;
   }
 
-  .persona-cta:hover {
-    color: var(--brown);
+  @media (hover: hover) {
+    .persona-card:hover .persona-image img {
+      transform: scale(1.05);
+      filter: brightness(0.55);
+    }
+    .persona-card:hover .persona-overlay {
+      background: linear-gradient(to bottom, rgba(19, 18, 16, 0.35) 0%, rgba(19, 18, 16, 0.55) 100%);
+    }
+    .persona-card:hover .persona-detail {
+      opacity: 1;
+      max-height: 320px;
+      margin-top: 0.9rem;
+    }
+    .persona-card:hover .persona-overlay h3 {
+      transform: translateY(-2px);
+    }
+  }
+
+  @media (hover: none) {
+    .persona-overlay {
+      justify-content: flex-end;
+      background: linear-gradient(to bottom, rgba(19, 18, 16, 0) 0%, rgba(19, 18, 16, 0.7) 70%);
+    }
+    .persona-detail {
+      opacity: 1;
+      max-height: none;
+      margin-top: 0.9rem;
+    }
   }
 
   @media (max-width: 1100px) {
