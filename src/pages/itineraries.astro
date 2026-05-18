@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const itineraries = [
   {
     slug: 'family',
-    eyebrow: '01 — Family',
+    eyebrow: '01 · Family',
     name: 'The Family Week',
     duration: '7–8 nights',
     sleeps: 'Up to 14 guests',
@@ -14,19 +14,19 @@ const itineraries = [
     description:
       'For multigenerational trips, school breaks, and milestone birthdays. We split coaching across instructors so beginners get whitewater while parents catch real waves down the beach. Restaurant tables held, ATV waterfall day staged for the eight-year-olds, sunset pilates queued for grandma.',
     sample: [
-      'Day 1 — Liberia arrival, Sansa flight to Nosara, villa welcome',
-      'Day 2 — Sunrise yoga, family surf lesson, lunch at La Ventanita',
-      'Day 3 — ATV adventure with Pipin, waterfall stop, chef dinner',
-      'Day 4 — Boat day to Isla San Juanillo, snorkeling, ceviche on deck',
-      'Day 5 — Howler monkey morning walk, pool day, sound healing in the villa',
-      'Day 6 — Beach sunset, group chef dinner under the stars',
-      'Day 7 — Final surf, departure to Liberia',
+      'Day 1: Liberia arrival, Sansa flight to Nosara, villa welcome',
+      'Day 2: Sunrise yoga, family surf lesson, lunch at La Ventanita',
+      'Day 3: ATV adventure with Pipin, waterfall stop, chef dinner',
+      'Day 4: Boat day to Isla San Juanillo, snorkeling, ceviche on deck',
+      'Day 5: Howler monkey morning walk, pool day, sound healing in the villa',
+      'Day 6: Beach sunset, group chef dinner under the stars',
+      'Day 7: Final surf, departure to Liberia',
     ],
     cta: { href: '/contact?trip=family', label: 'Plan a family week' },
   },
   {
     slug: 'couple',
-    eyebrow: '02 — Couples',
+    eyebrow: '02 · Couples',
     name: 'The Couple’s Escape',
     duration: '5–6 nights',
     sleeps: '2 guests',
@@ -36,18 +36,18 @@ const itineraries = [
     description:
       'A slower rhythm with the kind of surprises that make a trip memorable. A bottle of natural wine on the terrace when you arrive. A chef-tasting dinner with candle-lit table by the pool. A morning paddleboard with the dolphins. Private yoga at sunrise, in-villa spa at sunset.',
     sample: [
-      'Day 1 — Private transfer, sunset cocktails, welcome chef dinner',
-      'Day 2 — Sunrise yoga, beach walk, lunch at Pelada, pool day',
-      'Day 3 — Surf together with a private coach, lunch on the boat',
-      'Day 4 — Couples massage at the villa, sunset sail with paddleboards',
-      'Day 5 — Chef tasting dinner, stargazing on the deck',
-      'Day 6 — Final breakfast, transfer back',
+      'Day 1: Private transfer, sunset cocktails, welcome chef dinner',
+      'Day 2: Sunrise yoga, beach walk, lunch at Pelada, pool day',
+      'Day 3: Surf together with a private coach, lunch on the boat',
+      'Day 4: Couples massage at the villa, sunset sail with paddleboards',
+      'Day 5: Chef tasting dinner, stargazing on the deck',
+      'Day 6: Final breakfast, transfer back',
     ],
     cta: { href: '/contact?trip=couple', label: 'Plan a couple’s escape' },
   },
   {
     slug: 'wellness',
-    eyebrow: '03 — Wellness',
+    eyebrow: '03 · Wellness',
     name: 'The Wellness Reset',
     duration: '5–7 nights',
     sleeps: '2–8 guests',
@@ -57,19 +57,19 @@ const itineraries = [
     description:
       'For solo travelers, couples, or small groups who came to actually unwind. Private practitioners delivered to your villa, dedicated shala space, and a chef who understands what your body needs after a long flow. Pair with ice baths, contrast therapy, or plant medicine ceremonies with reputable practitioners.',
     sample: [
-      'Day 1 — Arrival, integration call, light dinner, early sleep',
-      'Day 2 — Morning yoga, beach walk, lunch, afternoon massage',
-      'Day 3 — Surf or paddleboard, lunch, sound bath at sunset',
-      'Day 4 — Long flow, contrast therapy, plant-forward chef dinner',
-      'Day 5 — Pilates, jungle hike, breathwork journey',
-      'Day 6 — Closing ceremony, final dinner, integration',
-      'Day 7 — Departure',
+      'Day 1: Arrival, integration call, light dinner, early sleep',
+      'Day 2: Morning yoga, beach walk, lunch, afternoon massage',
+      'Day 3: Surf or paddleboard, lunch, sound bath at sunset',
+      'Day 4: Long flow, contrast therapy, plant-forward chef dinner',
+      'Day 5: Pilates, jungle hike, breathwork journey',
+      'Day 6: Closing ceremony, final dinner, integration',
+      'Day 7: Departure',
     ],
     cta: { href: '/contact?trip=wellness', label: 'Plan a wellness reset' },
   },
   {
     slug: 'group',
-    eyebrow: '04 — Group',
+    eyebrow: '04 · Group',
     name: 'The Group Celebration',
     duration: '4–7 nights',
     sleeps: '10–16 guests',
@@ -79,13 +79,13 @@ const itineraries = [
     description:
       'For groups that want the whole thing on one estate. Villas that sleep up to sixteen with a 25-meter lap pool, yoga facility, and bunk rooms. Private boats for the whole crew, chef dinners that turn into long nights on the terrace, surf lessons split across multiple coaches.',
     sample: [
-      'Day 1 — Group arrival, welcome cocktails, BBQ on the terrace',
-      'Day 2 — Group surf lesson, lunch on the beach, evening pool party',
-      'Day 3 — Full-day boat charter, fishing, sunset cruise',
-      'Day 4 — ATV expedition, waterfall, group chef dinner',
-      'Day 5 — Spa day, pilates, long-table tasting dinner',
-      'Day 6 — Brunch, beach hang, final group dinner',
-      'Day 7 — Group departure',
+      'Day 1: Group arrival, welcome cocktails, BBQ on the terrace',
+      'Day 2: Group surf lesson, lunch on the beach, evening pool party',
+      'Day 3: Full-day boat charter, fishing, sunset cruise',
+      'Day 4: ATV expedition, waterfall, group chef dinner',
+      'Day 5: Spa day, pilates, long-table tasting dinner',
+      'Day 6: Brunch, beach hang, final group dinner',
+      'Day 7: Group departure',
     ],
     cta: { href: '/contact?trip=group', label: 'Plan a group trip' },
   },
@@ -108,8 +108,8 @@ const pageSchema = {
 ---
 
 <BaseLayout
-  title="Itineraries | Avela Travel — Nosara, Costa Rica"
-  description="Sample Nosara itineraries built by Avela: family weeks, couples escapes, wellness resets, and group celebrations. Each trip is custom — these are starting points."
+  title="Itineraries | Avela Travel | Nosara, Costa Rica"
+  description="Sample Nosara itineraries built by Avela: family weeks, couples escapes, wellness resets, and group celebrations. Each trip is custom. These are starting points."
   schema={pageSchema}
 >
   <!-- ─── HERO ─── -->
@@ -120,7 +120,7 @@ const pageSchema = {
         Four ways to <em>travel with us</em>
       </h1>
       <p class="hero-lede">
-        Every Avela trip is custom. These are the four shapes most of our trips take —
+        Every Avela trip is custom. These are the four shapes most of our trips take,
         starting points we tune around your dates, your group, and what you came here to feel.
       </p>
     </div>
