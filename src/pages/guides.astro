@@ -111,13 +111,13 @@ const pageSchema = {
       <div class="guides-grid">
         {guides.map((g, i) => (
           <article class="guide-card reveal" style={`--delay:${i * 60}ms`}>
-            <a href={`#${g.slug}`} class="guide-card-link" aria-label={g.title}>
+            <a href={`/guides/${g.slug}`} class="guide-card-link" aria-label={g.title}>
               <div class="guide-card-icon" set:html={g.icon}></div>
               <div class="guide-card-body">
                 <p class="guide-card-cat">{g.category} · {g.duration}</p>
                 <h2>{g.title}</h2>
                 <p class="guide-card-excerpt">{g.excerpt}</p>
-                <span class="guide-card-arrow">Coming soon →</span>
+                <span class="guide-card-arrow">Read guide →</span>
               </div>
             </a>
           </article>

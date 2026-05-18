@@ -1,0 +1,245 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+
+const title = 'Wellness in Nosara';
+const description =
+  'A practical guide to wellness in Nosara: the yoga shalas worth your time, the reformer pilates studio everyone goes to, in-villa massage, sound healing, and how to design a real reset week.';
+const updated = 'May 2026';
+
+const faqs = [
+  {
+    q: 'Is Nosara a yoga destination?',
+    a: 'Yes. Nosara has been one of Costa Rica’s leading yoga destinations for more than two decades. The Nosara Yoga Institute (founded in 1993) helped put the town on the global yoga map, and the area now includes several established yoga retreats and shalas including Bodhi Tree Yoga Resort.',
+  },
+  {
+    q: 'Can I do reformer pilates in Nosara?',
+    a: 'Yes. Black Cat Studio in Cinco Esquinas runs reformer pilates in a small, boutique setting with top-of-the-line equipment. Private sessions and small group classes are available. We book most of our guests here.',
+  },
+  {
+    q: 'How does in-villa massage work?',
+    a: 'A licensed therapist comes to your villa with a table, oils, music, and towels. Sessions typically run 60 or 90 minutes per person. For groups, two therapists can work in parallel. You book through your Avela contact or your villa host, and the therapist arrives at the agreed time.',
+  },
+  {
+    q: 'Are there ice bath or cold plunge options?',
+    a: 'Some villas have plunge pools or dedicated cold tubs. For those that do not, a few wellness centers in town include cold plunge in their programming. Tell us during planning and we will match you to the right villa or set up access.',
+  },
+  {
+    q: 'Should I bring my own yoga mat?',
+    a: 'No. Studios provide mats, and most villas have mats available. If you have a specific mat you love, bring it, but it is not required.',
+  },
+];
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      datePublished: '2026-05-18',
+      dateModified: '2026-05-18',
+      author: { '@type': 'Organization', name: 'Avela Travel' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Avela Travel',
+        logo: { '@type': 'ImageObject', url: 'https://avela.travel/images/avela-logo.png' },
+      },
+      mainEntityOfPage: 'https://avela.travel/guides/wellness-in-nosara',
+      image: 'https://avela.travel/images/experiences/wellness.jpg',
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+};
+
+const related = [
+  { slug: 'the-blue-zone', title: 'Why Nosara is a Blue Zone', category: 'Place' },
+  { slug: 'when-to-visit', title: 'When to visit Nosara', category: 'Seasons' },
+  { slug: 'eating-in-nosara', title: 'Eating in Nosara', category: 'Food' },
+];
+---
+
+<GuideLayout
+  title={title}
+  description={description}
+  category="Wellness"
+  readTime="6 min read"
+  heroImage="/images/experiences/wellness.jpg"
+  heroImageAlt="Open-air yoga shala with mats laid out, Nosara, Costa Rica"
+  updated={updated}
+  pageSchema={pageSchema}
+  related={related}
+>
+  <p>
+    Nosara has been a wellness destination since the early 1990s,
+    when the Nosara Yoga Institute opened and began training
+    teachers in what would eventually become a global yoga town. The
+    scene has matured. Today the area has serious reformer pilates,
+    skilled massage therapists, sound healing, several established
+    yoga retreats, and a steady stream of teachers passing through
+    on offerings.
+  </p>
+  <p>
+    This is the working version of what we book for our guests, what
+    is genuinely good, and what is more marketing than substance.
+  </p>
+
+  <h2>Yoga</h2>
+  <p>
+    Nosara is one of the best yoga destinations in the Americas.
+    There are a few different ways to engage with it depending on
+    your goals.
+  </p>
+
+  <h3>In-villa private sessions</h3>
+  <p>
+    The simplest option, and the one most of our guests choose. A
+    teacher comes to your villa with mats, blocks, and music, and
+    leads a session on your deck or in your shala. Sessions are
+    paced to your group, your bodies, and the time of day.
+  </p>
+  <p>
+    We work with several teachers in Nosara across styles, including
+    Mark, a well-known local teacher whose mindful movement
+    sessions are a favorite for the first morning of a trip.
+  </p>
+
+  <h3>Drop-in studio classes</h3>
+  <p>
+    Several studios in town run daily public classes you can drop
+    into. Styles range from vinyasa flow to slower restorative,
+    yin, and meditation. Most classes are taught in English. A few
+    of the main shalas:
+  </p>
+  <ul>
+    <li><strong>Bodhi Tree Yoga Resort</strong>, one of the most established yoga retreat centers in Costa Rica, with a busy daily class schedule open to the public.</li>
+    <li><strong>Nosara Yoga Institute</strong>, the original. Still a respected presence in the town, and a regular host for teacher training programs.</li>
+  </ul>
+  <p>
+    Schedules shift seasonally, so check the day-of schedule when
+    you arrive.
+  </p>
+
+  <h3>Retreats</h3>
+  <p>
+    A full week-long retreat in Nosara is its own kind of
+    experience. We can build the entire retreat structure for a
+    private group: villa stay, private chef with retreat menus,
+    daily private yoga, sound healing, massage, ocean swims, and a
+    closing celebration. If that is the shape of your trip, tell us
+    early and we will build around it.
+  </p>
+
+  <h2>Reformer pilates</h2>
+  <p>
+    The pilates scene in Nosara is small and very good.
+  </p>
+  <h3>Black Cat Studio</h3>
+  <p>
+    Located in Tribu Plaza, Cinco Esquinas. A small, beautifully
+    appointed studio with top-of-the-line reformers and skilled
+    instructors. Private sessions for up to six are excellent for
+    groups, and small classes are available on the standard
+    schedule. The session pace is energizing without being punishing.
+  </p>
+  <p>
+    Wear comfortable clothes and grippy socks if you have them.
+    Bring a water bottle. Most guests book at least two sessions in
+    a week.
+  </p>
+
+  <h2>Massage</h2>
+  <p>
+    In-villa massage is one of the most cost-effective luxuries in
+    Nosara. A licensed therapist arrives at your villa with their
+    own table, oils, and music. Sessions are typically 60 or 90
+    minutes per person, and for groups, two therapists can work
+    side by side.
+  </p>
+  <p>
+    Styles available include:
+  </p>
+  <ul>
+    <li><strong>Swedish</strong>, for general relaxation.</li>
+    <li><strong>Deep tissue</strong>, for travel knots and serious surf bodies.</li>
+    <li><strong>Thai</strong>, for stretching and energy work.</li>
+    <li><strong>Prenatal</strong>, for expecting mothers.</li>
+    <li><strong>Couples massage</strong>, in parallel.</li>
+  </ul>
+  <p>
+    Sunset massage on a villa deck is one of the most-requested
+    experiences of the week.
+  </p>
+
+  <h2>Sound healing and breathwork</h2>
+  <p>
+    Sound healing sessions have become a steady part of the Nosara
+    wellness rhythm. Crystal bowls, gongs, and chimes used in a
+    structured 60 to 90 minute session, typically combined with
+    light breathwork or guided meditation. For groups, in-villa
+    sessions work especially well.
+  </p>
+  <p>
+    Like any wellness modality, the quality of the practitioner
+    matters. We work with a short list of facilitators we know and
+    trust. Ask us during planning and we will match the right
+    person to your group.
+  </p>
+
+  <h2>Cold plunges and recovery</h2>
+  <p>
+    A few villas have built-in cold plunge tubs. A handful of
+    wellness centers in town offer cold therapy on a drop-in basis.
+    Combined with a long surf morning and a hot shower, a 90-second
+    plunge is the kind of small habit that travels home with you.
+  </p>
+
+  <h2>A short note on plant medicine</h2>
+  <p>
+    Plant medicine ceremonies (ayahuasca, psilocybin, kambo) have a
+    visible presence in Nosara, the way they do across much of
+    Costa Rica. We do not facilitate or recommend any of this,
+    full stop. The space is largely unregulated, the quality of
+    practitioners varies widely, and the potential risks include
+    serious medical complications and psychological harm. If this
+    is something you are considering, do your own deep research,
+    consult your doctor, and be very skeptical of glossy
+    marketing.
+  </p>
+
+  <h2>Designing a real reset week</h2>
+  <p>
+    If wellness is the centerpiece of your trip rather than a side
+    activity, here is the shape we typically build:
+  </p>
+  <ol>
+    <li><strong>Arrival day.</strong> Gentle settling in. Chef-prepared dinner at the villa. Early sleep.</li>
+    <li><strong>Day 2.</strong> Morning private yoga on the villa deck. Light beach swim. Massage in the late afternoon.</li>
+    <li><strong>Day 3.</strong> Reformer pilates session at Black Cat. Light lunch at Sunrise. Sound healing at sunset.</li>
+    <li><strong>Day 4.</strong> Active rest. Long walk, slow lunch, nap, ocean swim.</li>
+    <li><strong>Day 5.</strong> Morning yoga, ATV or jungle waterfall day, deep tissue massage at night.</li>
+    <li><strong>Day 6.</strong> Pilates morning, organic market visit, in-villa cooking experience with the chef.</li>
+    <li><strong>Day 7.</strong> Sunrise meditation, final session of your favorite practice, group sound healing.</li>
+    <li><strong>Day 8.</strong> Slow breakfast, departure.</li>
+  </ol>
+  <p>
+    Pacing matters more than volume. A reset week is not about
+    stacking sessions. It is about creating space between them.
+  </p>
+
+  <h2>Frequently asked questions</h2>
+  <div class="guide-faq">
+    {faqs.map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+</GuideLayout>

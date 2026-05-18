@@ -1,0 +1,181 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+
+const title = 'What to pack for Nosara';
+const description =
+  'A short, honest pack list for Nosara that works in both dry and green season. Reef-safe sunscreen, the one dressy outfit, the small things nobody brings but always needs.';
+const updated = 'May 2026';
+
+const faqs = [
+  {
+    q: 'What kind of clothing should I bring to Nosara?',
+    a: 'Light, breathable fabrics. Linen, cotton, and quick-dry layers. The Pacific coast is warm and humid year-round, with temperatures consistently in the 80s°F (high 20s°C). Pack swimsuits, cover-ups, sandals, and one outfit you would feel good wearing to a sit-down dinner. A light layer for breezy evenings is helpful in dry season.',
+  },
+  {
+    q: 'Do I need bug spray for Nosara?',
+    a: 'Yes. Mosquitoes are most active at dawn, dusk, and during green season. A natural repellent or one with DEET works. Many villas provide spray for guests, but bringing your preferred brand is smart.',
+  },
+  {
+    q: 'Should I bring my own beach towels?',
+    a: 'No. Every villa we work with provides beach towels and bath towels. Save the space for other things.',
+  },
+  {
+    q: 'What about electronics adapters?',
+    a: 'Costa Rica uses the same plug type and voltage as the United States and Canada (Type A/B, 110V). No adapter needed for North American devices. Travelers from the UK, EU, or Australia will want a US plug adapter.',
+  },
+  {
+    q: 'Is there anything I should leave at home?',
+    a: 'Heavy fabrics, formal wear, and a hair dryer you will never use. Nosara is a barefoot, beach-rhythm town. Even the nicest restaurants are casual.',
+  },
+];
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      datePublished: '2026-05-18',
+      dateModified: '2026-05-18',
+      author: { '@type': 'Organization', name: 'Avela Travel' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Avela Travel',
+        logo: { '@type': 'ImageObject', url: 'https://avela.travel/images/avela-logo.png' },
+      },
+      mainEntityOfPage: 'https://avela.travel/guides/what-to-pack',
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+};
+
+const related = [
+  { slug: 'getting-to-nosara', title: 'Getting to Nosara', category: 'Logistics' },
+  { slug: 'with-kids', title: 'Nosara with kids', category: 'Family' },
+  { slug: 'when-to-visit', title: 'When to visit Nosara', category: 'Seasons' },
+];
+---
+
+<GuideLayout
+  title={title}
+  description={description}
+  category="Logistics"
+  readTime="4 min read"
+  updated={updated}
+  pageSchema={pageSchema}
+  related={related}
+>
+  <p>
+    Nosara is a place where you can almost always wear the same three
+    things and look completely appropriate. Pack light. The climate is
+    consistent, the dress code is forgiving, and most things you
+    forget can be picked up in town.
+  </p>
+  <p>
+    Here is the short list we send our guests.
+  </p>
+
+  <h2>Clothing</h2>
+  <ul>
+    <li><strong>Swimsuits.</strong> Bring two or three. You will live in them.</li>
+    <li><strong>Linen, cotton, or quick-dry pieces.</strong> Light fabrics in light colors. Skip anything heavy.</li>
+    <li><strong>One dinner outfit per person.</strong> A nice sundress, a linen shirt and trousers. The fancier restaurants in town are still casual, but it feels good to dress up once.</li>
+    <li><strong>A light layer.</strong> Cool evenings happen, especially in dry-season December and January. A light cardigan, a long-sleeved shirt, or a thin jumper is enough.</li>
+    <li><strong>Workout clothes</strong> if yoga, Pilates, or surf is part of your week.</li>
+    <li><strong>A rash guard or surf shirt.</strong> The sun is intense. Even strong swimmers wear one.</li>
+  </ul>
+
+  <h2>Footwear</h2>
+  <ul>
+    <li><strong>Sandals or slides</strong> for daily wear. Walk everywhere in them.</li>
+    <li><strong>Closed-toe shoes</strong> for ATV days, jungle trails, and the occasional rainy walk. Sneakers or trail runners work fine.</li>
+    <li><strong>Flip-flops</strong> for the beach. Easy to slip on and off at the villa.</li>
+  </ul>
+  <p>
+    Skip heels. The roads are unpaved. There is nowhere to wear them.
+  </p>
+
+  <h2>Sun and skin</h2>
+  <ul>
+    <li><strong>Reef-safe sunscreen.</strong> Mineral, zinc-based formulas. Costa Rica protects its marine environment, and chemical sunscreens damage coral and marine life. Bring more than you think you need: 30 SPF or higher.</li>
+    <li><strong>A wide-brimmed hat.</strong> Practical, not optional.</li>
+    <li><strong>Sunglasses</strong> with UV protection.</li>
+    <li><strong>A good after-sun lotion or aloe.</strong> The sun is stronger than you expect.</li>
+    <li><strong>Lip balm with SPF.</strong> The little detail nobody packs.</li>
+  </ul>
+
+  <h2>The things nobody brings</h2>
+  <p>
+    These are the items we have heard guests wish they had packed:
+  </p>
+  <ul>
+    <li><strong>A small reusable water bottle.</strong> Most villas have filtered water stations. Skip single-use plastic.</li>
+    <li><strong>A power bank.</strong> Outlets are not always where you want them at the beach or on a long drive.</li>
+    <li><strong>A dry bag.</strong> Useful on catamaran days, ATV days, and any time your phone needs to be near the water.</li>
+    <li><strong>A small first-aid kit.</strong> Band-aids, motion-sickness pills for catamaran trips, electrolyte packets, and any prescription medications.</li>
+    <li><strong>Bug spray you actually like.</strong> Many villas provide it, but the brand may not match what you use at home.</li>
+    <li><strong>A book or two.</strong> The wifi is good. The screens are easy to forget.</li>
+  </ul>
+
+  <h2>For surfers</h2>
+  <ul>
+    <li><strong>Wax</strong> if you have a particular preference. Tropical wax is widely available locally.</li>
+    <li><strong>A ding repair kit</strong> if you are bringing your own board.</li>
+    <li><strong>A surf hat or buff</strong> for longer sessions in midday sun.</li>
+  </ul>
+  <p>
+    Boards are rentable in every shape and size. We do not recommend
+    flying with a board unless you have a specific shape you cannot
+    replicate locally.
+  </p>
+
+  <h2>For families with young children</h2>
+  <ul>
+    <li><strong>UV swim shirts</strong> for kids. Even more important than for adults.</li>
+    <li><strong>Reef shoes or water shoes</strong> for tide pools and rocky cove entries.</li>
+    <li><strong>A favorite snack or two</strong> for the travel days. Picky-eater insurance.</li>
+    <li><strong>Their own water bottle.</strong></li>
+  </ul>
+  <p>
+    Car seats can be requested through our transport partner Terratour
+    Shuttles. Most villas can provide cribs, pack-and-plays, and high
+    chairs on request.
+  </p>
+
+  <h2>Cash, cards, and connectivity</h2>
+  <ul>
+    <li><strong>A credit card</strong> with no foreign transaction fee. Widely accepted.</li>
+    <li><strong>Some US dollars</strong> in small bills (1s, 5s, 10s) for tips and small vendors. USD is widely accepted across Nosara.</li>
+    <li><strong>A small amount of Costa Rican colónes</strong> (CRC) for the most local sodas and markets. ATMs in Nosara are reliable.</li>
+    <li><strong>Your phone with an eSIM</strong> or international plan. Wifi at most villas is excellent, but mobile service is useful on the road. Local SIM cards from Kolbi or Claro are easy to set up at the airport in Liberia.</li>
+  </ul>
+
+  <h2>Travel tips at a glance</h2>
+  <ol>
+    <li><strong>Pack light, breathable layers.</strong> Linen and cotton win.</li>
+    <li><strong>Footwear matters.</strong> Bring something closed-toe for the unpaved roads.</li>
+    <li><strong>Sun care is serious.</strong> Reef-safe sunscreen, hat, sunglasses, lip balm with SPF.</li>
+    <li><strong>Bring bug spray.</strong> Natural or DEET. Mosquitoes love the tropics as much as you do.</li>
+    <li><strong>Stay hydrated.</strong> Drink water. Coconut water is everywhere and works.</li>
+    <li><strong>Carry small bills.</strong> Helpful for tips and local vendors.</li>
+    <li><strong>Learn a few Spanish phrases.</strong> A simple <em>Pura Vida</em> and a smile go a long way.</li>
+  </ol>
+
+  <h2>Frequently asked questions</h2>
+  <div class="guide-faq">
+    {faqs.map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+</GuideLayout>

@@ -1,0 +1,234 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+
+const title = 'Why Nosara is a Blue Zone';
+const description =
+  'The Nicoya Peninsula is one of five places on Earth where people consistently live past 100. Here is what that means in practice, what changes when you spend a week here, and the small habits that travel home with you.';
+const updated = 'May 2026';
+
+const faqs = [
+  {
+    q: 'What is a Blue Zone?',
+    a: 'A Blue Zone is one of five regions identified by researchers, journalist Dan Buettner, and National Geographic where people live measurably longer and healthier lives than the global average. The five Blue Zones are the Nicoya Peninsula in Costa Rica, Sardinia in Italy, Okinawa in Japan, Ikaria in Greece, and Loma Linda in California.',
+  },
+  {
+    q: 'Where exactly is the Nicoya Blue Zone?',
+    a: 'The Nicoya Blue Zone covers the Nicoya Peninsula in northwestern Costa Rica, particularly the more rural, inland communities of southern Guanacaste. Nosara sits at the southern coastal edge of this region.',
+  },
+  {
+    q: 'Why do Nicoyans live so long?',
+    a: 'Researchers point to a combination of factors: a diet centered on beans, corn, squash, and tropical fruit; a calcium-rich and magnesium-rich local water supply; consistent physical activity through daily life rather than gym workouts; strong community and family ties; a sense of purpose (the local concept of plan de vida); and abundant sunlight providing vitamin D.',
+  },
+  {
+    q: 'Do I have to live in Nicoya to get Blue Zone benefits?',
+    a: 'No. The point of Blue Zone research is that the daily habits are transferable. Eating more plants, moving naturally throughout the day, prioritizing relationships, and reducing chronic stress are the building blocks. A week in Nosara is not a cure, but it is one of the most effective resets we have seen for guests willing to engage with the rhythm of the place.',
+  },
+  {
+    q: 'Will I really feel different after a week?',
+    a: 'Most of our guests do. Some of it is the obvious: sleep is deeper, food is fresher, screens are not the center of the day. Some of it is more subtle: a shift in pace that takes a few days to settle in, and a few days to lose once you go home.',
+  },
+];
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      datePublished: '2026-05-18',
+      dateModified: '2026-05-18',
+      author: { '@type': 'Organization', name: 'Avela Travel' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Avela Travel',
+        logo: { '@type': 'ImageObject', url: 'https://avela.travel/images/avela-logo.png' },
+      },
+      mainEntityOfPage: 'https://avela.travel/guides/the-blue-zone',
+      image: 'https://avela.travel/images/nosara/pink-island.jpg',
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+};
+
+const related = [
+  { slug: 'wellness-in-nosara', title: 'Wellness in Nosara', category: 'Wellness' },
+  { slug: 'eating-in-nosara', title: 'Eating in Nosara', category: 'Food' },
+  { slug: 'when-to-visit', title: 'When to visit', category: 'Seasons' },
+];
+---
+
+<GuideLayout
+  title={title}
+  description={description}
+  category="Place"
+  readTime="7 min read"
+  heroImage="/images/nosara/pink-island.jpg"
+  heroImageAlt="Aerial of a small pink-sand spit in turquoise water off the Nicoya Peninsula, Costa Rica"
+  updated={updated}
+  pageSchema={pageSchema}
+  related={related}
+>
+  <p>
+    The Nicoya Peninsula in northwestern Costa Rica is one of five
+    places on Earth where people consistently live past 100. The
+    others are Sardinia in Italy, Okinawa in Japan, Ikaria in Greece,
+    and Loma Linda in California. The five regions were identified by
+    researchers and journalist Dan Buettner working with National
+    Geographic, and the concept is now a well-established field of
+    longevity study.
+  </p>
+  <p>
+    Nicoyans, on average, are roughly two and a half times more likely
+    to reach 90 than Americans, with much lower rates of heart disease
+    and cancer along the way. That is not folklore. It is documented
+    in demographic studies.
+  </p>
+  <p>
+    Nosara sits at the southern coastal edge of this Blue Zone. What
+    follows is what that means in practice, and what we have watched
+    it do to the guests who come stay with us.
+  </p>
+
+  <h2>What researchers actually found</h2>
+  <p>
+    Blue Zone research is not about a single miracle ingredient. It
+    is about overlapping daily habits that compound over decades.
+    Across all five Blue Zones, researchers identified a common set
+    of patterns. In Nicoya specifically, the strongest threads are:
+  </p>
+  <h3>The diet</h3>
+  <p>
+    Beans, corn, and squash are the foundation. The traditional
+    Nicoyan plate centers on whole foods, with tropical fruit and
+    fresh fish in supporting roles. Meat is a smaller presence than
+    in most North American diets. Processed food and added sugar are
+    limited in traditional households.
+  </p>
+  <h3>The water</h3>
+  <p>
+    The local groundwater on the Nicoya Peninsula is naturally rich
+    in calcium and magnesium. Researchers have flagged this as a
+    likely contributor to the unusually low rates of heart disease
+    and bone fractures in the region.
+  </p>
+  <h3>The movement</h3>
+  <p>
+    Nicoyans do not go to the gym. They walk, garden, sweep, carry,
+    repair, and stay physically active through daily life into their
+    eighties and nineties. The kind of movement that compounds
+    quietly.
+  </p>
+  <h3>The community</h3>
+  <p>
+    Strong family ties, multigenerational households, and
+    neighborhood relationships are still the norm. Older adults live
+    among younger generations, and the concept of being useful does
+    not retire at 65.
+  </p>
+  <h3>The purpose</h3>
+  <p>
+    The local concept of <em>plan de vida</em> (literally, life plan)
+    is the Nicoyan version of what Japanese culture calls <em>ikigai</em>.
+    A reason to wake up that goes beyond the self. Research links a
+    clear sense of purpose to measurably better health outcomes.
+  </p>
+  <h3>The sun</h3>
+  <p>
+    Nicoya gets abundant year-round sun. Combined with outdoor daily
+    life, this means most residents maintain consistently healthy
+    vitamin D levels, a factor in immune function and bone health.
+  </p>
+
+  <div class="guide-pull">
+    No single factor explains why Nicoyans live so long. It is the
+    layering of small habits, sustained for decades, that creates
+    the effect.
+  </div>
+
+  <h2>How it changes a week here</h2>
+  <p>
+    Most of our guests arrive on a plan: surf, eat, swim, repeat.
+    Within three or four days, something else has usually happened,
+    almost without trying.
+  </p>
+  <h3>Sleep gets deeper</h3>
+  <p>
+    Daylight is a powerful regulator of the body’s sleep cycle.
+    Twelve hours of strong tropical sun, ocean swimming, and no
+    indoor air conditioning at night (most villas use ceiling fans
+    and open architecture) tends to reset the body’s rhythm
+    quickly. Guests routinely report sleeping seven or eight
+    consecutive hours within a couple of days.
+  </p>
+  <h3>Eating slows down</h3>
+  <p>
+    Restaurants in Nosara do not rush. Meals are paced, plated, and
+    spent at the table. Coffee gets drunk slowly. Conversation
+    happens. The pacing alone changes how much you eat and how it
+    sits.
+  </p>
+  <h3>The body stays moving</h3>
+  <p>
+    A typical Nosara week, even without scheduled exercise, includes
+    walks to the beach, paddling out for waves, climbing villa
+    stairs, and swimming in the ocean. The body does not sit still
+    much. Most guests come home moving better than when they left.
+  </p>
+  <h3>The phone moves to the background</h3>
+  <p>
+    Wifi is good in town, but the day-to-day rhythm makes it less
+    necessary. Howler monkeys do not need notifications. Sunsets do
+    not need filters. Most guests are surprised how quickly the
+    phone gets put down and stays down.
+  </p>
+
+  <h2>Bringing some of it home</h2>
+  <p>
+    The point of a Blue Zone is not that you have to move there. It
+    is that the patterns are studyable and transferable. A few of
+    the changes our guests routinely take home with them:
+  </p>
+  <ul>
+    <li><strong>Eating more plants.</strong> Beans, vegetables, and tropical fruit at the center of the plate.</li>
+    <li><strong>Walking more.</strong> Skipping the elevator, parking further away, biking on weekends.</li>
+    <li><strong>Eating with other people.</strong> Slower meals, longer dinners, fewer phones at the table.</li>
+    <li><strong>Saying <em>pura vida</em> more.</strong> Not literally. Just the underlying posture of less hurry, less complaint, more presence.</li>
+  </ul>
+
+  <h2>One honest note</h2>
+  <p>
+    Researchers have observed that the youngest generations in
+    Nicoya are not living the same lives their grandparents lived.
+    Industrialized food, soda, smartphones, and longer commutes have
+    arrived. The longevity advantage in the region is, by some
+    measures, narrowing. The pattern is not magic. It is the result
+    of choices that compound over decades, and it can be lost the
+    same way.
+  </p>
+  <p>
+    That makes the experience of spending time here even more
+    interesting. The traditional pattern is still visible if you
+    look for it. The slower meals, the multigenerational dinner
+    tables, the older women walking with bags of groceries balanced
+    on their hips. Nosara, at its best, lets you spend a week inside
+    that pattern.
+  </p>
+
+  <h2>Frequently asked questions</h2>
+  <div class="guide-faq">
+    {faqs.map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+</GuideLayout>

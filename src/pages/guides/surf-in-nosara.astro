@@ -1,0 +1,236 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+
+const title = 'Surfing Nosara';
+const description =
+  'Playa Guiones is one of the most consistent beach breaks in Central America. Here is how to read the conditions, when to surf Pelada, what board to bring, and how a Nosara surf lesson actually goes.';
+const updated = 'May 2026';
+
+const faqs = [
+  {
+    q: 'Is Nosara good for beginner surfers?',
+    a: 'Yes. Playa Guiones is widely considered one of the best learn-to-surf beaches in the Americas. It is a long sandy-bottom beach break with rolling whitewater that suits first-timers and improving surfers, and the lineup is large enough that you can almost always find space.',
+  },
+  {
+    q: 'When is the best surf in Nosara?',
+    a: 'Costa Rica catches Southern Hemisphere swell from roughly April through October, with the most consistent overhead waves usually falling between June and September. December through March is smaller and friendlier, ideal for beginners and intermediate surfers.',
+  },
+  {
+    q: 'Do I need to bring my own surfboard?',
+    a: 'No. Nosara has excellent board rentals from foam boards through performance shortboards, longboards, and mid-lengths. Bringing your own only makes sense if you have a specific shape you cannot replicate locally.',
+  },
+  {
+    q: 'How does a private surf lesson in Nosara work?',
+    a: 'You meet your instructor at the beach access, get a short on-shore briefing on technique and ocean safety, paddle out together, and surf with one-on-one or small-group coaching for roughly two hours. Our Avela instructors are ISA-certified and adapt to your level on the spot.',
+  },
+  {
+    q: 'Can advanced surfers find good waves in Nosara?',
+    a: 'Yes. Guiones holds size and the bigger swell days produce overhead peaks with both lefts and rights. For more shape and reef-like sections, Playa Pelada works at certain tides. Most experienced visitors mix Guiones with day trips to nearby points.',
+  },
+];
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      datePublished: '2026-05-18',
+      dateModified: '2026-05-18',
+      author: { '@type': 'Organization', name: 'Avela Travel' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Avela Travel',
+        logo: { '@type': 'ImageObject', url: 'https://avela.travel/images/avela-logo.png' },
+      },
+      mainEntityOfPage: 'https://avela.travel/guides/surf-in-nosara',
+      image: 'https://avela.travel/images/experiences/surf.jpg',
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+};
+
+const related = [
+  { slug: 'when-to-visit', title: 'When to visit Nosara', category: 'Seasons' },
+  { slug: 'what-to-pack', title: 'What to pack', category: 'Logistics' },
+  { slug: 'with-kids', title: 'Nosara with kids', category: 'Family' },
+];
+---
+
+<GuideLayout
+  title={title}
+  description={description}
+  category="Activities"
+  readTime="7 min read"
+  heroImage="/images/experiences/surf.jpg"
+  heroImageAlt="Surfer riding a clean wave at Playa Guiones, Nosara, Costa Rica"
+  updated={updated}
+  pageSchema={pageSchema}
+  related={related}
+>
+  <p>
+    Most people who book a trip to Nosara come, at least in part, for
+    the surf. The town grew up around it. Playa Guiones runs more than
+    five kilometers, faces directly into Pacific swell, and works on
+    almost any tide. It is the rare beach where a first-timer and a
+    serious surfer can both have a good session in the same day.
+  </p>
+
+  <h2>Playa Guiones, the main wave</h2>
+  <p>
+    Guiones is a long sandy-bottom beach break with multiple peaks
+    stretched along its length. There are no reefs and no rocks in the
+    main lineup. The bottom is forgiving, the takeoffs are gentle, and
+    the wave breaks consistently enough that you do not spend a session
+    waiting around.
+  </p>
+  <p>
+    Most days you will find clean rolling waves in the chest-to-head
+    range. Bigger swells push the size to overhead and beyond,
+    especially through Southern Hemisphere season (roughly April
+    through October). On smaller days, the beach becomes one of the
+    best teaching environments anywhere in Central America.
+  </p>
+  <h3>Reading the tides</h3>
+  <p>
+    Guiones works at all tides, but the wave changes shape with the
+    water. As a rough rule:
+  </p>
+  <ul>
+    <li><strong>Low tide</strong> tends to bowl up and break faster, with shorter rides.</li>
+    <li><strong>Mid tide</strong> is the sweet spot for most surfers. Cleaner shape, longer rides.</li>
+    <li><strong>High tide</strong> softens the wave and makes it more forgiving, great for beginners and longboarders.</li>
+  </ul>
+  <p>
+    Tides shift by about 50 minutes a day, so check the forecast each
+    morning. Most surfers in Guiones plan around two surf windows: a
+    dawn session and a late-afternoon session, ideally lined up with a
+    mid tide.
+  </p>
+
+  <h2>Playa Pelada</h2>
+  <p>
+    Pelada is the smaller, quieter cove just north of Guiones. It has
+    rocks and a couple of reef sections, and at the right tide can
+    produce a punchier, more shapely wave than Guiones. It is not a
+    beginner beach.
+  </p>
+  <p>
+    On bigger or messier days, when Guiones gets crowded or blown out,
+    Pelada is a worthwhile move if you have the experience. There is
+    also a beautiful tide-pool area at the north end at low tide,
+    which is one of the better spots in town for a slow walk and a
+    coffee.
+  </p>
+
+  <h2>When to surf, by experience level</h2>
+  <h3>Beginners</h3>
+  <p>
+    December through March is the sweet spot. Waves are smaller,
+    cleaner, and friendlier. Sessions are easy to repeat day after day.
+    A first-timer should plan two to three lessons in their first
+    week, then rent foam boards independently for follow-up sessions.
+  </p>
+
+  <h3>Intermediate surfers</h3>
+  <p>
+    Any month works, but April through June and again in November
+    deliver the best balance of consistent size and clean shape. The
+    crowd is more spread out than in peak holiday weeks.
+  </p>
+
+  <h3>Advanced surfers</h3>
+  <p>
+    June through September is your window. Forecasts get serious. The
+    bigger days produce real overhead-plus waves at Guiones with both
+    lefts and rights. We can add a guided trip up the peninsula to
+    longer-period point breaks on the right swell.
+  </p>
+
+  <h2>Surf lessons, the Avela way</h2>
+  <p>
+    Our surf instructors are <strong>ISA-certified</strong>. That
+    matters because the International Surfing Association certification
+    covers ocean safety, rescue, and structured coaching, not just
+    surfing ability.
+  </p>
+  <p>
+    A standard private lesson runs two hours and starts with a short
+    on-shore briefing on technique and ocean awareness. From there you
+    paddle out with one-on-one or small-group coaching. We size your
+    board to your weight and goal: a softer, more buoyant board to
+    start, then a shorter, more responsive board as you progress.
+  </p>
+  <p>
+    For families, we run mixed sessions where two beginners and two
+    experienced surfers can be coached simultaneously by different
+    instructors at the same time and beach. Everyone gets the right
+    level of attention, and you all eat lunch together afterward.
+  </p>
+  <div class="guide-callout">
+    <p>
+      The most common feedback from first-time surfers in Nosara: they
+      stood up in their first lesson. The second-most common: they
+      booked a second lesson the next day.
+    </p>
+  </div>
+
+  <h2>Boards, rentals, and what to bring</h2>
+  <p>
+    You do not need to travel with a board. Local rental quivers are
+    deep and most include foam learner boards, longboards, mid-lengths,
+    fish, and performance shortboards. Weekly rates are common.
+  </p>
+  <p>
+    What does help:
+  </p>
+  <ul>
+    <li><strong>A rash guard or surf shirt.</strong> The Pacific sun is intense, and wax burn on bare skin is real.</li>
+    <li><strong>Reef-safe sunscreen.</strong> Costa Rica is a country that takes ocean ecology seriously. Use mineral, zinc-based sunscreen.</li>
+    <li><strong>A small ding repair kit</strong> if you are bringing your own board.</li>
+    <li><strong>Ear protection</strong> if you are prone to swimmer’s ear. The current keeps water moving, but bigger sessions mean more water in your ears.</li>
+  </ul>
+  <p>
+    We do not recommend bringing a wetsuit. The water averages 78 to
+    82&deg;F (26 to 28&deg;C) year-round.
+  </p>
+
+  <h2>How to read a Nosara forecast</h2>
+  <p>
+    The numbers worth watching:
+  </p>
+  <ul>
+    <li><strong>Swell height</strong> in feet. Below 3 ft is small, 3 to 5 ft is the sweet spot for most, 6 ft and above is for confident surfers only.</li>
+    <li><strong>Swell period</strong> in seconds. Longer periods (14+ seconds) mean cleaner, more powerful waves. Shorter periods mean choppier, less organized swell.</li>
+    <li><strong>Swell direction.</strong> Southwest swells light up Guiones. Northwest swells tend to be smaller and less consistent.</li>
+    <li><strong>Wind.</strong> Light offshore (east) wind is ideal. By late morning the onshore westerly typically picks up, which is why dawn patrols are sacred in this town.</li>
+  </ul>
+
+  <h2>One more thing</h2>
+  <p>
+    Surf in Nosara is special partly because the lineup culture is
+    welcoming. The locals are friendly. The visiting surfers are mostly
+    here to improve, not to hassle. If you respect the basic rules
+    (look around before paddling for a wave, do not drop in, give space
+    to first-timers), the lineup will look after you. That is a real
+    part of why Guiones became what it is.
+  </p>
+
+  <h2>Frequently asked questions</h2>
+  <div class="guide-faq">
+    {faqs.map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+</GuideLayout>

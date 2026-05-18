@@ -1,0 +1,250 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+
+const title = 'Eating in Nosara';
+const description =
+  'The restaurants we book our guests into, the local sodas worth a stop, the markets that matter, and where to find the best private chefs in town. Honest picks from the Avela team on the ground.';
+const updated = 'May 2026';
+
+const faqs = [
+  {
+    q: 'Do I need reservations for restaurants in Nosara?',
+    a: 'Yes for the popular spots, especially in dry season. Harmony Hotel, Sendero Kitchen, Mama Gui, and La Luna fill up nightly between December and April. We routinely book reservations for our guests one to two weeks ahead. Casual spots like La Ventanita, Rosi’s Soda, and Howler’s are usually walk-in.',
+  },
+  {
+    q: 'Are private chefs worth it in Nosara?',
+    a: 'For groups of four or more, almost always. A private chef typically runs less than a comparable restaurant dinner per person and gives you a multi-course tasting menu in your own villa with no driving home afterward. We work with several chefs in town including Chef Carlos, Chef Casper, and Chef Esteban, each with a different style.',
+  },
+  {
+    q: 'Is the tap water safe in Nosara?',
+    a: 'Tap water in Nosara is generally considered safe to drink, but most villas provide filtered water dispensers. We default to filtered for guests with sensitive systems.',
+  },
+  {
+    q: 'What is a soda in Costa Rica?',
+    a: 'A soda is a small family-run restaurant serving traditional Costa Rican comfort food. Expect rice and beans, plantain, grilled meat or fish, and a side salad, all for a fraction of restaurant pricing. Rosi’s Soda in Guiones is a long-running local favorite.',
+  },
+  {
+    q: 'Is Nosara expensive for dining?',
+    a: 'Nosara’s sit-down restaurants are priced for a tourism economy, comparable to a smaller US beach town. Sodas and casual cafes are very affordable. Groceries at Super Nosara and Organico are similar to or slightly above US prices.',
+  },
+];
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      datePublished: '2026-05-18',
+      dateModified: '2026-05-18',
+      author: { '@type': 'Organization', name: 'Avela Travel' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Avela Travel',
+        logo: { '@type': 'ImageObject', url: 'https://avela.travel/images/avela-logo.png' },
+      },
+      mainEntityOfPage: 'https://avela.travel/guides/eating-in-nosara',
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+};
+
+const related = [
+  { slug: 'with-kids', title: 'Nosara with kids', category: 'Family' },
+  { slug: 'what-to-pack', title: 'What to pack', category: 'Logistics' },
+  { slug: 'the-blue-zone', title: 'Why Nosara is a Blue Zone', category: 'Place' },
+];
+---
+
+<GuideLayout
+  title={title}
+  description={description}
+  category="Food"
+  readTime="8 min read"
+  updated={updated}
+  pageSchema={pageSchema}
+  related={related}
+>
+  <p>
+    The food scene in Nosara has grown up fast. Ten years ago there
+    were a handful of sodas and one or two hotel restaurants. Today the
+    town has wood-fired Italian, Mediterranean-influenced tasting
+    menus, classic Costa Rican home cooking, and a serious private-chef
+    economy serving the villas.
+  </p>
+  <p>
+    This is the working list we book from, broken into the ways we
+    actually use it: long sit-down dinners, easy lunches, breakfast
+    and coffee, markets, and chefs in the villa.
+  </p>
+
+  <h2>Dinner reservations worth making</h2>
+
+  <h3>Harmony Hotel Restaurant</h3>
+  <p>
+    On the road just behind Playa Guiones, this is one of the most
+    refined dinner experiences in town. Locally sourced ingredients,
+    global influences, lush garden setting. We typically book guests
+    here for at least one dinner per stay.
+  </p>
+
+  <h3>Sendero Kitchen (at Sendero Hotel & Villas)</h3>
+  <p>
+    Casual-elegant, with an after-surf atmosphere and a menu built
+    around Nosara’s coastal cuisine. The crispy rice topped with
+    fresh tuna is a guest favorite. Reservations recommended, and
+    they accept pre-orders if your group prefers.
+  </p>
+
+  <h3>Mama Gui</h3>
+  <p>
+    Italian, with handmade pasta and wood-fired pizza. Warm, welcoming
+    atmosphere. A reliable family dinner when half the table wants
+    pizza and the other half wants a real plate of pasta.
+  </p>
+
+  <h3>La Luna</h3>
+  <p>
+    Beachfront on Playa Pelada with ocean views. Mediterranean
+    influences with local ingredients. Famous for its watermelon
+    margarita, which our guests order at least once a trip. Beautiful
+    at sunset.
+  </p>
+
+  <h3>Coyol</h3>
+  <p>
+    Perched up on the hill above Nosara, this is the sunset dinner.
+    Wood-fired dishes, craft cocktails, sweeping jungle and coastline
+    views. There is a swing at the edge of the property that has
+    become the obvious photo. Allow about 25 minutes for the drive.
+  </p>
+
+  <h3>Celajes</h3>
+  <p>
+    A healthy, locally owned restaurant near the Nosara airstrip,
+    known for fresh ingredients, bright flavors, and warm hospitality.
+    Excellent for a late breakfast or early lunch on a slower day.
+  </p>
+
+  <h2>Casual lunches and easy spots</h2>
+
+  <h3>La Ventanita</h3>
+  <p>
+    An open-air cafe in the heart of Guiones, across from Outpost. Bowls,
+    sandwiches, smoothies, and a constant flow of surfers and locals.
+    Perfect for a relaxed lunch after a morning session.
+  </p>
+
+  <h3>Howler’s Beach Lounge</h3>
+  <p>
+    Just off the North Guiones beach access by Juan Surfo’s. Light,
+    refreshing food, live music nights, and one of the best
+    tuna carpaccios in town. Note: <em>cash or Venmo only</em>.
+  </p>
+
+  <h3>Zest Kitchen and Pantry</h3>
+  <p>
+    Inside El Pueblo. Clean, simple, beautifully made dishes with
+    fresh ingredients. The lunch trio is a guest favorite, and the
+    pastry case is excellent on the way out.
+  </p>
+
+  <h3>Beach Break</h3>
+  <p>
+    A short walk south of Gilded Iguana. Bites, live music, and a
+    laid-back atmosphere. A reliable backup when the dinner plan
+    falls through.
+  </p>
+
+  <h3>Soda Rosi’s</h3>
+  <p>
+    The classic local soda. Hearty Costa Rican breakfast, fresh
+    juice, home-style cooking, and a fraction of the price of the
+    sit-down restaurants. A trip to Nosara is not complete without at
+    least one breakfast at Rosi’s.
+  </p>
+
+  <h2>Breakfast and coffee</h2>
+  <ul>
+    <li><strong>Sunrise Coffee</strong> in Playa Pelada near Cantina El Chivo. Vibrant salads, wraps, smoothies, and a welcoming vibe. Excellent for a slow morning.</li>
+    <li><strong>Beach Blend Coffee</strong>, just behind the BCR bank near the gas station. Locally roasted beans and quick, well-made coffee. A great place to grab beans to take home.</li>
+    <li><strong>Rolling Waves Coffee Shop</strong>, with locations in both Pelada and Guiones. Solid coffee and pastries.</li>
+    <li><strong>Organico Bakery</strong>, a few doors down from Limo Dan. Fresh bread, pastries, and ready-made items for villa breakfasts.</li>
+    <li><strong>Go Juice</strong>, for fresh juices, smoothies, and bowls. A clean fuel-up before a busy morning.</li>
+  </ul>
+
+  <h2>Markets and groceries</h2>
+  <p>
+    For a villa stay, you have a few good options:
+  </p>
+  <ul>
+    <li><strong>Tuesday Organic Market</strong> in Guiones, on the same road as Harmony Hotel. Local farmers, artisans, and makers. Fresh produce, prepared foods, baked goods, and a real local-scene morning. Runs 8 am to 3 pm.</li>
+    <li><strong>Super Nosara</strong>, the largest grocery store in town. Good for staples, drinks, and basics.</li>
+    <li><strong>La Bodega Nosara</strong>, a smaller market with a more curated selection. Useful for last-minute fill-ins.</li>
+    <li><strong>Organico Store</strong>, for fresh prepared items and quick grab-and-go.</li>
+    <li><strong>Swill Wine</strong>, for a thoughtful wine list and a strong premium tequila selection.</li>
+    <li><strong>Blue Zone Brewery</strong>, for beers on tap and (in our team’s opinion) the best non-alcoholic ginger beer in town.</li>
+  </ul>
+
+  <h2>Private chefs in the villa</h2>
+  <p>
+    This is where Nosara gets quietly remarkable. The private-chef
+    scene in town is real, deep, and not particularly expensive given
+    what you get. For groups of four or more, an in-villa dinner is
+    often a better value than a comparable restaurant table, and
+    nobody has to drive home.
+  </p>
+  <p>
+    We work with several chefs as part of our Avela Experience. Each
+    has a different style, and we match the chef to the group:
+  </p>
+  <ul>
+    <li><strong>Chef Carlos</strong> – Mediterranean-leaning tapas and refined family-style menus. A favorite for welcome dinners.</li>
+    <li><strong>Chef Casper</strong> – Local ingredients, technique-driven plating, multi-course tasting menus. Strong for special occasions.</li>
+    <li><strong>Chef Esteban</strong> – Warm, generous, family-style cooking. Excellent for holiday and celebration meals, including Thanksgiving feasts in the villa.</li>
+  </ul>
+  <p>
+    A typical in-villa dinner is plated for your group at your table,
+    paced over the evening, and cleaned up before the chef leaves. We
+    talk through preferences, allergies, and any dietary needs ahead
+    of time and walk every menu by you before you arrive.
+  </p>
+
+  <h2>Late-night and drinks</h2>
+  <p>
+    Nosara is not a nightlife town. Most kitchens close by 9 pm. A few
+    options for a later evening:
+  </p>
+  <ul>
+    <li><strong>Elixir</strong>, the late-night spot in Guiones, open until midnight. Excellent espresso martinis.</li>
+    <li><strong>Beach Break</strong> regularly programs live music and stays open later than most.</li>
+    <li><strong>Gilded Iguana Surf Club</strong> has a steady bar scene and runs a busy weekend rhythm.</li>
+  </ul>
+
+  <h2>Tipping</h2>
+  <p>
+    Most restaurants automatically include a 10% service charge on the
+    bill. Adding another 10 to 15% for excellent service is generous
+    and appreciated. For private chefs, a 10% gratuity is typically
+    included; any additional amount is welcome. For drivers and
+    guides, small cash tips are standard.
+  </p>
+
+  <h2>Frequently asked questions</h2>
+  <div class="guide-faq">
+    {faqs.map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+</GuideLayout>

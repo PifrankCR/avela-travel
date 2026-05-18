@@ -1,0 +1,249 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+
+const title = 'When to visit Nosara';
+const description =
+  'A month-by-month read of Nosara: dry season versus green season, surf swell windows, holiday peaks, and the quieter weeks locals consider the secret sweet spot.';
+const updated = 'May 2026';
+
+const faqs = [
+  {
+    q: 'When is the best time to visit Nosara?',
+    a: 'For most travelers, the best window is mid-November through mid-December or mid-January through April. You get dry weather, clean surf, full restaurant calendars, and slightly less pressure on prices than the absolute holiday peaks.',
+  },
+  {
+    q: 'Is it worth visiting Nosara in the green season?',
+    a: 'Yes, and for some travelers it is the best time. May through July often features lush jungle, fewer crowds, lower rates, and excellent surf. The trade is afternoon rains and a few impassable side roads. The compromise we recommend is targeting June, when the jungle is greenest and the rains are still patterned in the late afternoon rather than all day.',
+  },
+  {
+    q: 'What month has the biggest surf in Nosara?',
+    a: 'Costa Rica’s Pacific coast is exposed to Southern Hemisphere swell from about April through October, with the most consistent overhead-plus days typically falling between June and September. Winter (December through March) still produces clean waves but is generally smaller and more beginner-friendly.',
+  },
+  {
+    q: 'Does it rain all day during green season?',
+    a: 'No. Through most of the green season, mornings are sunny and rains arrive in the late afternoon and overnight. October is the major exception. That month, rains can be heavier and last longer, and a few side roads become difficult to drive.',
+  },
+  {
+    q: 'When do sea turtles nest in Ostional?',
+    a: 'Olive ridley sea turtles nest year-round at Ostional Wildlife Refuge, but the famous mass nesting events known as arribadas typically happen between July and December, usually a few days before the new or third-quarter moon. Conditions are not predictable down to the day, so a flexible plan is best.',
+  },
+];
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      datePublished: '2026-05-18',
+      dateModified: '2026-05-18',
+      author: { '@type': 'Organization', name: 'Avela Travel' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Avela Travel',
+        logo: { '@type': 'ImageObject', url: 'https://avela.travel/images/avela-logo.png' },
+      },
+      mainEntityOfPage: 'https://avela.travel/guides/when-to-visit',
+      image: 'https://avela.travel/images/hero-atardecer-playa-guiones-nosara.webp',
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+};
+
+const related = [
+  { slug: 'surf-in-nosara', title: 'Surfing Nosara', category: 'Activities' },
+  { slug: 'getting-to-nosara', title: 'Getting to Nosara', category: 'Logistics' },
+  { slug: 'what-to-pack', title: 'What to pack', category: 'Logistics' },
+];
+---
+
+<GuideLayout
+  title={title}
+  description={description}
+  category="Seasons"
+  readTime="6 min read"
+  heroImage="/images/hero-atardecer-playa-guiones-nosara.webp"
+  heroImageAlt="Sunset at Playa Guiones, Nosara, Costa Rica"
+  updated={updated}
+  pageSchema={pageSchema}
+  related={related}
+>
+  <p>
+    Nosara is a place where the weather shapes the week. Most of our
+    guests want the obvious answer (when is it sunny, when is the surf
+    good), but the more useful answer is: it depends on what you came
+    here for. A week of glassy beginner waves, a wellness retreat under
+    full jungle canopy, and a holiday gathering with family all have
+    different right answers.
+  </p>
+  <p>
+    Below is how we think about it, month by month.
+  </p>
+
+  <h2>The two seasons</h2>
+  <p>
+    Costa Rica’s Pacific coast has two seasons. Dry runs roughly
+    December through April. Green (the rainy season) runs May through
+    November. Average temperatures stay close to 80&deg;F (27&deg;C)
+    year-round.
+  </p>
+  <p>
+    The difference is not heat, it is humidity, light, and the look of
+    the landscape. Dry season is golden, brown, and sun-baked. Green
+    season is vivid, lush, and alive with sound. Both are beautiful.
+    Pick the one that matches the trip you want.
+  </p>
+
+  <h2>Month by month</h2>
+
+  <h3>January</h3>
+  <p>
+    Reliable sun, low humidity, and clean small-to-medium surf. The
+    second week of January is one of our favorite windows: the holiday
+    crowds have left, prices ease back, and the town finds its rhythm
+    again. Book early, this is a popular month.
+  </p>
+
+  <h3>February</h3>
+  <p>
+    Peak dry season. Bright mornings, hot afternoons, breezy evenings.
+    Surf tends to be small and very friendly for beginners. February
+    school breaks in North America make for a second mini-peak around
+    Presidents’ Day.
+  </p>
+
+  <h3>March</h3>
+  <p>
+    The hottest, driest stretch of the year. Spring breakers fill the
+    cafes around mid-month, and Easter (Semana Santa) often pushes
+    rates and bookings higher. If your kids are in school, plan dates
+    around their break and book early.
+  </p>
+
+  <h3>April</h3>
+  <p>
+    Late April is one of the most interesting weeks of the year. The
+    Easter rush has passed, the heat is at its peak, and the first
+    Southern Hemisphere swells begin to arrive. Surf gets bigger and
+    more consistent. If your trip is built around waves, this is when
+    we start watching the forecast closely.
+  </p>
+
+  <h3>May</h3>
+  <p>
+    The shoulder month. The first rains arrive, usually in the
+    afternoon, and the jungle starts to turn. Crowds drop noticeably.
+    Rates ease. Surf gets reliably good. This is one of our personal
+    favorite months.
+  </p>
+
+  <h3>June and July</h3>
+  <p>
+    Green season in full motion. Mornings are typically clear and
+    bright; rains pattern in around 3 or 4 pm and clear by evening. The
+    jungle is at its most beautiful: every shade of green, mango trees
+    heavy with fruit, howler monkeys loud at dawn. Surf is at its most
+    consistent. Family travel picks up around the July school break,
+    so book early if you need a large villa.
+  </p>
+
+  <h3>August</h3>
+  <p>
+    A short dry break called the <em>veranillo</em> often appears in
+    August, a week or two of mostly sunny weather inside green season.
+    Surf is strong. Crowds remain moderate.
+  </p>
+
+  <h3>September</h3>
+  <p>
+    The greenest, quietest month. Rains are heavier, but many days
+    still have a beautiful sunny morning window. Restaurants are open
+    but with reduced hours; some close for staff vacations. Rates are
+    at their lowest. For surf retreats and writing weeks, this can be
+    a gem.
+  </p>
+
+  <h3>October</h3>
+  <p>
+    The wettest month. We are honest with guests about this one:
+    October can deliver gorgeous days, but it can also deliver several
+    in a row of heavy rain and difficult roads. Many businesses close
+    for renovations. We rarely book new guests for October unless they
+    are returning visitors who already know what they are signing up
+    for.
+  </p>
+
+  <h3>November</h3>
+  <p>
+    The transition month, and an underrated one. The rains taper
+    quickly through the first two weeks. By mid-month the sun is
+    consistent, the jungle is still vivid green, and the surf is
+    still in season. The week before US Thanksgiving is often our
+    quietest beautiful week of the year. Locals consider it a secret
+    peak.
+  </p>
+
+  <h3>December</h3>
+  <p>
+    The peak begins. The first half of December is wonderful: dry,
+    bright, surf still in season, holiday energy without the full
+    holiday rates. From roughly December 22 through January 3, rates
+    jump significantly, and the popular villas book a year out. If
+    your group is targeting the holidays, plan early.
+  </p>
+
+  <h2>Surf swell windows</h2>
+  <p>
+    Costa Rica’s Pacific coast catches swell from both hemispheres.
+    The most consistent overhead and overhead-plus surf comes from
+    Southern Hemisphere swells, which generally run April through
+    October, peaking June through September. Winter still produces
+    plenty of fun waves, but they are smaller and friendlier.
+  </p>
+  <p>
+    Playa Guiones, the main beach, holds size and works at almost any
+    tide because of its sandy bottom and long stretch. We get into the
+    specifics in our dedicated <a href="/guides/surf-in-nosara">Surfing
+    Nosara</a> guide.
+  </p>
+
+  <h2>Holiday surcharges and peak windows</h2>
+  <p>
+    These are the dates we watch on the calendar each year:
+  </p>
+  <ul>
+    <li><strong>Christmas and New Year</strong> (roughly Dec 22 – Jan 3): the absolute peak. Premium rates, booked out months in advance.</li>
+    <li><strong>US Thanksgiving</strong> (the week of, late November): heavy demand from US families.</li>
+    <li><strong>Easter / Semana Santa</strong>: Costa Rica’s most important domestic holiday. Roads and beaches are busy with local visitors. Many businesses close on Holy Thursday and Good Friday.</li>
+    <li><strong>Presidents’ Day week</strong> (mid-February): a mini-peak for US families with kids in school.</li>
+    <li><strong>July school break</strong>: a steady second peak as families travel.</li>
+  </ul>
+
+  <h2>The two weeks we tell friends about</h2>
+  <p>
+    If we are being honest, two windows are our personal favorites for
+    the best balance of weather, value, and atmosphere.
+  </p>
+  <div class="guide-pull">
+    The first two weeks of November and the second week of January.
+    Sunshine, surf, lower rates, and a town that feels like itself.
+  </div>
+
+  <h2>Frequently asked questions</h2>
+  <div class="guide-faq">
+    {faqs.map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+</GuideLayout>

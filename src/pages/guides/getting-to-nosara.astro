@@ -1,0 +1,244 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+
+const title = 'Getting to Nosara, Costa Rica';
+const description =
+  'The honest, current way to reach Nosara from anywhere in North America: Liberia versus San José airports, the Sansa shortcut, road conditions, and the transfer we book most often.';
+const updated = 'May 2026';
+
+const faqs = [
+  {
+    q: 'Should I fly into Liberia (LIR) or San José (SJO)?',
+    a: 'For Nosara, Liberia (LIR) is almost always the right answer. The drive to Nosara is roughly 2.5 hours of mostly paved road, versus 5 to 5.5 hours from San José over a longer and more variable route. The only common exception is when your home-airport pricing or schedule out of San José is dramatically better.',
+  },
+  {
+    q: 'How long is the Sansa flight from Liberia to Nosara?',
+    a: 'The Sansa Airlines flight is about 30 minutes, gate to gate. The luggage allowance is strict (roughly 30 lbs per passenger, including carry-on), so we typically use it for adults traveling light or for guests who want to minimize travel time.',
+  },
+  {
+    q: 'Is a 4x4 required to get to Nosara?',
+    a: 'A 4x4 SUV is strongly recommended. The last stretch into Nosara is unpaved, and rainy-season conditions can be rough. For visitors staying inside the villa for most of the trip and only moving between Guiones, Pelada, and Garza, a transferred arrival plus a golf cart often beats renting a full SUV.',
+  },
+  {
+    q: 'Can I rent a car at the Nosara airstrip?',
+    a: 'Not really. Nosara has local rental partners that meet you in town, not at the airstrip. The setup we book most often is a Sansa flight in, a transfer to the villa, and golf-cart or SUV rental from Limo Dan delivered to the property.',
+  },
+  {
+    q: 'Are there direct flights from the US to Liberia (LIR)?',
+    a: 'Yes. Liberia (LIR) is served year-round by direct flights from a number of US hubs including Los Angeles, Dallas, Houston, Miami, New York, Atlanta, and Charlotte, with seasonal lifts from additional cities. Schedules and carriers shift season to season, so check at booking.',
+  },
+];
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      datePublished: '2026-05-18',
+      dateModified: '2026-05-18',
+      author: { '@type': 'Organization', name: 'Avela Travel' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Avela Travel',
+        logo: { '@type': 'ImageObject', url: 'https://avela.travel/images/avela-logo.png' },
+      },
+      mainEntityOfPage: 'https://avela.travel/guides/getting-to-nosara',
+      image: 'https://avela.travel/images/nosara/pink-island.jpg',
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+};
+
+const related = [
+  { slug: 'when-to-visit', title: 'When to visit Nosara', category: 'Seasons' },
+  { slug: 'what-to-pack', title: 'What to pack for Nosara', category: 'Logistics' },
+  { slug: 'eating-in-nosara', title: 'Eating in Nosara', category: 'Food' },
+];
+---
+
+<GuideLayout
+  title={title}
+  description={description}
+  category="Logistics"
+  readTime="5 min read"
+  heroImage="/images/nosara/pink-island.jpg"
+  heroImageAlt="Aerial view of a Nosara beach with turquoise water and sandy coves"
+  updated={updated}
+  pageSchema={pageSchema}
+  related={related}
+>
+  <p>
+    Nosara sits on the southern tip of the Nicoya Peninsula, on Costa Rica's
+    Pacific coast. It is remote on purpose. There is no big highway in, no
+    chain hotel on the beach, and the last stretch of road still kicks up
+    dust. That setup is exactly what protects the place. It also means
+    arriving here takes a little planning.
+  </p>
+  <p>
+    This is how we route every Avela guest, and what we would tell a friend
+    booking their first trip.
+  </p>
+
+  <h2>The short version</h2>
+  <ul>
+    <li><strong>Fly into Liberia (LIR), not San José.</strong> The drive is half the time and the road is almost entirely paved.</li>
+    <li><strong>From LIR you have two routes:</strong> a private ground transfer (around 2.5 hours) or a 30-minute Sansa flight into the Nosara airstrip.</li>
+    <li><strong>You do not need a rental car to enjoy Nosara,</strong> but if you want to roam Pelada, Garza, and the jungle roads, a 4x4 SUV or a golf cart helps.</li>
+    <li><strong>Book transfers ahead.</strong> We use Terratour Shuttles as our transport partner. Their drivers know the road and the villas.</li>
+  </ul>
+
+  <h2>Liberia (LIR) vs San José (SJO)</h2>
+  <p>
+    Daniel Oduber International Airport in Liberia is the closer of Costa
+    Rica's two international airports and the one purpose-built for
+    Guanacaste. The drive from Liberia to Nosara is roughly 2.5 hours and
+    is paved the entire way until you turn off the main highway near
+    Nicoya.
+  </p>
+  <p>
+    San José (Juan Santamaría, SJO) is Costa Rica's bigger hub. It is
+    further inland and the drive to Nosara runs 5 to 5.5 hours over a
+    longer, less direct route. Unless your home-airport pricing or
+    schedule is dramatically better out of SJO, fly into LIR.
+  </p>
+  <div class="guide-pull">
+    Ninety-five percent of the time, Liberia is the right answer for
+    Nosara. We can count the SJO exceptions on one hand.
+  </div>
+
+  <h2>The Sansa shortcut</h2>
+  <p>
+    Sansa Airlines is Costa Rica's domestic carrier. They run multiple
+    daily flights between Liberia and Nosara on small Cessna Caravans,
+    and the flight is roughly 30 minutes.
+  </p>
+  <p>
+    The plus side is obvious: instead of a 2.5-hour drive after an
+    international flight, you land in Nosara in time for lunch. The view
+    of the Pacific coastline coming in is also part of the trip.
+  </p>
+  <p>
+    The catch is the luggage allowance. Sansa flights carry a strict
+    weight limit, typically around 30 lbs (14 kg) per passenger including
+    your carry-on. Surfboards, golf clubs, and overstuffed suitcases
+    often need to come by ground transfer separately. We routinely split
+    parties: adults fly Sansa, while a transfer brings boards and
+    oversize luggage to meet you at the villa.
+  </p>
+  <p>
+    The Nosara airstrip is a single runway with a small open-air terminal
+    on the edge of town. Your villa is rarely more than a 10-minute drive
+    from arrival.
+  </p>
+
+  <h2>Ground transfers from Liberia</h2>
+  <p>
+    Driving from Liberia is the simplest option for most guests. The
+    route runs south on Route 21 to Nicoya, then west toward the coast.
+    Expect roughly 2.5 hours door to door. The last 15 to 20 minutes is
+    on unpaved road as you approach Nosara.
+  </p>
+  <p>
+    We book ground transfers through <strong>Terratour Shuttles</strong>,
+    our local transport partner. Their drivers know which villas have
+    tight driveways, which routes are passable in green season, and
+    where to make the standard halfway stop for coffee or bathrooms.
+    For families with kids, they bring proper car seats on request.
+  </p>
+  <p>
+    Standard family-size SUVs seat up to six with luggage. Larger
+    groups get a Sprinter-style van. We typically arrange one return
+    transfer with a relaxed lunch stop on the way back to LIR so no one
+    is hungry and rushing to clear customs.
+  </p>
+
+  <h2>Renting a car (or not)</h2>
+  <p>
+    Whether you need a rental car depends entirely on what you want to
+    do once you arrive.
+  </p>
+  <p>
+    <strong>If you are mostly going to be in Guiones,</strong> walking to
+    surf, eating at restaurants within 5 to 10 minutes of your villa,
+    you do not need a rental car. A golf cart is faster, easier, and
+    more fun.
+  </p>
+  <p>
+    <strong>If you want range,</strong> sunset dinners up the hill at
+    Coyol, dawn drives to Ostional, an ATV day in the back hills, a
+    proper SUV makes the week easier. We work with <strong>Limo Dan</strong>{' '}
+    for car and golf-cart rentals delivered directly to your villa, and
+    with <strong>Pipin's Rentals</strong> for ATVs and side-by-sides.
+  </p>
+  <p>
+    A 4x4 is strongly recommended even in dry season. Some of the most
+    interesting drives in this area, the road up to Coyol, the back
+    route to the waterfalls, the Ostional turtle road, get rough fast.
+  </p>
+
+  <h2>Road conditions, season by season</h2>
+  <h3>Dry season (December to April)</h3>
+  <p>
+    Roads are dusty but consistently passable. Even the unpaved stretches
+    are manageable in a standard SUV. Driving at sunset is when the dust
+    is heaviest, so leave a buffer for visibility.
+  </p>
+  <h3>Green season (May to November)</h3>
+  <p>
+    Afternoon rains can briefly flood low river crossings. A 4x4 makes
+    the difference. Most days the rain hits in the late afternoon and
+    clears overnight, so morning drives are usually fine. October is
+    the wettest month of the year on this coast, and a few side roads
+    become impassable. Your driver or villa host will know which.
+  </p>
+
+  <h2>Arrival day, the way we run it</h2>
+  <ol>
+    <li>Land at Liberia (LIR), clear immigration and customs.</li>
+    <li>Meet your Terratour driver at the airport exit. They will be holding an Avela sign.</li>
+    <li>Drive 2.5 hours toward Nosara. Most drivers offer a halfway stop for coffee, a bathroom, or to stretch.</li>
+    <li>Arrive at the villa. Your house manager is there to walk you through the property, hand off keys, and answer questions.</li>
+    <li>If you have requested a chef-prepared welcome meal, that is plated and ready.</li>
+  </ol>
+  <p>
+    On departure day, we reverse the order, with a relaxed lunch stop
+    built into the drive so no one is rushed at the airport.
+  </p>
+
+  <h2>What about visas and entry?</h2>
+  <p>
+    Visitors from the US, Canada, the UK, the EU, Australia, and most of
+    Latin America do not need a visa for tourist stays in Costa Rica up
+    to 180 days. You need a passport valid for at least one day after
+    your planned departure, and proof of onward travel (your return
+    ticket). Always check official sources for current requirements
+    before flying, since rules change.
+  </p>
+
+  <h2>Frequently asked questions</h2>
+  <div class="guide-faq">
+    {faqs.map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+
+  <div class="guide-callout">
+    <p>
+      Booking with us? We coordinate every step of arrival: flight timing,
+      transfer scheduling, rental delivery to the villa, and a welcome
+      contact who meets you at the door. Nothing to figure out on landing.
+    </p>
+  </div>
+</GuideLayout>

@@ -1,0 +1,203 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+
+const title = 'Nosara with kids';
+const description =
+  'A practical guide to traveling Nosara with children: which surf lessons actually work for six-year-olds, the boat trip that does not get rough, restaurants with real kid menus, and how we plan a family week.';
+const updated = 'May 2026';
+
+const faqs = [
+  {
+    q: 'Is Nosara good for families with young kids?',
+    a: 'Yes. Nosara is one of the easiest beach destinations in Latin America for families. The main beach is sandy and gently sloping, the surf lessons are professional, the food is fresh and adaptable, and the villas have private pools and full kitchens. Most families return.',
+  },
+  {
+    q: 'How young can my child start surfing?',
+    a: 'Most kids can start surf lessons around age six, sometimes younger with a calm child and the right instructor. Our ISA-certified instructors size the board and the session to the child. For very young children, an in-water session of just 30 to 45 minutes is usually plenty.',
+  },
+  {
+    q: 'Can I rent baby gear in Nosara?',
+    a: 'Yes. Cribs, pack-and-plays, high chairs, and beach gear can be arranged through your villa. Car seats are available through Terratour Shuttles on request. Bring what you cannot replace easily (a particular bottle, comfort items).',
+  },
+  {
+    q: 'What is the calmest ocean activity for kids?',
+    a: 'The afternoon catamaran sail out of Garza, with our partner Pacific Dream, is the smoothest water experience in town. The Pacific around Garza is sheltered, the boat is large and stable, and the snorkel stops are calm. Most kids who get seasick on smaller boats do fine on this one.',
+  },
+  {
+    q: 'Are there pediatric medical services in Nosara?',
+    a: 'Yes. Paradise Medical in town can see pediatric patients for non-emergency issues. For anything serious, larger hospitals are available in Nicoya and Liberia. Bomberos (the fire and emergency service) handles emergencies. Phone: +506 8709 0614.',
+  },
+];
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      datePublished: '2026-05-18',
+      dateModified: '2026-05-18',
+      author: { '@type': 'Organization', name: 'Avela Travel' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Avela Travel',
+        logo: { '@type': 'ImageObject', url: 'https://avela.travel/images/avela-logo.png' },
+      },
+      mainEntityOfPage: 'https://avela.travel/guides/with-kids',
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+};
+
+const related = [
+  { slug: 'eating-in-nosara', title: 'Eating in Nosara', category: 'Food' },
+  { slug: 'surf-in-nosara', title: 'Surfing Nosara', category: 'Activities' },
+  { slug: 'what-to-pack', title: 'What to pack', category: 'Logistics' },
+];
+---
+
+<GuideLayout
+  title={title}
+  description={description}
+  category="Family"
+  readTime="6 min read"
+  updated={updated}
+  pageSchema={pageSchema}
+  related={related}
+>
+  <p>
+    Nosara works well for families. It is calmer than the bigger
+    Guanacaste resort towns, the beach is sandy and forgiving, and
+    the rhythm of the place naturally slows kids down. We have run
+    family weeks here for groups of every shape: toddlers, school-age
+    siblings, teen surfers, and multi-generational gatherings where
+    grandparents come along.
+  </p>
+  <p>
+    This is what we have learned about making it work.
+  </p>
+
+  <h2>Why a villa beats a hotel</h2>
+  <p>
+    For families, a villa is almost always the better choice in
+    Nosara. The reasons:
+  </p>
+  <ul>
+    <li><strong>Private pool.</strong> Naps, snacks, and the kind of unstructured time kids actually need.</li>
+    <li><strong>Full kitchen.</strong> A milk supply, a snack drawer, and the ability to make a simple breakfast on your own schedule.</li>
+    <li><strong>Bedroom layout.</strong> Doors that close, kid bedrooms with their own bathroom, and adults who get an evening together once the kids are down.</li>
+    <li><strong>Private chef option.</strong> Nobody has to load up a tired five-year-old into a car for dinner.</li>
+    <li><strong>House manager.</strong> Local help with everything from a forgotten swim diaper to a last-minute babysitter.</li>
+  </ul>
+  <p>
+    All of our villas are available with crib, pack-and-play, and
+    high chair on request, and many have child-safe pool covers or
+    fencing.
+  </p>
+
+  <h2>Surf lessons that actually work for kids</h2>
+  <p>
+    Playa Guiones is one of the better beaches in the world to teach a
+    child to surf. Sandy bottom, no rocks, gentle whitewater on small
+    days. Our instructors are ISA-certified, which means safety and
+    age-appropriate coaching are part of the qualification, not just
+    surfing ability.
+  </p>
+  <p>
+    What we have learned about kid surf sessions:
+  </p>
+  <ul>
+    <li><strong>Six is a good starting age</strong> for most kids. A confident, water-comfortable five-year-old can also do it.</li>
+    <li><strong>Forty-five minutes</strong> is usually plenty for the youngest. Longer sessions end in tears.</li>
+    <li><strong>Soft-top boards</strong> with extra volume are the right tool. Standard learner boards from the rental shops work.</li>
+    <li><strong>Mixed-level family sessions</strong> are great. Two instructors at the same beach can run two beginners and two stronger surfers in parallel. Everyone gets one-on-one attention, and you all surf at the same time.</li>
+    <li><strong>Mornings work best.</strong> Wind is lighter, the water is glassier, and kids are fresher.</li>
+  </ul>
+
+  <h2>The boat trip that does not get rough</h2>
+  <p>
+    The standard ocean activity we book for families is the afternoon
+    catamaran sail with Pacific Dream out of Pilo’s Bar in Garza Bay.
+    The boat is large and stable, the water around Garza is sheltered
+    from the open Pacific, and the snorkel stops are calm. Most kids
+    who would get seasick on a small boat do completely fine here.
+  </p>
+  <p>
+    A typical sail runs about four hours, includes snacks and drinks
+    on board, snorkeling, and a swim stop. Older kids enjoy the
+    paddleboards. The signature piña colada has earned its
+    reputation, even the kid-friendly virgin version.
+  </p>
+
+  <h2>The ATV day, with caveats</h2>
+  <p>
+    Pipin’s Rentals runs an ATV river and waterfall adventure through
+    the back hills of Nosara. For families, the rule is age and
+    confidence:
+  </p>
+  <ul>
+    <li>Older kids (roughly 10 and up) can ride as passengers on the side-by-side or six-seater. They love it.</li>
+    <li>Younger kids should sit it out. The route has rough sections, river crossings, and some short hikes.</li>
+  </ul>
+  <p>
+    If you split the day, half the family on ATVs, the other half at
+    the villa or the beach, everyone wins.
+  </p>
+
+  <h2>Family-friendly restaurants</h2>
+  <p>
+    Most restaurants in Nosara are welcoming to children. The ones
+    that work best for families:
+  </p>
+  <ul>
+    <li><strong>La Ventanita.</strong> Open-air, casual, fresh food, fast service. Easy lunch after a morning surf.</li>
+    <li><strong>Mama Gui.</strong> Italian. Pasta, pizza, real kid menu, warm atmosphere.</li>
+    <li><strong>Howler’s Beach Lounge.</strong> Light bites, live music nights, room to move around.</li>
+    <li><strong>Soda Rosi’s.</strong> Classic Costa Rican breakfast. Kids love the fresh juice and rice-and-beans plates.</li>
+    <li><strong>La Luna.</strong> Beachfront on Pelada. Great for an early dinner before sunset when kids are fresh.</li>
+  </ul>
+  <p>
+    For fussier or younger eaters, the private chef option is the
+    easiest path to a successful dinner. We can build a menu that
+    works for the adults <em>and</em> the kids in the same meal.
+  </p>
+
+  <h2>Wellness for parents</h2>
+  <p>
+    The other thing villa families love: parents can do their own
+    thing while the kids stay home with the house manager or a
+    pre-arranged babysitter. A 90-minute couples massage at the
+    villa, a sunrise yoga class at Bodhi Tree, a pilates session at
+    Black Cat Studio. None of it requires the kids to come along.
+  </p>
+
+  <h2>Sample family week, what we typically build</h2>
+  <ol>
+    <li><strong>Day 1.</strong> Arrive, ease in, chef-prepared welcome dinner at the villa.</li>
+    <li><strong>Day 2.</strong> Private yoga in the morning at the villa, first surf lesson, lunch at La Ventanita, easy dinner at home.</li>
+    <li><strong>Day 3.</strong> Slow morning. Lunch at Howler’s. Beach swim, sunset at Pelada, casual family dinner.</li>
+    <li><strong>Day 4.</strong> ATV river-and-waterfall day for the older kids and one parent, pool day for the rest.</li>
+    <li><strong>Day 5.</strong> Tuesday organic market morning, catamaran sail in the afternoon.</li>
+    <li><strong>Day 6.</strong> Surf round two for those who want it, pilates session for a parent, sunset dinner up at Coyol.</li>
+    <li><strong>Day 7.</strong> Last surf, last beach swim, final chef dinner. The day people remember.</li>
+    <li><strong>Day 8.</strong> Slow breakfast at the villa, transfer to the airport.</li>
+  </ol>
+
+  <h2>Frequently asked questions</h2>
+  <div class="guide-faq">
+    {faqs.map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+</GuideLayout>
