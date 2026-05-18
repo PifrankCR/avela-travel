@@ -835,9 +835,9 @@ const schema = {
     background-image:
       linear-gradient(180deg,
         var(--green-deep) 0%,
-        rgba(58, 79, 65, 0.86) 18%,
-        rgba(58, 79, 65, 0.78) 50%,
-        rgba(58, 79, 65, 0.86) 82%,
+        rgba(58, 79, 65, 0.80) 14%,
+        rgba(58, 79, 65, 0.68) 50%,
+        rgba(58, 79, 65, 0.80) 86%,
         var(--green-deep) 100%),
       url('/images/textures/water.jpg');
     background-size: auto, cover;
@@ -889,15 +889,16 @@ const schema = {
 
   .service-card {
     padding: 2.5rem 2rem;
-    background: rgba(58, 79, 65, 0.92);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    transition: background 0.3s;
+    background: rgba(58, 79, 65, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 241, 207, 0.08);
+    transition: background 0.3s var(--ease-smooth), border-color 0.3s var(--ease-smooth);
   }
 
   .service-card:hover {
-    background: rgba(58, 79, 65, 0.8);
+    background: rgba(58, 79, 65, 0.72);
+    border-color: rgba(255, 241, 207, 0.18);
   }
 
   .service-card:nth-child(5),
