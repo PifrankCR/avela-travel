@@ -346,6 +346,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             opacity="0.55"
           />
 
+          <!-- Topographic contour lines over the hills -->
+          <g stroke="#3a4f41" stroke-width="0.6" fill="none" opacity="0.22">
+            <path d="M 600 120 Q 710 142, 830 120"/>
+            <path d="M 625 178 Q 725 202, 845 180"/>
+            <path d="M 590 240 Q 705 262, 835 246"/>
+            <path d="M 615 318 Q 725 342, 850 325"/>
+            <path d="M 600 398 Q 712 420, 842 404"/>
+            <path d="M 622 470 Q 725 492, 852 476"/>
+          </g>
+
           <!-- Subtle wave lines in ocean -->
           <g stroke="#8aafa6" stroke-width="0.7" fill="none" opacity="0.4">
             <path d="M 30 90 Q 90 80, 150 90 T 230 95"/>
@@ -353,6 +363,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <path d="M 30 280 Q 90 270, 150 280 T 240 285"/>
             <path d="M 40 380 Q 100 370, 160 380 T 250 385"/>
             <path d="M 30 480 Q 90 470, 150 480 T 270 488"/>
+          </g>
+
+          <!-- Río Nosara, flowing from the hills to the boca -->
+          <path
+            d="M 815 205 C 690 232, 600 250, 510 268 C 420 286, 335 290, 252 297"
+            stroke="#8fb3c9" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.85"
+          />
+          <text x="372" y="282" font-family="Playfair Display, serif" font-style="italic" font-size="11" fill="#5d83a0" opacity="0.9">Río Nosara</text>
+
+          <!-- Road network (dashed) -->
+          <g stroke="#b8742a" stroke-width="1.4" fill="none" stroke-dasharray="2 5" stroke-linecap="round" opacity="0.5">
+            <path d="M 430 270 L 262 378"/>
+            <path d="M 430 270 C 360 238, 300 214, 246 196"/>
+            <path d="M 246 196 C 232 140, 240 95, 248 58"/>
+            <path d="M 260 384 C 262 440, 266 492, 275 528"/>
+            <path d="M 430 270 C 540 300, 640 360, 720 470"/>
           </g>
 
           <!-- Beach markers + labels (left side along coast) -->
@@ -374,11 +400,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <text x="528" y="265" font-family="DM Sans, sans-serif" font-size="13" font-weight="500" letter-spacing="2" fill="#b8742a">NOSARA TOWN</text>
           <text x="528" y="281" font-family="Playfair Display, serif" font-style="italic" font-size="12" fill="#3a4f41" opacity="0.75">Airstrip + village</text>
 
+          <!-- River mouth (boca) -->
+          <circle cx="252" cy="297" r="4" fill="#5d83a0" opacity="0.85"/>
+          <text x="259" y="301" font-family="Playfair Display, serif" font-style="italic" font-size="11" fill="#5d83a0" opacity="0.8">La Boca · river mouth</text>
+
           <!-- Playa Guiones -->
           <circle cx="258" cy="380" r="8" fill="#b8742a"/>
           <line x1="266" y1="380" x2="340" y2="380" stroke="#b8742a" stroke-width="1.2"/>
           <text x="348" y="375" font-family="DM Sans, sans-serif" font-size="14" font-weight="500" letter-spacing="2" fill="#b8742a">PLAYA GUIONES</text>
           <text x="348" y="393" font-family="Playfair Display, serif" font-style="italic" font-size="12" fill="#3a4f41" opacity="0.75">Sand-bottom point break · the surf</text>
+
+          <!-- Punta Guiones -->
+          <circle cx="256" cy="436" r="4" fill="#3a4f41" opacity="0.8"/>
+          <text x="264" y="440" font-family="Playfair Display, serif" font-style="italic" font-size="11" fill="#3a4f41" opacity="0.7">Punta Guiones</text>
 
           <!-- Las Huacas hills marker -->
           <text x="640" y="320" font-family="Playfair Display, serif" font-style="italic" font-size="14" fill="#fbf8f2" opacity="0.85" text-anchor="middle">LAS HUACAS HILLS</text>
@@ -402,6 +436,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
           <!-- Pacific Ocean label -->
           <text x="120" y="320" font-family="Playfair Display, serif" font-style="italic" font-size="18" fill="#3a4f41" opacity="0.5">Pacific Ocean</text>
+
+          <!-- Approximate scale bar -->
+          <g transform="translate(110, 565)">
+            <line x1="0" y1="0" x2="110" y2="0" stroke="#3a4f41" stroke-width="1.5" opacity="0.7"/>
+            <line x1="0" y1="-4" x2="0" y2="4" stroke="#3a4f41" stroke-width="1.5" opacity="0.7"/>
+            <line x1="110" y1="-4" x2="110" y2="4" stroke="#3a4f41" stroke-width="1.5" opacity="0.7"/>
+            <text x="55" y="-8" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" letter-spacing="1" fill="#3a4f41" opacity="0.65">~ 2 km</text>
+          </g>
         </svg>
       </div>
 
@@ -414,6 +456,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <span class="legend-dot legend-dot-secondary"></span>
           <span>Day-trip beaches and excursion sites</span>
         </div>
+        <a
+          class="nosara-map-link"
+          href="https://www.google.com/maps/place/Nosara,+Provincia+de+Guanacaste,+Costa+Rica"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Nosara on Google Maps →
+        </a>
       </div>
     </div>
   </section>
@@ -984,4 +1034,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .legend-dot-primary { background: var(--brown); }
   .legend-dot-secondary { background: var(--green-deep); }
+
+  .nosara-map-link {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--brown);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 3px;
+    transition: color 0.2s var(--ease-smooth);
+    white-space: nowrap;
+  }
+
+  .nosara-map-link:hover {
+    color: var(--amber-deep);
+  }
+
+  @media (max-width: 600px) {
+    .nosara-map-legend {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
 </style>
