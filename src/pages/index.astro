@@ -326,6 +326,39 @@ const schema = {
     </div>
   </section>
 
+  <!-- ─── SIGNATURE PACKAGE PROMO ─── -->
+  <section class="signature-promo">
+    <div class="signature-promo-inner">
+      <div class="signature-promo-image reveal">
+        <img
+          src="/images/experiences/ocean.jpg"
+          alt="32ft sportfishing boat off the Nosara coast, Costa Rica"
+          loading="lazy"
+          decoding="async"
+          width="1200"
+          height="800"
+        />
+      </div>
+      <div class="signature-promo-content reveal reveal-delay-1">
+        <p class="eyebrow">Signature package · new</p>
+        <h2>Costa Rica <em>Offshore Sportfishing</em></h2>
+        <p class="signature-promo-meta">
+          5 days · 4 to 6 anglers · 3 days on the water · all meals at the villa
+        </p>
+        <p class="signature-promo-desc">
+          A complete package built around our own 32ft offshore boat and a private villa on
+          Playa Guiones. No domestic flight, no lodge logistics, no broker between you and the
+          captain. Just three full days of fishing and a villa to come home to.
+        </p>
+        <p class="signature-promo-price">
+          <span class="signature-promo-price-num">From $4,300</span>
+          <span class="signature-promo-price-unit">per angler, plus 13% IVA</span>
+        </p>
+        <a href="/itineraries/fishing" class="signature-promo-cta">See the full package →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── VILLAS ─── -->
   <section class="section" id="villas">
     <div class="section-inner">
@@ -1396,6 +1429,103 @@ const schema = {
   @media (max-width: 720px) {
     .press-strip-inner { flex-direction: column; gap: 1rem; }
     .press-list { gap: 1.25rem 2rem; }
+  }
+
+  /* ─── SIGNATURE PROMO ─── */
+  .signature-promo {
+    background: #faf1da;
+    padding: clamp(70px, 10vw, 120px) var(--gutter);
+  }
+  .signature-promo-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+  }
+  .signature-promo-image {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+  }
+  .signature-promo-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s var(--ease-smooth);
+  }
+  .signature-promo:hover .signature-promo-image img {
+    transform: scale(1.02);
+  }
+  .signature-promo-content .eyebrow {
+    color: var(--brown);
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+  .signature-promo-content h2 {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4.5vw, 56px);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+    color: var(--dark);
+  }
+  .signature-promo-content h2 em {
+    font-style: italic;
+    color: var(--brown);
+  }
+  .signature-promo-meta {
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(19, 18, 16, 0.6);
+    margin: 0 0 1.5rem;
+  }
+  .signature-promo-desc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(19, 18, 16, 0.82);
+    margin: 0 0 1.75rem;
+  }
+  .signature-promo-price {
+    margin: 0 0 1.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.65rem;
+  }
+  .signature-promo-price-num {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3vw, 36px);
+    color: var(--dark);
+  }
+  .signature-promo-price-unit {
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(19, 18, 16, 0.55);
+  }
+  .signature-promo-cta {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    background: var(--amber);
+    color: var(--cream);
+    transition: background 0.2s var(--ease-smooth);
+  }
+  .signature-promo-cta:hover {
+    background: var(--amber-deep);
+  }
+  @media (max-width: 900px) {
+    .signature-promo-inner {
+      grid-template-columns: 1fr;
+    }
   }
 
   /* ─── PERSONAS ─── */

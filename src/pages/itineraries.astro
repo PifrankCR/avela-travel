@@ -126,6 +126,50 @@ const pageSchema = {
     </div>
   </section>
 
+  <!-- ─── SIGNATURE PACKAGES ─── -->
+  <section class="signature-packages">
+    <div class="signature-packages-inner">
+      <div class="signature-packages-header">
+        <p class="eyebrow">Signature packages</p>
+        <h2>Fixed-price trips, built end to end</h2>
+        <p class="signature-packages-lede">
+          Some trips have a shape we have run dozens of times and a price we can quote up front.
+          They are useful when your group wants the work done for you. The four custom shapes
+          below are still where most Avela trips start.
+        </p>
+      </div>
+
+      <div class="signature-packages-grid">
+        <a href="/itineraries/fishing" class="signature-card">
+          <div class="signature-card-image">
+            <img
+              src="/images/experiences/ocean.jpg"
+              alt="32ft sportfishing boat off the Nosara coast, Costa Rica"
+              loading="lazy"
+              decoding="async"
+              width="900"
+              height="600"
+            />
+          </div>
+          <div class="signature-card-body">
+            <p class="signature-card-tag">New · 5 days · 4 to 6 anglers</p>
+            <h3>Costa Rica Offshore Sportfishing</h3>
+            <p class="signature-card-desc">
+              Four nights at Villa Blanco on Playa Guiones with three full days on our own 32ft
+              offshore boat out of Garza. All meals at the villa, bilingual crew, no domestic
+              connection flight.
+            </p>
+            <p class="signature-card-price">
+              <span>From $4,300</span>
+              <span class="signature-card-price-unit">per angler, plus 13% IVA</span>
+            </p>
+            <span class="signature-card-cta">See the package →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── ITINERARIES ─── -->
   {itineraries.map((it, i) => (
     <section
@@ -214,6 +258,136 @@ const pageSchema = {
   }
 
   /* ─── ITINERARY SECTIONS ─── */
+  /* ─── SIGNATURE PACKAGES ─── */
+  .signature-packages {
+    background: var(--cream);
+    padding: clamp(60px, 9vw, 110px) var(--gutter) clamp(40px, 6vw, 70px);
+  }
+  .signature-packages-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+  .signature-packages-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+  }
+  .signature-packages-header .eyebrow {
+    color: var(--brown);
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+  .signature-packages-header h2 {
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.1;
+    margin: 0 0 1rem;
+    color: var(--dark);
+  }
+  .signature-packages-lede {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(15px, 1.6vw, 19px);
+    line-height: 1.6;
+    color: rgba(19, 18, 16, 0.7);
+  }
+  .signature-packages-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .signature-card {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    background: var(--cream);
+    border: 1px solid rgba(19, 18, 16, 0.1);
+    overflow: hidden;
+    transition: border-color 0.25s var(--ease-smooth), transform 0.25s var(--ease-smooth);
+  }
+  .signature-card:hover {
+    border-color: var(--brown);
+  }
+  .signature-card-image {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+  }
+  .signature-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease-smooth);
+  }
+  .signature-card:hover .signature-card-image img {
+    transform: scale(1.04);
+  }
+  .signature-card-body {
+    padding: 1.75rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .signature-card-tag {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin: 0 0 0.85rem;
+  }
+  .signature-card h3 {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.4vw, 28px);
+    line-height: 1.15;
+    margin: 0 0 0.9rem;
+    color: var(--dark);
+  }
+  .signature-card-desc {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: rgba(19, 18, 16, 0.78);
+    margin: 0 0 1.25rem;
+    flex: 1;
+  }
+  .signature-card-price {
+    margin: 0 0 1rem;
+  }
+  .signature-card-price > span:first-child {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--dark);
+    margin-right: 0.5rem;
+  }
+  .signature-card-price-unit {
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(19, 18, 16, 0.55);
+  }
+  .signature-card-cta {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--brown);
+    border-bottom: 1px solid currentColor;
+    align-self: flex-start;
+    padding-bottom: 3px;
+  }
+  @media (max-width: 780px) {
+    .signature-card {
+      grid-template-columns: 1fr;
+    }
+    .signature-card-image {
+      aspect-ratio: 16 / 10;
+    }
+    .signature-card-body {
+      padding: 1.5rem 1.5rem 1.75rem;
+    }
+  }
+
   .itin-section {
     padding: clamp(80px, 12vw, 140px) var(--gutter);
   }
