@@ -1,0 +1,24 @@
+---
+// This journal slug exists in the index but the canonical content lives at
+// /guides/when-to-visit. Static redirect via meta refresh + canonical so search
+// engines consolidate signal on the guide page.
+const canonical = 'https://avela.travel/guides/when-to-visit';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting to When to visit Nosara | Avela Travel</title>
+    <link rel="canonical" href={canonical} />
+    <meta http-equiv="refresh" content={`0; url=${canonical}`} />
+    <meta name="robots" content="noindex, follow" />
+  </head>
+  <body>
+    <p>
+      Redirecting to <a href={canonical}>When to visit Nosara</a>.
+    </p>
+    <script>
+      window.location.replace('/guides/when-to-visit');
+    </script>
+  </body>
+</html>

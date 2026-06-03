@@ -139,12 +139,12 @@ const experiences = [
 
 const sampleDay = [
   { time: '07:00', title: 'Private yoga on the villa deck', body: '60-minute flow before the heat sets in. The kids sleep in. You do not.' },
-  { time: '09:00', title: 'Breakfast at the villa with Chef Carlos', body: 'Gallo pinto, fresh fruit, French-press coffee. Carlos leaves the kitchen spotless on his way out.' },
+  { time: '09:00', title: 'Breakfast at the villa with your private chef', body: 'Gallo pinto, fresh fruit, French-press coffee. Kitchen left spotless.' },
   { time: '11:00', title: 'Private surf at Playa Guiones', body: 'Two coaches in the water, beginners and advanced split so nobody waits. Boards, leashes, and reef-safe sunscreen handled.' },
   { time: '13:30', title: 'Lunch at La Ventanita', body: 'Short drive, ocean breeze, the kids order again before the table is cleared.' },
-  { time: '15:30', title: 'Reformer pilates at Black Cat Studio', body: 'Private class for up to six. The drive there is five minutes from the villa; we book the slot ahead.' },
+  { time: '15:30', title: 'Reformer pilates session', body: 'Private class for up to six at a boutique studio in town. Five-minute drive from the villa; we book the slot ahead.' },
   { time: '17:30', title: 'Sunset at the beach', body: 'Walk down to Playa Guiones for the daily ritual. Cold cervezas, bare feet, the whole town watching the same horizon.' },
-  { time: '19:30', title: 'Chef dinner at the villa with Chef Casper', body: 'Mediterranean tapas-style, candles on the long table, no driving home.' },
+  { time: '19:30', title: 'Private chef dinner at the villa', body: 'Mediterranean tapas-style, candles on the long table, no driving home.' },
 ];
 
 const faqs = [
@@ -311,8 +311,8 @@ const pageSchema = {
     </>
   ))}
 
-  <!-- ─── PRICING SIGNAL (placeholder ranges, confirm with Stacie before launch) ─── -->
-  <section class="exp-pricing" aria-label="Sample pricing">
+  {/* ─── PRICING SIGNAL (HIDDEN: waiting on real ranges from Stacie. Re-enable by removing this comment wrapper.) ─── */}
+  <section class="exp-pricing" aria-label="Sample pricing" hidden style="display:none;">
     <div class="exp-pricing-inner">
       <div class="exp-pricing-header reveal">
         <p class="eyebrow">Starting points</p>

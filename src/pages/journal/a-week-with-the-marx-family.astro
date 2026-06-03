@@ -1,0 +1,447 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'A week with the Marx family';
+const description =
+  'Eight nights at Raintree over Thanksgiving week 2025. How we built the week, what worked, and the small choices that made it.';
+const updated = 'December 2025';
+const readTime = '8 min read';
+const heroImage = '/images/villas/raintree/01-view-sunset-infinity-pool.jpg';
+const heroImageAlt =
+  'Sunset view from Raintree villa infinity pool overlooking the jungle canopy of Playa Pelada, Nosara, Costa Rica';
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  image: `https://avela.travel${heroImage}`,
+  datePublished: '2025-12-05',
+  dateModified: '2025-12-05',
+  author: {
+    '@type': 'Person',
+    name: 'Stacie Brown',
+    jobTitle: 'Co-founder',
+    worksFor: { '@type': 'TravelAgency', name: 'Avela Travel' },
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Avela Travel',
+    logo: { '@type': 'ImageObject', url: 'https://avela.travel/images/avela-logo.png' },
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://avela.travel/journal/a-week-with-the-marx-family' },
+};
+---
+
+<BaseLayout
+  title={`${title} | The Avela Journal | Nosara, Costa Rica`}
+  description={description}
+  image={heroImage}
+  schema={pageSchema}
+>
+  <article class="journal-article">
+    <header class="journal-article-hero">
+      <div class="journal-article-hero-inner">
+        <p class="eyebrow">
+          <a href="/journal">Journal</a> &nbsp;·&nbsp; <span>Trip recap</span>
+        </p>
+        <h1>A week with the <em>Marx family</em></h1>
+        <p class="journal-article-lede">{description}</p>
+        <p class="journal-article-meta">
+          <span>{readTime}</span>
+          <span aria-hidden="true">·</span>
+          <span>Published {updated}</span>
+          <span aria-hidden="true">·</span>
+          <span>By Stacie, Avela Travel</span>
+        </p>
+      </div>
+    </header>
+
+    <figure class="journal-article-figure">
+      <img
+        src={heroImage}
+        alt={heroImageAlt}
+        loading="eager"
+        decoding="async"
+        width="1600"
+        height="900"
+      />
+    </figure>
+
+    <section class="journal-article-body">
+      <div class="journal-article-body-inner">
+
+        <p class="dropcap">
+          Thanksgiving week is one of the trickiest weeks of the year to run a
+          luxury family trip. Flights are tight, restaurants are at capacity,
+          private chefs are in demand, and every family who lives somewhere
+          cold wants to be somewhere warm. We had the Marx family for eight
+          nights at Raintree, November 20 to 28, 2025. Multi-generational
+          group, two advanced surfers, two beginners, and a finish line on
+          Thanksgiving night. Here is how we built the week.
+        </p>
+
+        <h2>The villa choice</h2>
+        <p>
+          Raintree was the right call for this group for a few reasons. The
+          main house has five bedrooms and sleeps up to fourteen comfortably,
+          which gave the family room to spread out without bunking the
+          generations together. The kitchen is built for a private chef to
+          actually cook in. The yoga shala over the jungle gave us a place
+          for private morning sessions without anyone leaving the property.
+          And the one-acre estate is gated and quiet, which mattered for the
+          younger kids and for the grandparents who wanted slow mornings.
+        </p>
+        <p>
+          Raintree was completed in August 2022 by Studio Saxe and is one of
+          the AD-featured properties in our collection. We held the villa
+          with a later checkout on the departure day so the family could ease
+          into the final morning instead of rushing.
+        </p>
+
+        <h2>Arrival, day one</h2>
+        <p>
+          The family came in on Alaska Airlines from LAX, landing at Liberia
+          (LIR) at 6:20 am on November 21. From Liberia, the move we almost
+          always recommend is the 9:10 am Sansa flight directly into Nosara,
+          which puts a family at the villa by mid-morning instead of a
+          five-hour ground transfer in the heat. Our transportation partner
+          met them at the Nosara airstrip and drove them straight to
+          Raintree.
+        </p>
+        <p>
+          Their private chef had a fresh Costa Rican breakfast waiting at
+          10:00 am. Gallo pinto, tropical fruit, French-press coffee. After
+          breakfast, three of the group hopped in the side-by-side and went
+          to pick up two Prado SUVs from our rental partner in Guiones, with
+          a quick stop at Organico Bakery for a coffee on the way back. By
+          lunch they were at Zest Kitchen inside El Pueblo, easing into the
+          slow rhythm of the town. A Mediterranean tapas-style chef dinner
+          at the villa closed the first day at 7:00 pm.
+        </p>
+
+        <h2>Day two, the surf split</h2>
+        <p>
+          Day two is the day a family week stands or falls. Get the first
+          surf lesson right and the rest of the week falls into place. Get
+          it wrong and you lose three days.
+        </p>
+        <p>
+          Private morning yoga on the villa deck at 9:00 am, a one-hour
+          flow to settle everyone in. Then to Playa Guiones at 11:00 am
+          for a two-hour surf session, split across two
+          <strong>ISA-certified</strong> instructors. Two advanced surfers
+          worked the outside down the beach, two beginners stayed in the
+          whitewater closer to shore. Nobody waited. Nobody got bored. The
+          group came off the beach hungry, walked to La Ventanita for fresh
+          bowls and sandwiches, and went back to the villa to nap.
+        </p>
+        <p>
+          Dinner that night was 6:00 pm at Harmony Hotel, in the
+          tropical-garden courtyard. The Harmony kitchen is one of the
+          most consistent in town for families, and the 6:00 pm slot
+          works when there are kids in the group who fade by 8.
+        </p>
+
+        <h2>Day three, the slow day</h2>
+        <p>
+          Every week we plan has a slow day on day three. The travel day
+          and surf day catch up with people, and forcing another structured
+          activity is how families end up tired by Wednesday. We left day
+          three open. Breakfast at Rosi's Soda, the local soda that is the
+          best $8 plate of gallo pinto in Nosara. Pool time at the villa.
+          A long lunch at Howler's, which has, in our opinion, the best tuna
+          carpaccio in town (and is cash or Venmo only, which always catches
+          first-time visitors by surprise). Dinner at Sendero Kitchen at
+          5:30 pm with the crispy rice and tuna pre-ordered. Sendero is
+          one of the bookings we set one to two weeks ahead during high
+          season because the dining room fills nightly.
+        </p>
+
+        <h2>Day four, the ATV adventure</h2>
+        <p>
+          The ATV waterfall day through the back hills is the activity
+          guests remember most from a Nosara week. We staged it on day
+          four because the group had two travel days, one surf day, and a
+          slow day under their belt, which meant they were rested and
+          ready for four hours of mountains and river crossings.
+        </p>
+        <p>
+          We started with an early lunch at La Luna at 11:00 am, which sits
+          beachfront on Pelada and runs a watermelon margarita that is
+          locally famous. The ATV team met the group at 1:00 pm at our
+          local ATV partner's shop, ten minutes from the villa. The group
+          got a side-by-side and a six-seater for the riders who wanted
+          two-up, plus individual ATVs for everyone else. Four hours
+          through the back hills, two river crossings, a stop at a
+          waterfall, and a coffee at Beach Blend on the drive home. A
+          quieter technique-driven chef dinner at the villa at 7:00 pm
+          to close the day.
+        </p>
+
+        <h2>Day five, the catamaran day</h2>
+        <p>
+          Day five was Tuesday, which in Nosara means the Tuesday Organic
+          Market in Guiones is open from 8 am to 3 pm. A few of the group
+          walked over for fresh produce, baked goods, and the local-makers
+          stalls. A late breakfast at Restaurante Celajes nearby kept it
+          casual.
+        </p>
+        <p>
+          The catamaran day was the centerpiece. Arrival at Pilo's Bar in
+          Garza by 1:45 pm, boarding at 2:00, four hours on the Pacific
+          with snorkeling, dolphin sightings if the day was right, and the
+          piña colada that we have, after a lot of testing, decided is the
+          best in Nosara. The group was back at the villa by 6 and walked
+          to Mama Gui at 7:00 pm for handmade pasta and wood-fired pizza.
+        </p>
+
+        <h2>Day six, wellness and the sunset table</h2>
+        <p>
+          By day six, the older members of the group had asked for
+          something quieter. We booked a private reformer pilates session
+          for six at a boutique studio in Cinco Esquinas at 11:30 am, a
+          fifty-minute class on top-of-the-line equipment in a small,
+          well-appointed room. Lunch at Sunrise in Pelada after, the
+          smoothies and salads kind of meal that everyone gets behind.
+        </p>
+        <p>
+          Dinner at Coyol at 5:00 pm is one of the most distinctive
+          sunset tables in Costa Rica. The drive is twenty-five minutes
+          up the hill, the dining room is a wood-fired kitchen with a
+          view that runs from the jungle to the Pacific, and there is a
+          swing at the edge of the property that everybody photographs.
+          We hold these reservations months in advance during high season.
+        </p>
+
+        <h2>Day seven, the zipline and the Thanksgiving feast</h2>
+        <p>
+          Day seven was Thanksgiving. The morning ran light, breakfast
+          and fresh juices at Go Juice for the kids. At 12:30 pm the
+          group went up the road to the canopy zipline at the Nosara
+          reserve, four hours through a 2,500-acre forest reserve with
+          thirteen cables, the longest stretching 750 meters above the
+          jungle and rivers below. Closed-toed shoes, swimsuits underneath
+          for the waterfall stop, and the family was back at the villa
+          by 5.
+        </p>
+        <p>
+          The Thanksgiving feast was the anchor of the week. Our private
+          chef for the night specializes in warm, generous, family-style
+          cooking. The menu was a Costa Rican take on the traditional
+          Thanksgiving table: roast turkey, two stuffings, sides built
+          around local produce from the Tuesday market, and a tres
+          leches in place of a pumpkin pie. Long table on the terrace,
+          candles, the family gathered around for the last full night
+          in Nosara.
+        </p>
+
+        <h2>Day eight, departure</h2>
+        <p>
+          Final breakfast at the villa at 8:00 am, a slow morning,
+          luggage out by 10. Our transportation partner picked the
+          family up directly from Raintree for the drive to Liberia,
+          stopping for one last unhurried Costa Rican lunch on the
+          way. The SUV drop-off and the ATV return were handled in
+          the background so the family did not have to manage logistics
+          on departure day. Alaska Airlines flight 617 left Liberia at
+          7:10 pm.
+        </p>
+
+        <h2>What we learned</h2>
+        <ul>
+          <li>
+            <strong>The split surf lesson is non-negotiable for mixed-skill
+            groups.</strong> Two coaches, two zones of the beach, nobody
+            waiting. The cost is meaningfully higher than a group
+            lesson and worth it every time.
+          </li>
+          <li>
+            <strong>A slow day on day three saves the rest of the week.</strong>
+            We have run this experiment enough times to be sure. The
+            instinct is to pack the schedule. The right move is the
+            opposite.
+          </li>
+          <li>
+            <strong>Restaurant reservations matter more than people think
+            during high season.</strong> Harmony, Sendero, La Luna,
+            Mama Gui, Coyol — all of these were booked one to two
+            weeks ahead. Walking in on a Thanksgiving Tuesday would
+            not have worked.
+          </li>
+          <li>
+            <strong>Thanksgiving night should be the chef night.</strong>
+            We have done it the other way, with the family going to
+            a restaurant for the holiday meal. The villa dinner is
+            warmer, longer, less rushed, and ends with everybody on
+            the terrace instead of in a parking lot.
+          </li>
+          <li>
+            <strong>Day six is the right slot for wellness.</strong>
+            The group has been moving for five days. A pilates session
+            and a sunset dinner pulls everybody back into the slow
+            rhythm before the final day's adventure.
+          </li>
+        </ul>
+
+        <h2>Want a Thanksgiving week like this?</h2>
+        <p>
+          Thanksgiving and Christmas weeks in Nosara fill up early.
+          Villas at the Raintree level book six to nine months out for
+          the holidays, and a private chef for Thanksgiving night needs
+          to be confirmed by late summer. If you are thinking about a
+          family Thanksgiving in Nosara for next year, the conversation
+          starts now.
+        </p>
+
+      </div>
+    </section>
+
+    <section class="journal-cta">
+      <div class="journal-cta-inner">
+        <p class="eyebrow">Plan your Nosara trip</p>
+        <h2>Want this dialed in for your family?</h2>
+        <p>
+          Tell us your dates, your group, and what would make the trip
+          worth it. We send a tailored proposal within 24 hours.
+        </p>
+        <a href="/contact" class="btn-primary">Start the conversation</a>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .journal-article {
+    background: var(--cream);
+  }
+  .journal-article-hero {
+    padding: 7rem 1.5rem 2rem;
+    background: var(--cream);
+  }
+  .journal-article-hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .journal-article-hero .eyebrow a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+  }
+  .journal-article-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.1;
+    color: var(--dark);
+    margin: 1rem 0 1.5rem;
+    letter-spacing: -0.01em;
+  }
+  .journal-article-hero h1 em {
+    font-style: italic;
+    color: var(--terracotta, #c2723a);
+  }
+  .journal-article-lede {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(19, 18, 16, 0.75);
+    margin: 0 auto 2rem;
+    max-width: 620px;
+  }
+  .journal-article-meta {
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(19, 18, 16, 0.5);
+    display: flex;
+    gap: 0.65rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .journal-article-figure {
+    margin: 0;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding: 0 1.5rem;
+  }
+  .journal-article-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .journal-article-body {
+    padding: 4rem 1.5rem;
+    background: var(--cream);
+  }
+  .journal-article-body-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    font-family: var(--font-body);
+    color: rgba(19, 18, 16, 0.9);
+  }
+  .journal-article-body-inner :global(p) {
+    font-size: 17px;
+    line-height: 1.75;
+    margin: 0 0 1.5rem;
+  }
+  .journal-article-body-inner :global(p.dropcap::first-letter) {
+    font-family: var(--font-display);
+    font-size: 4.5em;
+    line-height: 0.85;
+    float: left;
+    margin: 0.15em 0.15em 0 0;
+    color: var(--terracotta, #c2723a);
+  }
+  .journal-article-body-inner :global(h2) {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3vw, 30px);
+    line-height: 1.2;
+    color: var(--dark);
+    margin: 3rem 0 1.25rem;
+    letter-spacing: -0.01em;
+  }
+  .journal-article-body-inner :global(ul) {
+    padding-left: 1.25rem;
+    margin: 0 0 1.5rem;
+  }
+  .journal-article-body-inner :global(li) {
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0 0 0.85rem;
+  }
+  .journal-article-body-inner :global(strong) {
+    color: var(--dark);
+    font-weight: 600;
+  }
+
+  .journal-cta {
+    padding: 5rem 1.5rem;
+    background: var(--sand);
+    text-align: center;
+  }
+  .journal-cta-inner {
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .journal-cta h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.5vw, 38px);
+    line-height: 1.2;
+    color: var(--dark);
+    margin: 1rem 0 1rem;
+  }
+  .journal-cta p {
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    color: rgba(19, 18, 16, 0.75);
+    margin: 0 0 2rem;
+  }
+</style>

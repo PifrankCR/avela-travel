@@ -8,9 +8,9 @@ const posts = [
     slug: 'a-week-with-the-marx-family',
     category: 'Trip recap',
     title: 'A week with the Marx family',
-    date: 'Coming soon',
+    date: 'December 2025',
     excerpt:
-      'Eight nights at Raintree with two parents, two kids, and a mix of surfers and yogis. Here is exactly how Stacie built their week, and what she learned along the way.',
+      'Eight nights at Raintree over Thanksgiving week 2025. How we built the week, what worked, and the small choices that made it.',
     cover: '/images/villas/raintree/01-view-sunset-infinity-pool.jpg',
     coverAlt: 'Sunset view from a luxury villa infinity pool overlooking the jungle, Nosara, Costa Rica',
     author: 'Stacie',
@@ -19,12 +19,13 @@ const posts = [
     slug: 'when-to-visit-nosara',
     category: 'Guide',
     title: 'When to actually visit Nosara',
-    date: 'Coming soon',
+    date: 'See the guide',
     excerpt:
-      'The honest seasonal breakdown. Dry season versus green season, surf swell windows, holiday surcharges, and the two weeks of the year that locals consider the secret peak.',
+      'The honest seasonal breakdown. Dry season versus green season, surf swell windows, holiday surcharges, and the two weeks of the year locals consider the secret peak.',
     cover: '/images/experiences/surf.jpg',
     coverAlt: 'Surfer riding a clean Playa Guiones wave, Nosara, Costa Rica',
     author: 'Jordanny',
+    href: '/guides/when-to-visit',
   },
   {
     slug: 'the-monkey-head-story',
@@ -36,6 +37,7 @@ const posts = [
     cover: '/images/experiences/ocean.jpg',
     coverAlt: 'Monkey Head Adventures sportfishing boat on the Pacific off Nosara, Costa Rica',
     author: 'Jordanny',
+    upcoming: true,
   },
 ];
 
@@ -92,29 +94,39 @@ const pageSchema = {
   <section class="journal-grid-section">
     <div class="journal-grid-inner">
       <div class="journal-grid">
-        {posts.map((post, i) => (
-          <article class="journal-card reveal" style={`--delay:${i * 100}ms`} data-category={post.category}>
-            <a href={`#${post.slug}`} class="journal-card-link" aria-label={post.title}>
-              <div class="journal-card-image">
-                <img
-                  src={post.cover}
-                  alt={post.coverAlt}
-                  loading="lazy"
-                  decoding="async"
-                  width="800"
-                  height="600"
-                />
-                <span class="journal-card-badge">{post.date}</span>
-              </div>
-              <div class="journal-card-body">
-                <p class="journal-card-cat">{post.category} · {post.author}</p>
-                <h2>{post.title}</h2>
-                <p class="journal-card-excerpt">{post.excerpt}</p>
-                <span class="journal-card-arrow">Read note →</span>
-              </div>
-            </a>
-          </article>
-        ))}
+        {posts.map((post, i) => {
+          const href = post.href ?? `/journal/${post.slug}`;
+          const isUpcoming = post.upcoming === true;
+          const CardTag = isUpcoming ? 'div' : 'a';
+          const cardProps = isUpcoming
+            ? { class: 'journal-card-link journal-card-link-disabled' }
+            : { href, class: 'journal-card-link', 'aria-label': post.title };
+          return (
+            <article class="journal-card reveal" style={`--delay:${i * 100}ms`} data-category={post.category}>
+              <CardTag {...cardProps}>
+                <div class="journal-card-image">
+                  <img
+                    src={post.cover}
+                    alt={post.coverAlt}
+                    loading="lazy"
+                    decoding="async"
+                    width="800"
+                    height="600"
+                  />
+                  <span class="journal-card-badge">{post.date}</span>
+                </div>
+                <div class="journal-card-body">
+                  <p class="journal-card-cat">{post.category} · {post.author}</p>
+                  <h2>{post.title}</h2>
+                  <p class="journal-card-excerpt">{post.excerpt}</p>
+                  <span class="journal-card-arrow">
+                    {isUpcoming ? 'Coming soon' : 'Read note →'}
+                  </span>
+                </div>
+              </CardTag>
+            </article>
+          );
+        })}
       </div>
 
       <p class="journal-empty-note">
@@ -235,6 +247,18 @@ const pageSchema = {
 
   .journal-card-link {
     display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .journal-card-link-disabled {
+    cursor: default;
+    opacity: 0.72;
+  }
+  .journal-card-link-disabled .journal-card-arrow {
+    color: rgba(19, 18, 16, 0.45);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 11px;
   }
 
   .journal-card-image {

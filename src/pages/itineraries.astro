@@ -16,7 +16,7 @@ const itineraries = [
     sample: [
       'Day 1: Liberia arrival, Sansa flight to Nosara, villa welcome',
       'Day 2: Sunrise yoga, family surf lesson, lunch at La Ventanita',
-      'Day 3: ATV adventure with Pipin, waterfall stop, chef dinner',
+      'Day 3: ATV adventure, waterfall stop, chef dinner',
       'Day 4: Boat day to Isla Rosada, snorkeling, ceviche on deck',
       'Day 5: Howler monkey morning walk, pool day, sound healing in the villa',
       'Day 6: Beach sunset, group chef dinner under the stars',
@@ -160,7 +160,7 @@ const pageSchema = {
               connection flight.
             </p>
             <p class="signature-card-price">
-              <span>From $4,300</span>
+              <span>From <span class="usd">$</span>4,300</span>
               <span class="signature-card-price-unit">per angler, plus 13% IVA</span>
             </p>
             <span class="signature-card-cta">See the package →</span>
@@ -351,12 +351,20 @@ const pageSchema = {
   }
   .signature-card-price {
     margin: 0 0 1rem;
+    white-space: nowrap;
   }
   .signature-card-price > span:first-child {
     font-family: var(--font-display);
     font-size: 22px;
     color: var(--dark);
     margin-right: 0.5rem;
+  }
+  .signature-card-price .usd {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 0.92em;
+    margin-right: 0.03em;
+    vertical-align: 0;
   }
   .signature-card-price-unit {
     font-family: var(--font-body);

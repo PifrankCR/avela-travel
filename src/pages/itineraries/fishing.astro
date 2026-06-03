@@ -146,8 +146,8 @@ const addOns = [
   'Additional villa nights, subject to availability',
   'Private chef nights (separate from the included villa meals)',
   'Surf lessons with ISA-certified instructors',
-  'ATV river and waterfall day with Pipin Rentals',
-  'Zipline canopy tour with Miss Sky',
+  'ATV river and waterfall day with our local ATV partner',
+  'Zipline canopy tour through the Nosara reserve',
   'In-villa massage and yoga sessions',
   'Sunset catamaran cruise',
   'Non-fishing companion rate, on request',
@@ -391,10 +391,10 @@ const pageSchema = {
           <div class="fishing-price-card">
             <p class="fishing-price-size">{t.size}</p>
             <p class="fishing-price-pp">
-              <span class="fishing-price-num">{t.pp}</span>
+              <span class="fishing-price-num"><span class="usd">$</span>{t.pp.replace('$', '')}</span>
               <span class="fishing-price-unit">per angler</span>
             </p>
-            <p class="fishing-price-total">Group total {t.total}</p>
+            <p class="fishing-price-total">Group total <span class="usd">$</span>{t.total.replace('$', '')}</p>
             <p class="fishing-price-tax">Plus 13% IVA</p>
           </div>
         ))}
@@ -836,6 +836,13 @@ const pageSchema = {
     color: var(--dark);
     line-height: 1;
   }
+  .fishing-price-num .usd {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 0.78em;
+    margin-right: 0.03em;
+    vertical-align: 0.05em;
+  }
   .fishing-price-unit {
     display: block;
     font-family: var(--font-body);
@@ -850,6 +857,12 @@ const pageSchema = {
     font-size: 15px;
     color: rgba(19, 18, 16, 0.62);
     margin: 1.25rem 0 0.25rem;
+  }
+  .fishing-price-total .usd {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 0.95em;
+    margin-right: 0.03em;
   }
   .fishing-price-tax {
     font-family: var(--font-body);

@@ -8,26 +8,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
   <section class="four-oh-four">
     <div class="four-oh-four-inner">
-      <!-- Sloth illustration -->
+      <!-- Frigate bird illustration: solo silhouette in flight over a horizon line -->
       <div class="four-oh-four-icon" aria-hidden="true">
         <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-          <!-- Branch -->
-          <line x1="4" y1="14" x2="60" y2="14"/>
-          <!-- Sloth body -->
-          <ellipse cx="32" cy="34" rx="13" ry="14"/>
-          <!-- Arms reaching up -->
-          <path d="M 22 26 C 18 18, 16 16, 14 14"/>
-          <path d="M 42 26 C 46 18, 48 16, 50 14"/>
-          <!-- Hooks -->
-          <path d="M 12 13 C 11 12, 11 16, 14 15"/>
-          <path d="M 52 13 C 53 12, 53 16, 50 15"/>
-          <!-- Face -->
-          <circle cx="27" cy="32" r="1" fill="currentColor"/>
-          <circle cx="37" cy="32" r="1" fill="currentColor"/>
-          <path d="M 30 38 Q 32 40, 34 38"/>
-          <!-- Mask outline -->
-          <path d="M 23 30 Q 27 28, 31 30" opacity="0.45"/>
-          <path d="M 33 30 Q 37 28, 41 30" opacity="0.45"/>
+          <!-- Horizon line -->
+          <line x1="4" y1="50" x2="60" y2="50" opacity="0.4"/>
+          <!-- Frigate bird, characteristic angular M-shape wings -->
+          <path d="M 8 24 C 14 22, 20 23, 24 26 L 32 22 L 40 26 C 44 23, 50 22, 56 24"/>
+          <!-- Forked tail -->
+          <path d="M 32 22 L 30 30 L 32 28 L 34 30 Z" fill="currentColor" opacity="0.55"/>
+          <!-- Small body curve under wings -->
+          <path d="M 28 24 Q 32 27, 36 24" opacity="0.5"/>
+          <!-- Second bird, further away -->
+          <path d="M 44 38 C 47 37, 50 37, 52 38 L 54 36 L 56 38 C 58 37, 60 37, 62 38" opacity="0.4" stroke-width="1"/>
         </svg>
       </div>
 
