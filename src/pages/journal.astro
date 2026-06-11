@@ -22,8 +22,8 @@ const posts = [
     date: 'June 2026',
     excerpt:
       'How to look at Nosara surf the way locals do. Swell windows, wind, tides, and the quiet rhythm of a year on one of the most consistent sand-bottom breaks on the planet.',
-    cover: '/images/experiences/surf.jpg',
-    coverAlt: 'Clean morning wave breaking at Playa Guiones, Nosara, Costa Rica',
+    cover: '/images/journal/surfer-walking-golden-hour-playa-guiones.jpg',
+    coverAlt: 'Lone surfer walking on golden sand at sunset at Playa Guiones, Nosara, Costa Rica',
     author: 'Jordanny',
   },
   {
@@ -44,8 +44,8 @@ const posts = [
     date: 'June 2026',
     excerpt:
       'One of the largest sea turtle nesting events on the planet happens less than twenty minutes from Nosara. Here is how to see it, what the science actually says, and the rules that keep it possible.',
-    cover: '/images/experiences/ocean.jpg',
-    coverAlt: 'Open Pacific water at sunrise off Nosara, Costa Rica, where Olive Ridley turtles return to Ostional to nest',
+    cover: '/images/journal/ostional-arribada-olive-ridley-turtle.jpg',
+    coverAlt: 'Olive Ridley sea turtle on the black sand of Playa Ostional during an arribada, Nicoya Peninsula, Costa Rica',
     author: 'Jordanny',
   },
   {
@@ -174,27 +174,46 @@ const pageSchema = {
 <style>
   /* ─── HERO ─── */
   .journal-hero {
-    background: var(--green-deep);
+    position: relative;
+    background: var(--green-deep) url('/images/journal/howler-monkey-nicoya-nosara-blue-zone.jpg') center/cover no-repeat;
     color: var(--warm-cream);
-    padding: clamp(140px, 16vw, 200px) var(--gutter) clamp(60px, 9vw, 110px);
+    padding: clamp(180px, 22vw, 280px) var(--gutter) clamp(90px, 14vw, 160px);
     text-align: center;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .journal-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(19, 18, 16, 0.50) 0%, rgba(58, 79, 65, 0.55) 55%, rgba(19, 18, 16, 0.72) 100%);
+    z-index: 0;
   }
 
   .journal-hero-inner {
-    max-width: 760px;
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
     margin: 0 auto;
   }
 
   .journal-hero .eyebrow {
     color: var(--amber);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     display: inline-block;
+    letter-spacing: 4px;
   }
 
   .journal-hero h1 {
-    font-size: clamp(46px, 6.5vw, 92px);
-    line-height: 1.02;
-    margin-bottom: 2rem;
+    font-size: clamp(64px, 12vw, 180px);
+    line-height: 0.92;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
   }
 
   .journal-hero h1 em {
@@ -205,7 +224,9 @@ const pageSchema = {
   .hero-lede {
     font-size: clamp(16px, 1.7vw, 20px);
     line-height: 1.7;
-    color: rgba(255, 241, 207, 0.78);
+    color: rgba(255, 241, 207, 0.88);
+    max-width: 620px;
+    margin: 0 auto;
   }
 
   /* ─── FILTER ─── */
