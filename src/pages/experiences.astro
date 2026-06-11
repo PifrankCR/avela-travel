@@ -398,12 +398,28 @@ const pageSchema = {
 <style>
   /* ─── HERO ─── */
   .experiences-hero {
-    background: var(--green-deep);
+    position: relative;
+    background: var(--green-deep) url('/images/experiences/snorkelers-underwater-sunbeams-pacific-nosara-costa-rica.jpg') center/cover no-repeat;
     color: var(--warm-cream);
-    padding: clamp(140px, 16vw, 200px) var(--gutter) clamp(60px, 9vw, 110px);
+    padding: clamp(180px, 22vw, 280px) var(--gutter) clamp(90px, 14vw, 160px);
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .experiences-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(19, 18, 16, 0.50) 0%, rgba(19, 18, 16, 0.38) 55%, rgba(19, 18, 16, 0.72) 100%);
+    z-index: 0;
   }
 
   .experiences-hero-inner {
+    position: relative;
+    z-index: 1;
     max-width: var(--max-width);
     margin: 0 auto;
     text-align: center;
