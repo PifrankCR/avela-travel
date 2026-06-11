@@ -1,0 +1,428 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AvelaSeal from '../components/AvelaSeal.astro';
+
+const title = 'Our Process | How Working with Avela Travel Works';
+const description =
+  'A clear, step-by-step walkthrough of how an Avela trip gets built, from the first message to the recap a week after you get home.';
+
+const steps = [
+  {
+    num: '01',
+    title: 'You write us',
+    when: '2 minutes',
+    body: `Fill the inquiry form on the contact page. Dates, group size, what
+    matters most, anything we should know up front. A real person on our team
+    reads every message within a few hours. We do not have account managers or
+    a routing system.`,
+  },
+  {
+    num: '02',
+    title: 'We talk',
+    when: '30 minutes, within 24 to 48 hours',
+    body: `Stacie or Jordanny gets on a call with you, depending on the shape of
+    the trip. WhatsApp video or Zoom, your call. We ask questions, listen for
+    the things behind what you said, and flag anything that needs to happen
+    quickly because of the season. No commitment from either side.`,
+  },
+  {
+    num: '03',
+    title: 'We propose',
+    when: 'Within 72 hours of the call',
+    body: `A tailored written proposal. Two or three villa options matched to
+    your group, a sample week with timing and operators named, and a clear cost
+    breakdown. Villa, chef, transfers, experiences, taxes. No hidden line items
+    and no padded service fees.`,
+  },
+  {
+    num: '04',
+    title: 'We refine',
+    when: 'As long as it takes',
+    body: `Swap villas, shorten the week, move the boat day, replace the
+    catamaran with a fishing charter, add a wellness afternoon. We iterate on
+    the proposal until it feels right. There is no revision fee and there is no
+    deadline to decide.`,
+  },
+  {
+    num: '05',
+    title: 'You confirm',
+    when: 'When you are ready',
+    body: `A signed booking and a fifty percent deposit holds the dates. We
+    send the booking contract, villa terms, and a clear cancellation policy
+    before any money moves. The remaining balance is due seventy-two hours
+    before arrival, not earlier.`,
+  },
+  {
+    num: '06',
+    title: 'We prepare',
+    when: 'The two weeks before your trip',
+    body: `Final itinerary delivered, restaurant reservations confirmed, partner
+    schedules locked in, transfer times set. A welcome kit waiting at the villa
+    on arrival with the snacks, drinks, and fresh flowers you asked for. Your
+    direct WhatsApp channel with the on-the-ground team goes live.`,
+  },
+  {
+    num: '07',
+    title: 'We host',
+    when: 'Every day you are here',
+    body: `Airport welcome, in-villa briefing, daily check-ins. The chef knows
+    your dietary notes, the surf coach has your level, the boat captain has
+    your group. We watch the weather, the swell, and the wildlife windows in
+    the background and adjust quietly. Anything that goes sideways, we handle
+    before it touches your week.`,
+  },
+  {
+    num: '08',
+    title: 'We say thank you',
+    when: 'About a week after you get home',
+    body: `A short message and the photos we took during the week without you
+    noticing. A recipe from the chef if you asked. Direct contact for the surf
+    coach, the captain, and the partners we used in case you want to message
+    them yourself next time. We do not put guests on a newsletter.`,
+  },
+];
+
+const constants = [
+  {
+    title: 'One point of contact',
+    body: 'You email the same person from the first message to the post-trip recap. No handoffs.',
+  },
+  {
+    title: 'Real numbers, no padding',
+    body: 'Every proposal shows the cost of each component. Our coordination fee is a single line you can see.',
+  },
+  {
+    title: 'We will say no',
+    body: 'If a villa is wrong for your group, if a tour is not right for the season, we will tell you straight.',
+  },
+  {
+    title: 'Local, bilingual, on the ground',
+    body: 'We live in Nosara. We host in English and Spanish. We answer messages within hours, not days.',
+  },
+];
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How working with Avela Travel works',
+  description,
+  step: steps.map((s, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: s.title,
+    text: s.body.replace(/\s+/g, ' ').trim(),
+  })),
+};
+---
+
+<BaseLayout title={title} description={description} schema={pageSchema}>
+  <!-- ─── HERO ─── -->
+  <section class="process-hero">
+    <div class="process-hero-inner">
+      <p class="eyebrow">Our process</p>
+      <h1>
+        How a trip<br />
+        <em>actually gets built</em>
+      </h1>
+      <p class="process-hero-lede">
+        Most travel sites say everything is bespoke and end the conversation
+        there. Here is exactly how working with us happens, from the first
+        message to the recap a week after you get home.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── STEPS ─── -->
+  <section class="process-steps">
+    <div class="process-steps-inner">
+      {steps.map((step) => (
+        <article class="process-step reveal">
+          <div class="process-step-num">
+            <span>{step.num}</span>
+          </div>
+          <div class="process-step-body">
+            <p class="process-step-when">{step.when}</p>
+            <h2>{step.title}</h2>
+            <p>{step.body}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- ─── WHAT STAYS CONSTANT ─── -->
+  <section class="process-constants">
+    <div class="process-constants-inner">
+      <div class="process-constants-header reveal">
+        <p class="eyebrow">What stays the same at every step</p>
+        <h2>The four things <em>we never change</em></h2>
+      </div>
+      <div class="process-constants-grid">
+        {constants.map((c, i) => (
+          <div class={`process-constant reveal reveal-delay-${i + 1}`}>
+            <h3>{c.title}</h3>
+            <p>{c.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SEAL + CTA ─── -->
+  <section class="process-cta">
+    <div class="process-cta-inner reveal">
+      <div class="process-cta-seal">
+        <AvelaSeal size={120} />
+      </div>
+      <p class="eyebrow">Start the conversation</p>
+      <h2>Step 01 is yours</h2>
+      <p>
+        Send your dates, your group, and what matters most. A real person will
+        read it within a few hours and we will go from there.
+      </p>
+      <div class="process-cta-actions">
+        <a href="/contact" class="btn-primary">Send the first message</a>
+        <a href="/about" class="btn-ghost">Meet the team</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ─── HERO ─── */
+  .process-hero {
+    background: var(--green-deep);
+    color: var(--warm-cream);
+    padding: clamp(140px, 16vw, 200px) var(--gutter) clamp(70px, 10vw, 120px);
+    text-align: center;
+  }
+  .process-hero-inner {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .process-hero .eyebrow {
+    color: var(--amber);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    letter-spacing: 3px;
+  }
+  .process-hero h1 {
+    font-size: clamp(46px, 7vw, 96px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+  }
+  .process-hero h1 em {
+    font-style: italic;
+    color: var(--amber);
+  }
+  .process-hero-lede {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(17px, 1.7vw, 21px);
+    line-height: 1.6;
+    color: rgba(255, 241, 207, 0.85);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* ─── STEPS ─── */
+  .process-steps {
+    background: var(--cream);
+    padding: clamp(70px, 10vw, 130px) var(--gutter);
+  }
+  .process-steps-inner {
+    max-width: 880px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.5rem, 5vw, 4rem);
+  }
+  .process-step {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    align-items: start;
+    border-top: 1px solid rgba(19, 18, 16, 0.08);
+    padding-top: clamp(2rem, 4vw, 3rem);
+  }
+  .process-step:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+  .process-step-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(56px, 7vw, 96px);
+    line-height: 1;
+    color: var(--amber);
+    font-weight: 400;
+  }
+  .process-step-body {
+    padding-top: 0.5rem;
+  }
+  .process-step-when {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin: 0 0 0.85rem;
+  }
+  .process-step-body h2 {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.15;
+    color: var(--green-deep);
+    margin: 0 0 1.25rem;
+    letter-spacing: -0.01em;
+  }
+  .process-step-body p {
+    font-size: 16px;
+    line-height: 1.78;
+    color: rgba(19, 18, 16, 0.78);
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .process-step {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    .process-step-num {
+      font-size: 64px;
+    }
+  }
+
+  /* ─── CONSTANTS ─── */
+  .process-constants {
+    background: var(--sand);
+    padding: clamp(70px, 10vw, 130px) var(--gutter);
+  }
+  .process-constants-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+  .process-constants-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(3rem, 5vw, 5rem);
+  }
+  .process-constants-header .eyebrow {
+    margin-bottom: 1rem;
+    color: var(--brown);
+  }
+  .process-constants-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 48px);
+    color: var(--green-deep);
+    line-height: 1.1;
+  }
+  .process-constants-header h2 em {
+    font-style: italic;
+    color: var(--brown);
+  }
+  .process-constants-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(58, 79, 65, 0.12);
+  }
+  @media (max-width: 720px) {
+    .process-constants-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .process-constant {
+    background: var(--sand);
+    padding: clamp(2rem, 4vw, 3rem);
+  }
+  .process-constant h3 {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.2vw, 26px);
+    color: var(--green-deep);
+    margin: 0 0 1rem;
+    font-style: italic;
+    letter-spacing: -0.01em;
+  }
+  .process-constant p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(19, 18, 16, 0.7);
+    margin: 0;
+  }
+
+  /* ─── CTA ─── */
+  .process-cta {
+    background: var(--dark);
+    color: var(--warm-cream);
+    padding: clamp(80px, 12vw, 140px) var(--gutter);
+    text-align: center;
+  }
+  .process-cta-inner {
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .process-cta-seal {
+    color: var(--amber);
+    display: inline-flex;
+    margin-bottom: 2rem;
+    opacity: 0.85;
+  }
+  .process-cta .eyebrow {
+    color: var(--amber);
+    margin-bottom: 1rem;
+    display: inline-block;
+    letter-spacing: 3px;
+  }
+  .process-cta h2 {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+  .process-cta p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 241, 207, 0.65);
+    margin-bottom: 2.5rem;
+  }
+  .process-cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    background: var(--amber);
+    color: var(--cream);
+    transition: background 0.3s;
+  }
+  .btn-primary:hover {
+    background: var(--amber-deep);
+  }
+  .btn-ghost {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 15px 36px;
+    border: 1px solid rgba(255, 241, 207, 0.3);
+    color: rgba(255, 241, 207, 0.7);
+    transition: all 0.3s;
+  }
+  .btn-ghost:hover {
+    border-color: var(--warm-cream);
+    color: var(--warm-cream);
+  }
+</style>
