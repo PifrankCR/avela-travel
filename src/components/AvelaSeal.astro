@@ -1,0 +1,73 @@
+---
+// Avela wax seal mark. Tone is driven by the parent's `color` CSS property
+// via currentColor so the seal blends with whatever section it sits in.
+//
+// Usage:
+//   <AvelaSeal />                          // default 180px, full seal
+//   <AvelaSeal size={64} />                // small, auto-switches to compact (icon only)
+//   <AvelaSeal size={120} compact={false} /> // force full seal at a small size
+//   <AvelaSeal class="my-seal" />          // wrap with custom styles
+
+interface Props {
+  size?: number;
+  compact?: boolean;
+  class?: string;
+}
+
+const { size = 180, compact: compactProp, class: className = '' } = Astro.props;
+const compact = compactProp ?? size < 80;
+---
+
+<svg
+  viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Avela Travel seal"
+  width={size}
+  height={size}
+  class={`avela-seal ${className}`}
+>
+  {/* Outer solid circle */}
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width={compact ? '2' : '1.4'}/>
+
+  {/* Dotted perforation ring */}
+  <circle
+    cx="100" cy="100" r="84"
+    fill="none"
+    stroke="currentColor"
+    stroke-width={compact ? '1.4' : '0.8'}
+    stroke-dasharray={compact ? '2 5' : '1.4 4'}
+    opacity="0.7"
+  />
+
+  {compact ? (
+    <text x="100" y="138" text-anchor="middle" font-family="Playfair Display, serif" font-style="italic" font-size="120" font-weight="500" fill="currentColor">A</text>
+  ) : (
+    <>
+      {/* Inner border ring (decorative) */}
+      <circle cx="100" cy="100" r="55" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
+
+      {/* Curved rim text */}
+      <defs>
+        <path id="avela-seal-rim" d="M 100,100 m 0,-73 a 73,73 0 1,1 0,146 a 73,73 0 1,1 0,-146"/>
+      </defs>
+      <text font-family="DM Sans, sans-serif" font-size="10" font-weight="500" letter-spacing="3.6" fill="currentColor">
+        <textPath href="#avela-seal-rim" startOffset="0">EST · NOSARA, COSTA RICA · BLUE ZONE · </textPath>
+      </text>
+
+      {/* Center stacked wordmark */}
+      <text x="100" y="92" text-anchor="middle" font-family="Playfair Display, serif" font-size="22" font-weight="500" letter-spacing="3" fill="currentColor">AVELA</text>
+      <line x1="78" y1="100" x2="122" y2="100" stroke="currentColor" stroke-width="0.6" opacity="0.55"/>
+      <text x="100" y="118" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8.5" font-weight="500" letter-spacing="3" fill="currentColor">TRAVEL</text>
+      <text x="100" y="138" text-anchor="middle" font-family="Playfair Display, serif" font-style="italic" font-size="11" fill="currentColor" opacity="0.7">est. 2025</text>
+    </>
+  )}
+</svg>
+
+<style>
+  .avela-seal {
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+</style>

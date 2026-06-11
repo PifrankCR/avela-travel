@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AvelaSeal from '../components/AvelaSeal.astro';
 ---
 
 <BaseLayout
@@ -433,6 +434,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           View Nosara on Google Maps →
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- Brand seal sign-off -->
+  <section class="section about-seal" style="background: var(--cream); padding: clamp(60px, 8vw, 100px) var(--gutter);">
+    <div class="section-inner about-seal-inner reveal">
+      <div class="about-seal-mark">
+        <AvelaSeal size={180} />
+      </div>
+      <p class="about-seal-tagline">
+        <em>Nosara, Costa Rica</em>
+      </p>
     </div>
   </section>
 
@@ -881,6 +894,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  /* Brand seal sign-off section */
+  .about-seal {
+    text-align: center;
+  }
+  .about-seal-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .about-seal-mark {
+    color: var(--amber);
+    display: inline-flex;
+    margin-bottom: 1.5rem;
+  }
+  .about-seal-tagline {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(19, 18, 16, 0.5);
+    margin: 0;
+  }
+  .about-seal-tagline em {
+    font-style: italic;
   }
 
   .btn-primary {

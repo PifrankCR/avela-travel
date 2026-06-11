@@ -1,4 +1,5 @@
 ---
+import AvelaSeal from './AvelaSeal.astro';
 const year = new Date().getFullYear();
 ---
 
@@ -106,6 +107,12 @@ const year = new Date().getFullYear();
     </nav>
   </div>
 
+  <div class="footer-seal" aria-hidden="true">
+    <span class="footer-seal-line"></span>
+    <span class="footer-seal-mark"><AvelaSeal size={52} compact /></span>
+    <span class="footer-seal-line"></span>
+  </div>
+
   <div class="footer-bottom">
     <p>&copy; {year} Avela Travel. All rights reserved.</p>
     <p class="footer-bottom-links">
@@ -121,6 +128,34 @@ const year = new Date().getFullYear();
     background: var(--dark);
     color: rgba(251, 248, 242, 0.55);
     padding: clamp(60px, 8vw, 100px) var(--gutter) 0;
+  }
+
+  .footer-seal {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.25rem var(--gutter) 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    color: var(--amber);
+  }
+
+  .footer-seal-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(202, 138, 65, 0.32) 50%, transparent 100%);
+    max-width: 280px;
+  }
+
+  .footer-seal-mark {
+    display: inline-flex;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+  }
+
+  .footer-seal-mark:hover {
+    opacity: 1;
   }
 
   .footer-inner {
