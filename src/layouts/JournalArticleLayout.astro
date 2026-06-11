@@ -1,0 +1,335 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  category: string;
+  authorName: string;
+  authorFullName: string;
+  heroImage: string;
+  heroImageAlt: string;
+  publishedDate: string;
+  displayDate: string;
+  readTime: string;
+  slug: string;
+}
+
+const {
+  title,
+  description,
+  category,
+  authorName,
+  authorFullName,
+  heroImage,
+  heroImageAlt,
+  publishedDate,
+  displayDate,
+  readTime,
+  slug,
+} = Astro.props;
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  image: `https://avela.travel${heroImage}`,
+  datePublished: publishedDate,
+  dateModified: publishedDate,
+  author: {
+    '@type': 'Person',
+    name: authorFullName,
+    jobTitle: 'Co-founder',
+    worksFor: { '@type': 'TravelAgency', name: 'Avela Travel' },
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Avela Travel',
+    logo: { '@type': 'ImageObject', url: 'https://avela.travel/images/avela-logo.png' },
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': `https://avela.travel/journal/${slug}` },
+};
+---
+
+<BaseLayout
+  title={`${title} | The Avela Journal | Nosara, Costa Rica`}
+  description={description}
+  image={heroImage}
+  schema={pageSchema}
+>
+  <article class="journal-article">
+    <header class="journal-article-hero">
+      <div class="journal-article-hero-inner">
+        <p class="eyebrow">
+          <a href="/journal">Journal</a> &nbsp;·&nbsp; <span>{category}</span>
+        </p>
+        <h1><slot name="h1" /></h1>
+        <p class="journal-article-lede">{description}</p>
+        <p class="journal-article-meta">
+          <span>{readTime}</span>
+          <span aria-hidden="true">·</span>
+          <span>Published {displayDate}</span>
+          <span aria-hidden="true">·</span>
+          <span>By {authorName}, Avela Travel</span>
+        </p>
+      </div>
+    </header>
+
+    <figure class="journal-article-figure">
+      <img
+        src={heroImage}
+        alt={heroImageAlt}
+        loading="eager"
+        decoding="async"
+        width="1600"
+        height="900"
+      />
+    </figure>
+
+    <section class="journal-article-body">
+      <div class="journal-article-body-inner">
+        <slot />
+      </div>
+    </section>
+
+    <section class="journal-article-cta">
+      <div class="journal-article-cta-inner">
+        <slot name="cta">
+          <p class="eyebrow">Plan your trip</p>
+          <h2>Tell us about your trip</h2>
+          <p>
+            We respond within twenty-four hours with a tailored proposal.
+            Villa, chef, transfers, the whole week.
+          </p>
+          <div class="journal-article-cta-actions">
+            <a href="/contact" class="btn-primary">Plan my trip</a>
+            <a href="/villas" class="btn-ghost">Browse villas</a>
+          </div>
+        </slot>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  .journal-article {
+    background: var(--cream);
+  }
+
+  .journal-article-hero {
+    background: var(--green-deep);
+    color: var(--warm-cream);
+    padding: clamp(140px, 16vw, 200px) var(--gutter) clamp(50px, 7vw, 80px);
+    text-align: center;
+  }
+
+  .journal-article-hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .journal-article-hero .eyebrow {
+    color: var(--amber);
+    margin-bottom: 1.25rem;
+    display: inline-block;
+    letter-spacing: 2.5px;
+  }
+
+  .journal-article-hero .eyebrow a {
+    color: var(--amber);
+    border-bottom: 1px solid rgba(202, 138, 65, 0.4);
+    padding-bottom: 2px;
+  }
+
+  .journal-article-hero h1 {
+    font-size: clamp(46px, 7vw, 96px);
+    line-height: 1.02;
+    margin-bottom: 1.5rem;
+  }
+
+  .journal-article-hero h1 em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .journal-article-lede {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(17px, 1.8vw, 21px);
+    line-height: 1.55;
+    color: rgba(255, 241, 207, 0.85);
+    margin-bottom: 2rem;
+  }
+
+  .journal-article-meta {
+    font-family: var(--font-body);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 241, 207, 0.55);
+    display: flex;
+    gap: 0.7rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+
+  .journal-article-figure {
+    max-width: 1180px;
+    margin: clamp(-40px, -4vw, -60px) auto 0;
+    padding: 0 var(--gutter);
+    position: relative;
+    z-index: 2;
+  }
+
+  .journal-article-figure img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+  }
+
+  .journal-article-body {
+    padding: clamp(60px, 8vw, 100px) var(--gutter) clamp(40px, 6vw, 80px);
+  }
+
+  .journal-article-body-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 17px;
+    line-height: 1.78;
+    color: rgba(19, 18, 16, 0.82);
+  }
+
+  .journal-article-body-inner p {
+    margin-bottom: 1.5rem;
+  }
+
+  .journal-article-body-inner h2 {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.18;
+    color: var(--green-deep);
+    margin: 2.5rem 0 1.25rem;
+  }
+
+  .journal-article-body-inner h3 {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.2vw, 24px);
+    line-height: 1.25;
+    color: var(--brown);
+    margin: 2rem 0 0.85rem;
+    font-style: italic;
+  }
+
+  .journal-article-body-inner ul {
+    margin: 0 0 1.75rem 1.25rem;
+    padding: 0;
+  }
+
+  .journal-article-body-inner li {
+    margin-bottom: 0.65rem;
+    line-height: 1.7;
+  }
+
+  .journal-article-body-inner strong {
+    color: var(--green-deep);
+    font-weight: 500;
+  }
+
+  .journal-article-body-inner .dropcap::first-letter {
+    font-family: var(--font-display);
+    font-size: 4.6em;
+    float: left;
+    line-height: 0.88;
+    padding: 0.15em 0.12em 0 0;
+    color: var(--green-deep);
+    font-weight: 500;
+  }
+
+  /* Pull-quote utility, used by posts like the anti-resort week */
+  .journal-article-body-inner .resort-note {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--brown);
+    border-left: 2px solid var(--amber);
+    padding-left: 1.25rem;
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  .journal-article-cta {
+    background: var(--dark);
+    color: var(--warm-cream);
+    padding: clamp(60px, 9vw, 110px) var(--gutter);
+    text-align: center;
+  }
+
+  .journal-article-cta-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .journal-article-cta .eyebrow {
+    color: var(--amber);
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+
+  .journal-article-cta h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .journal-article-cta p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 241, 207, 0.55);
+    margin-bottom: 2.5rem;
+  }
+
+  .journal-article-cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .journal-article-cta .btn-primary {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    background: var(--amber);
+    color: var(--cream);
+    transition: background 0.3s;
+  }
+
+  .journal-article-cta .btn-primary:hover {
+    background: var(--amber-deep);
+  }
+
+  .journal-article-cta .btn-ghost {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 15px 36px;
+    border: 1px solid rgba(255, 241, 207, 0.3);
+    color: rgba(255, 241, 207, 0.7);
+    transition: all 0.3s;
+  }
+
+  .journal-article-cta .btn-ghost:hover {
+    border-color: var(--warm-cream);
+    color: var(--warm-cream);
+  }
+</style>

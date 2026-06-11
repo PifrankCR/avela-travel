@@ -211,7 +211,7 @@ const pageSchema = {
     <div class="experiences-hero-inner">
       <p class="eyebrow">The Avela Experience</p>
       <h1>
-        Seven ways to make<br />
+        Eight ways to make<br />
         <em>Nosara yours</em>
       </h1>
       <p class="hero-lede">
@@ -286,7 +286,7 @@ const pageSchema = {
               <p class="eyebrow">A day with Avela</p>
               <h2>Tuesday in <em>Nosara</em></h2>
               <p class="sample-day-lede">
-                One villa. One point of contact. Seven services threaded together so the
+                One villa. One point of contact. Eight services threaded together so the
                 only thing you decide is whether dinner is by the pool or under the stars.
               </p>
             </div>
@@ -311,7 +311,13 @@ const pageSchema = {
     </>
   ))}
 
-  {/* ─── PRICING SIGNAL (HIDDEN: waiting on real ranges from Stacie. Re-enable by removing this comment wrapper.) ─── */}
+  {/*
+    ─── PRICING SIGNAL (HIDDEN until Stacie confirms what to publish) ───
+    Status as of Jun 2026:
+      - Boat days: Monkey Head PDF has verified retail rates (half-day fishing 27' $650, 32' $950, full-day 32' $1,300, snorkel/marine life $130–$165 pp, paddle/kayak $85 pp). Avela markup TBD.
+      - Villa nights, chef dinners, surf sessions: still awaiting Stacie's ranges.
+    To re-enable: remove `hidden` and `display:none`, update card data to real numbers.
+  */}
   <section class="exp-pricing" aria-label="Sample pricing" hidden style="display:none;">
     <div class="exp-pricing-inner">
       <div class="exp-pricing-header reveal">
@@ -328,7 +334,7 @@ const pageSchema = {
           { label: 'Villa nights', from: 'From $650', unit: '/ night', note: '4–6 BR signature properties · 5–6 BR group villas higher' },
           { label: 'Chef dinners', from: 'From $450', unit: '/ dinner for 4', note: 'Includes sourcing, prep, cooking, cleanup · pairings extra' },
           { label: 'Surf sessions', from: 'From $85', unit: '/ person', note: 'Group lessons · private and family-split coaching priced separately' },
-          { label: 'Boat days', from: 'From $1,800', unit: '/ half day', note: 'Captain, crew, fuel, snorkel gear · sunset cruises and sportfishing available' },
+          { label: 'Boat days', from: 'From $650', unit: '/ half day', note: 'Half-day fishing on the 27′ (up to 4 anglers) · 32′ boat and full-day rates higher' },
         ].map((p, i) => (
           <article class="pricing-card reveal" style={`--delay:${i * 80}ms`}>
             <p class="pricing-label">{p.label}</p>

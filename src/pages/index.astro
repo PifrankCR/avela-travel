@@ -203,7 +203,7 @@ const schema = {
       <div class="services-header reveal">
         <p class="eyebrow">Everything in one place</p>
         <h2 class="services-h2">
-          Seven ways to make your<br />
+          Eight ways to make your<br />
           <em>Nosara stay extraordinary</em>
         </h2>
       </div>
@@ -251,13 +251,27 @@ const schema = {
             desc: 'In-villa spa treatments, morning yoga, sound healing sessions, and Blue Zone retreats rooted in Nosara tradition.',
             delay: 7,
           },
-        ].map(({ icon, name, desc, delay }) => (
-          <div class={`service-card reveal reveal-delay-${delay}`}>
-            <div class="service-icon" set:html={icon}></div>
-            <h3>{name}</h3>
-            <p>{desc}</p>
-          </div>
-        ))}
+          {
+            icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L14.5 9.5 L22 12 L14.5 14.5 L12 22 L9.5 14.5 L2 12 L9.5 9.5 Z"/></svg>`,
+            name: 'Signature Trips',
+            desc: 'Curated multi-day packages built around one focus. Sportfishing this season, more on the way for surf, wellness, and family.',
+            delay: 8,
+            href: '/itineraries',
+          },
+        ].map(({ icon, name, desc, delay, href }) => {
+          const Tag = href ? 'a' : 'div';
+          const cardClass = href
+            ? `service-card service-card-link reveal reveal-delay-${delay}`
+            : `service-card reveal reveal-delay-${delay}`;
+          return (
+            <Tag href={href} class={cardClass}>
+              <div class="service-icon" set:html={icon}></div>
+              <h3>{name}</h3>
+              <p>{desc}</p>
+              {href && <span class="service-card-arrow">Browse trips →</span>}
+            </Tag>
+          );
+        })}
       </div>
     </div>
   </section>
@@ -1000,6 +1014,29 @@ const schema = {
   .service-card:nth-child(6),
   .service-card:nth-child(7) {
     grid-column: span 1;
+  }
+
+  .service-card-link {
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+    display: block;
+  }
+
+  .service-card-arrow {
+    display: inline-block;
+    margin-top: 1rem;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--amber);
+    transition: color 0.3s var(--ease-smooth);
+  }
+
+  .service-card-link:hover .service-card-arrow {
+    color: var(--warm-cream);
   }
 
   .service-icon {
