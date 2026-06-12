@@ -203,6 +203,40 @@ const pageSchema = {
     color: rgba(19, 18, 16, 0.82);
   }
 
+  .journal-body-figure {
+    margin: 2.5rem 0;
+  }
+
+  .journal-body-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .journal-body-figure figcaption {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 14px;
+    opacity: 0.6;
+    margin-top: 0.6rem;
+  }
+
+  .journal-body-figure.two-up {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .journal-body-figure.two-up img {
+    height: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  .journal-body-figure.two-up figcaption {
+    grid-column: 1 / -1;
+  }
+
   .journal-article-body-inner p {
     margin-bottom: 1.5rem;
   }
