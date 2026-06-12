@@ -85,7 +85,7 @@ All 4 use `JournalArticleLayout`. Hero pattern: full-bleed image, dark gradient 
 | 🔴 High | Real `hello@avela.travel` mailbox via Google Workspace + Cloudflare Email Routing | Depends on DNS |
 | 🟡 Med | Stacie + Jordanny bios on `/about` | Awaiting user-supplied copy |
 | ✅ Done 06-11 | `/about` press strip upgrade to small grayscale Weddings Nosara logos (Brides / Martha Stewart / 100 Layer Cake / Jet Fete) | Badges pulled from weddingsnosara.com, in `public/images/press/` |
-| 🟡 Med | Fishing hero photography swap | Asset selection |
+| ✅ Done 06-11 | Fishing hero photography swap | Osprey offshore shot + 4-photo gallery, `public/images/fishing/` |
 | 🟢 Low | Footer "Nosara" column with verified local resource links | Need URLs that resolve |
 | 🟢 Low | "Where to next?" inspiration hub on `/itineraries` (moodboard, Martha-King borrow) | Code + content |
 | 🟢 Low | Privacy + 404 placeholder email `hello@avela.travel` → final legal contact | Depends on email decision |

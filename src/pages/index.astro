@@ -62,9 +62,6 @@ const schema = {
       </div>
     </div>
 
-    <a href="#intro" class="hero-scroll" aria-label="Scroll down">
-      <span class="hero-scroll-line"></span>
-    </a>
   </section>
 
   <!-- ─── TAGLINE BAND ─── -->
@@ -89,7 +86,7 @@ const schema = {
         </h2>
         <p>
           Nosara sits inside one of the world's five Blue Zones, places where people live
-          longest, thrive most fully, and stay connected to what matters. We built Avela so
+          longest, thrive more fully, and stay connected to what matters. We built Avela so
           every guest arrives knowing exactly where to go, who to trust, and how to spend
           each day in a way that feels true to this place.
         </p>
@@ -589,30 +586,6 @@ const schema = {
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
-  }
-
-  .hero-scroll {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .hero-scroll-line {
-    width: 1px;
-    height: 48px;
-    background: linear-gradient(to bottom, rgba(255, 241, 207, 0.6), transparent);
-    animation: scrollLine 2s ease-in-out infinite;
-  }
-
-  @keyframes scrollLine {
-    0%, 100% { opacity: 0.6; transform: scaleY(1); transform-origin: top; }
-    50% { opacity: 1; }
   }
 
   /* ─── Tagline band ─── */

@@ -16,6 +16,7 @@ const included = [
     heading: 'Transportation',
     items: [
       'Round-trip private transfers between Liberia (LIR) and Nosara (two vans)',
+      'Daily transfers between the villa and Playa Garza for boat departures',
       'No domestic connection flight required, Liberia is the direct gateway',
     ],
   },
@@ -24,7 +25,7 @@ const included = [
     items: [
       'Four nights of exclusive use at Villa Blanco, Casa Kaiman',
       '3,541 sq ft villa on Playa Guiones with private pool',
-      '4 bedrooms: 2 king master suites with ensuites, 2 twin rooms',
+      '4 bedrooms: 1 master king ensuite with bathtub, 1 king ensuite, 1 queen ensuite, 1 room with 3 twin beds',
     ],
   },
   {
@@ -32,8 +33,7 @@ const included = [
     items: [
       'Dinner on arrival day',
       'Breakfast at the villa and lunch on the boat for each of the three fishing days',
-      'Dinner at the villa on fishing days',
-      'Full board on your free day (one dinner is open for you to explore Nosara on your own)',
+      'Dinner every night, covered: at the villa with your chef, plus one night out in Nosara at a restaurant you pick from our short list',
       'Breakfast on departure day',
     ],
   },
@@ -61,7 +61,6 @@ const notIncluded = [
   'Costa Rica fishing license (about $15 per angler, through INCOPESCA)',
   'Alcohol beyond the beers and refreshments included on the boat',
   'Gratuities for crew, drivers, and chef (see FAQ)',
-  'One dinner night, when you eat out in Nosara on your own',
   'Personal purchases',
 ];
 
@@ -95,20 +94,19 @@ const dayShape = [
   },
   {
     day: 'Day 4',
-    title: 'Free day',
+    title: 'Fishing day 3',
     items: [
-      'No fishing, full board at the villa',
-      'Optional add-ons: surf lesson, ATV waterfall ride, in-villa massage, sunset boat cruise',
-      'One open dinner, eat out on your own in Nosara',
+      'Final day on the water',
+      'Catch cleaned and filleted one last time',
+      'Night out in Nosara, covered, at a restaurant you pick from our short list',
     ],
   },
   {
     day: 'Day 5',
-    title: 'Fishing day 3, then home',
+    title: 'Departure',
     items: [
-      'Final day on the water',
-      'Return to villa, shower, pack, departure breakfast',
-      'Private transfer back to Liberia',
+      'Departure breakfast at the villa, pack at an easy pace',
+      'Private transfer back to Liberia (LIR)',
     ],
   },
 ];
@@ -122,7 +120,7 @@ const differentiators = [
   {
     title: 'Our own boat, our own captain',
     body:
-      'The 32ft offshore vessel belongs to Monkey Head Adventures, our sister company at Garza harbor. No broker markup, no rotating charter crews. You meet the same bilingual captain every morning.',
+      'The 32ft offshore vessel belongs to Monkey Head Adventures, our sister company at Garza harbor. No broker markup, no rotating charter crews. You fish all three days with the same captain: Alex Moreno, raised in Playa Garza and decorated on the international circuit.',
   },
   {
     title: 'Liberia direct',
@@ -132,7 +130,7 @@ const differentiators = [
   {
     title: 'All meals included, including dinners',
     body:
-      'Competitors at this price tier include breakfast and a boat lunch. We include dinners at the villa on every fishing day, plus full board on your free day, with one open night to explore Nosara restaurants.',
+      'Competitors at this price tier include breakfast and a boat lunch. We include dinner every night: at the villa with your chef on most evenings, and one covered night out at a Nosara restaurant you pick from our short list.',
   },
   {
     title: 'Mindful fishing',
@@ -144,7 +142,7 @@ const differentiators = [
 const addOns = [
   'Additional fishing days, subject to availability',
   'Additional villa nights, subject to availability',
-  'Private chef nights (separate from the included villa meals)',
+  'Private bartender evening at the villa, cocktails built around dinner',
   'Surf lessons with ISA-certified instructors',
   'ATV river and waterfall day with our local ATV partner',
   'Zipline canopy tour through the Nosara reserve',
@@ -168,7 +166,7 @@ const faqs = [
   },
   {
     q: 'What gratuities should we plan for?',
-    a: 'Captain and crew gratuities start at about $200 per day, given directly to the captain at the end of each fishing day. Airport drivers run $10 to $20 per person. If you book additional private chef nights, plan about $50 per day per chef. Bring cash.',
+    a: 'Captain and crew gratuities start at about $200 per day, given directly to the captain at the end of each fishing day. Airport drivers run $10 to $20 per person. For the villa chef, plan about $50 per day. Bring cash.',
   },
   {
     q: 'Can we bring our catch home?',
@@ -244,15 +242,15 @@ const pageSchema = {
     </div>
   </section>
 
-  <!-- HERO IMAGE (placeholder, swap before launch) -->
+  <!-- HERO IMAGE -->
   <figure class="fishing-hero-figure">
     <img
-      src="/images/experiences/ocean.jpg"
-      alt="32ft sportfishing boat on the Pacific off Nosara, Costa Rica"
+      src="/images/fishing/osprey-sportfishing-boat-offshore-nosara-costa-rica.jpg"
+      alt="The Osprey, our 32ft sportfishing boat, trolling offshore on the Pacific near Nosara, Costa Rica"
       loading="eager"
       decoding="async"
-      width="1600"
-      height="900"
+      width="2000"
+      height="1125"
     />
   </figure>
 
@@ -296,11 +294,60 @@ const pageSchema = {
         guessing at quality from one day to the next.
       </p>
       <p>
-        On non-fishing days, your group has the full Avela network: surf lessons, in-villa massage,
+        Off the water, your group has the full Avela network: surf lessons, in-villa massage,
         chef-led tastings, ATV waterfall days, sunset cruises. We coordinate it all from inside
         Nosara so your free time becomes the trip your group will talk about, not the trip you
         white-knuckled through.
       </p>
+    </div>
+  </section>
+
+  <!-- CAPTAIN -->
+  <section class="fishing-section fishing-section-dark">
+    <div class="fishing-section-inner">
+      <p class="eyebrow">Your captain</p>
+      <h2>Alex Moreno, <em>captain and angler</em></h2>
+      <p>
+        Alex was raised in Playa Garza, the beach your boat leaves from every morning. He is a
+        Certified International Boat Captain whose career has run through international waters:
+        he was part of the first-place team at the Puerto Calero Marlin Cup in the Canary Islands,
+        which qualified him for the 2026 Offshore World Championship in Costa Rica, and he has won
+        Garza's own Ship of Fools tournament several times.
+      </p>
+      <p>
+        What that means for your group: international tournament instincts, applied to water he
+        has read since childhood. All three of your fishing days run with Alex and his mate.
+      </p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="fishing-section">
+    <div class="fishing-section-inner">
+      <p class="eyebrow">From the boat</p>
+      <h2>What the water gives up</h2>
+      <ul class="fishing-gallery" role="list">
+        <li>
+          <img src="/images/fishing/marlin-jumping-off-nosara-coast-costa-rica.jpg"
+            alt="Marlin jumping clear of the water off the Nosara coast, hills behind"
+            loading="lazy" decoding="async" width="644" height="1400" />
+        </li>
+        <li>
+          <img src="/images/fishing/yellowfin-tuna-catch-osprey-boat-nosara.jpg"
+            alt="Angler holding a yellowfin tuna aboard the Osprey at sunrise"
+            loading="lazy" decoding="async" width="1050" height="1400" />
+        </li>
+        <li>
+          <img src="/images/fishing/anglers-with-catch-osprey-boat-nosara.jpg"
+            alt="Two anglers with their catch on the deck of the Osprey"
+            loading="lazy" decoding="async" width="1050" height="1400" />
+        </li>
+        <li>
+          <img src="/images/fishing/snapper-catch-osprey-boat-nosara.jpg"
+            alt="Angler holding a large snapper aboard the Osprey off Nosara"
+            loading="lazy" decoding="async" width="644" height="1400" />
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -422,7 +469,7 @@ const pageSchema = {
       <p class="eyebrow">Optional</p>
       <h2>Add-ons your group can layer in</h2>
       <p class="section-lede">
-        Useful especially on your free day, or for non-fishing companions traveling with the group.
+        Useful for non-fishing companions traveling with the group, or to extend the trip.
         Pricing on request.
       </p>
       <ul class="fishing-addons">
@@ -773,6 +820,26 @@ const pageSchema = {
     line-height: 1.6;
     padding: 0.35rem 0;
     color: rgba(19, 18, 16, 0.78);
+  }
+
+  /* GALLERY */
+  .fishing-gallery {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  .fishing-gallery img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 800px) {
+    .fishing-gallery { grid-template-columns: repeat(2, 1fr); }
   }
 
   /* DIFF GRID */
