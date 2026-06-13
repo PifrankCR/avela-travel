@@ -1,5 +1,9 @@
 ---
+import { getImage } from 'astro:assets';
 import GuideLayout from '../../layouts/GuideLayout.astro';
+import schemaImg from '../../assets/images/nosara/jungle-canopy-nicoya-blue-zone.jpg';
+
+const schemaImage = await getImage({ src: schemaImg, format: 'jpeg', width: 1200 });
 
 const title = 'Why Nosara is a Blue Zone';
 const description =
@@ -45,7 +49,7 @@ const pageSchema = {
         logo: { '@type': 'ImageObject', url: 'https://avela.travel/images/avela-logo.png' },
       },
       mainEntityOfPage: 'https://avela.travel/guides/the-blue-zone',
-      image: 'https://avela.travel/images/nosara/jungle-canopy-nicoya-blue-zone.jpg',
+      image: new URL(schemaImage.src, 'https://avela.travel').href,
     },
     {
       '@type': 'FAQPage',
@@ -70,7 +74,7 @@ const related = [
   description={description}
   category="Place"
   readTime="7 min read"
-  heroImage="/images/nosara/jungle-canopy-nicoya-blue-zone.jpg"
+  heroImage={schemaImg}
   heroImageAlt="Dense rainforest canopy of the Nicoya Peninsula Blue Zone, Costa Rica"
   updated={updated}
   pageSchema={pageSchema}

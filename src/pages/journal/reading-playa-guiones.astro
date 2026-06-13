@@ -1,5 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import JournalArticleLayout from '../../layouts/JournalArticleLayout.astro';
+import heroSurferWalking from '../../assets/images/journal/surfer-walking-golden-hour-playa-guiones.jpg';
+import surferCarving from '../../assets/images/journal/surfer-clean-green-wave-empty-peak-nosara.jpg';
 ---
 
 <JournalArticleLayout
@@ -8,7 +11,7 @@ import JournalArticleLayout from '../../layouts/JournalArticleLayout.astro';
   category="Surf"
   authorName="Jordanny"
   authorFullName="Jordanny"
-  heroImage="/images/journal/surfer-walking-golden-hour-playa-guiones.jpg"
+  heroImage={heroSurferWalking}
   heroImageAlt="Lone surfer walking with longboard on golden sand at sunset at Playa Guiones, Nosara, Costa Rica"
   publishedDate="2026-06-09"
   displayDate="June 2026"
@@ -128,13 +131,13 @@ import JournalArticleLayout from '../../layouts/JournalArticleLayout.astro';
   </p>
 
   <figure class="journal-body-figure">
-    <img
-      src="/images/journal/surfer-clean-green-wave-empty-peak-nosara.jpg"
+    <Image
+      src={surferCarving}
       alt="Surfer coming off the top of a clean green wave on an empty peak in Nosara"
       loading="lazy"
       decoding="async"
-      width="1600"
-      height="1067"
+      widths={[500, 720, 1200]}
+      sizes="(max-width: 760px) 95vw, 720px"
     />
     <figcaption>An empty peak, twenty minutes from the rental shops.</figcaption>
   </figure>

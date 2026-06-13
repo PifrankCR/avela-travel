@@ -1,21 +1,28 @@
 ---
 import '../styles/global.css';
+import { getImage } from 'astro:assets';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import defaultOgSrc from '../assets/images/ocaso/ocaso-1.jpg';
 
 interface Props {
   title: string;
   description?: string;
-  image?: string;
+  image?: ImageMetadata | string;
   schema?: object;
 }
 
 const {
   title,
   description = 'Avela Travel: the Avela Experience in Nosara, Costa Rica. Handpicked villas, private chefs, surf sessions, ocean adventures, and full itinerary planning.',
-  image = '/images/ocaso/ocaso-1.jpg',
+  image = defaultOgSrc,
   schema,
 } = Astro.props;
+
+const ogImage =
+  typeof image === 'string'
+    ? image
+    : (await getImage({ src: image, format: 'jpeg', width: 1200 })).src;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -35,14 +42,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(image, Astro.site)} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -1,5 +1,13 @@
 ---
+import { Image, getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import expJungle from '../assets/images/experiences/jungle.jpg';
+import zenithPool from '../assets/images/zenith/DSC05695-HDR-Edit.jpg';
+import expWellness from '../assets/images/experiences/wellness.jpg';
+import expOcean from '../assets/images/experiences/ocean.jpg';
+import heroCove from '../assets/images/itineraries/nicoya-coast-forested-cove-sunset-aerial-costa-rica.jpg';
+
+const heroBg = await getImage({ src: heroCove, format: 'webp', width: 1920, quality: 75 });
 
 const itineraries = [
   {
@@ -8,7 +16,7 @@ const itineraries = [
     name: 'The Family Week',
     duration: '7–8 nights',
     sleeps: 'Up to 14 guests',
-    image: '/images/experiences/jungle.jpg',
+    image: expJungle,
     imageAlt: 'Family ATV ride through the Nosara jungle, Costa Rica',
     lede: 'Mixed-level surf coaching, kid-loved chefs, monkey spotting and waterfall days.',
     description:
@@ -30,7 +38,7 @@ const itineraries = [
     name: 'The Couple’s Escape',
     duration: '5–6 nights',
     sleeps: '2 guests',
-    image: '/images/zenith/DSC05695-HDR-Edit.jpg',
+    image: zenithPool,
     imageAlt: 'Villa Zenith infinity pool at sunset for a couples retreat in Nosara',
     lede: 'Ocean-view villas, private chef tastings, in-villa massage. Built for honeymoons and anniversaries.',
     description:
@@ -51,7 +59,7 @@ const itineraries = [
     name: 'The Wellness Reset',
     duration: '5–7 nights',
     sleeps: '2–8 guests',
-    image: '/images/experiences/wellness.jpg',
+    image: expWellness,
     imageAlt: 'Open-air yoga shala for a wellness retreat in Nosara, Costa Rica',
     lede: 'Daily yoga, in-villa massage, sound healing, breathwork. The Blue Zone you came for.',
     description:
@@ -73,7 +81,7 @@ const itineraries = [
     name: 'The Group Celebration',
     duration: '4–7 nights',
     sleeps: '10–16 guests',
-    image: '/images/experiences/ocean.jpg',
+    image: expOcean,
     imageAlt: 'Group of friends on a Monkey Head Adventures boat off Nosara, Costa Rica',
     lede: 'Bachelor parties, milestone birthdays, reunion weeks. Group villas, private boats, long-table dinners.',
     description:
@@ -113,7 +121,7 @@ const pageSchema = {
   schema={pageSchema}
 >
   <!-- ─── HERO ─── -->
-  <section class="itin-hero">
+  <section class="itin-hero" style={`background-image: url(${heroBg.src})`}>
     <div class="itin-hero-inner">
       <p class="eyebrow">Sample itineraries</p>
       <h1>
@@ -142,13 +150,13 @@ const pageSchema = {
       <div class="signature-packages-grid">
         <a href="/itineraries/fishing" class="signature-card">
           <div class="signature-card-image">
-            <img
-              src="/images/experiences/ocean.jpg"
+            <Image
+              src={expOcean}
               alt="32ft sportfishing boat off the Nosara coast, Costa Rica"
               loading="lazy"
               decoding="async"
-              width="900"
-              height="600"
+              widths={[500, 900]}
+              sizes="(max-width: 900px) 95vw, 45vw"
             />
           </div>
           <div class="signature-card-body">
@@ -178,7 +186,7 @@ const pageSchema = {
     >
       <div class="itin-inner">
         <div class="itin-image reveal">
-          <img src={it.image} alt={it.imageAlt} loading="lazy" decoding="async"  width="800" height="1000"/>
+          <Image src={it.image} alt={it.imageAlt} loading="lazy" decoding="async" widths={[500, 900]} sizes="(max-width: 900px) 95vw, 45vw" />
         </div>
         <div class="itin-content reveal reveal-delay-1">
           <p class="eyebrow">{it.eyebrow}</p>
@@ -224,7 +232,10 @@ const pageSchema = {
   /* ─── HERO ─── */
   .itin-hero {
     position: relative;
-    background: var(--green-deep) url('/images/itineraries/nicoya-coast-forested-cove-sunset-aerial-costa-rica.jpg') center/cover no-repeat;
+    background-color: var(--green-deep);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     color: var(--warm-cream);
     padding: clamp(180px, 22vw, 280px) var(--gutter) clamp(90px, 14vw, 160px);
     text-align: center;

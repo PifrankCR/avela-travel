@@ -1,12 +1,22 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ogZenith from '../assets/images/zenith/DSC04983-HDR.jpg';
+import coastVista from '../assets/images/nosara/nosara-coast-sunset-palm-vista.jpg';
+import staciePhoto from '../assets/images/team/stacie-cofounder-avela-travel-nosara.jpg';
+import jordannyPhoto from '../assets/images/team/jordanny-cofounder-avela-travel-nosara.jpeg';
+import pressBrides from '../assets/images/press/weddings-nosara-featured-in-brides-magazine.webp';
+import pressMartha from '../assets/images/press/weddings-nosara-featured-in-martha-stewart-weddings.webp';
+import press100lc from '../assets/images/press/weddings-nosara-featured-on-100-layer-cake.webp';
+import pressJetFete from '../assets/images/press/weddings-nosara-spotted-on-jet-fete.webp';
+import pinkIsland from '../assets/images/nosara/pink-island.jpg';
 import AvelaSeal from '../components/AvelaSeal.astro';
 ---
 
 <BaseLayout
   title="About Avela Travel | The Avela Experience in Nosara, Costa Rica"
   description="Avela Travel was built by people who live in Nosara. We know every villa, chef, boat captain, and trail, and we are here to make your trip extraordinary."
-  image="/images/zenith/DSC04983-HDR.jpg"
+  image={ogZenith}
 >
 
   <!-- Page Header -->
@@ -24,12 +34,14 @@ import AvelaSeal from '../components/AvelaSeal.astro';
   <section class="section about-intro">
     <div class="section-inner about-intro-inner">
       <div class="about-intro-img reveal">
-        <img
-          src="/images/nosara/nosara-coast-sunset-palm-vista.jpg"
+        <Image
+          src={coastVista}
           alt="Sunset over the Nosara coast with a palm-fringed foreground, Nicoya Peninsula, Costa Rica"
           loading="lazy"
           decoding="async"
-         width="800" height="1000"/>
+          widths={[500, 900]}
+          sizes="(max-width: 900px) 95vw, 45vw"
+        />
       </div>
       <div class="about-intro-text reveal reveal-delay-2">
         <p class="eyebrow">Why Nosara</p>
@@ -70,13 +82,13 @@ import AvelaSeal from '../components/AvelaSeal.astro';
       <div class="team-grid">
         <article class="team-card reveal">
           <div class="team-photo">
-            <img
-              src="/images/team/stacie-cofounder-avela-travel-nosara.jpg"
+            <Image
+              src={staciePhoto}
               alt="Stacie, co-founder of Avela Travel and Head of Hospitality, Nosara, Costa Rica"
               loading="lazy"
               decoding="async"
-              width="600"
-              height="800"
+              widths={[400, 600]}
+              sizes="(max-width: 700px) 90vw, 30vw"
             />
           </div>
           <div class="team-body">
@@ -98,13 +110,13 @@ import AvelaSeal from '../components/AvelaSeal.astro';
 
         <article class="team-card reveal reveal-delay-1">
           <div class="team-photo">
-            <img
-              src="/images/team/jordanny-cofounder-avela-travel-nosara.jpeg"
+            <Image
+              src={jordannyPhoto}
               alt="Jordanny, co-founder of Avela Travel leading Adventures and Local Knowledge, Nosara, Costa Rica"
               loading="lazy"
               decoding="async"
-              width="600"
-              height="800"
+              widths={[400, 600]}
+              sizes="(max-width: 700px) 90vw, 30vw"
             />
           </div>
           <div class="team-body">
@@ -145,20 +157,16 @@ import AvelaSeal from '../components/AvelaSeal.astro';
         </p>
         <ul class="press-list" role="list">
           <li>
-            <img src="/images/press/weddings-nosara-featured-in-brides-magazine.webp"
-              alt="Featured on Brides, Wedding of the Day badge" width="800" height="800" loading="lazy" />
+            <Image src={pressBrides} alt="Featured on Brides, Wedding of the Day badge" width={200} loading="lazy" />
           </li>
           <li>
-            <img src="/images/press/weddings-nosara-featured-in-martha-stewart-weddings.webp"
-              alt="As featured on Martha Stewart Weddings badge" width="265" height="265" loading="lazy" />
+            <Image src={pressMartha} alt="As featured on Martha Stewart Weddings badge" width={200} loading="lazy" />
           </li>
           <li>
-            <img src="/images/press/weddings-nosara-featured-on-100-layer-cake.webp"
-              alt="Featured on 100 Layer Cake badge" width="150" height="150" loading="lazy" />
+            <Image src={press100lc} alt="Featured on 100 Layer Cake badge" width={150} loading="lazy" />
           </li>
           <li>
-            <img src="/images/press/weddings-nosara-spotted-on-jet-fete.webp"
-              alt="Spotted on Jet Fete, well-traveled weddings badge" width="150" height="150" loading="lazy" />
+            <Image src={pressJetFete} alt="Spotted on Jet Fete, well-traveled weddings badge" width={150} loading="lazy" />
           </li>
         </ul>
       </div>
@@ -251,12 +259,14 @@ import AvelaSeal from '../components/AvelaSeal.astro';
         <a href="/contact" class="btn-primary">Plan a Wellness Stay</a>
       </div>
       <div class="blue-zone-img reveal reveal-delay-2">
-        <img
-          src="/images/nosara/pink-island.jpg"
+        <Image
+          src={pinkIsland}
           alt="Aerial of the pink-sand island spit off the Nosara coast, Costa Rica"
           loading="lazy"
           decoding="async"
-         width="800" height="1000"/>
+          widths={[500, 900]}
+          sizes="(max-width: 900px) 95vw, 45vw"
+        />
       </div>
     </div>
   </section>

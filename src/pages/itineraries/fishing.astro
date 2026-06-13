@@ -1,5 +1,11 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ospreyBoat from '../../assets/images/fishing/osprey-sportfishing-boat-offshore-nosara-costa-rica.jpg';
+import marlinJump from '../../assets/images/fishing/marlin-jumping-off-nosara-coast-costa-rica.jpg';
+import tunaCatch from '../../assets/images/fishing/yellowfin-tuna-catch-osprey-boat-nosara.jpg';
+import anglersCatch from '../../assets/images/fishing/anglers-with-catch-osprey-boat-nosara.jpg';
+import snapperCatch from '../../assets/images/fishing/snapper-catch-osprey-boat-nosara.jpg';
 
 const title = 'Costa Rica Sportfishing Package | Avela Travel';
 const description =
@@ -244,13 +250,13 @@ const pageSchema = {
 
   <!-- HERO IMAGE -->
   <figure class="fishing-hero-figure">
-    <img
-      src="/images/fishing/osprey-sportfishing-boat-offshore-nosara-costa-rica.jpg"
+    <Image
+      src={ospreyBoat}
       alt="The Osprey, our 32ft sportfishing boat, trolling offshore on the Pacific near Nosara, Costa Rica"
       loading="eager"
       decoding="async"
-      width="2000"
-      height="1125"
+      widths={[768, 1280, 2000]}
+      sizes="(max-width: 1500px) 100vw, 1500px"
     />
   </figure>
 
@@ -328,24 +334,24 @@ const pageSchema = {
       <h2>What the water gives up</h2>
       <ul class="fishing-gallery" role="list">
         <li>
-          <img src="/images/fishing/marlin-jumping-off-nosara-coast-costa-rica.jpg"
+          <Image src={marlinJump}
             alt="Marlin jumping clear of the water off the Nosara coast, hills behind"
-            loading="lazy" decoding="async" width="644" height="1400" />
+            loading="lazy" decoding="async" widths={[300, 600]} sizes="(max-width: 800px) 48vw, 24vw" />
         </li>
         <li>
-          <img src="/images/fishing/yellowfin-tuna-catch-osprey-boat-nosara.jpg"
+          <Image src={tunaCatch}
             alt="Angler holding a yellowfin tuna aboard the Osprey at sunrise"
-            loading="lazy" decoding="async" width="1050" height="1400" />
+            loading="lazy" decoding="async" widths={[300, 600]} sizes="(max-width: 800px) 48vw, 24vw" />
         </li>
         <li>
-          <img src="/images/fishing/anglers-with-catch-osprey-boat-nosara.jpg"
+          <Image src={anglersCatch}
             alt="Two anglers with their catch on the deck of the Osprey"
-            loading="lazy" decoding="async" width="1050" height="1400" />
+            loading="lazy" decoding="async" widths={[300, 600]} sizes="(max-width: 800px) 48vw, 24vw" />
         </li>
         <li>
-          <img src="/images/fishing/snapper-catch-osprey-boat-nosara.jpg"
+          <Image src={snapperCatch}
             alt="Angler holding a large snapper aboard the Osprey off Nosara"
-            loading="lazy" decoding="async" width="644" height="1400" />
+            loading="lazy" decoding="async" widths={[300, 600]} sizes="(max-width: 800px) 48vw, 24vw" />
         </li>
       </ul>
     </div>

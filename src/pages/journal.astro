@@ -1,5 +1,15 @@
 ---
+import { Image, getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import raintreePool from '../assets/images/villas/raintree/01-view-sunset-infinity-pool.jpg';
+import surferWalking from '../assets/images/journal/surfer-walking-golden-hour-playa-guiones.jpg';
+import zenithCover from '../assets/images/zenith/DSC04830-HDR-Edit.jpg';
+import ostionalTurtle from '../assets/images/journal/ostional-arribada-olive-ridley-turtle.jpg';
+import expSurf from '../assets/images/experiences/surf.jpg';
+import expOcean from '../assets/images/experiences/ocean.jpg';
+import heroHowler from '../assets/images/journal/howler-monkey-nicoya-nosara-blue-zone.jpg';
+
+const heroBg = await getImage({ src: heroHowler, format: 'webp', width: 1920, quality: 75 });
 
 // Placeholder posts. Replace with real content as it's published.
 // Each entry should later have a corresponding /journal/<slug>.astro page.
@@ -11,7 +21,7 @@ const posts = [
     date: 'December 2025',
     excerpt:
       'Eight nights at Raintree over Thanksgiving week 2025. How we built the week, what worked, and the small choices that made it.',
-    cover: '/images/villas/raintree/01-view-sunset-infinity-pool.jpg',
+    cover: raintreePool,
     coverAlt: 'Sunset view from a luxury villa infinity pool overlooking the jungle, Nosara, Costa Rica',
     author: 'Stacie',
   },
@@ -22,7 +32,7 @@ const posts = [
     date: 'June 2026',
     excerpt:
       'How to look at Nosara surf the way locals do. Swell windows, wind, tides, and the quiet rhythm of a year on one of the most consistent sand-bottom breaks on the planet.',
-    cover: '/images/journal/surfer-walking-golden-hour-playa-guiones.jpg',
+    cover: surferWalking,
     coverAlt: 'Lone surfer walking on golden sand at sunset at Playa Guiones, Nosara, Costa Rica',
     author: 'Jordanny',
   },
@@ -33,7 +43,7 @@ const posts = [
     date: 'June 2026',
     excerpt:
       'A seven-day Nosara itinerary built around a private villa, a private chef, and local operators we trust. Day by day, with the small details that make the difference.',
-    cover: '/images/zenith/DSC04830-HDR-Edit.jpg',
+    cover: zenithCover,
     coverAlt: 'Villa Zenith infinity pool at dusk over the Nosara coastline, Costa Rica',
     author: 'Stacie',
   },
@@ -44,7 +54,7 @@ const posts = [
     date: 'June 2026',
     excerpt:
       'One of the largest sea turtle nesting events on the planet happens less than twenty minutes from Nosara. Here is how to see it, what the science actually says, and the rules that keep it possible.',
-    cover: '/images/journal/ostional-arribada-olive-ridley-turtle.jpg',
+    cover: ostionalTurtle,
     coverAlt: 'Olive Ridley sea turtle on the black sand of Playa Ostional during an arribada, Nicoya Peninsula, Costa Rica',
     author: 'Jordanny',
   },
@@ -55,7 +65,7 @@ const posts = [
     date: 'See the guide',
     excerpt:
       'The honest seasonal breakdown. Dry season versus green season, surf swell windows, holiday surcharges, and the two weeks of the year locals consider the secret peak.',
-    cover: '/images/experiences/surf.jpg',
+    cover: expSurf,
     coverAlt: 'Surfer riding a clean Playa Guiones wave, Nosara, Costa Rica',
     author: 'Jordanny',
     href: '/guides/when-to-visit',
@@ -67,7 +77,7 @@ const posts = [
     date: 'Coming soon',
     excerpt:
       'Our sister company started with one secondhand panga, a lot of bad luck, and an even better story. The full origin of how Garza Harbor became home base.',
-    cover: '/images/experiences/ocean.jpg',
+    cover: expOcean,
     coverAlt: 'Monkey Head Adventures sportfishing boat on the Pacific off Nosara, Costa Rica',
     author: 'Jordanny',
     upcoming: true,
@@ -91,7 +101,7 @@ const pageSchema = {
   schema={pageSchema}
 >
   <!-- ─── HERO ─── -->
-  <section class="journal-hero">
+  <section class="journal-hero" style={`background-image: url(${heroBg.src})`}>
     <div class="journal-hero-inner">
       <p class="eyebrow">The Journal</p>
       <h1>
@@ -138,13 +148,13 @@ const pageSchema = {
             <article class="journal-card reveal" style={`--delay:${i * 100}ms`} data-category={post.category}>
               <CardTag {...cardProps}>
                 <div class="journal-card-image">
-                  <img
+                  <Image
                     src={post.cover}
                     alt={post.coverAlt}
                     loading="lazy"
                     decoding="async"
-                    width="800"
-                    height="600"
+                    widths={[400, 800]}
+                    sizes="(max-width: 700px) 95vw, 32vw"
                   />
                   <span class="journal-card-badge">{post.date}</span>
                 </div>
@@ -175,7 +185,10 @@ const pageSchema = {
   /* ─── HERO ─── */
   .journal-hero {
     position: relative;
-    background: var(--green-deep) url('/images/journal/howler-monkey-nicoya-nosara-blue-zone.jpg') center/cover no-repeat;
+    background-color: var(--green-deep);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     color: var(--warm-cream);
     padding: clamp(180px, 22vw, 280px) var(--gutter) clamp(90px, 14vw, 160px);
     text-align: center;

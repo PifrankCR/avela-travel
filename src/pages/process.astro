@@ -1,6 +1,10 @@
 ---
+import { getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AvelaSeal from '../components/AvelaSeal.astro';
+import heroWhale from '../assets/images/process/humpback-whale-mother-calf-aerial-nicoya-coast.jpg';
+
+const heroBg = await getImage({ src: heroWhale, format: 'webp', width: 1920, quality: 75 });
 
 const title = 'Our Process | How Working with Avela Travel Works';
 const description =
@@ -117,7 +121,7 @@ const pageSchema = {
 
 <BaseLayout title={title} description={description} schema={pageSchema}>
   <!-- ─── HERO ─── -->
-  <section class="process-hero">
+  <section class="process-hero" style={`background-image: url(${heroBg.src})`}>
     <div class="process-hero-inner">
       <p class="eyebrow">Our process</p>
       <h1>
@@ -192,7 +196,10 @@ const pageSchema = {
   /* ─── HERO ─── */
   .process-hero {
     position: relative;
-    background: var(--green-deep) url('/images/process/humpback-whale-mother-calf-aerial-nicoya-coast.jpg') center/cover no-repeat;
+    background-color: var(--green-deep);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     color: var(--warm-cream);
     padding: clamp(180px, 22vw, 280px) var(--gutter) clamp(90px, 14vw, 160px);
     text-align: center;

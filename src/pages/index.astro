@@ -1,5 +1,23 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import heroAtardecer from '../assets/images/hero-atardecer-playa-guiones-nosara.webp';
+import expJungle from '../assets/images/experiences/jungle.jpg';
+import expBoatGroup from '../assets/images/experiences/boat-group.jpg';
+import expWellness from '../assets/images/experiences/wellness.jpg';
+import expOcean from '../assets/images/experiences/ocean.jpg';
+import zenithPool from '../assets/images/zenith/DSC05695-HDR-Edit.jpg';
+import zenithTerrace from '../assets/images/zenith/DSC04803-HDR.jpg';
+import zenithLounge from '../assets/images/zenith/DSC04551.jpg';
+import zenithDining from '../assets/images/zenith/DSC04746-HDR.jpg';
+import zenithBbq from '../assets/images/zenith/DSC04785-HDR.jpg';
+import zenithInterior from '../assets/images/zenith/DSC04956-HDR-Edit.jpg';
+import zenithSunset from '../assets/images/zenith/DSC04863-HDR.jpg';
+import ocaso1 from '../assets/images/ocaso/ocaso-1.jpg';
+import ocaso2 from '../assets/images/ocaso/ocaso-2.jpg';
+import ocaso3 from '../assets/images/ocaso/ocaso-3.jpg';
+import ocaso4 from '../assets/images/ocaso/ocaso-4.jpg';
+import ocaso5 from '../assets/images/ocaso/ocaso-5.jpg';
 
 const schema = {
   "@context": "https://schema.org",
@@ -27,19 +45,20 @@ const schema = {
 <BaseLayout
   title="Avela Travel | The Avela Experience in Nosara, Costa Rica"
   description="Avela curates your entire Nosara experience: handpicked luxury villas, private chefs, surf sessions, ocean adventures, and complete itinerary planning."
-  image="/images/hero-atardecer-playa-guiones-nosara.webp"
+  image={heroAtardecer}
   schema={schema}
 >
 
   <!-- ─── HERO ─── -->
   <section class="hero" id="hero">
     <div class="hero-bg">
-      <img
-        src="/images/hero-atardecer-playa-guiones-nosara.webp"
+      <Image
+        src={heroAtardecer}
         alt="Atardecer at Playa Guiones, Nosara, Costa Rica. Sunset over the Pacific"
         class="hero-img"
-        width="2400"
-        height="1600"
+        widths={[768, 1280, 1920, 2400]}
+        sizes="100vw"
+        loading="eager"
         fetchpriority="high"
         decoding="async"
       />
@@ -290,7 +309,7 @@ const schema = {
       <div class="personas-grid">
         {[
           {
-            image: '/images/experiences/jungle.jpg',
+            image: expJungle,
             imageAlt: 'Family ATV adventure on a Nosara jungle road, Costa Rica',
             name: 'Families',
             hook: 'Multigenerational trips, school breaks, milestone birthdays.',
@@ -298,7 +317,7 @@ const schema = {
             cta: { href: '/contact?trip=family', label: 'Plan a family week' },
           },
           {
-            image: '/images/zenith/DSC05695-HDR-Edit.jpg',
+            image: zenithPool,
             imageAlt: 'Villa Zenith infinity pool at sunset for a romantic Nosara getaway',
             name: 'Couples',
             hook: 'Anniversaries, honeymoons, slow weeks for two.',
@@ -306,7 +325,7 @@ const schema = {
             cta: { href: '/contact?trip=couple', label: 'Plan a couple’s escape' },
           },
           {
-            image: '/images/experiences/boat-group.jpg',
+            image: expBoatGroup,
             imageAlt: 'Group of friends on a private sportfishing boat off the Nosara coast, Costa Rica',
             name: 'Friend Groups',
             hook: 'Bachelor parties, milestone birthdays, reunion weeks.',
@@ -314,7 +333,7 @@ const schema = {
             cta: { href: '/contact?trip=group', label: 'Plan a group trip' },
           },
           {
-            image: '/images/experiences/wellness.jpg',
+            image: expWellness,
             imageAlt: 'Open-air yoga shala for a Nosara wellness retreat, Costa Rica',
             name: 'Retreats',
             hook: 'Yoga, wellness, corporate offsites.',
@@ -324,7 +343,7 @@ const schema = {
         ].map((p, i) => (
           <a href={p.cta.href} class="persona-card reveal" style={`--delay:${i * 100}ms`} aria-label={`${p.name}: ${p.cta.label}`}>
             <div class="persona-image">
-              <img src={p.image} alt={p.imageAlt} loading="lazy" decoding="async" width="800" height="1000"/>
+              <Image src={p.image} alt={p.imageAlt} loading="lazy" decoding="async" widths={[400, 800]} sizes="(max-width: 700px) 95vw, 24vw" />
             </div>
             <div class="persona-overlay">
               <h3>{p.name}</h3>
@@ -344,13 +363,13 @@ const schema = {
   <section class="signature-promo">
     <div class="signature-promo-inner">
       <div class="signature-promo-image reveal">
-        <img
-          src="/images/experiences/ocean.jpg"
+        <Image
+          src={expOcean}
           alt="32ft sportfishing boat off the Nosara coast, Costa Rica"
           loading="lazy"
           decoding="async"
-          width="1200"
-          height="800"
+          widths={[600, 1200]}
+          sizes="(max-width: 900px) 95vw, 48vw"
         />
       </div>
       <div class="signature-promo-content reveal reveal-delay-1">
@@ -388,18 +407,20 @@ const schema = {
       <div class="villa-feature reveal">
         <div class="villa-gallery">
           <div class="villa-main-img">
-            <img
-              src="/images/ocaso/ocaso-1.jpg"
+            <Image
+              src={ocaso1}
               alt="Villa Ocaso, floor-to-ceiling jungle glass walls"
               loading="lazy"
               decoding="async"
-             width="800" height="1000"/>
+              widths={[500, 900]}
+              sizes="(max-width: 900px) 95vw, 42vw"
+            />
           </div>
           <div class="villa-thumbs">
-            <img src="/images/ocaso/ocaso-2.jpg" alt="Villa Ocaso open-plan living and kitchen" loading="lazy"  decoding="async" width="800" height="1000"/>
-            <img src="/images/ocaso/ocaso-3.jpg" alt="Villa Ocaso master bedroom" loading="lazy"  decoding="async" width="800" height="1000"/>
-            <img src="/images/ocaso/ocaso-4.jpg" alt="Villa Ocaso second bedroom" loading="lazy"  decoding="async" width="800" height="1000"/>
-            <img src="/images/ocaso/ocaso-5.jpg" alt="Villa Ocaso living room alternate" loading="lazy"  decoding="async" width="800" height="1000"/>
+            <Image src={ocaso2} alt="Villa Ocaso open-plan living and kitchen" loading="lazy" decoding="async" widths={[300, 500]} sizes="(max-width: 900px) 24vw, 10vw" />
+            <Image src={ocaso3} alt="Villa Ocaso master bedroom" loading="lazy" decoding="async" widths={[300, 500]} sizes="(max-width: 900px) 24vw, 10vw" />
+            <Image src={ocaso4} alt="Villa Ocaso second bedroom" loading="lazy" decoding="async" widths={[300, 500]} sizes="(max-width: 900px) 24vw, 10vw" />
+            <Image src={ocaso5} alt="Villa Ocaso living room alternate" loading="lazy" decoding="async" widths={[300, 500]} sizes="(max-width: 900px) 24vw, 10vw" />
           </div>
         </div>
         <div class="villa-info">
@@ -428,18 +449,20 @@ const schema = {
       <div class="villa-feature villa-feature-reverse reveal">
         <div class="villa-gallery">
           <div class="villa-main-img">
-            <img
-              src="/images/zenith/DSC04803-HDR.jpg"
+            <Image
+              src={zenithTerrace}
               alt="Villa Zenith, panoramic ocean view terrace"
               loading="lazy"
               decoding="async"
-             width="800" height="1000"/>
+              widths={[500, 900]}
+              sizes="(max-width: 900px) 95vw, 42vw"
+            />
           </div>
           <div class="villa-thumbs">
-            <img src="/images/zenith/DSC04551.jpg" alt="Villa Zenith outdoor lounge" loading="lazy"  decoding="async" width="800" height="1000"/>
-            <img src="/images/zenith/DSC04746-HDR.jpg" alt="Villa Zenith dining with pendant lights" loading="lazy"  decoding="async" width="800" height="1000"/>
-            <img src="/images/zenith/DSC04785-HDR.jpg" alt="Villa Zenith BBQ terrace" loading="lazy"  decoding="async" width="800" height="1000"/>
-            <img src="/images/zenith/DSC04956-HDR-Edit.jpg" alt="Villa Zenith interior" loading="lazy"  decoding="async" width="800" height="1000"/>
+            <Image src={zenithLounge} alt="Villa Zenith outdoor lounge" loading="lazy" decoding="async" widths={[300, 500]} sizes="(max-width: 900px) 24vw, 10vw" />
+            <Image src={zenithDining} alt="Villa Zenith dining with pendant lights" loading="lazy" decoding="async" widths={[300, 500]} sizes="(max-width: 900px) 24vw, 10vw" />
+            <Image src={zenithBbq} alt="Villa Zenith BBQ terrace" loading="lazy" decoding="async" widths={[300, 500]} sizes="(max-width: 900px) 24vw, 10vw" />
+            <Image src={zenithInterior} alt="Villa Zenith interior" loading="lazy" decoding="async" widths={[300, 500]} sizes="(max-width: 900px) 24vw, 10vw" />
           </div>
         </div>
         <div class="villa-info">
@@ -492,12 +515,14 @@ const schema = {
   <!-- ─── CTA BAND ─── -->
   <section class="cta-band">
     <div class="cta-band-bg">
-      <img
-        src="/images/zenith/DSC04863-HDR.jpg"
+      <Image
+        src={zenithSunset}
         alt="Nosara sunset over the Pacific"
         loading="lazy"
         decoding="async"
-       width="800" height="1000"/>
+        widths={[768, 1280, 1920]}
+        sizes="100vw"
+      />
       <div class="cta-band-overlay"></div>
     </div>
     <div class="cta-band-content reveal">

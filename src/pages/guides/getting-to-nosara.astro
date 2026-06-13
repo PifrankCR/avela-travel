@@ -1,5 +1,9 @@
 ---
+import { getImage } from 'astro:assets';
 import GuideLayout from '../../layouts/GuideLayout.astro';
+import schemaImg from '../../assets/images/nosara/pink-island.jpg';
+
+const schemaImage = await getImage({ src: schemaImg, format: 'jpeg', width: 1200 });
 
 const title = 'Getting to Nosara, Costa Rica';
 const description =
@@ -45,7 +49,7 @@ const pageSchema = {
         logo: { '@type': 'ImageObject', url: 'https://avela.travel/images/avela-logo.png' },
       },
       mainEntityOfPage: 'https://avela.travel/guides/getting-to-nosara',
-      image: 'https://avela.travel/images/nosara/pink-island.jpg',
+      image: new URL(schemaImage.src, 'https://avela.travel').href,
     },
     {
       '@type': 'FAQPage',
@@ -70,7 +74,7 @@ const related = [
   description={description}
   category="Logistics"
   readTime="5 min read"
-  heroImage="/images/nosara/pink-island.jpg"
+  heroImage={schemaImg}
   heroImageAlt="Aerial view of a Nosara beach with turquoise water and sandy coves"
   updated={updated}
   pageSchema={pageSchema}

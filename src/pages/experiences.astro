@@ -1,5 +1,14 @@
 ---
+import { Image, getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import zenithPool from '../assets/images/zenith/DSC05695-HDR-Edit.jpg';
+import surferAction from '../assets/images/experiences/surfer-action-golden-spray.jpg';
+import expOcean from '../assets/images/experiences/ocean.jpg';
+import expJungle from '../assets/images/experiences/jungle.jpg';
+import expWellness from '../assets/images/experiences/wellness.jpg';
+import heroSnorkelers from '../assets/images/experiences/snorkelers-underwater-sunbeams-pacific-nosara-costa-rica.jpg';
+
+const heroBg = await getImage({ src: heroSnorkelers, format: 'webp', width: 1920, quality: 75 });
 
 const experiences = [
   {
@@ -17,7 +26,7 @@ const experiences = [
       'Direct line to our Avela Experience team during your entire stay',
     ],
     cta: { href: '/villas', label: 'Browse the collection' },
-    image: '/images/zenith/DSC05695-HDR-Edit.jpg',
+    image: zenithPool,
     imageAlt: 'Villa Zenith infinity pool at sunset overlooking the Pacific, Nosara, Costa Rica',
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>`,
   },
@@ -42,7 +51,7 @@ const experiences = [
   },
   {
     slug: 'surf',
-    image: '/images/experiences/surfer-action-golden-spray.jpg',
+    image: surferAction,
     imageAlt: 'Surfer carving a wave at golden hour with backlit spray at Playa Guiones, Nosara, Costa Rica',
     eyebrow: '03 · Ride',
     name: 'Surf Sessions',
@@ -61,7 +70,7 @@ const experiences = [
   },
   {
     slug: 'ocean',
-    image: '/images/experiences/ocean.jpg',
+    image: expOcean,
     imageAlt: 'Monkey Head Adventures sportfishing boat from above on glassy Pacific water, Nosara, Costa Rica',
     eyebrow: '04 · Cruise',
     name: 'Ocean Adventures',
@@ -80,7 +89,7 @@ const experiences = [
   },
   {
     slug: 'jungle',
-    image: '/images/experiences/jungle.jpg',
+    image: expJungle,
     imageAlt: 'ATV caravan riding through jungle back road on a Nosara adventure tour, Costa Rica',
     eyebrow: '05 · Explore',
     name: 'Jungle Adventures',
@@ -99,7 +108,7 @@ const experiences = [
   },
   {
     slug: 'wellness',
-    image: '/images/experiences/wellness.jpg',
+    image: expWellness,
     imageAlt: 'Open-air yoga shala with mats laid out and jungle backdrop at an Avela villa, Nosara, Costa Rica',
     eyebrow: '06 · Restore',
     name: 'Wellness',
@@ -207,7 +216,7 @@ const pageSchema = {
   schema={pageSchema}
 >
   <!-- ─── HERO ─── -->
-  <section class="experiences-hero">
+  <section class="experiences-hero" style={`background-image: url(${heroBg.src})`}>
     <div class="experiences-hero-inner">
       <p class="eyebrow">The Avela Experience</p>
       <h1>
@@ -273,7 +282,7 @@ const pageSchema = {
           </div>
           {exp.image && (
             <div class="exp-image reveal reveal-delay-2">
-              <img src={exp.image} alt={exp.imageAlt} loading="lazy" decoding="async"  width="800" height="1000"/>
+              <Image src={exp.image} alt={exp.imageAlt} loading="lazy" decoding="async" widths={[500, 900]} sizes="(max-width: 900px) 95vw, 45vw" />
             </div>
           )}
         </div>
@@ -399,7 +408,10 @@ const pageSchema = {
   /* ─── HERO ─── */
   .experiences-hero {
     position: relative;
-    background: var(--green-deep) url('/images/experiences/snorkelers-underwater-sunbeams-pacific-nosara-costa-rica.jpg') center/cover no-repeat;
+    background-color: var(--green-deep);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     color: var(--warm-cream);
     padding: clamp(180px, 22vw, 280px) var(--gutter) clamp(90px, 14vw, 160px);
     min-height: 88vh;

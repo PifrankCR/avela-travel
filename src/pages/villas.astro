@@ -1,33 +1,57 @@
 ---
+import { Image, getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FeatureIcon from '../components/FeatureIcon.astro';
 import { villas as albaVillas } from '../data/alba-villas';
 import { bmVillas } from '../data/bm-villas';
+import { villaImage } from '../lib/villa-images';
+import ocaso1 from '../assets/images/ocaso/ocaso-1.jpg';
+import ocaso2 from '../assets/images/ocaso/ocaso-2.jpg';
+import ocaso3 from '../assets/images/ocaso/ocaso-3.jpg';
+import ocaso4 from '../assets/images/ocaso/ocaso-4.jpg';
+import ocaso5 from '../assets/images/ocaso/ocaso-5.jpg';
+import zenith1 from '../assets/images/zenith/DSC04803-HDR.jpg';
+import zenith2 from '../assets/images/zenith/DSC04551.jpg';
+import zenith3 from '../assets/images/zenith/DSC04746-HDR.jpg';
+import zenith4 from '../assets/images/zenith/DSC04785-HDR.jpg';
+import zenith5 from '../assets/images/zenith/DSC04863-HDR.jpg';
+import zenith6 from '../assets/images/zenith/DSC04956-HDR-Edit.jpg';
 
 const collection = [...albaVillas, ...bmVillas];
 
-const osacoPhotos = [
-  { src: '/images/ocaso/ocaso-1.jpg', alt: 'Villa Ocaso, floor-to-ceiling jungle glass walls' },
-  { src: '/images/ocaso/ocaso-2.jpg', alt: 'Villa Ocaso open-plan living and kitchen' },
-  { src: '/images/ocaso/ocaso-3.jpg', alt: 'Villa Ocaso master bedroom' },
-  { src: '/images/ocaso/ocaso-4.jpg', alt: 'Villa Ocaso second bedroom' },
-  { src: '/images/ocaso/ocaso-5.jpg', alt: 'Villa Ocaso living room alternate' },
-];
+// Each gallery photo gets a pre-optimized large rendition; the switcher
+// script swaps the main img src to these URLs.
+const buildGallery = (photos: { src: ImageMetadata; alt: string }[]) =>
+  Promise.all(
+    photos.map(async (p) => ({
+      ...p,
+      large: (await getImage({ src: p.src, width: 1600, format: 'webp', quality: 78 })).src,
+    }))
+  );
 
-const zenithPhotos = [
-  { src: '/images/zenith/DSC04803-HDR.jpg', alt: 'Villa Zenith, panoramic ocean view terrace' },
-  { src: '/images/zenith/DSC04551.jpg', alt: 'Villa Zenith outdoor lounge' },
-  { src: '/images/zenith/DSC04746-HDR.jpg', alt: 'Villa Zenith dining with pendant lights' },
-  { src: '/images/zenith/DSC04785-HDR.jpg', alt: 'Villa Zenith BBQ terrace' },
-  { src: '/images/zenith/DSC04863-HDR.jpg', alt: 'Villa Zenith entrance' },
-  { src: '/images/zenith/DSC04956-HDR-Edit.jpg', alt: 'Villa Zenith interior' },
-];
+const osacoPhotos = await buildGallery([
+  { src: ocaso1, alt: 'Villa Ocaso, floor-to-ceiling jungle glass walls' },
+  { src: ocaso2, alt: 'Villa Ocaso open-plan living and kitchen' },
+  { src: ocaso3, alt: 'Villa Ocaso master bedroom' },
+  { src: ocaso4, alt: 'Villa Ocaso second bedroom' },
+  { src: ocaso5, alt: 'Villa Ocaso living room alternate' },
+]);
+
+const zenithPhotos = await buildGallery([
+  { src: zenith1, alt: 'Villa Zenith, panoramic ocean view terrace' },
+  { src: zenith2, alt: 'Villa Zenith outdoor lounge' },
+  { src: zenith3, alt: 'Villa Zenith dining with pendant lights' },
+  { src: zenith4, alt: 'Villa Zenith BBQ terrace' },
+  { src: zenith5, alt: 'Villa Zenith entrance' },
+  { src: zenith6, alt: 'Villa Zenith interior' },
+]);
 ---
 
 <BaseLayout
   title="Luxury Villas in Nosara, Costa Rica | Avela Travel"
   description="Browse handpicked luxury villas in Nosara: jungle retreats and ocean-view hilltop properties, each vetted by our local team. Villa Ocaso and Villa Zenith."
-  image="/images/zenith/DSC04803-HDR.jpg"
+  image={zenith1}
 >
 
   <!-- Page header -->
@@ -63,13 +87,13 @@ const zenithPhotos = [
         {collection.map((villa) => (
           <a href={`/villas/${villa.slug}`} class="villa-card reveal">
             <div class="villa-card-img">
-              <img
-                src={villa.cover.src}
+              <Image
+                src={villaImage(villa.cover.src)}
                 alt={villa.cover.alt}
                 loading="lazy"
                 decoding="async"
-                width="800"
-                height="533"
+                widths={[400, 800]}
+                sizes="(max-width: 700px) 95vw, 32vw"
               />
             </div>
             <div class="villa-card-body">
@@ -123,7 +147,7 @@ const zenithPhotos = [
       <div class="villa-gallery-full reveal">
         <div class="gallery-main" id="ocaso-main">
           <img
-            src={osacoPhotos[0]!.src}
+            src={osacoPhotos[0]!.large}
             alt={osacoPhotos[0]!.alt}
             class="gallery-main-img"
             fetchpriority="high"
@@ -135,11 +159,11 @@ const zenithPhotos = [
             <button
               class={`gallery-thumb ${i === 0 ? 'active' : ''}`}
               data-gallery="ocaso"
-              data-src={photo.src}
+              data-src={photo.large}
               data-alt={photo.alt}
               aria-label={photo.alt}
             >
-              <img src={photo.src} alt={photo.alt} loading="lazy"  decoding="async" width="800" height="1000"/>
+              <Image src={photo.src} alt={photo.alt} loading="lazy" decoding="async" widths={[300]} sizes="120px" />
             </button>
           ))}
         </div>
@@ -237,23 +261,23 @@ const zenithPhotos = [
       <div class="villa-gallery-full reveal">
         <div class="gallery-main" id="zenith-main">
           <img
-            src={zenithPhotos[0]!.src}
+            src={zenithPhotos[0]!.large}
             alt={zenithPhotos[0]!.alt}
             class="gallery-main-img"
             loading="lazy"
             decoding="async"
-           width="800" height="1000"/>
+          />
         </div>
         <div class="gallery-strip">
           {zenithPhotos.map((photo, i) => (
             <button
               class={`gallery-thumb ${i === 0 ? 'active' : ''}`}
               data-gallery="zenith"
-              data-src={photo.src}
+              data-src={photo.large}
               data-alt={photo.alt}
               aria-label={photo.alt}
             >
-              <img src={photo.src} alt={photo.alt} loading="lazy"  decoding="async" width="800" height="1000"/>
+              <Image src={photo.src} alt={photo.alt} loading="lazy" decoding="async" widths={[300]} sizes="120px" />
             </button>
           ))}
         </div>

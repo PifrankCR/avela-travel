@@ -1,8 +1,10 @@
 ---
+import { Image, getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FeatureIcon from '../../components/FeatureIcon.astro';
 import { villas as albaVillas } from '../../data/alba-villas';
 import { bmVillas } from '../../data/bm-villas';
+import { villaImage } from '../../lib/villa-images';
 
 const villas = [...albaVillas, ...bmVillas];
 
@@ -16,13 +18,22 @@ export function getStaticPaths() {
 
 const { villa } = Astro.props;
 
+// Pre-optimized large renditions for the gallery switcher script.
+const gallery = await Promise.all(
+  villa.gallery.map(async (p) => ({
+    ...p,
+    asset: villaImage(p.src),
+    large: (await getImage({ src: villaImage(p.src), width: 1600, format: 'webp', quality: 78 })).src,
+  }))
+);
+
 // JSON-LD structured data for Google, LodgingBusiness schema
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'LodgingBusiness',
   name: `${villa.name}, Luxury Villa in Nosara, Costa Rica`,
   description: villa.shortDescription,
-  image: villa.gallery.map((p) => `https://avela.travel${p.src}`),
+  image: gallery.map((p) => new URL(p.large, 'https://avela.travel').href),
   numberOfRooms: villa.bedrooms,
   petsAllowed: false,
   address: {
@@ -43,7 +54,7 @@ const schema = {
 <BaseLayout
   title={`${villa.name} · ${villa.tagline} | Avela Travel Nosara`}
   description={villa.shortDescription}
-  image={villa.cover.src}
+  image={villaImage(villa.cover.src)}
   schema={schema}
 >
   <!-- Page header -->
@@ -86,26 +97,24 @@ const schema = {
       <div class="villa-gallery-full reveal">
         <div class="gallery-main" id={`${villa.slug}-main`}>
           <img
-            src={villa.gallery[0]!.src}
-            alt={villa.gallery[0]!.alt}
+            src={gallery[0]!.large}
+            alt={gallery[0]!.alt}
             class="gallery-main-img"
-            width="1600"
-            height="1067"
             fetchpriority="high"
             decoding="async"
           />
         </div>
         <div class="gallery-strip">
-          {villa.gallery.map((photo, i) => (
+          {gallery.map((photo, i) => (
             <button
               class={`gallery-thumb ${i === 0 ? 'active' : ''}`}
               data-gallery={villa.slug}
-              data-src={photo.src}
+              data-src={photo.large}
               data-alt={photo.alt}
               aria-label={photo.alt}
               type="button"
             >
-              <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" width="400" height="267" />
+              <Image src={photo.asset} alt={photo.alt} loading="lazy" decoding="async" widths={[300]} sizes="120px" />
             </button>
           ))}
         </div>

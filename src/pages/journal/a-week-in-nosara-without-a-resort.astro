@@ -1,5 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import JournalArticleLayout from '../../layouts/JournalArticleLayout.astro';
+import heroZenith from '../../assets/images/zenith/DSC04830-HDR-Edit.jpg';
+import sunsetSilhouettes from '../../assets/images/journal/sunset-beach-silhouettes-nosara-costa-rica.jpg';
+import boatSnacks from '../../assets/images/journal/fruit-ceviche-snacks-boat-bow-sunset-nosara.jpg';
 ---
 
 <JournalArticleLayout
@@ -8,7 +12,7 @@ import JournalArticleLayout from '../../layouts/JournalArticleLayout.astro';
   category="Guide"
   authorName="Stacie"
   authorFullName="Stacie Brown"
-  heroImage="/images/zenith/DSC04830-HDR-Edit.jpg"
+  heroImage={heroZenith}
   heroImageAlt="Villa Zenith infinity pool at dusk overlooking the Pacific coastline of Nosara, Costa Rica"
   publishedDate="2026-06-09"
   displayDate="June 2026"
@@ -54,13 +58,13 @@ import JournalArticleLayout from '../../layouts/JournalArticleLayout.astro';
   </p>
 
   <figure class="journal-body-figure">
-    <img
-      src="/images/journal/sunset-beach-silhouettes-nosara-costa-rica.jpg"
+    <Image
+      src={sunsetSilhouettes}
       alt="Four silhouettes playing on the sand at sunset in Nosara"
       loading="lazy"
       decoding="async"
-      width="1050"
-      height="1400"
+      widths={[500, 720, 1050]}
+      sizes="(max-width: 760px) 95vw, 720px"
     />
     <figcaption>The first sunset sets the pace.</figcaption>
   </figure>
@@ -134,13 +138,13 @@ import JournalArticleLayout from '../../layouts/JournalArticleLayout.astro';
     </li>
   </ul>
   <figure class="journal-body-figure">
-    <img
-      src="/images/journal/fruit-ceviche-snacks-boat-bow-sunset-nosara.jpg"
+    <Image
+      src={boatSnacks}
       alt="Fruit, ceviche, and snacks set out on the bow of the boat at sunset"
       loading="lazy"
       decoding="async"
-      width="1050"
-      height="1400"
+      widths={[500, 720, 1050]}
+      sizes="(max-width: 760px) 95vw, 720px"
     />
     <figcaption>The bow, set for the ride home.</figcaption>
   </figure>

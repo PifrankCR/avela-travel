@@ -1,5 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import JournalArticleLayout from '../../layouts/JournalArticleLayout.astro';
+import heroRaintree from '../../assets/images/villas/raintree/01-view-sunset-infinity-pool.jpg';
+import sandbarGroup from '../../assets/images/journal/group-waving-deserted-sandbar-boat-day-nosara.jpg';
+import snorkelMasks from '../../assets/images/journal/mother-daughter-snorkel-masks-boat-nosara.jpg';
 ---
 
 <JournalArticleLayout
@@ -8,7 +12,7 @@ import JournalArticleLayout from '../../layouts/JournalArticleLayout.astro';
   category="Trip recap"
   authorName="Stacie"
   authorFullName="Stacie Brown"
-  heroImage="/images/villas/raintree/01-view-sunset-infinity-pool.jpg"
+  heroImage={heroRaintree}
   heroImageAlt="Sunset view from Raintree villa infinity pool overlooking the jungle canopy of Playa Pelada, Nosara, Costa Rica"
   publishedDate="2025-12-05"
   displayDate="December 2025"
@@ -83,7 +87,7 @@ import JournalArticleLayout from '../../layouts/JournalArticleLayout.astro';
   <p>
     Dinner that night was 6:00 pm at Harmony Hotel, in the
     tropical-garden courtyard. The Harmony kitchen is one of the
-    most consistent in town for families, and the 6:00 pm slot
+    most consistent spots in town for families, and the 6:00 pm slot
     works when there are kids in the group who fade by 8.
   </p>
 
@@ -139,21 +143,21 @@ import JournalArticleLayout from '../../layouts/JournalArticleLayout.astro';
   </p>
 
   <figure class="journal-body-figure two-up">
-    <img
-      src="/images/journal/group-waving-deserted-sandbar-boat-day-nosara.jpg"
+    <Image
+      src={sandbarGroup}
       alt="The group waving from a deserted sandbar reached by boat near Nosara"
       loading="lazy"
       decoding="async"
-      width="1600"
-      height="1200"
+      widths={[400, 700]}
+      sizes="(max-width: 760px) 48vw, 360px"
     />
-    <img
-      src="/images/journal/mother-daughter-snorkel-masks-boat-nosara.jpg"
+    <Image
+      src={snorkelMasks}
       alt="Mother and daughter in snorkel masks on the boat before the snorkel stop"
       loading="lazy"
       decoding="async"
-      width="1050"
-      height="1400"
+      widths={[400, 700]}
+      sizes="(max-width: 760px) 48vw, 360px"
     />
     <figcaption>Boat days: a sandbar you cannot drive to, masks on before the snorkel stop.</figcaption>
   </figure>

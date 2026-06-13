@@ -1,5 +1,9 @@
 ---
+import { getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import heroReef from '../assets/images/nosara/nicoya-coast-cove-reef-aerial-costa-rica.jpg';
+
+const heroBg = await getImage({ src: heroReef, format: 'webp', width: 1920, quality: 75 });
 
 // Placeholder guides. Each entry should later have a /guides/<slug>.astro detail page.
 const guides = [
@@ -92,7 +96,7 @@ const pageSchema = {
   schema={pageSchema}
 >
   <!-- ─── HERO ─── -->
-  <section class="guides-hero">
+  <section class="guides-hero" style={`background-image: url(${heroBg.src})`}>
     <div class="guides-hero-inner">
       <p class="eyebrow">Guides</p>
       <h1>
@@ -136,7 +140,10 @@ const pageSchema = {
   /* ─── HERO ─── */
   .guides-hero {
     position: relative;
-    background: var(--green-deep) url('/images/nosara/nicoya-coast-cove-reef-aerial-costa-rica.jpg') center/cover no-repeat;
+    background-color: var(--green-deep);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     color: var(--warm-cream);
     padding: clamp(180px, 22vw, 280px) var(--gutter) clamp(90px, 14vw, 160px);
     text-align: center;
