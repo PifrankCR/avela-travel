@@ -1,6 +1,6 @@
 # Avela Travel — Session Handoff
 
-**Last updated:** 2026-06-11 · **Launch target:** Friday 2026-06-12
+**Last updated:** 2026-06-14 · **Status: LAUNCHED ✅** (went live 2026-06-14)
 
 Drop this in the next chat with: *"Read avela-travel/HANDOFF.md and MEMORY.md, then we'll continue."*
 
@@ -9,10 +9,19 @@ Drop this in the next chat with: *"Read avela-travel/HANDOFF.md and MEMORY.md, t
 ## 1. Where things stand
 
 - **Repo:** `PifrankCR/avela-travel` (private), branch `main`, clean working tree
-- **Last commit:** `3793d55` — Process page + Journal in main nav
-- **Live URL:** https://avela-travel.elsurfbudda.workers.dev (Cloudflare Workers Static Assets, auto-deploys on push)
-- **Production domain:** `avela.travel` registered but DNS not yet pointed to Cloudflare
+- **Last commit:** `93da435` — security headers + robots.txt sitemap domain (plus the domain-switch and image-optimization work before it)
+- **LIVE production domain:** https://avelatravel.com (and `www`), Cloudflare Workers Static Assets, auto-deploys on push to `main`
+  - NOTE: the domain is **avelatravel.com**, NOT `avela.travel`. The old `avela.travel` references were all migrated 2026-06-14. Do not reintroduce them.
+- **Fallback URL:** https://avela-travel.elsurfbudda.workers.dev (the workers.dev deploy, still live)
+- **DNS:** on Cloudflare (zone `avelatravel.com`, Active). Registrar is GoDaddy (Stacie's account); nameservers point to Cloudflare (`frida`/`west.ns.cloudflare.com`).
 - **Dev server config:** `.claude/launch.json` in project root (`avela-dev`)
+
+### Launch hardening done 2026-06-14
+- TLS valid (Google Trust, auto-renew). HTTP→HTTPS 301. HSTS on (6mo, includeSubDomains, preload).
+- Security headers via `public/_headers`: nosniff, X-Frame-Options SAMEORIGIN, Referrer-Policy, Permissions-Policy, COOP. Immutable cache on `/_astro/*`.
+- No cookies set; only Cloudflare cookieless analytics → no consent banner needed.
+- Cloudflare Bot Fight Mode OFF, "Block AI bots" = Do not block, managed robots.txt DISABLED → site's own AI-welcome robots.txt is authoritative.
+- All images migrated to `astro:assets` (responsive webp). Source images live in `src/assets/images/` now, NOT `public/images/` (only logo + textures remain in public).
 
 ## 2. How Pablo works + writes (read first)
 
@@ -81,15 +90,16 @@ All 4 use `JournalArticleLayout`. Hero pattern: full-bleed image, dark gradient 
 
 | Priority | Item | Blocker |
 |---|---|---|
-| 🔴 High | DNS migration to Cloudflare for `avela.travel` | User action — unlocks email, analytics, custom domain |
-| 🔴 High | Real `hello@avela.travel` mailbox via Google Workspace + Cloudflare Email Routing | Depends on DNS |
+| ✅ Done 06-14 | DNS migration to Cloudflare | Done. Zone `avelatravel.com` Active. |
+| ✅ Done 06-14 | Domain switch avela.travel → avelatravel.com across whole codebase | site config, canonical/OG/sitemap, JSON-LD, emails |
+| ✅ Done 06-14 | Astro `<Image />` migration | All photos in `src/assets/images/`, responsive webp |
+| ✅ Done 06-14 | Security hardening (HSTS, headers, HTTPS redirect, bot/robots config) | See section 1 |
+| 🔴 NEXT | **`hello@avelatravel.com` email — NOT set up yet (no MX records).** Address is published on Privacy + 404 so it currently BOUNCES. Decide forwarding (Cloudflare Email Routing, free) vs Google Workspace mailbox. | User decision in progress |
+| 🟡 Med | Submit sitemap to Google Search Console (`https://avelatravel.com/sitemap-index.xml`) | Post-launch SEO |
+| 🟡 Med | GitHub/registrar account-to-account domain transfer from Stacie's GoDaddy to Pablo | Ownership move, non-urgent, won't affect live site |
 | 🟡 Med | Stacie + Jordanny bios on `/about` | Awaiting user-supplied copy |
-| ✅ Done 06-11 | `/about` press strip upgrade to small grayscale Weddings Nosara logos (Brides / Martha Stewart / 100 Layer Cake / Jet Fete) | Badges pulled from weddingsnosara.com, in `public/images/press/` |
-| ✅ Done 06-11 | Fishing hero photography swap | Osprey offshore shot + 4-photo gallery, `public/images/fishing/` |
 | 🟢 Low | Footer "Nosara" column with verified local resource links | Need URLs that resolve |
 | 🟢 Low | "Where to next?" inspiration hub on `/itineraries` (moodboard, Martha-King borrow) | Code + content |
-| 🟢 Low | Privacy + 404 placeholder email `hello@avela.travel` → final legal contact | Depends on email decision |
-| ⚪ Post-launch | Astro `<Image />` migration (move `public/images/` → `src/assets/`, import) | ~30-50% page weight savings |
 | ⚪ Post-launch | Restore boat/fishing pricing once Avela markup over Monkey Head rates is confirmed | Awaiting Stacie |
 
 ## 10. Things NOT to do without checking
