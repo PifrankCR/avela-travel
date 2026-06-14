@@ -273,6 +273,10 @@ const villa = Astro.url.searchParams.get('villa') ?? '';
     flex-direction: column;
     gap: 1.5rem;
   }
+  /* hidden attribute must win over display:flex when the form is dismissed */
+  .contact-form[hidden] {
+    display: none;
+  }
 
   .form-row {
     display: grid;
