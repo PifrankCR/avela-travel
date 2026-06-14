@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   output: 'static',
-  site: 'https://avela.travel',
+  site: 'https://avelatravel.com',
   compressHTML: true,
   integrations: [sitemap()],
 });

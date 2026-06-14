@@ -33,7 +33,7 @@ const schema = {
   '@type': 'LodgingBusiness',
   name: `${villa.name}, Luxury Villa in Nosara, Costa Rica`,
   description: villa.shortDescription,
-  image: gallery.map((p) => new URL(p.large, 'https://avela.travel').href),
+  image: gallery.map((p) => new URL(p.large, 'https://avelatravel.com').href),
   numberOfRooms: villa.bedrooms,
   petsAllowed: false,
   address: {
@@ -47,7 +47,7 @@ const schema = {
     name: a,
     value: true,
   })),
-  url: `https://avela.travel/villas/${villa.slug}`,
+  url: `https://avelatravel.com/villas/${villa.slug}`,
 };
 ---
 

@@ -37,7 +37,7 @@ const pageSchema = {
   '@type': 'Article',
   headline: title,
   description,
-  image: new URL(schemaImage.src, 'https://avela.travel').href,
+  image: new URL(schemaImage.src, 'https://avelatravel.com').href,
   datePublished: publishedDate,
   dateModified: publishedDate,
   author: {
@@ -49,9 +49,9 @@ const pageSchema = {
   publisher: {
     '@type': 'Organization',
     name: 'Avela Travel',
-    logo: { '@type': 'ImageObject', url: 'https://avela.travel/images/avela-logo.png' },
+    logo: { '@type': 'ImageObject', url: 'https://avelatravel.com/images/avela-logo.png' },
   },
-  mainEntityOfPage: { '@type': 'WebPage', '@id': `https://avela.travel/journal/${slug}` },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': `https://avelatravel.com/journal/${slug}` },
 };
 ---
 
