@@ -14,4 +14,4 @@ Allow: /
 User-agent: Googlebot
 Allow: /
 
-Sitemap: https://avela.travel/sitemap-index.xml
+Sitemap: https://avelatravel.com/sitemap-index.xml

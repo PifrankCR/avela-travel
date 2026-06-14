@@ -1,0 +1,12 @@
+# Security headers for all routes (Cloudflare static assets honors _headers).
+# HTTPS enforcement + HSTS are set at the Cloudflare edge (SSL/TLS settings).
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Cross-Origin-Opener-Policy: same-origin
+
+# Long-cache the build-hashed, immutable assets
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
