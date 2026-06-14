@@ -91,7 +91,7 @@ const year = new Date().getFullYear();
       <div class="footer-col footer-newsletter">
         <h4>Stay Inspired</h4>
         <p>Trip ideas, Nosara guides, and seasonal availability, direct to your inbox.</p>
-        <form class="newsletter-form" id="newsletter-form" action="#" method="post" novalidate>
+        <form class="newsletter-form" id="newsletter-form" action="/api/newsletter" method="post" novalidate>
           <input
             type="email"
             name="email"
@@ -99,6 +99,7 @@ const year = new Date().getFullYear();
             required
             aria-label="Email address"
           />
+          <input type="text" name="_gotcha" style="display:none" aria-hidden="true" tabindex="-1" />
           <button type="submit">Subscribe</button>
           <p class="newsletter-success" id="newsletter-success" hidden>
             Got it. We will reach out with the next Nosara dispatch.
@@ -343,23 +344,37 @@ const year = new Date().getFullYear();
 </style>
 
 <script>
-  // Newsletter form stub. Captures email to localStorage until a real ESP is wired.
+  // Newsletter signup -> same-origin /api/newsletter (Cloudflare Worker -> Resend email).
   const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
   const success = document.getElementById('newsletter-success');
   if (form && success) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const data = new FormData(form);
       const email = String(data.get('email') ?? '').trim();
       if (!email || !email.includes('@')) return;
+
+      const input = form.querySelector('input');
+      const button = form.querySelector('button');
+      input?.setAttribute('disabled', 'true');
+      button?.setAttribute('disabled', 'true');
+
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 12000);
       try {
-        const pending = JSON.parse(localStorage.getItem('avela:newsletter-pending') ?? '[]');
-        pending.push({ email, at: new Date().toISOString() });
-        localStorage.setItem('avela:newsletter-pending', JSON.stringify(pending));
-      } catch {}
-      form.querySelector('input')?.setAttribute('disabled', 'true');
-      form.querySelector('button')?.setAttribute('disabled', 'true');
-      success.hidden = false;
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' }, signal: controller.signal });
+        clearTimeout(timeout);
+        if (res.ok) {
+          success.hidden = false;
+        } else {
+          input?.removeAttribute('disabled');
+          button?.removeAttribute('disabled');
+        }
+      } catch {
+        clearTimeout(timeout);
+        input?.removeAttribute('disabled');
+        button?.removeAttribute('disabled');
+      }
     });
   }
 </script>
