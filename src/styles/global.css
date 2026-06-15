@@ -120,7 +120,35 @@ h1, h2, h3, h4 {
   transform: translateY(0);
 }
 
+/* Monstera flourish, fades in with the bar, retracts on dismiss */
+.sticky-foliage {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: min(380px, 52%);
+  height: 112px;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 0;
+}
+.sticky-foliage-ink {
+  fill: none;
+  stroke: var(--amber);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.sticky-foliage .leaf {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.sticky-inquiry.visible .leaf-1 { opacity: 0.68; transform: none; transition-delay: 0.15s; }
+.sticky-inquiry.visible .leaf-2 { opacity: 0.55; transform: none; transition-delay: 0.36s; }
+.sticky-inquiry.visible .leaf-3 { opacity: 0.82; transform: none; transition-delay: 0.57s; }
+
 .sticky-inquiry-inner {
+  position: relative;
+  z-index: 1;
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0.85rem var(--gutter);
@@ -128,6 +156,13 @@ h1, h2, h3, h4 {
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
+}
+
+@media (max-width: 720px) {
+  .sticky-foliage { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sticky-foliage .leaf { transition: none; transform: none; }
 }
 
 .sticky-inquiry-copy {

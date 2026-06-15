@@ -3,6 +3,7 @@ import '../styles/global.css';
 import { getImage } from 'astro:assets';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import StickyFoliage from '../components/StickyFoliage.astro';
 import defaultOgSrc from '../assets/images/ocaso/ocaso-1.jpg';
 
 interface Props {
@@ -80,6 +81,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <!-- Sticky inquiry bar -->
     <aside class="sticky-inquiry" id="sticky-inquiry" aria-label="Plan your Nosara trip" hidden>
+      <StickyFoliage />
       <div class="sticky-inquiry-inner">
         <div class="sticky-inquiry-copy">
           <span class="sticky-inquiry-eyebrow">Tell us about your trip</span>
