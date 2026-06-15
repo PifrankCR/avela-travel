@@ -473,12 +473,20 @@ const schema = {
     const alt = btn.dataset.alt;
     const mainImg = document.querySelector<HTMLImageElement>(`#${gallery}-main .gallery-main-img`);
     if (!mainImg || !src) return;
+    const pre = new Image();
+    pre.src = src;
     mainImg.style.opacity = '0';
-    setTimeout(() => {
+    let ready = false, faded = false;
+    const go = () => {
+      if (!ready || !faded) return;
       mainImg.src = src;
       if (alt) mainImg.alt = alt;
-      mainImg.style.opacity = '1';
-    }, 200);
+      requestAnimationFrame(() => { mainImg.style.opacity = '1'; });
+    };
+    const markReady = () => { ready = true; go(); };
+    if (pre.decode) pre.decode().then(markReady).catch(markReady);
+    else { pre.onload = markReady; pre.onerror = markReady; }
+    setTimeout(() => { faded = true; go(); }, 220);
     thumbs.forEach((b) => b.classList.remove('active'));
     btn.classList.add('active');
   }
