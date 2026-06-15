@@ -143,12 +143,13 @@ h1, h2, h3, h4 {
   transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.3, 1);
 }
 .sticky-inquiry.visible .leaf { transform: none; }
-.sticky-inquiry.visible .leaf-1 { opacity: 0.6; transition-delay: 0.12s; }
-.sticky-inquiry.visible .leaf-2 { opacity: 0.78; transition-delay: 0.26s; }
-.sticky-inquiry.visible .leaf-3 { opacity: 0.5; transition-delay: 0.4s; }
-.sticky-inquiry.visible .leaf-4 { opacity: 0.62; transition-delay: 0.54s; }
-.sticky-inquiry.visible .leaf-5 { opacity: 0.8; transition-delay: 0.68s; }
-.sticky-inquiry.visible .leaf-6 { opacity: 0.48; transition-delay: 0.82s; }
+/* Center cluster (1-3) ~0.66 avg is ~20% more opaque than button cluster (5-6) ~0.55 avg */
+.sticky-inquiry.visible .leaf-1 { opacity: 0.66; transition-delay: 0.12s; }
+.sticky-inquiry.visible .leaf-2 { opacity: 0.72; transition-delay: 0.26s; }
+.sticky-inquiry.visible .leaf-3 { opacity: 0.62; transition-delay: 0.4s; }
+.sticky-inquiry.visible .leaf-4 { opacity: 0.58; transition-delay: 0.54s; }
+.sticky-inquiry.visible .leaf-5 { opacity: 0.6; transition-delay: 0.68s; }
+.sticky-inquiry.visible .leaf-6 { opacity: 0.5; transition-delay: 0.82s; }
 
 .sticky-inquiry-inner {
   position: relative;
