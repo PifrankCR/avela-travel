@@ -9,7 +9,7 @@ import snapperCatch from '../../assets/images/fishing/snapper-catch-osprey-boat-
 
 const title = 'Costa Rica Sportfishing Package | Avela Travel';
 const description =
-  'Four nights of offshore fishing in Nosara, Costa Rica, built around a private villa and our own 32ft boat. Three full days on the water, all meals included, bilingual crew. From $4,300 per angler.';
+  'Five nights of offshore fishing in Nosara, Costa Rica, built around a private villa and our own 32ft boat. Three full days on the water, all meals included, bilingual crew. From $4,300 per angler.';
 
 // Pricing tiers, plus IVA
 const tiers = [
@@ -29,7 +29,7 @@ const included = [
   {
     heading: 'Accommodation',
     items: [
-      'Four nights of exclusive use at Villa Blanco, Casa Kaiman',
+      'Five nights of exclusive use at Villa Blanco, Casa Kaiman',
       '3,541 sq ft villa on Playa Guiones with private pool',
       '4 bedrooms: 1 master king ensuite with bathtub, 1 king ensuite, 1 queen ensuite, 1 room with 3 twin beds',
     ],
@@ -37,9 +37,10 @@ const included = [
   {
     heading: 'Meals',
     items: [
-      'Dinner on arrival day, out in Nosara, at a restaurant you pick from a list we send',
+      'Welcome dinner at the villa on arrival',
       'Breakfast at the villa and lunch on the boat for each of the three fishing days',
-      'Dinner at the villa with your chef on every fishing night',
+      'Dinner at the villa with your chef on fishing nights',
+      'One dinner out on your free day, covered, at a restaurant you pick from a list we send',
       'Breakfast on departure day',
     ],
   },
@@ -77,7 +78,7 @@ const dayShape = [
     items: [
       'Liberia (LIR) airport pickup, two private vans, roughly 2.5 hours to Nosara',
       'Settle into Villa Blanco, time to swim, walk the beach, or rest',
-      'Welcome dinner out in Nosara, covered, at a restaurant you pick from a list we send',
+      'Welcome dinner at the villa',
     ],
   },
   {
@@ -100,15 +101,22 @@ const dayShape = [
   },
   {
     day: 'Day 4',
-    title: 'Fishing day 3',
+    title: 'Free day',
     items: [
-      'Final day on the water',
-      'Catch cleaned and filleted one last time',
-      'Last dinner at the villa with your chef',
+      'No fishing. Surf, spa, an ATV waterfall ride, or simply the pool',
+      'Dinner out in Nosara, covered, at a restaurant you pick from a list we send',
     ],
   },
   {
     day: 'Day 5',
+    title: 'Fishing day 3',
+    items: [
+      'Final day on the water, rested after the day off',
+      'Catch cleaned and filleted one last time, last dinner at the villa',
+    ],
+  },
+  {
+    day: 'Day 6',
     title: 'Departure',
     items: [
       'Departure breakfast at the villa, pack at an easy pace',
@@ -136,7 +144,7 @@ const differentiators = [
   {
     title: 'All meals included, including dinners',
     body:
-      'Competitors at this price tier include breakfast and a boat lunch. We include dinner every night: a covered arrival-night dinner out at a Nosara restaurant you pick from a list we send, then the villa chef on every fishing night.',
+      'Competitors at this price tier include breakfast and a boat lunch. We include dinner every night: the villa chef on fishing nights, a welcome dinner on arrival, and one covered night out on your free day at a Nosara restaurant you pick from a list we send.',
   },
   {
     title: 'Mindful fishing',
@@ -204,7 +212,7 @@ const pageSchema = {
       provider: { '@type': 'Organization', name: 'Avela Travel' },
       offers: tiers.map((t) => ({
         '@type': 'Offer',
-        name: `${t.size}, four-night package`,
+        name: `${t.size}, five-night package`,
         price: t.pp.replace('$', '').replace(',', ''),
         priceCurrency: 'USD',
         description: `${t.pp} per angler at ${t.size}, totalling ${t.total} for the group. Plus 13% Costa Rica VAT.`,
@@ -228,10 +236,10 @@ const pageSchema = {
     <div class="fishing-hero-inner">
       <p class="eyebrow">Signature package</p>
       <h1>
-        Four nights of <em>offshore fishing</em>, built around a private villa in Nosara.
+        Five nights of <em>offshore fishing</em>, built around a private villa in Nosara.
       </h1>
       <p class="fishing-hero-lede">
-        Five days, four nights, three full days on the water, our own 32ft boat, all meals at the villa.
+        Six days, five nights, three full days on the water, our own 32ft boat, all meals included.
         For groups of four to six anglers who want the trip done properly, without the lodge logistics.
       </p>
       <p class="fishing-hero-meta">
@@ -264,8 +272,8 @@ const pageSchema = {
   <section class="fishing-glance">
     <div class="fishing-glance-inner">
       <div class="glance-item">
-        <span class="glance-num">5</span>
-        <span class="glance-label">Days, four nights at Villa Blanco</span>
+        <span class="glance-num">6</span>
+        <span class="glance-label">Days, five nights at Villa Blanco</span>
       </div>
       <div class="glance-item">
         <span class="glance-num">3</span>
