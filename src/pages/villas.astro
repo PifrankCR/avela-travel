@@ -26,7 +26,7 @@ const buildGallery = (photos: { src: ImageMetadata; alt: string }[]) =>
   Promise.all(
     photos.map(async (p) => ({
       ...p,
-      large: (await getImage({ src: p.src, width: 1600, format: 'webp', quality: 78 })).src,
+      large: (await getImage({ src: p.src, width: 1600, format: 'webp', quality: 82 })).src,
     }))
   );
 
@@ -153,6 +153,12 @@ const zenithPhotos = await buildGallery([
             fetchpriority="high"
             decoding="async"
           />
+          <button class="gallery-nav gallery-prev" data-gallery="ocaso" data-dir="-1" aria-label="Previous photo" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="gallery-nav gallery-next" data-gallery="ocaso" data-dir="1" aria-label="Next photo" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
         </div>
         <div class="gallery-strip">
           {osacoPhotos.map((photo, i) => (
@@ -267,6 +273,12 @@ const zenithPhotos = await buildGallery([
             loading="lazy"
             decoding="async"
           />
+          <button class="gallery-nav gallery-prev" data-gallery="zenith" data-dir="-1" aria-label="Previous photo" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="gallery-nav gallery-next" data-gallery="zenith" data-dir="1" aria-label="Next photo" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
         </div>
         <div class="gallery-strip">
           {zenithPhotos.map((photo, i) => (
@@ -461,6 +473,7 @@ const zenithPhotos = await buildGallery([
   }
 
   .gallery-main {
+    position: relative;
     aspect-ratio: 16 / 9;
     overflow: hidden;
     margin-bottom: 0.75rem;
@@ -472,6 +485,32 @@ const zenithPhotos = await buildGallery([
     height: 100%;
     object-fit: cover;
     transition: opacity 0.3s;
+  }
+
+  .gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background: rgba(19, 18, 16, 0.4);
+    color: var(--warm-cream);
+    cursor: pointer;
+    transition: background 0.2s;
+    z-index: 2;
+  }
+  .gallery-nav svg { width: 22px; height: 22px; }
+  .gallery-nav:hover { background: rgba(19, 18, 16, 0.7); }
+  .gallery-prev { left: 14px; }
+  .gallery-next { right: 14px; }
+  @media (max-width: 600px) {
+    .gallery-nav { width: 38px; height: 38px; }
+    .gallery-nav svg { width: 18px; height: 18px; }
   }
 
   .gallery-strip {
@@ -837,22 +876,48 @@ const zenithPhotos = await buildGallery([
 </style>
 
 <script>
-  document.querySelectorAll<HTMLButtonElement>('.gallery-thumb').forEach((btn) => {
+  function thumbsFor(gallery: string) {
+    return Array.from(document.querySelectorAll<HTMLElement>(`.gallery-thumb[data-gallery="${gallery}"]`));
+  }
+
+  function activate(gallery: string, index: number) {
+    const thumbs = thumbsFor(gallery);
+    if (!thumbs.length) return;
+    const n = thumbs.length;
+    const i = ((index % n) + n) % n;
+    const btn = thumbs[i]!;
+    const src = btn.dataset.src;
+    const alt = btn.dataset.alt;
+    const mainImg = document.querySelector<HTMLImageElement>(`#${gallery}-main .gallery-main-img`);
+    if (!mainImg || !src) return;
+    mainImg.style.opacity = '0';
+    setTimeout(() => {
+      mainImg.src = src;
+      if (alt) mainImg.alt = alt;
+      mainImg.style.opacity = '1';
+    }, 200);
+    thumbs.forEach((b) => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  function currentIndex(gallery: string) {
+    const i = thumbsFor(gallery).findIndex((b) => b.classList.contains('active'));
+    return i < 0 ? 0 : i;
+  }
+
+  document.querySelectorAll<HTMLElement>('.gallery-thumb').forEach((btn) => {
     btn.addEventListener('click', () => {
-      const galleryId = btn.dataset.gallery!;
-      const src = btn.dataset.src!;
-      const alt = btn.dataset.alt!;
-      const mainImg = document.querySelector<HTMLImageElement>(`#${galleryId}-main .gallery-main-img`);
-      if (mainImg) {
-        mainImg.style.opacity = '0';
-        setTimeout(() => {
-          mainImg.src = src;
-          mainImg.alt = alt;
-          mainImg.style.opacity = '1';
-        }, 200);
-      }
-      document.querySelectorAll(`[data-gallery="${galleryId}"]`).forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
+      const gallery = btn.dataset.gallery;
+      if (!gallery) return;
+      activate(gallery, thumbsFor(gallery).indexOf(btn));
+    });
+  });
+
+  document.querySelectorAll<HTMLElement>('.gallery-nav').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const gallery = btn.dataset.gallery;
+      if (!gallery) return;
+      activate(gallery, currentIndex(gallery) + Number(btn.dataset.dir));
     });
   });
 </script>
