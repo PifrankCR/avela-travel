@@ -114,6 +114,7 @@ h1, h2, h3, h4 {
   transform: translateY(120%);
   transition: transform 0.45s var(--ease-smooth);
   border-top: 1px solid rgba(255, 241, 207, 0.12);
+  overflow: hidden;
 }
 
 .sticky-inquiry.visible {
