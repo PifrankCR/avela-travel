@@ -10,13 +10,15 @@ import captainAlex from '../../assets/images/fishing/captain-alex-moreno-tuna-no
 import villaPool from '../../assets/images/fishing/villa-blanco/villa-blanco-private-pool-nosara.jpg';
 import villaLiving from '../../assets/images/fishing/villa-blanco/villa-blanco-open-living-room-playa-guiones-nosara.jpg';
 import villaKing from '../../assets/images/fishing/villa-blanco/villa-blanco-king-bedroom-nosara.jpg';
+import villaTwin from '../../assets/images/fishing/villa-blanco/villa-blanco-twin-bedroom-nosara.jpg';
 
-// Villa Blanco carousel: three strongest shots, optimized webp for the main swap
+// Villa Blanco carousel, optimized webp for the main swap
 const villaGallery = await Promise.all(
   [
     { img: villaPool, alt: 'The private pool at Villa Blanco, with loungers, palms, and string lights at Playa Guiones, Nosara' },
     { img: villaLiving, alt: 'Open-plan living and dining room at Villa Blanco with wood ceiling and sectional sofa' },
     { img: villaKing, alt: 'King bedroom at Villa Blanco with wood headboard and ceiling fan' },
+    { img: villaTwin, alt: 'Bedroom with three twin beds at Villa Blanco, wood headboards and louvered windows' },
   ].map(async (s) => ({ alt: s.alt, src: (await getImage({ src: s.img, width: 1400, format: 'webp' })).src }))
 );
 
