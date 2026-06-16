@@ -6,6 +6,13 @@ import marlinJump from '../../assets/images/fishing/marlin-jumping-off-nosara-co
 import tunaCatch from '../../assets/images/fishing/yellowfin-tuna-catch-osprey-boat-nosara.jpg';
 import anglersCatch from '../../assets/images/fishing/anglers-with-catch-osprey-boat-nosara.jpg';
 import snapperCatch from '../../assets/images/fishing/snapper-catch-osprey-boat-nosara.jpg';
+import captainAlex from '../../assets/images/fishing/captain-alex-moreno-tuna-nosara.jpg';
+import villaPool from '../../assets/images/fishing/villa-blanco/villa-blanco-private-pool-nosara.jpg';
+import villaLiving from '../../assets/images/fishing/villa-blanco/villa-blanco-open-living-room-playa-guiones-nosara.jpg';
+import villaKing from '../../assets/images/fishing/villa-blanco/villa-blanco-king-bedroom-nosara.jpg';
+import villaTwin from '../../assets/images/fishing/villa-blanco/villa-blanco-twin-bedroom-nosara.jpg';
+import villaBathEnsuite from '../../assets/images/fishing/villa-blanco/villa-blanco-ensuite-bathroom-nosara.jpg';
+import villaBathDouble from '../../assets/images/fishing/villa-blanco/villa-blanco-double-vanity-bathroom-nosara.jpg';
 
 const title = 'Costa Rica Sportfishing Package | Avela Travel';
 const description =
@@ -21,7 +28,7 @@ const included = [
   {
     heading: 'Transportation',
     items: [
-      'Round-trip private transfers between Liberia (LIR) and Nosara (two vans)',
+      'Round-trip private ground transfers between Liberia (LIR) and Nosara (two vans)',
       'Daily transfers between the villa and Playa Garza for boat departures',
       'No domestic connection flight required, Liberia is the direct gateway',
     ],
@@ -65,6 +72,7 @@ const included = [
 
 const notIncluded = [
   'International airfare',
+  'Flights to Nosara from your arrival airport (the package covers ground transport from Liberia to and from Nosara only; we can arrange a private or domestic flight on request)',
   'Costa Rica fishing license (about $15 per angler, through INCOPESCA)',
   'Alcohol beyond the beers and refreshments included on the boat',
   'Gratuities for crew, drivers, and chef (see FAQ)',
@@ -313,25 +321,64 @@ const pageSchema = {
         Nosara so your free time becomes the trip your group will talk about, not the trip you
         white-knuckled through.
       </p>
+      <ul class="fishing-gallery villa-gallery" role="list">
+        <li>
+          <Image src={villaPool}
+            alt="The private pool at Villa Blanco, with loungers, palms, and string lights at Playa Guiones, Nosara"
+            loading="lazy" decoding="async" widths={[400, 700]} sizes="(max-width: 800px) 48vw, 30vw" />
+        </li>
+        <li>
+          <Image src={villaLiving}
+            alt="Open-plan living and dining room at Villa Blanco with wood ceiling and sectional sofa"
+            loading="lazy" decoding="async" widths={[300, 600]} sizes="(max-width: 800px) 48vw, 24vw" />
+        </li>
+        <li>
+          <Image src={villaKing}
+            alt="King bedroom at Villa Blanco with wood headboard and ceiling fan"
+            loading="lazy" decoding="async" widths={[300, 600]} sizes="(max-width: 800px) 48vw, 24vw" />
+        </li>
+        <li>
+          <Image src={villaTwin}
+            alt="Bedroom with three twin beds at Villa Blanco, wood headboards and louvered windows"
+            loading="lazy" decoding="async" widths={[300, 600]} sizes="(max-width: 800px) 48vw, 24vw" />
+        </li>
+        <li>
+          <Image src={villaBathEnsuite}
+            alt="Ensuite bathroom at Villa Blanco with wood-framed mirror and patterned tile"
+            loading="lazy" decoding="async" widths={[300, 600]} sizes="(max-width: 800px) 48vw, 24vw" />
+        </li>
+        <li>
+          <Image src={villaBathDouble}
+            alt="Double-vanity bathroom at Villa Blanco with white cabinetry and patterned tile"
+            loading="lazy" decoding="async" widths={[300, 600]} sizes="(max-width: 800px) 48vw, 24vw" />
+        </li>
+      </ul>
     </div>
   </section>
 
   <!-- CAPTAIN -->
   <section class="fishing-section fishing-section-dark">
-    <div class="fishing-section-inner">
-      <p class="eyebrow">Your captain</p>
-      <h2>Alex Moreno, <em>captain and angler</em></h2>
-      <p>
-        Alex was raised in Playa Garza, the beach your boat leaves from every morning. He is a
-        Certified International Boat Captain whose career has run through international waters:
-        he was part of the first-place team at the Puerto Calero Marlin Cup in the Canary Islands,
-        which qualified him for the 2026 Offshore World Championship in Costa Rica, and he has won
-        Garza's own Ship of Fools tournament several times.
-      </p>
-      <p>
-        What that means for your group: international tournament instincts, applied to water he
-        has read since childhood. All three of your fishing days run with Alex and his mate.
-      </p>
+    <div class="fishing-section-inner captain-layout">
+      <div class="captain-text">
+        <p class="eyebrow">Your captain</p>
+        <h2>Alex Moreno, <em>captain and angler</em></h2>
+        <p>
+          Alex was raised in Playa Garza, the beach your boat leaves from every morning. He is a
+          Certified International Boat Captain whose career has run through international waters:
+          he was part of the first-place team at the Puerto Calero Marlin Cup in the Canary Islands,
+          which qualified him for the 2026 Offshore World Championship in Costa Rica, and he has won
+          Garza's own Ship of Fools tournament several times.
+        </p>
+        <p>
+          What that means for your group: international tournament instincts, applied to water he
+          has read since childhood. All three of your fishing days run with Alex and his mate.
+        </p>
+      </div>
+      <figure class="captain-photo">
+        <Image src={captainAlex}
+          alt="Captain Alex Moreno holding a large yellowfin tuna aboard the boat off Nosara, Costa Rica"
+          loading="lazy" decoding="async" widths={[400, 700]} sizes="(max-width: 800px) 100vw, 38vw" />
+      </figure>
     </div>
   </section>
 
@@ -854,6 +901,32 @@ const pageSchema = {
   }
   @media (max-width: 800px) {
     .fishing-gallery { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* VILLA GALLERY (6 photos, even 3-col grid) */
+  .villa-gallery { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 800px) {
+    .villa-gallery { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* CAPTAIN LAYOUT */
+  .captain-layout {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .captain-photo { margin: 0; }
+  .captain-photo img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+    border-radius: 2px;
+  }
+  @media (max-width: 800px) {
+    .captain-layout { grid-template-columns: 1fr; gap: 1.75rem; }
+    .captain-photo { max-width: 420px; }
   }
 
   /* DIFF GRID */
