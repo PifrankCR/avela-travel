@@ -63,6 +63,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/avela-logo.png" />
 
+    <!-- No-JS fallback: reveal animations must never hide content -->
+    <noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
+
     <!-- Structured data -->
     {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 
@@ -74,8 +77,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     ></script>
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to content</a>
     <Nav />
-    <main>
+    <main id="main" tabindex="-1">
       <slot />
     </main>
 

@@ -85,6 +85,29 @@ h1, h2, h3, h4 {
   margin: 0 auto;
 }
 
+/* ─── Skip to content ─── */
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -120%);
+  z-index: 200;
+  background: var(--green-deep);
+  color: var(--warm-cream);
+  padding: 12px 22px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 0 0 4px 4px;
+  transition: transform 0.2s var(--ease-out);
+}
+.skip-link:focus {
+  transform: translate(-50%, 0);
+  outline: 2px solid var(--warm-cream);
+  outline-offset: 2px;
+}
+
 /* ─── Scroll reveal ─── */
 .reveal {
   opacity: 0;
@@ -101,6 +124,15 @@ h1, h2, h3, h4 {
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
+
+/* Reduced motion: show content immediately, no slide/fade */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 
 /* ─── Sticky inquiry bar ─── */
 .sticky-inquiry {
