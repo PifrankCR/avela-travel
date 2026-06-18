@@ -204,7 +204,7 @@ h1, h2, h3, h4 {
 
 .sticky-inquiry-cta {
   background: var(--amber);
-  color: var(--cream);
+  color: var(--dark);
   padding: 12px 22px;
   font-family: var(--font-body);
   font-size: 11px;
