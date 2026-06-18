@@ -1,0 +1,166 @@
+---
+import { Image } from 'astro:assets';
+import JournalArticleLayout from '../../layouts/JournalArticleLayout.astro';
+import heroSurf from '../../assets/images/experiences/surfer-action-golden-spray.jpg';
+import marlin from '../../assets/images/fishing/marlin-jumping-off-nosara-coast-costa-rica.jpg';
+import snorkel from '../../assets/images/journal/mother-daughter-snorkel-masks-boat-nosara.jpg';
+import sandbar from '../../assets/images/journal/group-waving-deserted-sandbar-boat-day-nosara.jpg';
+---
+
+<JournalArticleLayout
+  title="Best Things to Do in Nosara"
+  description="The activities we build most Nosara weeks around: surfing Playa Guiones, offshore sportfishing out of Garza, snorkeling Isla Rosada, the Ostional arribada, waterfalls, sunset cruises, yoga, and the art of doing nothing."
+  category="Guide"
+  authorName="Stacie"
+  authorFullName="Stacie Brown"
+  heroImage={heroSurf}
+  heroImageAlt="A surfer carving a wave with backlit golden spray at Playa Guiones, Nosara, Costa Rica"
+  publishedDate="2026-06-18"
+  displayDate="June 2026"
+  readTime="6 min read"
+  slug="best-things-to-do-in-nosara"
+>
+  <Fragment slot="h1">Best things to do in <em>Nosara</em></Fragment>
+
+  <p class="dropcap">
+    When guests ask what there is to do in Nosara, the honest answer is: less
+    than you think, and exactly the right things. This is not a town with a
+    hundred attractions and a checklist. It is a handful of genuinely great
+    experiences and a lot of space to breathe between them. Here is what we
+    build most weeks around, in roughly the order people fall for them.
+  </p>
+
+  <h2>1. Learn to surf, or get better</h2>
+  <p>
+    Playa Guiones is one of the most forgiving places in the world to learn,
+    a long sand-bottom beach break that works most days of the year. We match
+    you to the right instructor and the right tide for your level: a first
+    lesson for the kids, a video-review session for someone chasing a better
+    bottom turn, or a dawn patrol for the surfer who came for exactly this.
+  </p>
+
+  <figure class="journal-body-figure">
+    <Image
+      src={marlin}
+      alt="A marlin jumping clear of the water off the Nosara coast, Costa Rica"
+      loading="lazy"
+      decoding="async"
+      widths={[500, 720, 1050]}
+      sizes="(max-width: 760px) 95vw, 720px"
+    />
+    <figcaption>Offshore, a few miles past the break.</figcaption>
+  </figure>
+
+  <h2>2. Spend a day offshore</h2>
+  <p>
+    Through our sister company, Monkey Head Adventures, we run boats out of the
+    Garza harbor for half and full days on the water. Offshore you are looking
+    for marlin, sailfish, tuna, and mahi. Closer in, it is rooster fish and
+    snapper. The crew cleans your catch, and the villa chef can cook it for
+    dinner that night. Not fishing? The same boats run snorkel trips and sunset
+    cruises.
+  </p>
+
+  <h2>3. Snorkel the pink island</h2>
+  <p>
+    A short boat ride from Garza, Isla Rosada sits in water that turns a color
+    you do not see from shore. It is the easy, joyful half-day: masks on, kids
+    in the water, fruit and cold drinks on the bow, home by lunch. It is usually
+    the photo people send first when they get back.
+  </p>
+
+  <figure class="journal-body-figure">
+    <Image
+      src={snorkel}
+      alt="A mother and daughter in snorkel masks on a boat during a Nosara ocean day, Costa Rica"
+      loading="lazy"
+      decoding="async"
+      widths={[500, 720, 1050]}
+      sizes="(max-width: 760px) 95vw, 720px"
+    />
+    <figcaption>The easiest yes of the week.</figcaption>
+  </figure>
+
+  <h2>4. See the Ostional arribada</h2>
+  <p>
+    If your dates line up with a nesting event, less than twenty minutes up the
+    coast you can watch tens of thousands of olive ridley turtles come ashore at
+    once. It is seasonal and it runs on the moon, not on a schedule, so we watch
+    the windows and tell you honestly whether your trip is likely to catch one.
+    A certified guide is required by law, through the
+    <a href="https://www.wcanosara.org/" target="_blank" rel="noopener noreferrer">Wildlife Conservation Association</a>,
+    and we handle the booking.
+  </p>
+
+  <h2>5. Find a waterfall</h2>
+  <p>
+    Behind the beach, the hills hide swimming holes and waterfalls most visitors
+    never reach. We arrange the ATVs or the four-wheel-drive, a guide who knows
+    which roads are passable that week, and a picnic if you want one. It is the
+    best way to see the inland half of the peninsula.
+  </p>
+
+  <figure class="journal-body-figure">
+    <Image
+      src={sandbar}
+      alt="A group waving from a boat on a deserted sandbar during a Nosara ocean day, Costa Rica"
+      loading="lazy"
+      decoding="async"
+      widths={[500, 720, 1050]}
+      sizes="(max-width: 760px) 95vw, 720px"
+    />
+    <figcaption>A sandbar to yourselves on a boat day.</figcaption>
+  </figure>
+
+  <h2>6. Take a sunset cruise</h2>
+  <p>
+    Cold drinks, the light going gold, and dolphins on the way home more often
+    than not. In season you may see whales. It is the simplest evening we plan
+    and one of the ones people talk about longest.
+  </p>
+
+  <h2>7. Spend a morning on wellness</h2>
+  <p>
+    Nosara has been a yoga town for decades, and the teachers here are the real
+    thing. We set up shala classes or private sessions at the villa, plus
+    massage, sound healing, and breathwork when you want them. A slow morning
+    here resets the whole day.
+  </p>
+
+  <h2>8. Eat at the villa with a private chef</h2>
+  <p>
+    The best dinners in Nosara do not happen in a restaurant. A chef cooks in
+    your kitchen with fish landed that morning and produce from up the road,
+    around whatever your group is in the mood for. Welcome dinners, a long table
+    for a birthday, a quiet plant-based night, kid menus that actually work.
+  </p>
+
+  <h2>9. Watch the wildlife</h2>
+  <p>
+    You barely have to try. Howler monkeys over the pool at dawn, toucans and
+    parrots through the day, and a naturalist guide for the morning if you want
+    to go deeper into the reserve. Bring binoculars. The kids will use them more
+    than you expect.
+  </p>
+
+  <h2>10. Do nothing at all</h2>
+  <p>
+    This is the one we quietly protect on every itinerary. A day with no plan:
+    the pool, the beach, a book, a long lunch, a nap. Nosara is a Blue Zone, and
+    the doing-nothing is not wasted time here. It is the point.
+  </p>
+
+  <Fragment slot="cta">
+    <p class="eyebrow">Build your days</p>
+    <h2>Tell us what you want out of the week</h2>
+    <p>
+      We respond within twenty-four hours with a tailored proposal: the villa,
+      the activities, the boat, the chef, and the space in between. You pick the
+      pace.
+    </p>
+    <div class="journal-article-cta-actions">
+      <a href="/contact" class="btn-primary">Plan my trip</a>
+      <a href="/experiences" class="btn-ghost">See all experiences</a>
+    </div>
+  </Fragment>
+</JournalArticleLayout>

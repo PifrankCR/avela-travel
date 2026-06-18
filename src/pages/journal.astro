@@ -8,12 +8,36 @@ import ostionalTurtle from '../assets/images/journal/ostional-arribada-olive-rid
 import expSurf from '../assets/images/experiences/surf.jpg';
 import expOcean from '../assets/images/experiences/ocean.jpg';
 import heroHowler from '../assets/images/journal/howler-monkey-nicoya-nosara-blue-zone.jpg';
+import bestThingsCoast from '../assets/images/nosara/nicoya-coast-cove-reef-aerial-costa-rica.jpg';
+import thingsToDoSurf from '../assets/images/experiences/surfer-action-golden-spray.jpg';
 
 const heroBg = await getImage({ src: heroHowler, format: 'webp', width: 1920, quality: 82 });
 
 // Placeholder posts. Replace with real content as it's published.
 // Each entry should later have a corresponding /journal/<slug>.astro page.
 const posts = [
+  {
+    slug: 'best-things-to-do-in-nosara',
+    category: 'Guide',
+    title: 'Best things to do in Nosara',
+    date: 'June 2026',
+    excerpt:
+      'The activities we build most weeks around: surf, offshore fishing out of Garza, the pink island, the Ostional arribada, waterfalls, sunset cruises, yoga, and the art of doing nothing.',
+    cover: thingsToDoSurf,
+    coverAlt: 'A surfer carving a wave with golden backlit spray at Playa Guiones, Nosara, Costa Rica',
+    author: 'Stacie',
+  },
+  {
+    slug: '10-best-things-about-nosara',
+    category: 'Guide',
+    title: '10 best things about Nosara',
+    date: 'June 2026',
+    excerpt:
+      'Ten honest reasons Nosara gets under your skin: a Blue Zone pace, year-round surf, the Ostional arribada, wildlife that comes to you, and a town that never let the chain hotels in.',
+    cover: bestThingsCoast,
+    coverAlt: 'Aerial view of the Nicoya coastline near Nosara with reef and turquoise Pacific water, Costa Rica',
+    author: 'Jordanny',
+  },
   {
     slug: 'a-week-with-the-marx-family',
     category: 'Trip recap',

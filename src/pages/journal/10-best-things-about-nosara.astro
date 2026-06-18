@@ -1,0 +1,168 @@
+---
+import { Image } from 'astro:assets';
+import JournalArticleLayout from '../../layouts/JournalArticleLayout.astro';
+import heroCoast from '../../assets/images/nosara/nicoya-coast-cove-reef-aerial-costa-rica.jpg';
+import howler from '../../assets/images/journal/howler-monkey-nicoya-nosara-blue-zone.jpg';
+import cleanWave from '../../assets/images/journal/surfer-clean-green-wave-empty-peak-nosara.jpg';
+import turtle from '../../assets/images/journal/ostional-arribada-olive-ridley-turtle.jpg';
+---
+
+<JournalArticleLayout
+  title="10 Best Things About Nosara"
+  description="Ten honest reasons Nosara, Costa Rica gets under people's skin: a Blue Zone pace, year-round surf, the Ostional arribada, wildlife that comes to you, and a town that never let the chain hotels in. Written by someone born here."
+  category="Guide"
+  authorName="Jordanny"
+  authorFullName="Jordanny Garcia"
+  heroImage={heroCoast}
+  heroImageAlt="Aerial view of the Nicoya coastline near Nosara, with reef, coves, and turquoise Pacific water, Costa Rica"
+  publishedDate="2026-06-18"
+  displayDate="June 2026"
+  readTime="6 min read"
+  slug="10-best-things-about-nosara"
+>
+  <Fragment slot="h1">10 best things about <em>Nosara</em></Fragment>
+
+  <p class="dropcap">
+    I was born in Playa Garza, a few minutes down the coast, and I have spent
+    my whole life on this stretch of the Nicoya Peninsula. I have watched a lot
+    of people arrive for a week and start asking about long-term rentals by
+    Thursday. It happens often enough that it stopped surprising me. Here are
+    ten reasons it keeps happening.
+  </p>
+
+  <h2>1. It sits inside a Blue Zone</h2>
+  <p>
+    The Nicoya Peninsula is one of only five places on earth where people
+    routinely live past 100, stay active, and stay connected to their families
+    and the land. That is not a marketing line, it comes out of real
+    demographic research. You cannot measure it on a weekend, but you can feel
+    the pace it produces. Life here is built around food, family, movement, and
+    rest, in that order.
+  </p>
+
+  <h2>2. The surf is consistent and forgiving</h2>
+  <p>
+    Playa Guiones is a sand-bottom beach break that works most days of the year.
+    There is no shallow reef to fear, just open water and a long beach. Complete
+    beginners stand up on their first morning. Surfers who have been doing it for
+    decades still find good waves on the right tide. Not many places give you
+    both.
+  </p>
+
+  <figure class="journal-body-figure">
+    <Image
+      src={cleanWave}
+      alt="A surfer riding a clean green wave on an empty peak at Playa Guiones, Nosara, Costa Rica"
+      loading="lazy"
+      decoding="async"
+      widths={[500, 720, 1050]}
+      sizes="(max-width: 760px) 95vw, 720px"
+    />
+    <figcaption>An empty peak on a good morning at Guiones.</figcaption>
+  </figure>
+
+  <h2>3. The Ostional arribada</h2>
+  <p>
+    Less than twenty minutes up the coast, tens of thousands of olive ridley sea
+    turtles come ashore to nest at once, in one of the largest arribadas
+    anywhere in the world. It runs on its own schedule, often between the last
+    quarter moon and the new moon, and standing on that beach while it happens is
+    the kind of thing people remember for the rest of their lives. The law
+    requires a certified local guide, and the
+    <a href="https://www.wcanosara.org/" target="_blank" rel="noopener noreferrer">Wildlife Conservation Association</a>
+    is the group protecting the turtles and running the tours.
+  </p>
+
+  <figure class="journal-body-figure">
+    <Image
+      src={turtle}
+      alt="An olive ridley sea turtle on the black sand of Playa Ostional during an arribada, Nicoya Peninsula, Costa Rica"
+      loading="lazy"
+      decoding="async"
+      widths={[500, 720, 1050]}
+      sizes="(max-width: 760px) 95vw, 720px"
+    />
+    <figcaption>Playa Ostional during a nesting event.</figcaption>
+  </figure>
+
+  <h2>4. There are no chain hotels</h2>
+  <p>
+    No high-rises, no cruise ships, no all-inclusive wristbands, no neon strip.
+    The town fought to keep development low and set back from the sand, and it
+    worked. What you get instead is a beach that still feels wild and a place
+    that did not trade its character for volume.
+  </p>
+
+  <h2>5. The wildlife comes to you</h2>
+  <p>
+    You do not have to book a tour to see animals here. Howler monkeys wake you
+    up before the sun, moving through the canopy over the villa. Toucans,
+    parrots, iguanas, and the occasional coati show up on their own. The jungle
+    is loud in the best way, and it is right outside the door.
+  </p>
+
+  <figure class="journal-body-figure">
+    <Image
+      src={howler}
+      alt="A howler monkey in the jungle canopy of the Nicoya Peninsula near Nosara, Costa Rica"
+      loading="lazy"
+      decoding="async"
+      widths={[500, 720, 1050]}
+      sizes="(max-width: 760px) 95vw, 720px"
+    />
+    <figcaption>Your alarm clock for the week.</figcaption>
+  </figure>
+
+  <h2>6. The jungle runs right to the sand</h2>
+  <p>
+    In a lot of beach towns the nature stops where the development starts. Here
+    the rainforest comes all the way down to the dunes. You can walk from green
+    shade into the surf in a couple of minutes, and that mix of jungle and ocean
+    is the whole feeling of the place.
+  </p>
+
+  <h2>7. The food is local and seasonal</h2>
+  <p>
+    Fish landed that morning at the Garza harbor. Produce from farms a few
+    minutes up the road. Mangoes off the tree behind the house. The chefs we
+    work with trained in serious kitchens, came home, and cook with what the
+    peninsula actually grows and catches. You eat better here than you expect to.
+  </p>
+
+  <h2>8. The night sky</h2>
+  <p>
+    With almost no light pollution, the stars come out in a way most visitors
+    have not seen since they were kids. Walk out after dinner, let your eyes
+    adjust, and look up. On a clear night the Milky Way is right there.
+  </p>
+
+  <h2>9. It is a real town, not a resort</h2>
+  <p>
+    Surfers, yoga teachers, ranchers, families who have been here for
+    generations, and people who came for a week and never left. That mix is what
+    keeps Nosara from feeling like a postcard. You are staying in a community,
+    not a compound.
+  </p>
+
+  <h2>10. It slows you down without asking</h2>
+  <p>
+    This is the one nobody plans for. By the third day you stop checking your
+    phone as much. You eat slower, sleep better, and stop rushing between things.
+    People come for the surf or the wildlife and leave talking about how calm
+    they felt. That is the Blue Zone doing its quiet work.
+  </p>
+
+  <Fragment slot="cta">
+    <p class="eyebrow">Come see for yourself</p>
+    <h2>Plan a week in Nosara</h2>
+    <p>
+      We live here, and we plan the whole trip: the villa, the surf, the boat
+      days, the chef, and the quiet afternoons in between. Tell us what you are
+      after and we will build it around you.
+    </p>
+    <div class="journal-article-cta-actions">
+      <a href="/contact" class="btn-primary">Plan my trip</a>
+      <a href="/experiences" class="btn-ghost">See what we do</a>
+    </div>
+  </Fragment>
+</JournalArticleLayout>
