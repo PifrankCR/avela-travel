@@ -139,7 +139,7 @@ const currentPath = Astro.url.pathname;
     border: 1px solid rgba(255, 241, 207, 0.4);
     color: var(--warm-cream);
     background: transparent;
-    transition: all 0.4s var(--ease-smooth);
+    transition: background 0.4s var(--ease-smooth), border-color 0.4s var(--ease-smooth), color 0.4s var(--ease-smooth), transform 0.16s var(--ease-out);
     display: inline-block;
   }
 
@@ -147,6 +147,10 @@ const currentPath = Astro.url.pathname;
     background: var(--amber);
     border-color: var(--amber);
     color: var(--dark);
+  }
+
+  .nav-cta:active {
+    transform: scale(0.97);
   }
 
   .nav.scrolled .nav-cta {

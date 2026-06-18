@@ -19,7 +19,8 @@
   --font-body: 'DM Sans', 'Helvetica Neue', sans-serif;
 
   --ease-smooth: cubic-bezier(.25, .1, .25, 1);
-  --ease-out: cubic-bezier(0, 0, .2, 1);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);  /* strong ease-out, more intentional punch */
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1); /* iOS-style for slide-in panels */
 
   --max-width: 1320px;
   --gutter: clamp(24px, 5vw, 80px);
@@ -148,7 +149,7 @@ h1, h2, h3, h4 {
   background: var(--green-deep);
   color: var(--warm-cream);
   transform: translateY(120%);
-  transition: transform 0.45s var(--ease-smooth);
+  transition: transform 0.45s var(--ease-drawer);
   border-top: 1px solid rgba(255, 241, 207, 0.12);
   overflow: hidden;
 }
@@ -248,11 +249,15 @@ h1, h2, h3, h4 {
   letter-spacing: 2px;
   text-transform: uppercase;
   white-space: nowrap;
-  transition: background 0.25s;
+  transition: background 0.25s, transform 0.16s var(--ease-out);
 }
 
 .sticky-inquiry-cta:hover {
   background: var(--amber-deep, #b8742a);
+}
+
+.sticky-inquiry-cta:active {
+  transform: scale(0.97);
 }
 
 .sticky-inquiry-close {

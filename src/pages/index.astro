@@ -669,11 +669,15 @@ const schema = {
     padding: 16px 36px;
     background: var(--amber);
     color: var(--dark);
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.16s var(--ease-out);
   }
 
   .btn-primary:hover {
     background: var(--amber-deep);
+  }
+
+  .btn-primary:active {
+    transform: scale(0.97);
   }
 
   .btn-ghost {
@@ -685,12 +689,16 @@ const schema = {
     padding: 15px 36px;
     border: 1px solid rgba(255, 241, 207, 0.4);
     color: var(--warm-cream);
-    transition: all 0.3s;
+    transition: border-color 0.3s, background 0.3s, transform 0.16s var(--ease-out);
   }
 
   .btn-ghost:hover {
     border-color: var(--warm-cream);
     background: rgba(255, 241, 207, 0.08);
+  }
+
+  .btn-ghost:active {
+    transform: scale(0.97);
   }
 
   .btn-outline {
@@ -702,12 +710,16 @@ const schema = {
     padding: 15px 36px;
     border: 1px solid var(--green-deep);
     color: var(--green-deep);
-    transition: all 0.3s;
+    transition: background 0.3s, color 0.3s, transform 0.16s var(--ease-out);
   }
 
   .btn-outline:hover {
     background: var(--green-deep);
     color: var(--cream);
+  }
+
+  .btn-outline:active {
+    transform: scale(0.97);
   }
 
   .btn-outline-dark {
