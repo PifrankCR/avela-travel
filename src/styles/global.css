@@ -113,6 +113,26 @@ h1, h2, h3, h4 {
   outline-offset: 2px;
 }
 
+/* ─── Button press feedback (Emil: pressable elements acknowledge the press) ─── */
+.btn-primary:active,
+.btn-ghost:active,
+.btn-outline:active,
+.btn-outline-dark:active,
+.btn-cream:active,
+.btn-cream-ghost:active,
+.btn-cta:active,
+.form-submit:active,
+.whatsapp-btn:active,
+.whatsapp-link:active,
+.btn-back:active,
+.btn:active,
+.path-cta:active,
+.exp-cta:active,
+.itin-cta:active,
+.filter-chip:active {
+  transform: scale(0.97);
+}
+
 /* ─── Scroll reveal ─── */
 .reveal {
   opacity: 0;

@@ -386,7 +386,7 @@ const villa = Astro.url.searchParams.get('villa') ?? '';
     padding: 18px 40px;
     background: var(--green-deep);
     color: var(--cream);
-    transition: background 0.3s;
+    transition: background 0.25s var(--ease-smooth), border-color 0.25s var(--ease-smooth), color 0.25s var(--ease-smooth), transform 0.16s var(--ease-out);
     align-self: flex-start;
     cursor: pointer;
     border: none;
@@ -452,7 +452,7 @@ const villa = Astro.url.searchParams.get('villa') ?? '';
     padding: 14px 32px;
     border: 1px solid var(--green-deep);
     color: var(--green-deep);
-    transition: all 0.3s;
+    transition: background 0.25s var(--ease-smooth), border-color 0.25s var(--ease-smooth), color 0.25s var(--ease-smooth), transform 0.16s var(--ease-out);
   }
 
   .btn-back:hover {
@@ -494,7 +494,7 @@ const villa = Astro.url.searchParams.get('villa') ?? '';
     color: #25D366;
     padding: 12px 20px;
     border: 1px solid rgba(37, 211, 102, 0.3);
-    transition: all 0.2s;
+    transition: background 0.25s var(--ease-smooth), border-color 0.25s var(--ease-smooth), color 0.25s var(--ease-smooth), transform 0.16s var(--ease-out);
     margin-bottom: 0.75rem;
   }
 
