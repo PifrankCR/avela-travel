@@ -61,7 +61,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/images/avela-logo.png" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <!-- No-JS fallback: reveal animations must never hide content -->
     <noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>

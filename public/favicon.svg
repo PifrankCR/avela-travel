@@ -1,0 +1,6 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Avela Travel">
+  <rect width="200" height="200" fill="#c76246"/>
+  <circle cx="100" cy="100" r="82" fill="none" stroke="#FBF8F2" stroke-width="3"/>
+  <circle cx="100" cy="100" r="73" fill="none" stroke="#FBF8F2" stroke-width="1.6" stroke-dasharray="2.5 6" opacity="0.85"/>
+  <text x="101" y="143" text-anchor="middle" font-family="Georgia, 'Times New Roman', 'Playfair Display', serif" font-style="italic" font-weight="500" font-size="120" fill="#FBF8F2">A</text>
+</svg>
