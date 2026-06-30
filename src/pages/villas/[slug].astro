@@ -23,7 +23,7 @@ const gallery = await Promise.all(
   villa.gallery.map(async (p) => ({
     ...p,
     asset: villaImage(p.src),
-    large: (await getImage({ src: villaImage(p.src), width: 1600, format: 'webp', quality: 82 })).src,
+    large: (await getImage({ src: villaImage(p.src), width: 2000, format: 'webp', quality: 86 })).src,
   }))
 );
 

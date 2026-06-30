@@ -19,7 +19,7 @@ const villaGallery = await Promise.all(
     { img: villaLiving, alt: 'Open-plan living and dining room at Villa Blanco with wood ceiling and sectional sofa' },
     { img: villaKing, alt: 'King bedroom at Villa Blanco with wood headboard and ceiling fan' },
     { img: villaTwin, alt: 'Bedroom with three twin beds at Villa Blanco, wood headboards and louvered windows' },
-  ].map(async (s) => ({ alt: s.alt, src: (await getImage({ src: s.img, width: 1400, format: 'webp' })).src }))
+  ].map(async (s) => ({ alt: s.alt, src: (await getImage({ src: s.img, width: 1800, format: 'webp', quality: 86 })).src }))
 );
 
 const title = 'Costa Rica Sportfishing Package | Avela Travel';

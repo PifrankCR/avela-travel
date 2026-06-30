@@ -26,7 +26,7 @@ const buildGallery = (photos: { src: ImageMetadata; alt: string }[]) =>
   Promise.all(
     photos.map(async (p) => ({
       ...p,
-      large: (await getImage({ src: p.src, width: 1600, format: 'webp', quality: 82 })).src,
+      large: (await getImage({ src: p.src, width: 2000, format: 'webp', quality: 86 })).src,
     }))
   );
 

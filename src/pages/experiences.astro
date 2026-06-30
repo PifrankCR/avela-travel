@@ -8,7 +8,7 @@ import expJungle from '../assets/images/experiences/jungle.jpg';
 import expWellness from '../assets/images/experiences/wellness.jpg';
 import heroSnorkelers from '../assets/images/experiences/snorkelers-underwater-sunbeams-pacific-nosara-costa-rica.jpg';
 
-const heroBg = await getImage({ src: heroSnorkelers, format: 'webp', width: 1920, quality: 82 });
+const heroBg = await getImage({ src: heroSnorkelers, format: 'webp', width: 2400, quality: 86 });
 
 const experiences = [
   {
@@ -282,7 +282,7 @@ const pageSchema = {
           </div>
           {exp.image && (
             <div class="exp-image reveal reveal-delay-2">
-              <Image src={exp.image} alt={exp.imageAlt} loading="lazy" decoding="async" widths={[500, 900]} sizes="(max-width: 900px) 95vw, 45vw" />
+              <Image src={exp.image} alt={exp.imageAlt} loading="lazy" decoding="async" widths={[500, 900, 1400]} sizes="(max-width: 900px) 95vw, 45vw" />
             </div>
           )}
         </div>

@@ -7,7 +7,7 @@ import expWellness from '../assets/images/experiences/wellness.jpg';
 import expOcean from '../assets/images/experiences/ocean.jpg';
 import heroCove from '../assets/images/itineraries/nicoya-coast-forested-cove-sunset-aerial-costa-rica.jpg';
 
-const heroBg = await getImage({ src: heroCove, format: 'webp', width: 1920, quality: 82 });
+const heroBg = await getImage({ src: heroCove, format: 'webp', width: 2400, quality: 86 });
 
 const itineraries = [
   {
@@ -156,7 +156,7 @@ const pageSchema = {
               alt="32ft sportfishing boat off the Nosara coast, Costa Rica"
               loading="lazy"
               decoding="async"
-              widths={[500, 900]}
+              widths={[500, 900, 1400]}
               sizes="(max-width: 900px) 95vw, 45vw"
             />
           </div>
@@ -187,7 +187,7 @@ const pageSchema = {
     >
       <div class="itin-inner">
         <div class="itin-image reveal">
-          <Image src={it.image} alt={it.imageAlt} loading="lazy" decoding="async" widths={[500, 900]} sizes="(max-width: 900px) 95vw, 45vw" />
+          <Image src={it.image} alt={it.imageAlt} loading="lazy" decoding="async" widths={[500, 900, 1400]} sizes="(max-width: 900px) 95vw, 45vw" />
         </div>
         <div class="itin-content reveal reveal-delay-1">
           <p class="eyebrow">{it.eyebrow}</p>
