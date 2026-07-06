@@ -113,8 +113,13 @@ export default {
     }
 
     if (request.method === 'POST') {
-      if (url.pathname === '/api/contact') return handleContact(request, env);
-      if (url.pathname === '/api/newsletter') return handleNewsletter(request, env);
+      try {
+        if (url.pathname === '/api/contact') return await handleContact(request, env);
+        if (url.pathname === '/api/newsletter') return await handleNewsletter(request, env);
+      } catch {
+        // Malformed body (e.g. a bot posting non-form data) must not crash the Worker.
+        return json({ ok: false, error: 'Bad request.' }, 400);
+      }
     }
 
     // Everything else: serve the static site.
