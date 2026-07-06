@@ -106,6 +106,12 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    // Canonicalize host: redirect www -> non-www (301), preserving path + query.
+    if (url.hostname.startsWith('www.')) {
+      url.hostname = url.hostname.slice(4);
+      return Response.redirect(url.toString(), 301);
+    }
+
     if (request.method === 'POST') {
       if (url.pathname === '/api/contact') return handleContact(request, env);
       if (url.pathname === '/api/newsletter') return handleNewsletter(request, env);
