@@ -123,7 +123,7 @@ import AvelaSeal from '../components/AvelaSeal.astro';
             <p class="eyebrow">Co-Founder · Adventures &amp; Local Knowledge</p>
             <h3>Jordanny</h3>
             <p class="team-bio">
-              I was born and raised in Playa Garza, the beach most of our boats leave from,
+              I was born and raised in Playa Garza, the beach our boats leave from,
               and I have spent my whole life on this water. I am an International Boat Captain
               and a certified Costa Rica lifeguard, an ISA surf coach, and a volunteer with
               COVIRENA, the SINAC program that helps protect this coastline and its wildlife.
@@ -160,7 +160,7 @@ import AvelaSeal from '../components/AvelaSeal.astro';
       <div class="press-inner reveal">
         <p class="eyebrow">Track record</p>
         <p class="press-lede">
-          Co-founder Stacie also leads <a href="https://www.instagram.com/weddingsnosara" target="_blank" rel="noopener noreferrer">Weddings Nosara</a>,
+          Co-founder Stacie also leads <a href="https://www.weddingsnosara.com/" target="_blank" rel="noopener noreferrer">Weddings Nosara</a>,
           her destination event-planning business, which has been featured in:
         </p>
         <ul class="press-list" role="list">
@@ -177,6 +177,11 @@ import AvelaSeal from '../components/AvelaSeal.astro';
             <Image src={pressJetFete} alt="Spotted on Jet Fete, well-traveled weddings badge" width={150} loading="lazy" />
           </li>
         </ul>
+        <p class="press-cross">
+          Planning a destination wedding or private celebration?
+          <a href="https://www.weddingsnosara.com/" target="_blank" rel="noopener noreferrer">Weddings Nosara</a>
+          provides specialist planning and production for private events in the region.
+        </p>
       </div>
     </div>
   </section>
@@ -286,15 +291,16 @@ import AvelaSeal from '../components/AvelaSeal.astro';
         <p class="eyebrow">Our ocean partner</p>
         <h2>Monkey Head Adventures</h2>
         <p>
-          Avela partners exclusively with Monkey Head Adventures for all ocean experiences.
-          They own and operate two private boats based out of Nosara, crewed by people who
-          have spent their lives on this stretch of the Pacific.
+          Ocean experiences booked through Avela are run by Monkey Head Adventures, our
+          sister company. They own and operate two boats out of Playa Garza, a 27 ft
+          Ticorette and a 32 ft Osprey, crewed by people who have spent their lives on this
+          stretch of the Pacific.
         </p>
         <p>
-          Whether you are after world-class sportfishing, a snorkeling trip to the offshore
+          Whether you are after offshore sportfishing, a snorkeling trip to the outer
           rocks, or a sunset cruise with a bottle of local wine, Monkey Head runs it well.
-          Their knowledge of conditions, marine life, and the best seasonal windows is second
-          to none on the Nicoya coast.
+          Their knowledge of conditions, marine life, and the best seasonal windows is hard
+          to match on the Nicoya coast.
         </p>
         <div class="partner-services">
           {['Sportfishing', 'Surf trips', 'Snorkeling', 'Sunset cruises', 'Whale watching (seasonal)', 'Dolphin tours'].map((s) => (
@@ -720,6 +726,21 @@ import AvelaSeal from '../components/AvelaSeal.astro';
   .press-list li:hover img {
     filter: grayscale(0);
     opacity: 0.9;
+  }
+  .press-cross {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(19, 18, 16, 0.6);
+    max-width: 560px;
+    margin: 2.5rem auto 0;
+  }
+  .press-cross a {
+    color: var(--green-deep);
+    border-bottom: 1px solid rgba(58, 79, 65, 0.35);
+    transition: border-color 0.3s;
+  }
+  .press-cross a:hover {
+    border-color: var(--green-deep);
   }
 
   /* Our commitment, manifesto section */

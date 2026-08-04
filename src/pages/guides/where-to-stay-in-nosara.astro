@@ -1,0 +1,209 @@
+---
+import { getImage } from 'astro:assets';
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import schemaImg from '../../assets/images/nosara/nosara-coast-sunset-palm-vista.jpg';
+
+const schemaImage = await getImage({ src: schemaImg, format: 'jpeg', width: 1200 });
+
+const title = 'Where to Stay in Nosara: Guiones vs Pelada vs Garza';
+const description =
+  'An honest comparison of Nosara\'s three main beaches, Playa Guiones, Playa Pelada, and Playa Garza, so you book in the right spot. Surf, swimming, restaurants, quiet, and who each one actually suits.';
+const updated = 'August 2026';
+
+const faqs = [
+  {
+    q: 'Which Nosara beach should I stay near for my first trip?',
+    a: 'Playa Guiones, in almost every case. It has the most restaurants, the beginner-friendly surf, the yoga studios, and the densest cluster of good villas, all within a short walk or golf-cart ride. You can have a full week without ever driving. Pelada and Garza are better once you know the area or you specifically want quiet over convenience.',
+  },
+  {
+    q: 'Which beach is the quietest?',
+    a: 'Playa Garza is the quietest and most local, a small fishing-village bay with calm water and very little foot traffic. Playa Pelada is the middle ground: calmer and more residential than Guiones, but still a few minutes from its restaurants. Guiones is the busiest of the three, though "busy" in Nosara is still a long, uncrowded beach.',
+  },
+  {
+    q: 'Can you swim at Playa Guiones?',
+    a: 'Yes, but read it like the open beach break it is. Guiones is a long sandy beach with consistent waves and occasional rip currents, so swim where others are, keep an eye on kids, and ask your villa host or a lifeguard about the day\'s conditions. If you want flat, easy swimming, Garza\'s protected bay is the calmer choice, and Pelada has sheltered pockets at the right tide.',
+  },
+  {
+    q: 'Which beach is best for surfing?',
+    a: 'Playa Guiones. It is a forgiving beach break that works for complete beginners and keeps intermediates happy, with a sandy bottom and waves most days of the year. Pelada has surf too but it is less consistent and rockier in spots, better once you have your feet under you. Garza is a calm bay, not a surf beach.',
+  },
+  {
+    q: 'Are the beaches close enough to move between them?',
+    a: 'Yes. Guiones and Pelada sit side by side just north of each other and you can walk between them along the sand at low tide, or drive it in a few minutes. Garza is south, about a 10 to 15 minute drive. Wherever you stay, you can see all three in a day. We build that into most itineraries.',
+  },
+  {
+    q: 'Where are most of the restaurants and shops?',
+    a: 'Around Playa Guiones. That is where you find the bulk of Nosara\'s restaurants, cafes, surf shops, yoga shalas, and markets, including the Tuesday organic market. Pelada and the town center have their own spots, and Garza has a handful of local sodas and seafood, but Guiones is the hub.',
+  },
+];
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      datePublished: '2026-08-04',
+      dateModified: '2026-08-04',
+      author: { '@type': 'Organization', name: 'Avela Travel' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Avela Travel',
+        logo: { '@type': 'ImageObject', url: 'https://avelatravel.com/images/avela-logo.png' },
+      },
+      mainEntityOfPage: 'https://avelatravel.com/guides/where-to-stay-in-nosara',
+      image: new URL(schemaImage.src, 'https://avelatravel.com').href,
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+};
+
+const related = [
+  { slug: 'getting-to-nosara', title: 'Getting to Nosara', category: 'Logistics' },
+  { slug: 'surf-in-nosara', title: 'Surfing Nosara', category: 'Activities' },
+  { slug: 'when-to-visit', title: 'When to visit Nosara', category: 'Seasons' },
+];
+---
+
+<GuideLayout
+  title={title}
+  description={description}
+  category="Place"
+  readTime="7 min read"
+  heroImage={schemaImg}
+  heroImageAlt="Nosara coastline at sunset with palms over the Pacific"
+  updated={updated}
+  pageSchema={pageSchema}
+  related={related}
+>
+  <p>
+    People say "Nosara" like it is one place, but you are really choosing
+    between three beaches, each with its own feel. They sit within a few
+    minutes of each other, so the decision is not about distance. It is
+    about what you want to walk out your door and find. Get this right and
+    the whole trip feels easier.
+  </p>
+  <p>
+    This is how we explain it to guests deciding where to book, the same
+    way we would tell a friend.
+  </p>
+
+  <h2>The short version</h2>
+  <ul>
+    <li><strong>Playa Guiones</strong> is the hub: beginner-friendly surf, the most restaurants and villas, walkable, west-facing sunsets. Pick this for a first trip, for surfers, and for anyone who wants to leave the car parked.</li>
+    <li><strong>Playa Pelada</strong> is the quieter neighbor just north: more residential, calmer water in pockets, a short hop from Guiones without the foot traffic. Pick this for a slower week with the hub still close.</li>
+    <li><strong>Playa Garza</strong> is the local fishing-village bay to the south: calm, swimmable water, very quiet, and where the boats launch. Pick this for seclusion, flat water, and easy days on the water.</li>
+  </ul>
+
+  <h2>Playa Guiones</h2>
+  <p>
+    Guiones is the center of gravity. The beach itself is a long, wide
+    stretch of sand with a consistent break, and behind it sits the densest
+    part of Nosara: restaurants, cafes, surf shops, yoga studios, markets,
+    and the largest share of the villas we book. The town is set back behind
+    the trees rather than built right on the sand, which is part of why the
+    beach still feels wild even when the area is busy.
+  </p>
+  <p>
+    This is the easiest base for most people. You can walk or take a golf
+    cart to dinner, surf in the morning, and never touch a car. It is the
+    most consistent surf beach of the three, forgiving enough for a first
+    lesson and fun enough for intermediates, with a sandy bottom and waves
+    most days of the year. The trade-off is that it is the most active of the three,
+    though active in Nosara still means an uncrowded beach and no high-rises.
+  </p>
+  <div class="guide-pull">
+    If it is your first trip, stay near Guiones. You can have a full,
+    great week here without ever starting the car.
+  </div>
+
+  <h2>Playa Pelada</h2>
+  <p>
+    Just north of Guiones, Pelada is the quieter, more residential beach.
+    It is smaller and more sheltered, with rocky tide pools and calmer
+    pockets of water at the right tide, and a more local, lived-in feel.
+    The crowd thins out noticeably here. You still get a short drive or a
+    low-tide beach walk back to the Guiones restaurants, so you trade a
+    little convenience for a lot more quiet.
+  </p>
+  <p>
+    Pelada suits couples and repeat visitors who already know they want
+    calm over buzz, and anyone who likes the idea of the hub being close
+    but not on top of them. It is also closer to the Nosara town center.
+    The surf is here but less reliable than Guiones and rockier in spots,
+    so if surfing is the point, Guiones is the better base.
+  </p>
+
+  <h2>Playa Garza</h2>
+  <p>
+    Garza, a 10 to 15 minute drive south, is a working fishing village
+    wrapped around a calm, protected bay. The water is flat and swimmable
+    in a way Guiones is not, the pace is slow, and the foot traffic is
+    almost nothing. This is also the harbor the Monkey Head Adventures
+    boats leave from, so it is the natural base if your
+    trip leans toward fishing, snorkeling, or sunset cruises.
+  </p>
+  <p>
+    Stay near Garza for seclusion and easy water days, with the
+    understanding that you will drive to reach most restaurants and the
+    surf at Guiones. It is the most authentic of the three and the least
+    set up for visitors, which is exactly the appeal for some guests and
+    too quiet for others.
+  </p>
+
+  <h2>How to choose, by who you are</h2>
+  <ul>
+    <li><strong>First trip to Nosara:</strong> Guiones. The amenities and the walkability keep it simple while you learn the area.</li>
+    <li><strong>Here to surf:</strong> Guiones, no contest. You can roll out of bed and into the water.</li>
+    <li><strong>Couple wanting quiet:</strong> Pelada, or Garza if you want it really still.</li>
+    <li><strong>Family with young kids:</strong> Guiones for the lessons and the restaurants, or Garza if calm swimming water is the priority over walkable dining.</li>
+    <li><strong>Group focused on the water:</strong> Garza, close to the boats, with the villa as a quiet basecamp.</li>
+    <li><strong>Wellness week:</strong> Guiones or Pelada, near the studios and the slower north end.</li>
+  </ul>
+
+  <h2>Getting between them</h2>
+  <p>
+    Wherever you land, you are not locked in. Guiones and Pelada are
+    neighbors you can walk between along the sand at low tide. Garza is a
+    short drive south. Most of our guests see all three in a single trip:
+    surf and dinners around Guiones, a quiet morning at Pelada, a boat day
+    out of Garza. A golf cart covers Guiones and Pelada easily; for Garza
+    and the hill roads, an SUV helps.
+  </p>
+
+  <h2>Where Avela books</h2>
+  <p>
+    Most of the villas we manage sit in and around Guiones, where
+    walkability and beach access line up, with a smaller set in the
+    quieter pockets of Pelada and Garza. Rather than point you at a beach
+    and leave you to guess, we match the villa to how you actually want to
+    spend the week, then handle the surf, chef, boat, and transport around
+    it.
+  </p>
+
+  <h2>Frequently asked questions</h2>
+  <div class="guide-faq">
+    {faqs.map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+
+  <div class="guide-callout">
+    <p>
+      Not sure which beach fits your trip? Tell us who is coming and what you
+      want out of the week, and we will point you to the right villa on the
+      right beach, then build the rest of the trip around it.
+    </p>
+  </div>
+</GuideLayout>

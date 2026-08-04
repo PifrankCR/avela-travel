@@ -3,10 +3,19 @@ import { getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import heroReef from '../assets/images/nosara/nicoya-coast-cove-reef-aerial-costa-rica.jpg';
 
-const heroBg = await getImage({ src: heroReef, format: 'webp', width: 1920, quality: 82 });
+const heroBg = await getImage({ src: heroReef, format: 'webp', width: 2400, quality: 86 });
 
 // Placeholder guides. Each entry should later have a /guides/<slug>.astro detail page.
 const guides = [
+  {
+    slug: 'where-to-stay-in-nosara',
+    category: 'Place',
+    title: 'Where to stay in Nosara',
+    duration: '7 min read',
+    excerpt:
+      'Guiones, Pelada, or Garza? An honest comparison of Nosara\'s three beaches, surf, swimming, restaurants, and quiet, so you book in the right spot.',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-6.5-7-11a7 7 0 0114 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>`,
+  },
   {
     slug: 'getting-to-nosara',
     category: 'Logistics',
@@ -76,7 +85,7 @@ const guides = [
     title: 'Wellness in Nosara',
     duration: '6 min read',
     excerpt:
-      'Yoga shalas, sound healing, in-villa massage, ice baths, and plant medicine. Who is reputable, what is overhyped, and how to design a healing week.',
+      'Yoga shalas, sound healing, in-villa massage, and ice baths. What is worth doing, what is overhyped, where we draw the line, and how to design a healing week.',
     icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 18c0-5 2-9 6-9s6 4 6 9"/><path d="M12 9v-6M9 5l3-2 3 2"/></svg>`,
   },
 ];
@@ -170,7 +179,7 @@ const pageSchema = {
   }
 
   .guides-hero .eyebrow {
-    color: var(--amber);
+    color: var(--eyebrow-on-dark);
     margin-bottom: 1.5rem;
     display: inline-block;
   }
