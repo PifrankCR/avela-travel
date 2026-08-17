@@ -23,7 +23,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "TouristInformationCenter",
   "name": "Avela Travel",
-  "description": "The Avela Experience team: luxury travel focused exclusively on Nosara, Costa Rica.",
+  "description": "Destination management and private travel planning in Nosara, Costa Rica.",
   "url": "https://avelatravel.com",
   "areaServed": {
     "@type": "City",
@@ -73,7 +73,7 @@ const schema = {
         <em>Costa Rica Soul</em>
       </h1>
       <p class="hero-sub">
-        Avela plans your whole Nosara trip. From a handpicked luxury villa to private chefs,
+        Avela plans your whole Nosara trip. From a handpicked villa to private chefs,
         surf lessons, jungle tours, and everything in between.
       </p>
       <div class="hero-actions">
@@ -119,11 +119,11 @@ const schema = {
       <div class="intro-stats reveal reveal-delay-2">
         <div class="stat-card">
           <span class="stat-num">100%</span>
-          <span class="stat-label">Nosara focus. Every recommendation is local and vetted</span>
+          <span class="stat-label">Nosara focus. Every recommendation comes from our own team</span>
         </div>
         <div class="stat-card accent">
           <span class="stat-num">8</span>
-          <span class="stat-label">Categories of experiences, one point of contact for all</span>
+          <span class="stat-label">Categories of experiences, coordinated by one local team</span>
         </div>
         <div class="stat-card">
           <span class="stat-num">24/7</span>
@@ -181,8 +181,8 @@ const schema = {
           <h3>Book Your Way</h3>
           <p class="path-desc">
             Browse our handpicked villa collection, add tours and ocean adventures,
-            arrange airport transport, and build your stay piece by piece. Everything
-            is vetted. You simply choose what you want.
+            arrange airport transport, and build your stay piece by piece. You simply
+            choose what you want.
           </p>
           <ul class="path-list">
             <li>Villa rentals</li>
@@ -190,7 +190,7 @@ const schema = {
             <li>Ocean adventures</li>
             <li>Vehicle rentals</li>
           </ul>
-          <a href="/villas" class="path-cta">Browse Villas</a>
+          <a href="/avela-experience" class="path-cta">Compare the two</a>
         </div>
 
         <div class="path-card path-card-featured reveal reveal-delay-3">
@@ -198,17 +198,17 @@ const schema = {
           <div class="path-badge">Most popular</div>
           <h3>Avela Experience</h3>
           <p class="path-desc">
-            Tell us your dates, group size, and what you care about most. We handle
-            everything: villa selection, private chef scheduling, daily activities,
-            airport transfers, and any request that comes up during your stay.
+            Tell us your dates, group size, and what you care about most. We design the
+            itinerary, coordinate the operators, prepare the villa before you land, and
+            stay reachable while you are here.
           </p>
           <ul class="path-list">
             <li>Custom itinerary planning</li>
             <li>Private chef + villa bundled</li>
-            <li>24/7 on-the-ground support</li>
-            <li>One point of contact for all</li>
+            <li>On-the-ground support through your stay</li>
+            <li>One coordinator for the whole stay</li>
           </ul>
-          <a href="/contact" class="path-cta path-cta-featured">Plan My Trip</a>
+          <a href="/avela-experience" class="path-cta path-cta-featured">What it includes</a>
         </div>
       </div>
     </div>
@@ -229,7 +229,7 @@ const schema = {
           {
             icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>`,
             name: 'Luxury Villas',
-            desc: 'Handpicked, locally vetted homes with pools, jungle or ocean views, and full Avela Experience amenities.',
+            desc: 'Handpicked homes our team has walked, with pools, jungle or ocean views, and full Avela Experience amenities.',
             delay: 1,
           },
           {
@@ -510,6 +510,37 @@ const schema = {
         <strong>Sarah &amp; Tom K.</strong>
         <span>Family of five, visited February 2025</span>
       </cite>
+    </div>
+  </section>
+
+  <!-- ─── KIND WORDS ─── -->
+  <section class="section kind-words" id="kind-words" aria-labelledby="kind-words-title">
+    <div class="section-inner">
+      <div class="kw-head reveal">
+        <p class="eyebrow">Kind words</p>
+        <h2 id="kind-words-title">From the families we host</h2>
+      </div>
+
+      <div class="kw-grid">
+        <!-- Erin & Cameron family, Nosara. Real note received; attribution to confirm. -->
+        <figure class="kw-card reveal">
+          <svg class="kw-mark" viewBox="0 0 60 48" fill="none" aria-hidden="true">
+            <path d="M0 48V29.4C0 13.2 9.4 4.2 28.2 2l2.4 4.8C20.4 9 15.4 14.6 14.4 24H26.4V48H0ZM33.6 48V29.4C33.6 13.2 43 4.2 61.8 2L64.2 6.8C53.8 9 48.8 14.6 48 24H60V48H33.6Z" fill="currentColor"/>
+          </svg>
+          <blockquote class="kw-quote">
+            Thank you for all of your attention and suggestions. Coordinating our week
+            the way you did made our family vacation in beautiful Nosara so much more
+            special and memorable.
+          </blockquote>
+          <figcaption class="kw-cite">
+            <strong>[ guest name ]</strong>
+            <span>[ family, month year ]</span>
+          </figcaption>
+        </figure>
+        <!-- Add more <figure class="kw-card reveal"> blocks here as reviews come in.
+             When the Google Business Profile is live, a "Read more on Google" link
+             can sit under this grid so on-site and Google reviews read together. -->
+      </div>
     </div>
   </section>
 
@@ -1327,6 +1358,87 @@ const schema = {
   cite span {
     font-size: 13px;
     color: rgba(255, 241, 207, 0.35);
+  }
+
+  /* ─── Kind Words ─── */
+  .kind-words {
+    background: var(--cream);
+  }
+
+  .kw-head {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto clamp(48px, 6vw, 72px);
+  }
+
+  .kw-head h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 3.6vw, 2.75rem);
+    line-height: 1.15;
+    color: var(--dark);
+    margin-top: 0.75rem;
+  }
+
+  .kw-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 380px));
+    justify-content: center;
+    gap: clamp(20px, 2.5vw, 32px);
+  }
+
+  .kw-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--sand);
+    border-radius: 10px;
+    padding: clamp(28px, 3vw, 40px);
+    box-shadow: 0 1px 2px rgba(19, 18, 16, 0.03), 0 12px 32px rgba(19, 18, 16, 0.05);
+    transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+  }
+
+  .kw-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 2px 4px rgba(19, 18, 16, 0.04), 0 18px 44px rgba(19, 18, 16, 0.08);
+  }
+
+  .kw-mark {
+    width: 34px;
+    height: auto;
+    color: var(--green-sage);
+    opacity: 0.55;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Override the dark hero blockquote styling for these light cards. */
+  .kw-card .kw-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.1rem, 1.4vw, 1.28rem);
+    line-height: 1.6;
+    color: #2c2a26;
+    margin: 0 0 1.75rem;
+  }
+
+  .kw-cite {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .kw-cite strong {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--brown);
+  }
+
+  .kw-cite span {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: rgba(19, 18, 16, 0.5);
   }
 
   /* ─── CTA Band ─── */

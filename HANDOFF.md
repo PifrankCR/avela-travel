@@ -114,7 +114,7 @@ All 4 use `JournalArticleLayout`. Hero pattern: full-bleed image, dark gradient 
 
 ```bash
 # Dev server
-cd "/Users/pabloisunza/Documents/Avela Website Claude/avela-travel" && npm run dev
+cd ~/Documents/AMW/avela/avela-travel && npm run dev
 
 # Build check
 npm run build
