@@ -76,7 +76,7 @@ const experiences = [
     name: 'Ocean Adventures',
     lede: 'Two private boats. One incredible coastline.',
     description:
-      'Through our sister company Monkey Head Adventures, we run a pair of well-appointed vessels out of Garza harbor. Half-day sportfishing for mahi, tuna, and rooster fish. Snorkel runs to Isla Rosada, where the water turns a color you do not see anywhere else. Sunset cruises with cold cervezas and dolphins on the way home. Whale-watching in season. Private group charters for birthdays, bachelor parties, or just because.',
+      'Selected private ocean experiences are operated through Monkey Head Adventures, including fishing, surf access, sunset, and private charter options. Monkey Head is our sister company. They own and run both boats out of Garza harbor, a 27 ft Ticorette and a 32 ft Osprey. Half-day sportfishing for mahi, tuna, and rooster fish. Snorkel runs to Isla Rosada, where the water turns a color you do not see anywhere else. Sunset cruises with cold cervezas and dolphins on the way home. Whale-watching in season. Private group charters for birthdays, bachelor parties, or just because.',
     includes: [
       'Captain, crew, fuel, snorkel gear, and safety equipment',
       'Chilled drinks, fresh fruit, and ceviche on board',
@@ -114,9 +114,9 @@ const experiences = [
     name: 'Wellness',
     lede: 'Nosara is the yoga capital of Latin America. We connect you with the people who made it that way.',
     description:
-      'In-villa massage and bodywork from therapists who trained at the Yoga Institute. Private yoga sessions on your terrace at sunrise. Sound healing with crystal bowls. Breathwork journeys, ice baths, contrast therapy. Plant medicine ceremonies with reputable practitioners. Personal trainers, pilates instructors, and Blue Zone retreats that go beyond Instagram into actual practice. Pick a single session or build a full healing week.',
+      'In-villa massage and bodywork. Private yoga sessions on your terrace at sunrise. Sound healing with crystal bowls. Breathwork journeys, ice baths, contrast therapy. Personal trainers, pilates instructors, and Blue Zone retreats that go beyond Instagram into actual practice. Pick a single session or build a full healing week.',
     includes: [
-      'Vetted, licensed practitioners delivered to your villa',
+      'Practitioners we book regularly, delivered to your villa',
       'Couples and group sessions available',
       'Customized retreat itineraries for groups of two to twelve',
       'Mat, props, oils, and aftercare provided',
@@ -212,7 +212,7 @@ const pageSchema = {
 
 <BaseLayout
   title="Experiences | Avela Travel | Nosara, Costa Rica"
-  description="The full Avela experience in Nosara: handpicked villas, private chefs, surf sessions, ocean adventures, jungle excursions, wellness, and seamless transport."
+  description="The full Avela experience in Nosara: handpicked villas, private chefs, surf sessions, ocean adventures, jungle excursions, wellness, and transport."
   schema={pageSchema}
 >
   <!-- ─── HERO ─── -->
@@ -224,9 +224,10 @@ const pageSchema = {
         <em>Nosara yours</em>
       </h1>
       <p class="hero-lede">
-        Most travel services hand you a list. We hand you a team. Every villa is
-        walked, every chef is tested, every guide is someone we have known for
-        years. Pick one piece or pick them all. We build the rest around you.
+        Most travel services hand you a list. We hand you a team. The villas are
+        ones we have walked, the chefs are ones we have eaten from, the guides are
+        people we have known for years. Pick one piece or pick them all. We build
+        the rest around you.
       </p>
       <div class="hero-anchor-grid">
         {experiences.map((e) => (
@@ -245,8 +246,8 @@ const pageSchema = {
       {[
         { label: 'Locally based', sub: 'Year-round team in Nosara', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>' },
         { label: '100% Nosara focus', sub: 'No package tourism elsewhere', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>' },
-        { label: 'Vetted partners only', sub: 'Walked, slept in, tested', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9,12 11,14 15,10"/></svg>' },
-        { label: '24/7 on-the-ground', sub: 'WhatsApp + phone throughout', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>' },
+        { label: 'Partners we book ourselves', sub: 'Seen in person, used repeatedly', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9,12 11,14 15,10"/></svg>' },
+        { label: '24/7 on-the-ground', sub: 'Avela Experience clients, WhatsApp + phone', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>' },
       ].map((item) => (
         <div class="trust-item">
           <div class="trust-icon" set:html={item.icon}></div>

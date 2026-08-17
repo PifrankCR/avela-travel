@@ -1,0 +1,419 @@
+---
+import { getImage } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AvelaSeal from '../components/AvelaSeal.astro';
+import heroCoast from '../assets/images/nosara/nicoya-coast-cove-reef-aerial-costa-rica.jpg';
+
+const heroBg = await getImage({ src: heroCoast, format: 'webp', width: 2400, quality: 86 });
+
+const title = 'The Avela Experience | Full Trip Coordination in Nosara';
+const description =
+  'What the Avela Experience covers and what it does not: who it suits, what is included, how support works during your stay, how the coordination fee is shown, and where partner operators come in.';
+
+/* ─── The two ways to work with us ─── */
+const paths = [
+  {
+    name: 'Book Your Way',
+    forWho: 'You know what you want and you want help reserving it.',
+    body: `Pick a villa from the collection, add the pieces you want, and we handle
+    the reservations. You keep the planning. We handle the booking, the local
+    relationships, and the Spanish.`,
+    includes: [
+      'Villa reservation and villa terms',
+      'Individual tours and ocean days',
+      'Airport transfers and vehicle rental',
+      'Restaurant and chef bookings on request',
+    ],
+    excludes: [
+      'Itinerary design',
+      'Day-to-day coordination once you land',
+      'A dedicated coordinator through the trip',
+    ],
+    cta: { label: 'Browse villas', href: '/villas' },
+  },
+  {
+    name: 'The Avela Experience',
+    featured: true,
+    forWho: 'You want the week designed and run, not just reserved.',
+    body: `We build the itinerary, coordinate every operator, prepare the villa
+    before you land, and stay reachable while you are here. One coordinator from
+    the first message to the recap after you get home.`,
+    includes: [
+      'Everything in Book Your Way',
+      'A tailored written proposal with a full cost breakdown',
+      'Itinerary design, revised until it is right',
+      'Operator and partner coordination',
+      'Arrival preparation and welcome kit',
+      'A direct WhatsApp channel with the team on the ground',
+      'Daily check-ins and quiet adjustments for weather and swell',
+    ],
+    excludes: [
+      'Flights and travel insurance',
+      'Anything not itemized in your proposal',
+      'Medical or emergency services',
+    ],
+    cta: { label: 'Start a proposal', href: '/contact' },
+  },
+];
+
+/* ─── What the answers actually are ─── */
+const answers = [
+  {
+    q: 'Who it is for',
+    a: `Families, groups of friends, couples, and small retreats who want a week in
+    Nosara built around them rather than assembled from a booking site. It suits
+    people who would rather make three decisions than thirty. Group size is set by
+    the villa, from a couple up to the largest houses in the collection.`,
+  },
+  {
+    q: 'How the coordination fee works',
+    a: `Every proposal shows the cost of each component separately: villa, chef,
+    transfers, experiences, taxes. Our coordination fee is one line you can see,
+    not a margin buried inside the other numbers. There is no revision fee and no
+    deadline to decide.`,
+  },
+  {
+    q: 'How support works while you are here',
+    a: `Your WhatsApp channel with the team goes live two weeks before arrival and
+    stays open for the length of your stay. It covers anything to do with the trip
+    we arranged: a schedule change, a weather call, a restaurant, a driver running
+    late, something wrong at the villa. We live in Nosara, so it is a local team
+    answering, in English or Spanish. It is not a medical or emergency line.`,
+  },
+  {
+    q: 'How partner operators fit in',
+    a: `We coordinate the stay. Much of what happens inside it is delivered by
+    independent local operators we book directly: chefs, surf coaches, guides,
+    drivers, wellness practitioners. Ocean experiences are run by Monkey Head
+    Adventures, our sister company, on their two boats out of Playa Garza.
+    Availability, participation requirements, and cancellation terms can vary by
+    operator, and we tell you which is which in the proposal.`,
+  },
+  {
+    q: 'What confirms a booking',
+    a: `A signed booking and a fifty percent deposit holds the dates. The booking
+    contract, villa terms, and cancellation policy go to you before any money
+    moves. The balance is due seventy-two hours before arrival, not earlier.`,
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- ─── HERO ─── -->
+  <section class="ae-hero" style={`background-image: url(${heroBg.src})`}>
+    <div class="ae-hero-inner">
+      <p class="eyebrow">Two ways to work with us</p>
+      <h1>
+        Reserve it yourself,<br />
+        <em>or hand us the week</em>
+      </h1>
+      <p class="ae-hero-lede">
+        Avela is a destination management company, not a booking site. Some guests
+        want help reserving a few things. Others want the whole week designed and
+        run. Here is exactly where the line sits.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── THE TWO PATHS ─── -->
+  <section class="ae-paths">
+    <div class="ae-paths-inner">
+      {paths.map((p, i) => (
+        <article class={`ae-path reveal reveal-delay-${i + 1} ${p.featured ? 'ae-path-featured' : ''}`}>
+          {p.featured && <div class="ae-path-badge">Most popular</div>}
+          <h2>{p.name}</h2>
+          <p class="ae-path-for">{p.forWho}</p>
+          <p class="ae-path-body">{p.body}</p>
+
+          <p class="ae-list-label">What it includes</p>
+          <ul class="ae-list ae-list-in">
+            {p.includes.map((item) => <li>{item}</li>)}
+          </ul>
+
+          <p class="ae-list-label">What it does not</p>
+          <ul class="ae-list ae-list-out">
+            {p.excludes.map((item) => <li>{item}</li>)}
+          </ul>
+
+          <a href={p.cta.href} class={p.featured ? 'btn-primary' : 'btn-ghost'}>{p.cta.label}</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- ─── THE DETAIL ─── -->
+  <section class="ae-answers">
+    <div class="ae-answers-inner">
+      <div class="ae-answers-header reveal">
+        <p class="eyebrow">The Avela Experience, in detail</p>
+        <h2>The questions worth <em>asking first</em></h2>
+      </div>
+      {answers.map((a) => (
+        <article class="ae-answer reveal">
+          <h3>{a.q}</h3>
+          <p>{a.a}</p>
+        </article>
+      ))}
+      <p class="ae-answers-footer reveal">
+        The step-by-step version, from first message to the recap a week after you
+        get home, is on <a href="/process">our process page</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── SEAL + CTA ─── -->
+  <section class="ae-cta">
+    <div class="ae-cta-inner reveal">
+      <div class="ae-cta-seal">
+        <AvelaSeal size={120} />
+      </div>
+      <p class="eyebrow">Plan your Nosara stay</p>
+      <h2>Tell us the shape of the trip</h2>
+      <p>
+        Dates, group size, and what matters most. A real person reads it within a
+        few hours, and the proposal follows a short call.
+      </p>
+      <div class="ae-cta-actions">
+        <a href="/contact" class="btn-primary">Plan Your Nosara Stay</a>
+        <a href="/process" class="btn-ghost">See how it works</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ─── HERO ─── */
+  .ae-hero {
+    position: relative;
+    background-color: var(--green-deep);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--eyebrow-on-dark);
+    padding: clamp(180px, 22vw, 280px) var(--gutter) clamp(90px, 14vw, 160px);
+    text-align: center;
+    min-height: 84vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .ae-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(19, 18, 16, 0.5) 0%, rgba(19, 18, 16, 0.38) 55%, rgba(19, 18, 16, 0.72) 100%);
+    z-index: 0;
+  }
+  .ae-hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .ae-hero .eyebrow {
+    color: var(--eyebrow-on-dark);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    letter-spacing: 3px;
+  }
+  .ae-hero h1 {
+    font-size: clamp(46px, 7vw, 96px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    color: var(--cream);
+  }
+  .ae-hero h1 em {
+    font-style: italic;
+  }
+  .ae-hero-lede {
+    font-size: clamp(17px, 1.7vw, 21px);
+    line-height: 1.65;
+    max-width: 620px;
+    margin: 0 auto;
+    color: rgba(247, 244, 239, 0.9);
+  }
+
+  /* ─── PATHS ─── */
+  .ae-paths {
+    background: var(--cream);
+    padding: clamp(70px, 10vw, 130px) var(--gutter);
+  }
+  .ae-paths-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(24px, 3vw, 40px);
+    align-items: start;
+  }
+  .ae-path {
+    background: var(--warm-cream);
+    border: 1px solid rgba(19, 18, 16, 0.1);
+    border-radius: 3px;
+    padding: clamp(28px, 3.4vw, 46px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .ae-path-featured {
+    background: var(--green-deep);
+    color: var(--cream);
+    border-color: transparent;
+    position: relative;
+  }
+  .ae-path-badge {
+    position: absolute;
+    top: clamp(28px, 3.4vw, 46px);
+    right: clamp(28px, 3.4vw, 46px);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  .ae-path h2 {
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+  }
+  .ae-path-for {
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    color: var(--amber-deep);
+    margin-bottom: 1.25rem;
+  }
+  .ae-path-featured .ae-path-for {
+    color: var(--amber);
+  }
+  .ae-path-body {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+  .ae-list-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 0.6rem;
+  }
+  .ae-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.75rem;
+  }
+  .ae-list li {
+    font-size: 15px;
+    line-height: 1.55;
+    padding-left: 1.4rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+  .ae-list-in li::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+    opacity: 0.75;
+  }
+  .ae-list-out li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    opacity: 0.45;
+  }
+  .ae-path .btn-primary,
+  .ae-path .btn-ghost {
+    margin-top: auto;
+    align-self: flex-start;
+  }
+
+  /* ─── ANSWERS ─── */
+  .ae-answers {
+    background: var(--sand);
+    padding: clamp(70px, 10vw, 130px) var(--gutter);
+  }
+  .ae-answers-inner {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .ae-answers-header {
+    margin-bottom: clamp(40px, 5vw, 66px);
+  }
+  .ae-answers-header h2 {
+    font-size: clamp(32px, 4.4vw, 52px);
+    line-height: 1.1;
+    margin-top: 1rem;
+  }
+  .ae-answers-header h2 em {
+    font-style: italic;
+  }
+  .ae-answer {
+    padding: clamp(22px, 2.6vw, 32px) 0;
+    border-top: 1px solid rgba(19, 18, 16, 0.14);
+  }
+  .ae-answer h3 {
+    font-size: clamp(19px, 2.1vw, 24px);
+    margin-bottom: 0.7rem;
+  }
+  .ae-answer p {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  .ae-answers-footer {
+    margin-top: clamp(32px, 4vw, 48px);
+    font-size: 15px;
+    line-height: 1.7;
+    opacity: 0.85;
+  }
+  .ae-answers-footer a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ─── CTA ─── */
+  .ae-cta {
+    background: var(--green-deep);
+    color: var(--cream);
+    padding: clamp(70px, 10vw, 130px) var(--gutter);
+    text-align: center;
+  }
+  .ae-cta-inner {
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .ae-cta-seal {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    color: var(--amber);
+  }
+  .ae-cta .eyebrow {
+    color: var(--amber);
+  }
+  .ae-cta h2 {
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.12;
+    margin: 1rem 0 1.25rem;
+  }
+  .ae-cta p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 2.25rem;
+    color: rgba(247, 244, 239, 0.86);
+  }
+  .ae-cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 720px) {
+    .ae-path-badge {
+      position: static;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+  }
+</style>
