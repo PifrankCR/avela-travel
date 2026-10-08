@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ocaso1 from '../assets/images/ocaso/ocaso-1.jpg';
 import zenithTerrace from '../assets/images/zenith/DSC04803-HDR.jpg';
+import { TURNSTILE_SITE_KEY, TURNSTILE_SCRIPT } from '../lib/turnstile';
 
 const villa = Astro.url.searchParams.get('villa') ?? '';
 ---
@@ -126,6 +127,14 @@ const villa = Astro.url.searchParams.get('villa') ?? '';
 
           <input type="hidden" name="_subject" value="New Avela Travel inquiry" />
           <input type="text" name="_gotcha" style="display:none" aria-hidden="true" tabindex="-1" />
+
+          <div
+            class="cf-turnstile form-turnstile"
+            data-sitekey={TURNSTILE_SITE_KEY}
+            data-appearance="interaction-only"
+            data-action="contact"
+          >
+          </div>
 
           <button type="submit" class="form-submit">Send Inquiry</button>
 
@@ -620,6 +629,8 @@ const villa = Astro.url.searchParams.get('villa') ?? '';
   }
 </style>
 
+<script is:inline async defer src={TURNSTILE_SCRIPT}></script>
+
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   const successMsg = document.getElementById('form-success') as HTMLElement | null;
@@ -640,6 +651,9 @@ const villa = Astro.url.searchParams.get('villa') ?? '';
     };
     const fail = () => {
       reset();
+      // A Turnstile token is single use. Without a reset a second attempt
+      // reuses the spent one and fails again.
+      (window as any).turnstile?.reset();
       if (errorMsg) {
         errorMsg.hidden = false;
         errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });

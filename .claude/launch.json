@@ -4,8 +4,9 @@
     {
       "name": "avela-dev",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "port": 4321
+      "runtimeArgs": ["run", "dev", "--", "--port", "4330"],
+      "port": 4330,
+      "autoPort": false
     }
   ]
 }

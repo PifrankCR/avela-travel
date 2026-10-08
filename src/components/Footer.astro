@@ -1,5 +1,6 @@
 ---
 import AvelaSeal from './AvelaSeal.astro';
+import { TURNSTILE_SITE_KEY, TURNSTILE_SCRIPT } from '../lib/turnstile';
 const year = new Date().getFullYear();
 ---
 
@@ -101,6 +102,14 @@ const year = new Date().getFullYear();
             aria-label="Email address"
           />
           <input type="text" name="_gotcha" style="display:none" aria-hidden="true" tabindex="-1" />
+          <div
+            class="cf-turnstile newsletter-turnstile"
+            data-sitekey={TURNSTILE_SITE_KEY}
+            data-appearance="interaction-only"
+            data-theme="dark"
+            data-action="newsletter"
+          >
+          </div>
           <button type="submit">Subscribe</button>
           <p class="newsletter-success" id="newsletter-success" hidden>
             Got it. We will reach out with the next Nosara dispatch.
@@ -345,10 +354,26 @@ const year = new Date().getFullYear();
 </style>
 
 <script>
+  import { TURNSTILE_SCRIPT } from '../lib/turnstile';
+
   // Newsletter signup -> same-origin /api/newsletter (Cloudflare Worker -> Resend email).
   const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
   const success = document.getElementById('newsletter-success');
   if (form && success) {
+    // The footer is on every page, so the Turnstile script only loads once
+    // someone actually reaches for the field. The contact page loads it up
+    // front and this becomes a no-op there.
+    const loadTurnstile = () => {
+      if (document.querySelector('script[data-turnstile]')) return;
+      const s = document.createElement('script');
+      s.src = TURNSTILE_SCRIPT;
+      s.async = true;
+      s.defer = true;
+      s.dataset.turnstile = 'true';
+      document.head.appendChild(s);
+    };
+    form.addEventListener('focusin', loadTurnstile, { once: true });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const data = new FormData(form);
@@ -368,6 +393,8 @@ const year = new Date().getFullYear();
         if (res.ok) {
           success.hidden = false;
         } else {
+          // The Turnstile token is single use, so a retry needs a fresh one.
+          (window as any).turnstile?.reset();
           input?.removeAttribute('disabled');
           button?.removeAttribute('disabled');
         }
