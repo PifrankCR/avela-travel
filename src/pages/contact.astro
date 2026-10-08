@@ -5,7 +5,9 @@ import ocaso1 from '../assets/images/ocaso/ocaso-1.jpg';
 import zenithTerrace from '../assets/images/zenith/DSC04803-HDR.jpg';
 import { TURNSTILE_SITE_KEY, TURNSTILE_SCRIPT } from '../lib/turnstile';
 
-const villa = Astro.url.searchParams.get('villa') ?? '';
+// ?villa= is NOT read here. This page is prerendered, so at build time there is
+// no query string and every visitor was served "No preference" preselected.
+// The script at the bottom applies the parameter in the browser instead.
 ---
 
 <BaseLayout
@@ -87,9 +89,11 @@ const villa = Astro.url.searchParams.get('villa') ?? '';
           <div class="form-field">
             <label for="villa_interest">Villa preference</label>
             <select id="villa_interest" name="villa_interest">
-              <option value="" disabled selected={!villa}>No preference, show me options</option>
-              <option value="ocaso" selected={villa === 'ocaso'}>Villa Ocaso (Jungle, 4 bed, 10 guests)</option>
-              <option value="zenith" selected={villa === 'zenith'}>Villa Zenith (Ocean view, 5 bed, 12 guests)</option>
+              <!-- Not disabled: unlike the group-size placeholder, "no preference" is a
+                   real answer to an optional question, so it has to stay selectable. -->
+              <option value="" selected>No preference, show me options</option>
+              <option value="ocaso">Villa Ocaso (Jungle, 4 bed, 10 guests)</option>
+              <option value="zenith">Villa Zenith (Ocean view, 5 bed, 12 guests)</option>
               <option value="either">Either, best available for my dates</option>
             </select>
           </div>
@@ -126,6 +130,10 @@ const villa = Astro.url.searchParams.get('villa') ?? '';
           </div>
 
           <input type="hidden" name="_subject" value="New Avela Travel inquiry" />
+          <!-- Filled by the script below when someone arrives from a villa page whose
+               slug is not one of the three options above, so we still know which
+               villa they were looking at. -->
+          <input type="hidden" name="villa_page" id="villa_page" value="" />
           <input type="text" name="_gotcha" style="display:none" aria-hidden="true" tabindex="-1" />
 
           <div
@@ -632,6 +640,22 @@ const villa = Astro.url.searchParams.get('villa') ?? '';
 <script is:inline async defer src={TURNSTILE_SCRIPT}></script>
 
 <script>
+  // Apply ?villa= in the browser. The page is prerendered, so this cannot be
+  // done in the frontmatter. Links come from two places: villas.astro sends
+  // "ocaso" or "zenith", which match options; the 12 villa detail pages send
+  // their own slug ("casa-oceanus"), which does not. Keep that one anyway so
+  // the inquiry still says which villa the person was reading about.
+  {
+    const villa = new URLSearchParams(location.search).get('villa');
+    const select = document.getElementById('villa_interest') as HTMLSelectElement | null;
+    const hidden = document.getElementById('villa_page') as HTMLInputElement | null;
+    if (villa && select) {
+      const match = [...select.options].some((o) => o.value === villa);
+      if (match) select.value = villa;
+      else if (hidden) hidden.value = villa;
+    }
+  }
+
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   const successMsg = document.getElementById('form-success') as HTMLElement | null;
   const errorMsg = document.getElementById('form-error') as HTMLElement | null;
