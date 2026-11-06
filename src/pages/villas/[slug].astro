@@ -4,12 +4,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FeatureIcon from '../../components/FeatureIcon.astro';
 import { villas as albaVillas } from '../../data/alba-villas';
 import { bmVillas } from '../../data/bm-villas';
+import { wanderlustVillas } from '../../data/wanderlust-villas';
 import { villaImage } from '../../lib/villa-images';
 
-const villas = [...albaVillas, ...bmVillas];
+const villas = [...albaVillas, ...bmVillas, ...wanderlustVillas];
 
 export function getStaticPaths() {
-  const allVillas = [...albaVillas, ...bmVillas];
+  const allVillas = [...albaVillas, ...bmVillas, ...wanderlustVillas];
   return allVillas.map((villa) => ({
     params: { slug: villa.slug },
     props: { villa },
@@ -19,12 +20,19 @@ export function getStaticPaths() {
 const { villa } = Astro.props;
 
 // Pre-optimized large renditions for the gallery switcher script.
+// Never ask for more pixels than the source has. Wanderlust publishes its
+// photos at 1080px wide, and upscaling those to 2000 only ships a bigger,
+// softer file.
 const gallery = await Promise.all(
-  villa.gallery.map(async (p) => ({
-    ...p,
-    asset: villaImage(p.src),
-    large: (await getImage({ src: villaImage(p.src), width: 2000, format: 'webp', quality: 86 })).src,
-  }))
+  villa.gallery.map(async (p) => {
+    const asset = villaImage(p.src);
+    const width = Math.min(2000, asset.width);
+    return {
+      ...p,
+      asset,
+      large: (await getImage({ src: asset, width, format: 'webp', quality: 86 })).src,
+    };
+  })
 );
 
 // JSON-LD structured data for Google, LodgingBusiness schema
@@ -35,6 +43,9 @@ const schema = {
   description: villa.shortDescription,
   image: gallery.map((p) => new URL(p.large, 'https://avelatravel.com').href),
   numberOfRooms: villa.bedrooms,
+  // Only when the listing publishes an occupancy. Better no property at all
+  // than a number we invented.
+  ...(villa.guests ? { maximumAttendeeCapacity: villa.guests } : {}),
   petsAllowed: false,
   address: {
     '@type': 'PostalAddress',
