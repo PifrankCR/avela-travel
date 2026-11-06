@@ -278,23 +278,25 @@ export const villas: Villa[] = [
     eyebrow: 'Hacienda-style villa',
     bedrooms: 6,
     bathrooms: '6.5',
+    guests: 14,
     // Six houses in the complex: four of six bedrooms, two of eight (confirmed
     // by Jose at Alba, 2026-11-06). Listed at six, the common layout, with the
-    // eight-bedroom option named in the copy. Alba publishes no maximum
-    // occupancy, so ask before quoting a headcount.
+    // eight-bedroom option named in the copy. Alba publishes no occupancy, so
+    // the 14 comes from Jose directly, same day. The eight-bedroom houses sleep
+    // more; ask him before quoting a number for those.
     area: 'Playa Pelada, Nosara',
     features: ['Private pool', 'Walk to Playa Pelada', 'Private parking', 'Daily cleaning'],
     shortDescription:
-      'A new six-bedroom house built around its own courtyard pool, one of six in a gated complex a short walk from Playa Pelada. Two of the six have eight bedrooms. Every bedroom has its own bathroom.',
+      'A new six-bedroom house built around its own courtyard pool, one of six in a gated complex a short walk from Playa Pelada. Sleeps 14, and two of the six houses have eight bedrooms. Every bedroom has its own bathroom.',
     longDescription: [
       'Pelada Collection Villas is a gated complex of six houses in Playa Pelada. Four have six bedrooms, two have eight. You book a whole house, not a room in one: each has its own pool, its own parking and its own outdoor areas, and none of them is shared with another group. The beach is a short walk, which makes early swims and sunset walks something you do on foot rather than plan around a car.',
       'The architecture is hacienda-inspired: white walls, clay tile roofs, an arcade of arches running the length of the courtyard, and a long pool at the center of it. Living areas open straight onto that courtyard through steel-framed glass doors, and the main room runs under a vaulted ceiling to a marble island and a full kitchen.',
-      'Six bedrooms hold eight beds, four king and four queen. Each bedroom has air conditioning, a ceiling fan and its own full bathroom, with a half bathroom for the common areas. That layout is the reason groups book it: two families or three couples can share the house without anyone queueing for a shower or taking the sofa.',
+      'Six bedrooms hold eight beds, four king and four queen, and the house sleeps 14. Each bedroom has air conditioning, a ceiling fan and its own full bathroom, with a half bathroom for the common areas. That layout is the reason groups book it: two families or three couples can share the house without anyone queueing for a shower or taking the sofa.',
       'Outside the bedrooms there is a covered dining terrace that seats the whole house, a second lounge under the arcade, a BBQ area, and an outdoor shower. Wi-Fi, laundry, a private garage, linens, towels and beach towels are part of the house, and cleaning comes daily.',
     ],
     amenities: [
       '6 bedrooms / 6 full bathrooms + 1 half bathroom (two houses in the complex have 8 bedrooms)',
-      '8 beds: 4 king, 4 queen',
+      'Sleeps 14 in 8 beds: 4 king, 4 queen',
       'Private swimming pool',
       'Air conditioning and ceiling fans throughout',
       'Fully equipped kitchen with marble island',
