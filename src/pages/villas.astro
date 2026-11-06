@@ -3,9 +3,7 @@ import { Image, getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FeatureIcon from '../components/FeatureIcon.astro';
-import { villas as albaVillas } from '../data/alba-villas';
-import { bmVillas } from '../data/bm-villas';
-import { wanderlustVillas } from '../data/wanderlust-villas';
+import { allVillas } from '../data/all-villas';
 import { villaImage } from '../lib/villa-images';
 import ocaso1 from '../assets/images/ocaso/ocaso-1.jpg';
 import ocaso2 from '../assets/images/ocaso/ocaso-2.jpg';
@@ -19,7 +17,7 @@ import zenith4 from '../assets/images/zenith/DSC04785-HDR.jpg';
 import zenith5 from '../assets/images/zenith/DSC04863-HDR.jpg';
 import zenith6 from '../assets/images/zenith/DSC04956-HDR-Edit.jpg';
 
-const collection = [...albaVillas, ...bmVillas, ...wanderlustVillas];
+const collection = allVillas;
 
 // Each gallery photo gets a pre-optimized large rendition; the switcher
 // script swaps the main img src to these URLs.
@@ -71,7 +69,7 @@ const zenithPhotos = await buildGallery([
     </div>
   </div>
 
-  <!-- Curated villa collection (Alba + Beach Management partner properties) -->
+  <!-- Curated villa collection, from src/data/all-villas.ts -->
   <section class="villa-collection section" id="collection">
     <div class="section-inner">
       <div class="collection-intro reveal">

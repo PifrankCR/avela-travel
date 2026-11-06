@@ -2,15 +2,10 @@
 import { Image, getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FeatureIcon from '../../components/FeatureIcon.astro';
-import { villas as albaVillas } from '../../data/alba-villas';
-import { bmVillas } from '../../data/bm-villas';
-import { wanderlustVillas } from '../../data/wanderlust-villas';
+import { allVillas } from '../../data/all-villas';
 import { villaImage } from '../../lib/villa-images';
 
-const villas = [...albaVillas, ...bmVillas, ...wanderlustVillas];
-
 export function getStaticPaths() {
-  const allVillas = [...albaVillas, ...bmVillas, ...wanderlustVillas];
   return allVillas.map((villa) => ({
     params: { slug: villa.slug },
     props: { villa },

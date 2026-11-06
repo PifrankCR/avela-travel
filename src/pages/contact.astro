@@ -4,10 +4,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ocaso1 from '../assets/images/ocaso/ocaso-1.jpg';
 import zenithTerrace from '../assets/images/zenith/DSC04803-HDR.jpg';
 import { TURNSTILE_SITE_KEY, TURNSTILE_SCRIPT } from '../lib/turnstile';
+import { villasByName } from '../data/all-villas';
 
 // ?villa= is NOT read here. This page is prerendered, so at build time there is
 // no query string and every visitor was served "No preference" preselected.
 // The script at the bottom applies the parameter in the browser instead.
+
+// The villa dropdown is built from the villa data files, never typed out here.
+// Until 2026-11-06 it listed Villa Ocaso and Villa Zenith and nothing else, so
+// Valerie Rolland's inquiry (2026-10-29) arrived asking for "zenith" after she
+// had been reading the Villa Aravis page: the only names on offer were two
+// houses she could not be sold. Add a villa to any partner file and it shows up
+// here on the next build.
+const villaOptions = villasByName.map((villa) => ({
+  value: villa.slug,
+  // Bedrooms and occupancy are what people choose on. Some listings publish no
+  // maximum occupancy, so the "sleeps" half is dropped rather than guessed.
+  label: villa.guests
+    ? `${villa.name} (${villa.bedrooms} bed, sleeps ${villa.guests})`
+    : `${villa.name} (${villa.bedrooms} bed)`,
+}));
 ---
 
 <BaseLayout
@@ -92,9 +108,9 @@ import { TURNSTILE_SITE_KEY, TURNSTILE_SCRIPT } from '../lib/turnstile';
               <!-- Not disabled: unlike the group-size placeholder, "no preference" is a
                    real answer to an optional question, so it has to stay selectable. -->
               <option value="" selected>No preference, show me options</option>
-              <option value="ocaso">Villa Ocaso (Jungle, 4 bed, 10 guests)</option>
-              <option value="zenith">Villa Zenith (Ocean view, 5 bed, 12 guests)</option>
-              <option value="either">Either, best available for my dates</option>
+              {villaOptions.map(({ value, label }) => (
+                <option value={value}>{label}</option>
+              ))}
             </select>
           </div>
 
@@ -130,9 +146,9 @@ import { TURNSTILE_SITE_KEY, TURNSTILE_SCRIPT } from '../lib/turnstile';
           </div>
 
           <input type="hidden" name="_subject" value="New Avela Travel inquiry" />
-          <!-- Filled by the script below when someone arrives from a villa page whose
-               slug is not one of the three options above, so we still know which
-               villa they were looking at. -->
+          <!-- Filled by the script below with the ?villa= slug whenever someone
+               arrives from a villa page, so the inquiry records which villa they
+               were looking at even if they then pick a different one above. -->
           <input type="hidden" name="villa_page" id="villa_page" value="" />
           <input type="text" name="_gotcha" style="display:none" aria-hidden="true" tabindex="-1" />
 
@@ -641,18 +657,31 @@ import { TURNSTILE_SITE_KEY, TURNSTILE_SCRIPT } from '../lib/turnstile';
 
 <script>
   // Apply ?villa= in the browser. The page is prerendered, so this cannot be
-  // done in the frontmatter. Links come from two places: villas.astro sends
-  // "ocaso" or "zenith", which match options; the 12 villa detail pages send
-  // their own slug ("casa-oceanus"), which does not. Keep that one anyway so
-  // the inquiry still says which villa the person was reading about.
+  // done in the frontmatter. Every villa detail page sends its own slug
+  // ("casa-oceanus"), and those all match an option now that the dropdown is
+  // built from the same data. The two hardcoded sections on /villas still send
+  // "ocaso" and "zenith", which are not in the collection and match nothing:
+  // those get an option appended on the fly, so the form shows the house the
+  // person actually clicked instead of resetting to "No preference".
   {
-    const villa = new URLSearchParams(location.search).get('villa');
+    const raw = new URLSearchParams(location.search).get('villa');
+    // Slugs only, and short. This value is emailed, so a hand-edited query
+    // string should not get to write a paragraph into the inquiry.
+    const villa = raw && /^[a-z0-9-]{1,40}$/.test(raw) ? raw : null;
     const select = document.getElementById('villa_interest') as HTMLSelectElement | null;
     const hidden = document.getElementById('villa_page') as HTMLInputElement | null;
     if (villa && select) {
-      const match = [...select.options].some((o) => o.value === villa);
-      if (match) select.value = villa;
-      else if (hidden) hidden.value = villa;
+      // Recorded whether or not it matches an option. It is the one field that
+      // says which page they were reading when they decided to write, and it
+      // is how we caught the dropdown being stale in the first place.
+      if (hidden) hidden.value = villa;
+      if (![...select.options].some((o) => o.value === villa)) {
+        const option = document.createElement('option');
+        option.value = villa;
+        option.textContent = villa.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+        select.append(option);
+      }
+      select.value = villa;
     }
   }
 

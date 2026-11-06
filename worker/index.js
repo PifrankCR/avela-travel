@@ -136,8 +136,8 @@ async function handleContact(request, env) {
     ['Departure', data.get('departure')],
     ['Group size', data.get('group_size')],
     ['Villa interest', data.get('villa_interest')],
-    // Set when they came from a villa detail page, whose slug is not one of
-    // the three options in the dropdown.
+    // Set whenever they arrived from a villa page. Usually it repeats the row
+    // above; when the two differ, they changed their mind on the form.
     ['Came from villa page', data.get('villa_page')],
     ['Interests', interests],
     ['Message', data.get('message')],
