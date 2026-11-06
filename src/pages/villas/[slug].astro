@@ -81,10 +81,12 @@ const schema = {
             <span class="meta-num">{villa.bathrooms}</span>
             <span class="meta-label">Bathrooms</span>
           </div>
-          <div class="meta-item">
-            <span class="meta-num">{villa.guests}</span>
-            <span class="meta-label">Guests</span>
-          </div>
+          {villa.guests && (
+            <div class="meta-item">
+              <span class="meta-num">{villa.guests}</span>
+              <span class="meta-label">Guests</span>
+            </div>
+          )}
           {villa.features.map((f) => (
             <div class="meta-item meta-item-icon">
               <FeatureIcon label={f} />
@@ -172,7 +174,7 @@ const schema = {
         <p class="eyebrow">Go further</p>
         <h2>Add the full Avela experience</h2>
         <p>
-          Book {villa.name} and let us build everything around it: private chef, daily
+          Book {villa.name} and let us build the week around it: private chef, daily
           activities, airport transfers, and 24/7 support from our local team in Nosara.
         </p>
       </div>

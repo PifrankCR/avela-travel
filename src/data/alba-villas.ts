@@ -10,7 +10,9 @@ export type Villa = {
   eyebrow: string;
   bedrooms: number;
   bathrooms: string;
-  guests: number;
+  // Optional: some listings do not publish a maximum occupancy. Leave it out
+  // rather than guessing, and the pages drop the "Sleeps" line for that villa.
+  guests?: number;
   area: string; // neighborhood within Nosara
   features: string[]; // short bullets (pool, ocean view, etc.)
   shortDescription: string; // 1-2 sentence card blurb
@@ -267,6 +269,65 @@ export const villas: Villa[] = [
       { src: '/images/villas/villa-aravis/04-living-room.jpg', alt: 'Villa Aravis living room with ocean view, Nosara, Costa Rica' },
       { src: '/images/villas/villa-aravis/05-living-spiral-staircase.jpg', alt: 'Villa Aravis living room with sculptural spiral staircase, Nosara' },
       { src: '/images/villas/villa-aravis/06-rooms-twilight-exterior.jpg', alt: 'Villa Aravis twilight exterior of guest rooms, Las Huacas Nosara' },
+    ],
+  },
+  {
+    slug: 'pelada-collection',
+    name: 'Pelada Collection Villas',
+    tagline: 'Six bedrooms and a courtyard pool, a short walk from Playa Pelada',
+    eyebrow: 'Hacienda-style villa',
+    bedrooms: 6,
+    bathrooms: '6.5',
+    // Alba does not publish a maximum occupancy for this villa. Eight beds:
+    // four king, four queen. Ask Alba before quoting a headcount.
+    area: 'Playa Pelada, Nosara',
+    features: ['Private pool', 'Walk to Playa Pelada', 'Daily cleaning', '24-hour security'],
+    shortDescription:
+      'A new six-bedroom villa built around its own courtyard pool, one of six houses in a gated complex a short walk from Playa Pelada. Every bedroom has its own bathroom.',
+    longDescription: [
+      'Pelada Collection Villas is one of six houses in a small gated complex in Playa Pelada. Each house keeps its own pool and its own outdoor areas, so the only thing shared is the gate and the security at it. The beach is a short walk, which makes early swims and sunset walks something you do on foot rather than plan around a car.',
+      'The architecture is hacienda-inspired: white walls, clay tile roofs, an arcade of arches running the length of the courtyard, and a long pool at the center of it. Living areas open straight onto that courtyard through steel-framed glass doors, and the main room runs under a vaulted ceiling to a marble island and a full kitchen.',
+      'Six bedrooms hold eight beds, four king and four queen. Each bedroom has air conditioning, a ceiling fan and its own full bathroom, with a half bathroom for the common areas. That layout is the reason groups book it: two families or three couples can share the house without anyone queueing for a shower or taking the sofa.',
+      'Outside the bedrooms there is a covered dining terrace that seats the whole house, a second lounge under the arcade, a BBQ area, and an outdoor shower. Wi-Fi, laundry, a private garage, linens, towels and beach towels are part of the house, and cleaning comes daily.',
+    ],
+    amenities: [
+      '6 bedrooms / 6 full bathrooms + 1 half bathroom',
+      '8 beds: 4 king, 4 queen',
+      'Private swimming pool',
+      'Air conditioning and ceiling fans throughout',
+      'Fully equipped kitchen with marble island',
+      'Covered outdoor dining and lounge areas',
+      'BBQ area and outdoor shower',
+      'Daily cleaning',
+      'Private garage',
+      'Wi-Fi, full laundry, linens, towels and beach towels',
+      '24-hour security at the complex',
+    ],
+    source: 'https://albanosara.com/vacation-rental/playa-pelada-collection-villas/',
+    cover: {
+      src: '/images/villas/pelada-collection/01.jpg',
+      alt: 'Pelada Collection villa courtyard pool at dusk with arched arcade and clay tile roof, Playa Pelada, Nosara, Costa Rica',
+    },
+    gallery: [
+      { src: '/images/villas/pelada-collection/01.jpg', alt: 'Pelada Collection villa courtyard pool lit at dusk with loungers and arched arcade, Playa Pelada Nosara, Costa Rica' },
+      { src: '/images/villas/pelada-collection/04.jpg', alt: 'Pelada Collection villa courtyard pool in daylight framed by white arches and tropical planting, Playa Pelada Nosara' },
+      { src: '/images/villas/pelada-collection/03.jpg', alt: 'Pelada Collection villa open living room and kitchen under a vaulted ceiling with steel-framed glass doors to the garden, Nosara' },
+      { src: '/images/villas/pelada-collection/06.jpg', alt: 'Pelada Collection villa kitchen with marble island, bar stools and woven pendant lights, Playa Pelada Nosara' },
+      { src: '/images/villas/pelada-collection/10.jpg', alt: 'Pelada Collection villa living room sectional under a vaulted ceiling with the kitchen behind, Nosara, Costa Rica' },
+      { src: '/images/villas/pelada-collection/08.jpg', alt: 'Pelada Collection villa covered outdoor dining table set for the house, pool beyond, Playa Pelada Nosara' },
+      { src: '/images/villas/pelada-collection/14.jpg', alt: 'Pelada Collection villa dining room opening to the pool terrace under a wood vaulted ceiling, Nosara, Costa Rica' },
+      { src: '/images/villas/pelada-collection/15.jpg', alt: 'Pelada Collection villa covered outdoor lounge with sofas beside the pool, Playa Pelada Nosara' },
+      { src: '/images/villas/pelada-collection/16.jpg', alt: 'Pelada Collection villa terrace lounge under a wood ceiling with ceiling fans and arches, Nosara' },
+      { src: '/images/villas/pelada-collection/09.jpg', alt: 'Pelada Collection villa long dining table on the covered terrace beside the arcade, Playa Pelada Nosara' },
+      { src: '/images/villas/pelada-collection/11.jpg', alt: 'Pelada Collection villa bedroom with wooden four-poster bed and patterned rug, Nosara, Costa Rica' },
+      { src: '/images/villas/pelada-collection/05.jpg', alt: 'Pelada Collection villa bedroom with two beds, arched travertine headboards, air conditioning and ceiling fan, Playa Pelada Nosara' },
+      { src: '/images/villas/pelada-collection/13.jpg', alt: 'Pelada Collection villa twin-bed room with arched headboards and bench seating, Nosara' },
+      { src: '/images/villas/pelada-collection/07.jpg', alt: 'Pelada Collection villa sitting room with built-in wood shelving and terracotta armchair, Playa Pelada Nosara' },
+      { src: '/images/villas/pelada-collection/02.jpg', alt: 'Pelada Collection villa living area sofa with the open kitchen behind, Nosara, Costa Rica' },
+      { src: '/images/villas/pelada-collection/12.jpg', alt: 'Pelada Collection villa indoor dining table under a woven chandelier, Playa Pelada Nosara' },
+      { src: '/images/villas/pelada-collection/19.jpg', alt: 'Pelada Collection villa bathroom with patterned terracotta tile, arched mirror and vessel sink, Nosara' },
+      { src: '/images/villas/pelada-collection/18.jpg', alt: 'Pelada Collection villa exterior and garden lit at dusk, Playa Pelada Nosara, Costa Rica' },
+      { src: '/images/villas/pelada-collection/17.jpg', alt: 'Pelada Collection villa entrance path and lit facade at dusk, Playa Pelada Nosara' },
     ],
   },
 ];

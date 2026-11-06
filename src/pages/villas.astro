@@ -105,8 +105,8 @@ const zenithPhotos = await buildGallery([
                 <span>{villa.bedrooms} BR</span>
                 <span>·</span>
                 <span>{villa.bathrooms} BA</span>
-                <span>·</span>
-                <span>Sleeps {villa.guests}</span>
+                {villa.guests && <span>·</span>}
+                {villa.guests && <span>Sleeps {villa.guests}</span>}
               </div>
               <p class="villa-card-desc">{villa.shortDescription}</p>
               <span class="villa-card-cta">View details →</span>
