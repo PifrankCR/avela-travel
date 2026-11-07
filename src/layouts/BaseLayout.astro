@@ -4,7 +4,12 @@ import { getImage } from 'astro:assets';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import StickyFoliage from '../components/StickyFoliage.astro';
-import defaultOgSrc from '../assets/images/villas/ocaso/ocaso-1.jpg';
+// The share image for every page that does not set its own. It was
+// ocaso-1.jpg until 2026-11-07, and all five Ocaso photos carry a visible
+// "Vacation Nosara" watermark in the bottom right corner, so link previews
+// were carrying another Nosara rental company's logo. This one is Avela's
+// own and unmarked. Keep it that way: check the corners before swapping it.
+import defaultOgSrc from '../assets/images/villas/zenith/DSC05695-HDR-Edit.jpg';
 
 interface Props {
   title: string;

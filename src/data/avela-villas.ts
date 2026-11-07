@@ -16,10 +16,15 @@
 //      ("Las Huacas Hills, Nosara"). The old copy only ever said "jungle
 //      setting" and "the hillside above Nosara", so that is all that is
 //      carried forward here. Not invented, but not precise either.
-//   2. All five Ocaso photos carry a visible "Vacation Nosara" watermark and
-//      are credited to Alejandro Jimenez in their metadata. They are already
-//      live site-wide, ocaso-1.jpg included as the default OG image, but they
-//      are another company's branded assets.
+//   2. All five Ocaso photos carry a "Vacation Nosara / Holiday Experts"
+//      watermark, bottom right, white at low opacity over pale tile, which is
+//      why it is easy to miss at normal size. The mark is burned into the
+//      pixels; separately, the EXIF credits Alejandro Jimenez. They are the
+//      only 5 of the site's 201 images from that source. ocaso-1.jpg was the
+//      site-wide default OG image until 2026-11-07, when Pablo swapped it to
+//      a Zenith photo. The watermark is still live on the /villas/ocaso page,
+//      its 5 gallery photos, and that page's own share image, because every
+//      Ocaso photo we hold carries it. Replacing it needs new photography.
 
 import type { Villa } from './alba-villas';
 
