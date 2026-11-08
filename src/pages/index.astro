@@ -13,11 +13,6 @@ import zenithDining from '../assets/images/villas/zenith/DSC04746-HDR.jpg';
 import zenithBbq from '../assets/images/villas/zenith/DSC04785-HDR.jpg';
 import zenithInterior from '../assets/images/villas/zenith/DSC04956-HDR-Edit.jpg';
 import zenithSunset from '../assets/images/villas/zenith/DSC04863-HDR.jpg';
-import ocaso1 from '../assets/images/villas/ocaso/ocaso-1.jpg';
-import ocaso2 from '../assets/images/villas/ocaso/ocaso-2.jpg';
-import ocaso3 from '../assets/images/villas/ocaso/ocaso-3.jpg';
-import ocaso4 from '../assets/images/villas/ocaso/ocaso-4.jpg';
-import ocaso5 from '../assets/images/villas/ocaso/ocaso-5.jpg';
 
 const schema = {
   "@context": "https://schema.org",
@@ -397,53 +392,14 @@ const schema = {
   <section class="section" id="villas">
     <div class="section-inner">
       <div class="villas-header reveal">
-        <p class="eyebrow">Featured properties</p>
+        {/* Was "Two villas, two worlds" over Ocaso and Zenith until
+            2026-11-08, when Ocaso was unpublished. See src/data/avela-villas.ts.
+            HTML comments ship to the browser in Astro; this form does not. */}
+        <p class="eyebrow">Featured property</p>
         <h2>
-          Two villas, two worlds.<br />
-          <em>both extraordinary</em>
+          Houses we book in Nosara.<br />
+          <em>sixteen of them</em>
         </h2>
-      </div>
-
-      <!-- Villa Ocaso -->
-      <div class="villa-feature reveal">
-        <div class="villa-gallery">
-          <div class="villa-main-img">
-            <Image
-              src={ocaso1}
-              alt="Villa Ocaso living room opening to the garden through full-height glass, Nosara, Costa Rica"
-              loading="lazy"
-              decoding="async"
-              widths={[500, 900, 1400]}
-              sizes="(max-width: 900px) 95vw, 42vw"
-            />
-          </div>
-          <div class="villa-thumbs">
-            <Image src={ocaso2} alt="Villa Ocaso open-plan living room and kitchen under a vaulted ceiling, Nosara" loading="lazy" decoding="async" widths={[300, 500]} sizes="(max-width: 900px) 24vw, 10vw" />
-            <Image src={ocaso3} alt="Villa Ocaso bedroom with a slatted wood headboard and a window onto the garden, Nosara" loading="lazy" decoding="async" widths={[300, 500]} sizes="(max-width: 900px) 24vw, 10vw" />
-            <Image src={ocaso4} alt="Villa Ocaso second bedroom with a rattan pendant and sliding doors to the garden, Nosara" loading="lazy" decoding="async" widths={[300, 500]} sizes="(max-width: 900px) 24vw, 10vw" />
-            <Image src={ocaso5} alt="Villa Ocaso living room looking through full-height glass to palms and the garden, Nosara" loading="lazy" decoding="async" widths={[300, 500]} sizes="(max-width: 900px) 24vw, 10vw" />
-          </div>
-        </div>
-        <div class="villa-info">
-          <p class="eyebrow">Villa Ocaso</p>
-          <h3>Where the jungle becomes your walls</h3>
-          <p>
-            Floor-to-ceiling glass opens Villa Ocaso entirely to the surrounding jungle canopy.
-            Natural wood finishes, a private pool, and four bedrooms sleeping ten, designed
-            for families and groups who want total immersion in Costa Rica's biodiversity
-            without sacrificing comfort.
-          </p>
-          <div class="villa-specs">
-            <span><strong>4</strong> bedrooms</span>
-            <span><strong>10</strong> guests</span>
-            <span>Private pool</span>
-            <span>Jungle setting</span>
-          </div>
-          <div class="villa-actions">
-            <a href="/villas/ocaso" class="btn-primary">View Villa</a>
-            <a href="/contact" class="btn-outline">Inquire</a>
-          </div>
-        </div>
       </div>
 
       <!-- Villa Zenith -->

@@ -14,3 +14,10 @@ export function villaImage(publicSrc: string): ImageMetadata {
   if (!mod) throw new Error(`Villa image not found in src/assets: ${publicSrc}`);
   return mod.default;
 }
+
+// The glob deliberately covers assets/images/villas only. Villa Ocaso's five
+// photos were moved to assets/images/unpublished-ocaso/ on 2026-11-08 so the
+// build stops emitting them: they are watermarked "Vacation Nosara", and an
+// eager glob emits every file it matches even when no page renders it, which
+// left them fetchable under /_astro/. Moving them back is step one of
+// republishing the villa.

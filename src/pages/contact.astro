@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ocaso1 from '../assets/images/villas/ocaso/ocaso-1.jpg';
 import zenithTerrace from '../assets/images/villas/zenith/DSC04803-HDR.jpg';
 import { TURNSTILE_SITE_KEY, TURNSTILE_SCRIPT } from '../lib/turnstile';
 import { villasByName } from '../data/all-villas';
@@ -234,14 +233,9 @@ const villaOptions = villasByName.map((villa) => ({
         </div>
 
         <div class="aside-section aside-villas">
-          <h2>Our villas</h2>
-          <a href="/villas/ocaso" class="aside-villa-card">
-            <Image src={ocaso1} alt="Villa Ocaso living room opening to the garden, Nosara, Costa Rica" loading="lazy" decoding="async" widths={[300, 500]} sizes="(max-width: 900px) 45vw, 18vw" />
-            <div>
-              <strong>Villa Ocaso</strong>
-              <span>4 bed · 10 guests · Jungle</span>
-            </div>
-          </a>
+          {/* Villa Ocaso had a card here until 2026-11-08, when it was
+              unpublished. See src/data/avela-villas.ts for why. */}
+          <h2>From the collection</h2>
           <a href="/villas/zenith" class="aside-villa-card">
             <Image src={zenithTerrace} alt="Villa Zenith covered terrace above the coastline, Nosara, Costa Rica" loading="lazy" decoding="async" widths={[300, 500]} sizes="(max-width: 900px) 45vw, 18vw" />
             <div>
@@ -659,10 +653,10 @@ const villaOptions = villasByName.map((villa) => ({
   // Apply ?villa= in the browser. The page is prerendered, so this cannot be
   // done in the frontmatter. Every villa detail page sends its own slug
   // ("casa-oceanus"), and those all match an option now that the dropdown is
-  // built from the same data. The two hardcoded sections on /villas still send
-  // "ocaso" and "zenith", which are not in the collection and match nothing:
-  // those get an option appended on the fly, so the form shows the house the
-  // person actually clicked instead of resetting to "No preference".
+  // built from the same data. A slug that matches nothing gets an option
+  // appended on the fly instead of resetting to "No preference", so an old
+  // bookmark or an unpublished villa ("ocaso", unpublished 2026-11-08) still
+  // shows the house the person was actually reading about.
   {
     const raw = new URLSearchParams(location.search).get('villa');
     // Slugs only, and short. This value is emailed, so a hand-edited query
