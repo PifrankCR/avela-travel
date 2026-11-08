@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FeatureIcon from '../components/FeatureIcon.astro';
-import { allVillas } from '../data/all-villas';
+import { allVillas, villaCountWord } from '../data/all-villas';
 import { villaImage } from '../lib/villa-images';
 import ogZenith from '../assets/images/villas/zenith/DSC05695-HDR-Edit.jpg';
 
@@ -40,9 +40,9 @@ const collection = allVillas;
     <div class="section-inner">
       <div class="collection-intro reveal">
         <p class="eyebrow">Curated collection</p>
-        <h2>More villas, all of them walked</h2>
+        <h2>{villaCountWord.replace(/^./, (c) => c.toUpperCase())} villas, all of them walked</h2>
         <p class="collection-lede">
-          Beyond our signature properties, we work with a curated selection of villas
+          We work with a curated selection of villas
           across Las Huacas, Guiones, and Pelada, from architectural showpieces by
           Studio Saxe to group-friendly retreats sleeping up to sixteen. Browse the
           collection, then tell us your dates and we'll narrow it to the perfect fit.

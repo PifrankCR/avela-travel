@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { villaCountWord } from '../data/all-villas';
 import heroAtardecer from '../assets/images/hero-atardecer-playa-guiones-nosara.webp';
 import expJungle from '../assets/images/experiences/jungle.jpg';
 import expBoatGroup from '../assets/images/experiences/boat-group.jpg';
@@ -398,7 +399,7 @@ const schema = {
         <p class="eyebrow">Featured property</p>
         <h2>
           Houses we book in Nosara.<br />
-          <em>sixteen of them</em>
+          <em>{villaCountWord} of them</em>
         </h2>
       </div>
 

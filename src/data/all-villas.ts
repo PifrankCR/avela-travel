@@ -27,3 +27,15 @@ export const allVillas: Villa[] = [
 export const villasByName: Villa[] = [...allVillas].sort((a, b) =>
   a.name.localeCompare(b.name)
 );
+
+// Headings that state how many villas we publish read it from here. "Sixteen"
+// typed into a page is the same failure as the hardcoded contact dropdown that
+// started this branch: it was right once and then a villa moved.
+const WORDS = [
+  'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight',
+  'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen',
+  'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty',
+];
+
+export const villaCount = allVillas.length;
+export const villaCountWord = WORDS[villaCount] ?? String(villaCount);
