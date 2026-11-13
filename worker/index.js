@@ -3,7 +3,9 @@
 // so submissions can't be blocked by ad/privacy blockers (no third-party origin).
 // Everything else falls through to the static assets.
 
-const TO = 'pablo@avelatravel.com';
+// Inquiries land in the shared hello@ mailbox, not a personal one, so Pablo and
+// Stacie both see them and whoever picks one up answers it under their own name.
+const TO = 'hello@avelatravel.com';
 const FROM = 'Avela Travel <hello@avelatravel.com>';
 
 const json = (obj, status = 200) =>
@@ -136,6 +138,7 @@ async function handleContact(request, env) {
     ['Departure', data.get('departure')],
     ['Group size', data.get('group_size')],
     ['Villa interest', data.get('villa_interest')],
+    ['Been to Nosara before', data.get('visited_before')],
     // Set whenever they arrived from a villa page. Usually it repeats the row
     // above; when the two differ, they changed their mind on the form.
     ['Came from villa page', data.get('villa_page')],

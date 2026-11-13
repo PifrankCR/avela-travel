@@ -114,6 +114,22 @@ const villaOptions = villasByName.map((villa) => ({
           </div>
 
           <fieldset class="form-fieldset">
+            <legend>Have you been to Nosara before? <span class="legend-note">(optional)</span></legend>
+            <div class="radio-row">
+              {[
+                { value: 'first-time', label: 'First time' },
+                { value: 'been-before', label: 'I have been before' },
+                { value: 'regular', label: 'I come back regularly' },
+              ].map(({ value, label }) => (
+                <label class="checkbox-label">
+                  <input type="radio" name="visited_before" value={value} />
+                  <span>{label}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset class="form-fieldset">
             <legend>What are you interested in? <span class="legend-note">(select all that apply)</span></legend>
             <div class="checkbox-grid">
               {[
@@ -386,6 +402,14 @@ const villaOptions = villasByName.map((villa) => ({
     margin-top: 1rem;
   }
 
+  /* Three options, so the 2-column grid above would leave one stranded. */
+  .radio-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 1.5rem;
+    margin-top: 1rem;
+  }
+
   .checkbox-label {
     display: flex;
     align-items: center;
@@ -643,6 +667,10 @@ const villaOptions = villasByName.map((villa) => ({
     .form-row,
     .checkbox-grid {
       grid-template-columns: 1fr;
+    }
+
+    .radio-row {
+      flex-direction: column;
     }
   }
 </style>
