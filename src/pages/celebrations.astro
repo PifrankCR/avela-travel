@@ -1,0 +1,239 @@
+---
+/**
+ * Celebrations and private events. LAYOUT ONLY. The words below are not the words.
+ *
+ * Stacie asked for this twice: 2026-11-16 16:57, "Lets create an events/celebrations
+ * page on Avela", and again 2026-11-17 07:30, "putting up another like event tab". It
+ * came out of a conversation about Weddings Nosara carrying too much alone and Avela
+ * needing to sell the rest of what a group spends money on while it is here.
+ *
+ * WHY THE COPY IS A PLACEHOLDER AND NOT A DRAFT
+ *
+ * She said, in the same voice note: "I just want to confirm, not assume, but just kind
+ * of send the copy I want and some photos and an idea of the layout." She is in San
+ * Francisco and expects to send the copy and the photographs on Friday. So this page is
+ * the shape, built so her words drop into `SECCIONES` and `HERO` below without anyone
+ * rewriting markup. Nothing here claims anything about the business that is not already
+ * published elsewhere on this site: no guest numbers, no prices, no past events, no
+ * testimonials. Replace the strings, keep the structure.
+ *
+ * IT IS NOINDEX AND NOT LINKED FROM ANYWHERE, on purpose, until she approves it. Remove
+ * `noindex` from the BaseLayout call below and add it to the footer and the nav when it
+ * is real.
+ *
+ * The visual language is taken from `experiences.astro`: an eyebrow, a headline with one
+ * emphasised phrase, a lede, then alternating light and dark sections. That file is the
+ * reference if anything here needs to grow.
+ */
+import { Image, getImage } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+/* Photographs are Stacie's to choose. These three are already on the site and are
+   standing in only so the layout can be judged at the right proportions. */
+import imgPool from '../assets/images/villas/zenith/DSC05695-HDR-Edit.jpg';
+import imgTable from '../assets/images/experiences/wellness.jpg';
+import imgOcean from '../assets/images/experiences/ocean.jpg';
+import imgHero from '../assets/images/experiences/snorkelers-underwater-sunbeams-pacific-nosara-costa-rica.jpg';
+
+const heroBg = await getImage({ src: imgHero, format: 'webp', width: 2400, quality: 86 });
+
+/* ─── SLOT 1 of 3: the hero. Stacie's words replace these three strings. ─── */
+const HERO = {
+  eyebrow: 'Celebrations',
+  heading: 'The reason you came,',
+  headingEm: 'and everything around it',
+  lede:
+    'PLACEHOLDER. One short paragraph about why a group would hold a celebration in Nosara and what Avela takes off their hands. Stacie to supply.',
+};
+
+/* ─── SLOT 2 of 3: the kinds of celebration. ───
+   Add, remove or reorder freely. `name` and `lede` are hers. `includes` should be
+   things Avela genuinely books today: villas, chefs, bar service, transport, boats. */
+const SECCIONES = [
+  {
+    slug: 'milestones',
+    eyebrow: '01',
+    name: 'Milestone birthdays and anniversaries',
+    lede: 'PLACEHOLDER. One line on who this is for.',
+    includes: [
+      'A villa from the collection, chosen for the group rather than the headline',
+      'A private chef for the nights that matter',
+      'Bar service and welcome drinks on arrival',
+      'Airport transfers and movement between beaches',
+    ],
+    image: imgPool,
+    imageAlt: 'PLACEHOLDER. Stacie to supply the photograph and its description.',
+  },
+  {
+    slug: 'family',
+    eyebrow: '02',
+    name: 'Family gatherings and reunions',
+    lede: 'PLACEHOLDER. One line on who this is for.',
+    includes: [
+      'Houses that sleep a whole family without anyone drawing the short straw',
+      'Meals planned around the people who do not eat everything',
+      'Boat days, surf lessons and quiet mornings in the same week',
+      'One contact on the ground for the whole stay',
+    ],
+    image: imgTable,
+    imageAlt: 'PLACEHOLDER. Stacie to supply the photograph and its description.',
+  },
+  {
+    slug: 'groups',
+    eyebrow: '03',
+    name: 'Small company retreats',
+    lede: 'PLACEHOLDER. One line on who this is for.',
+    includes: [
+      'A house with somewhere to actually sit and work',
+      'Catering for the days nobody wants to leave',
+      'An afternoon on the water as the thing people remember',
+      'Transport that does not become somebody’s job',
+    ],
+    image: imgOcean,
+    imageAlt: 'PLACEHOLDER. Stacie to supply the photograph and its description.',
+  },
+];
+
+/* ─── SLOT 3 of 3: how it works. Four steps, her words. ─── */
+const PASOS = [
+  { n: '01', t: 'Tell us the occasion', d: 'PLACEHOLDER. One line.' },
+  { n: '02', t: 'We put the pieces together', d: 'PLACEHOLDER. One line.' },
+  { n: '03', t: 'You approve it', d: 'PLACEHOLDER. One line.' },
+  { n: '04', t: 'We run it while you are here', d: 'PLACEHOLDER. One line.' },
+];
+---
+
+<BaseLayout
+  title="Celebrations | Avela Travel | Nosara, Costa Rica"
+  description="Private celebrations in Nosara: milestone birthdays, anniversaries, family gatherings and small company retreats, planned and run by Avela."
+  noindex={true}
+>
+  <section class="cel-hero" style={`background-image: url(${heroBg.src})`}>
+    <div class="cel-hero-inner">
+      <p class="eyebrow">{HERO.eyebrow}</p>
+      <h1>{HERO.heading}<br /><em>{HERO.headingEm}</em></h1>
+      <p class="cel-hero-lede">{HERO.lede}</p>
+      <div class="cel-anchors">
+        {SECCIONES.map((s) => (
+          <a href={`#${s.slug}`} class="cel-anchor">
+            <span class="cel-anchor-num">{s.eyebrow}</span>
+            <span class="cel-anchor-label">{s.name}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {SECCIONES.map((s, i) => (
+    <section class={`cel-block ${i % 2 === 0 ? 'cel-light' : 'cel-dark'}`} id={s.slug}>
+      <div class="cel-block-inner">
+        <div class="cel-copy">
+          <p class="eyebrow">{s.eyebrow}</p>
+          <h2>{s.name}</h2>
+          <p class="cel-lede">{s.lede}</p>
+          <ul class="cel-list">
+            {s.includes.map((x) => <li>{x}</li>)}
+          </ul>
+          <a class="cel-cta" href="/contact">Plan Your Nosara Stay</a>
+        </div>
+        <div class="cel-figure">
+          <Image src={s.image} alt={s.imageAlt} widths={[600, 900, 1400]} format="webp" quality={84} />
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="cel-steps">
+    <div class="cel-steps-inner">
+      <h2>How it works</h2>
+      <ol class="cel-steps-grid">
+        {PASOS.map((p) => (
+          <li>
+            <span class="cel-step-num">{p.n}</span>
+            <h3>{p.t}</h3>
+            <p>{p.d}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="cel-close">
+    <div class="cel-close-inner">
+      <h2>PLACEHOLDER. <em>The closing line.</em></h2>
+      <p>PLACEHOLDER. Two sentences before the button. Stacie to supply.</p>
+      <a class="cel-cta cel-cta-lg" href="/contact">Plan Your Nosara Stay</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Scoped to this page. The tokens come from the site's global stylesheet, so this
+     inherits the type scale and palette rather than inventing a second one. */
+  .cel-hero {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    padding: clamp(96px, 16vh, 220px) var(--edge, 24px) clamp(64px, 10vh, 140px);
+    color: #fff;
+  }
+  .cel-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 20, 18, 0.45), rgba(10, 20, 18, 0.72));
+  }
+  .cel-hero-inner { position: relative; z-index: 1; max-width: 68rem; margin-inline: auto; }
+  .cel-hero h1 { font-size: clamp(34px, 6vw, 68px); line-height: 1.04; margin: 14px 0 0; }
+  .cel-hero h1 em { font-style: italic; }
+  .cel-hero-lede { max-width: 46rem; margin-top: 1.1rem; font-size: clamp(16px, 1.6vw, 19px); line-height: 1.6; }
+
+  .cel-anchors { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2rem; }
+  .cel-anchor {
+    display: inline-flex; align-items: baseline; gap: .5rem;
+    padding: .55rem .9rem; border: 1px solid rgba(255, 255, 255, .45);
+    border-radius: 999px; color: #fff; text-decoration: none; font-size: .9rem;
+  }
+  .cel-anchor:hover { background: rgba(255, 255, 255, .12); }
+  .cel-anchor-num { opacity: .7; font-variant-numeric: tabular-nums; }
+
+  .cel-block { padding: clamp(56px, 9vw, 120px) var(--edge, 24px); }
+  .cel-light { background: var(--surface, #fff); }
+  .cel-dark { background: var(--surface2, #eef2ee); }
+  .cel-block-inner {
+    max-width: 68rem; margin-inline: auto;
+    display: grid; gap: clamp(28px, 5vw, 64px); align-items: center;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 60rem) {
+    .cel-block-inner { grid-template-columns: 1fr 1fr; }
+    .cel-block:nth-of-type(even) .cel-figure { order: -1; }
+  }
+  .cel-copy h2 { font-size: clamp(26px, 3.4vw, 40px); line-height: 1.1; margin: .4rem 0 0; }
+  .cel-lede { margin-top: .8rem; font-size: 1.05rem; line-height: 1.6; }
+  .cel-list { margin: 1.4rem 0 0; padding: 0; list-style: none; display: grid; gap: .6rem; }
+  .cel-list li { position: relative; padding-left: 1.4rem; line-height: 1.5; }
+  .cel-list li::before { content: ''; position: absolute; left: 0; top: .62em; width: .5rem; height: .5rem; border-radius: 999px; background: currentColor; opacity: .45; }
+  .cel-figure img { width: 100%; height: auto; border-radius: 10px; display: block; }
+
+  .cel-cta {
+    display: inline-block; margin-top: 1.8rem; padding: .8rem 1.4rem;
+    border: 1px solid currentColor; border-radius: 999px;
+    text-decoration: none; font-size: .95rem;
+  }
+  .cel-cta-lg { margin-top: 2rem; padding: 1rem 1.8rem; }
+
+  .cel-steps { padding: clamp(56px, 9vw, 120px) var(--edge, 24px); }
+  .cel-steps-inner { max-width: 68rem; margin-inline: auto; }
+  .cel-steps-inner h2 { font-size: clamp(24px, 3vw, 36px); margin: 0 0 2rem; }
+  .cel-steps-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(20px, 3vw, 40px); grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+  .cel-step-num { font-variant-numeric: tabular-nums; opacity: .5; font-size: .9rem; }
+  .cel-steps-grid h3 { margin: .4rem 0 .4rem; font-size: 1.1rem; }
+  .cel-steps-grid p { margin: 0; line-height: 1.55; }
+
+  .cel-close { padding: clamp(64px, 10vw, 140px) var(--edge, 24px); background: var(--surface2, #eef2ee); text-align: center; }
+  .cel-close-inner { max-width: 44rem; margin-inline: auto; }
+  .cel-close h2 { font-size: clamp(26px, 3.6vw, 44px); line-height: 1.1; margin: 0; }
+  .cel-close h2 em { font-style: italic; }
+  .cel-close p { margin-top: 1rem; line-height: 1.6; }
+</style>

@@ -16,6 +16,10 @@ interface Props {
   description?: string;
   image?: ImageMetadata | string;
   schema?: object;
+  /** Keep one page out of search while it is still a draft. Added 2026-11-18 for
+      /celebrations, which is live only so Stacie can review the layout before her
+      copy and photographs arrive. Remove the flag from the page, not from here. */
+  noindex?: boolean;
 }
 
 const {
@@ -23,6 +27,7 @@ const {
   description = 'Avela Travel: the Avela Experience in Nosara, Costa Rica. Handpicked villas, private chefs, surf sessions, ocean adventures, and full itinerary planning.',
   image = defaultOgSrc,
   schema,
+  noindex = false,
 } = Astro.props;
 
 const ogImage =
@@ -41,6 +46,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph -->
