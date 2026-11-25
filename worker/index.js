@@ -3,11 +3,12 @@
 // so submissions can't be blocked by ad/privacy blockers (no third-party origin).
 // Everything else falls through to the static assets.
 
-// TEMPORARY, 2026-11-24. hello@ is being converted from an alias on pablo@ into a
-// real shared-inbox account. While that swap runs, the address does not exist and
-// mail to it would bounce, so inquiries go straight to the two people instead.
-// Put this back to ['hello@avelatravel.com'] once the shared inbox is live.
-const TO = ['pablo@avelatravel.com', 'stacie@avelatravel.com'];
+// Inquiries land in the shared hello@ mailbox, not a personal one, so Pablo and
+// Stacie both see them and whoever picks one up answers it under their own name.
+// Since 2026-11-24 hello@ is a real account, not an alias on pablo@: the two of
+// them open the same mailbox through Gmail's account switcher, so a reply by one
+// is visible to the other. Keep this a single address, that is the whole point.
+const TO = ['hello@avelatravel.com'];
 const FROM = 'Avela Travel <hello@avelatravel.com>';
 
 const json = (obj, status = 200) =>
